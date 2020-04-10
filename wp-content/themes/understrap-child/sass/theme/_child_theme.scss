@@ -118,17 +118,12 @@ img[src$=".svg"] {
 	font-family: $accent-font-family;
 	padding: 1rem 0;
 
-	.navbar-toggler-icon {
-		width: 1em;
-	}
-
-	#site-branding {
-		padding-left: 0;
-		padding-right: 0;
-
-		.navbar-brand {
-			margin-right: 0;
-			width: 100%;
+	.navbar-brand {
+		@include media-breakpoint-down(xs) {
+			width: 70%;
+		}
+		@include media-breakpoint-up(md) {
+			margin-right: 2rem;
 		}
 	}
 
@@ -139,38 +134,9 @@ img[src$=".svg"] {
 		}
 	}
 
-	#navbarNavAltMarkup {
-		position: fixed;
-		top: 4rem;
-		z-index: 90;
-		background-color: $white;
-		border: solid 1px $brand-black;
-
-		@include media-breakpoint-up(md) { 
-			position: static;
-			padding-left: 2.5rem;
-			border: none;
-		}
-
-		.nav-item {
-			padding: 1rem 0.5rem 1rem 0;
-			font-size: 80%;
-			color: $brand-black;
-			font-weight: 600;
-
-			@include media-breakpoint-up(xl) { 
-				padding-right: 1.5rem;
-				font-size: 105%;
-			}
-		}
-	}
-
-	//IE 10+ specific
-	@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-		#navbarNavAltMarkup {
-			position: relative;
-			top: 0;
-		}
+	.nav-link {
+		color: $brand-black !important;
+		font-weight: 600;
 	}
 
 	.trp-language-switcher-container {

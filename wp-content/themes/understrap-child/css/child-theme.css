@@ -11724,40 +11724,17 @@ img[src$=".svg"] {
 .navbar {
   font-family: "Montserrat", sans-serif;
   padding: 1rem 0; }
-  .navbar .navbar-toggler-icon {
-    width: 1em; }
-  .navbar #site-branding {
-    padding-left: 0;
-    padding-right: 0; }
-    .navbar #site-branding .navbar-brand {
-      margin-right: 0;
-      width: 100%; }
+  @media (max-width: 575.98px) {
+    .navbar .navbar-brand {
+      width: 70%; } }
+  @media (min-width: 768px) {
+    .navbar .navbar-brand {
+      margin-right: 2rem; } }
   .navbar a:hover {
     text-decoration: underline; }
-  .navbar #navbarNavAltMarkup {
-    position: fixed;
-    top: 4rem;
-    z-index: 90;
-    background-color: #FFF;
-    border: solid 1px #413f42; }
-    @media (min-width: 768px) {
-      .navbar #navbarNavAltMarkup {
-        position: static;
-        padding-left: 2.5rem;
-        border: none; } }
-    .navbar #navbarNavAltMarkup .nav-item {
-      padding: 1rem 0.5rem 1rem 0;
-      font-size: 80%;
-      color: #413f42;
-      font-weight: 600; }
-      @media (min-width: 1200px) {
-        .navbar #navbarNavAltMarkup .nav-item {
-          padding-right: 1.5rem;
-          font-size: 105%; } }
-  @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-    .navbar #navbarNavAltMarkup {
-      position: relative;
-      top: 0; } }
+  .navbar .nav-link {
+    color: #413f42 !important;
+    font-weight: 600; }
   .navbar .trp-language-switcher-container {
     background-color: #FFF;
     border-color: #FFF; }

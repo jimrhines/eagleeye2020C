@@ -59,24 +59,18 @@ $container = get_theme_mod( 'understrap_container_type' );
 			<div class="container">
 		<?php endif; ?>
 
-			<nav id="navigation" class="navbar navbar-expand-md navbar-light">
-				<div class="col-2 d-sm-block d-md-none p-0">
-					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="<?php esc_attr_e( 'Toggle navigation', 'understrap' ); ?>">
-						<span class="navbar-toggler-icon"></span>
-					</button>
-				</div>
-
-				<div id="site-branding" class="col col-md-3">
-					<a class="navbar-brand" rel="home" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" itemprop="url">
-						<img src="<?php echo esc_url( home_url( '/' ) ); ?>wp-content/themes/understrap-child/img/eeps-logo.svg" alt="<?php bloginfo( 'name' ); ?>" />
-					</a>
-				</div>
-
-				<div id="navbarNavAltMarkup" class="col-md-7 collapse navbar-collapse">
-					<div class="navbar-nav">	
-						<div class="megamenu">
-							<a id="nav-products" class="nav-item nav-link" href="<?php echo get_permalink(174); ?>">Products</a>
-						    <div class="megamenu-content">
+			<nav class="navbar navbar-expand-lg navbar-light">
+				<a class="navbar-brand" rel="home" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" itemprop="url">
+					<img src="<?php echo esc_url( home_url( '/' ) ); ?>wp-content/themes/understrap-child/img/eeps-logo.svg" alt="<?php bloginfo( 'name' ); ?>" />
+				</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerEEPS" aria-controls="navbarTogglerEEPS" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarTogglerEEPS">
+					<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+						<li class="nav-item megamenu">
+							<a class="nav-link" href="<?php echo get_permalink(174); ?>">Products</a>
+							<div class="megamenu-content">
 						    	<div class="row">
 						    		<div class="col-md-2 mb-3">
 					    				<?php wp_nav_menu( array( 'theme_location' => 'products-col-one', 'container_class' => 'products-col-one' ) ); ?>
@@ -98,10 +92,9 @@ $container = get_theme_mod( 'understrap_container_type' );
 									</div>
 								</div>
 							</div>
-							<?php //div class="megamenu-background-tint">&#160;</div ?>
-						</div>
-						<!--div class="megamenu"-->
-							<a id="nav-industries" class="nav-item nav-link" href="<?php echo get_permalink(1474); ?>">Industries</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="<?php echo get_permalink(1474); ?>">Industries</a>
 							<!--div class="megamenu-content">
 						    	<div class="row">
 						    		<div class="col-md-2 mb-3">
@@ -123,12 +116,16 @@ $container = get_theme_mod( 'understrap_container_type' );
 										<?php wp_nav_menu( array( 'theme_location' => 'industries-col-six', 'container_class' => 'industries-col-six' ) ); ?>
 									</div>
 								</div>
-							</div>
-						</div-->
-						<a class="nav-item nav-link" href="<?php echo get_permalink(753); ?>">Training</a>
-						<a class="nav-item nav-link d-sm-block d-md-none d-lg-block" href="<?php echo get_permalink(391); ?>">News &amp; Events</a>
-						<!--div class="megamenu"-->
-							<a id="nav-support" class="nav-item nav-link" href="<?php echo get_permalink(295); ?>">Support</a>
+							</div-->
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="<?php echo get_permalink(753); ?>">Training</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="<?php echo get_permalink(391); ?>">News &amp; Events</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="<?php echo get_permalink(295); ?>">Support</a>
 							<!--div class="megamenu-content">
 						    	<div class="row">
 						    		<div class="col-md-2 mb-3">
@@ -150,38 +147,33 @@ $container = get_theme_mod( 'understrap_container_type' );
 										<?php wp_nav_menu( array( 'theme_location' => 'support-col-six', 'container_class' => 'support-col-six' ) ); ?>
 									</div>
 								</div>
-							</div>
-						</div-->
-						<a class="nav-item nav-link" href="<?php echo get_permalink(485); ?>">About Us</a>
+							</div-->
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="<?php echo get_permalink(485); ?>">About Us</a>
+						</li>
+					</ul>
+					<div class="mr-4">
+						<?php wp_nav_menu(
+							array(
+								'theme_location'  => 'primary',
+								'container_class' => 'collapse navbar-collapse',
+								'container_id'    => 'navbarNavDropdown',
+								'menu_class'      => 'navbar-nav ml-auto',
+								'fallback_cb'     => '',
+								'menu_id'         => 'main-menu',
+								'depth'           => 2,
+								'walker'          => new Understrap_WP_Bootstrap_Navwalker(),
+							)
+						); ?>
+					</div>
+					<div class="my-2 my-lg-0">
+						<a href="#search">
+							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M23.822 20.88l-6.353-6.354c.93-1.465 1.467-3.2 1.467-5.059.001-5.219-4.247-9.467-9.468-9.467s-9.468 4.248-9.468 9.468c0 5.221 4.247 9.469 9.468 9.469 1.768 0 3.421-.487 4.839-1.333l6.396 6.396 3.119-3.12zm-20.294-11.412c0-3.273 2.665-5.938 5.939-5.938 3.275 0 5.94 2.664 5.94 5.938 0 3.275-2.665 5.939-5.94 5.939-3.274 0-5.939-2.664-5.939-5.939z"/></svg>
+						</a>
 					</div>
 				</div>
-
-				<div class="col-2">
-					<div class="d-flex flex-row">
-						<div id="translate-menu" class="col-9 text-left">
-							<!-- The WordPress Menu goes here -->
-							<?php wp_nav_menu(
-								array(
-									'theme_location'  => 'primary',
-									'container_class' => 'collapse navbar-collapse',
-									'container_id'    => 'navbarNavDropdown',
-									'menu_class'      => 'navbar-nav ml-auto',
-									'fallback_cb'     => '',
-									'menu_id'         => 'main-menu',
-									'depth'           => 2,
-									'walker'          => new Understrap_WP_Bootstrap_Navwalker(),
-								)
-							); ?>
-						</div>
-						<div id="search-icon" class="col-3 text-right">
-							<a href="#search">
-								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M23.822 20.88l-6.353-6.354c.93-1.465 1.467-3.2 1.467-5.059.001-5.219-4.247-9.467-9.468-9.467s-9.468 4.248-9.468 9.468c0 5.221 4.247 9.469 9.468 9.469 1.768 0 3.421-.487 4.839-1.333l6.396 6.396 3.119-3.12zm-20.294-11.412c0-3.273 2.665-5.938 5.939-5.938 3.275 0 5.94 2.664 5.94 5.938 0 3.275-2.665 5.939-5.94 5.939-3.274 0-5.939-2.664-5.939-5.939z"/></svg>
-							</a>
-						</div>
-					</div>
-				</div>
-				
-			</nav><!-- .site-navigation -->
+			</nav>
 
 			<div id="search">
 				<div class="row">
