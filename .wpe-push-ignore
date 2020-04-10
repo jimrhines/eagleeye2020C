@@ -52,6 +52,7 @@ wp-content/mu-plugins/wpe-wp-sign-on-plugin*
 wp-content/plugins/wpengine-snapshot/snapshots
 wp-content/mysql.sql
 wp-content/plugins/autoupdater*
+wp-content/themes/understrap-child/node_modules*
 
 # Some other files which may be desirable to skip under certain circumstances
 #.listing
