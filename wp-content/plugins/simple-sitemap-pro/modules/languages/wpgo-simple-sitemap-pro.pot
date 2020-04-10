@@ -1,0 +1,165 @@
+# Copyright (C) 2018 Simple Sitemap Pro
+# This file is distributed under the same license as the Simple Sitemap Pro package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Simple Sitemap Pro\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language-Team: WPGO Plugins &lt;hello@wpgoplugins.com&gt;\n"
+"Last-Translator: David Gwyer &lt;d.v.gwyer@gmail.com&gt;\n"
+"Report-Msgid-Bugs-To: https://wpgoplugins.com/contact\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. translators: %d: ID of a post
+#: ../classes/class-wpgo-walker-page.php:96
+msgid "#%d (no title)"
+msgstr ""
+
+#: ../classes/plugin-options.php:129
+msgid "Support and Tutorials"
+msgstr ""
+
+#: ../classes/plugin-options.php:138
+msgid "WPGO Plugins Account"
+msgstr ""
+
+#: ../classes/plugin-options.php:214
+msgid "%s Options"
+msgstr ""
+
+#: ../classes/plugin-options.php:270
+msgid "[simple-sitemap] shortcode"
+msgstr ""
+
+#: ../classes/plugin-options.php:281, ../classes/plugin-options.php:361
+msgid "Choose from any of the following registered post types currently available:"
+msgstr ""
+
+#: ../classes/plugin-options.php:352
+msgid "[simple-sitemap-group] shortcode"
+msgstr ""
+
+#: ../classes/plugin-options.php:433
+msgid "[simple-sitemap-child] shortcode"
+msgstr ""
+
+#: ../classes/plugin-options.php:458
+msgid "[simple-sitemap-tax] shortcode"
+msgstr ""
+
+#: ../classes/plugin-options.php:481
+msgid "[simple-sitemap-menu] shortcode"
+msgstr ""
+
+#: ../classes/plugin-options.php:589
+msgid "Settings"
+msgstr ""
+
+#: ../classes/updater/EDD_Plugin_Updater_Manager.php:51
+msgid "Renew Now"
+msgstr ""
+
+#: ../classes/updater/EDD_Plugin_Updater_Manager.php:111
+msgid "Plugin License Key"
+msgstr ""
+
+#: ../classes/updater/EDD_Plugin_Updater_Manager.php:124
+msgid "Renew"
+msgstr ""
+
+#: ../classes/updater/EDD_Plugin_Updater_Manager.php:129
+msgid "Don't have your license key to hand? Retrieve it now via your wpgoplugins.com %1$saccount page%2$s."
+msgstr ""
+
+#: ../classes/updater/EDD_Plugin_Updater_Manager.php:167
+msgid "Deactivate"
+msgstr ""
+
+#: ../classes/updater/EDD_Plugin_Updater_Manager.php:172
+msgid "Activate"
+msgstr ""
+
+#: ../classes/updater/EDD_Plugin_Updater_Manager.php:223, ../classes/updater/EDD_Plugin_Updater_Manager.php:279
+msgid "An error occurred, please try again."
+msgstr ""
+
+#: ../classes/updater/EDD_Plugin_Updater_Manager.php:241
+msgid "unlimited"
+msgstr ""
+
+#: ../classes/updater/EDD_Plugin_Updater_Manager.php:248, ../classes/updater/EDD_Plugin_Updater_Manager.php:287
+msgid "Your license key expired on %s."
+msgstr ""
+
+#: ../classes/updater/EDD_Plugin_Updater_Manager.php:253, ../classes/updater/EDD_Plugin_Updater_Manager.php:311
+msgid "Your license key has been disabled."
+msgstr ""
+
+#: ../classes/updater/EDD_Plugin_Updater_Manager.php:257, ../classes/updater/EDD_Plugin_Updater_Manager.php:315
+msgid "Invalid license."
+msgstr ""
+
+#: ../classes/updater/EDD_Plugin_Updater_Manager.php:262
+msgid "Inactive license. No sites have been activated for this license key."
+msgstr ""
+
+#: ../classes/updater/EDD_Plugin_Updater_Manager.php:267, ../classes/updater/EDD_Plugin_Updater_Manager.php:328
+msgid "Your license is not active for this URL."
+msgstr ""
+
+#: ../classes/updater/EDD_Plugin_Updater_Manager.php:271, ../classes/updater/EDD_Plugin_Updater_Manager.php:332
+msgid "This appears to be an invalid license key for %s."
+msgstr ""
+
+#: ../classes/updater/EDD_Plugin_Updater_Manager.php:275, ../classes/updater/EDD_Plugin_Updater_Manager.php:336
+msgid "Your license key has reached its activation limit."
+msgstr ""
+
+#: ../classes/updater/EDD_Plugin_Updater_Manager.php:295
+msgid "License key not active for %1$s - plugin updates currently unavailable."
+msgstr ""
+
+#: ../classes/updater/EDD_Plugin_Updater_Manager.php:297
+msgid "License key active. Expires %1$s, %2$s/%3$s sites activated."
+msgstr ""
+
+#: ../classes/updater/EDD_Plugin_Updater_Manager.php:301
+msgid "License key activated. Thanks for your continued support - you're amazing!"
+msgstr ""
+
+#: ../classes/updater/EDD_Plugin_Updater_Manager.php:306
+msgid "License key deactivated for this site. Plugin updates currently unavailable."
+msgstr ""
+
+#: ../classes/updater/EDD_Plugin_Updater_Manager.php:320
+msgid "Inactive license. This site (%1$s) hasn't been activated for the license key above."
+msgstr ""
+
+#: ../classes/updater/EDD_Plugin_Updater_Manager.php:322
+msgid "Inactive license. This site hasn't been activated for the license key above."
+msgstr ""
+
+#: ../classes/updater/EDD_Plugin_Updater_Manager.php:340
+msgstr ""
+
+#: ../classes/updater/EDD_SL_Plugin_Updater.php:210
+msgid "There is a new version of %1$s available. %2$sView version %3$s details%4$s."
+msgstr ""
+
+#: ../classes/updater/EDD_SL_Plugin_Updater.php:218
+msgid "There is a new version of %1$s available. %2$sView version %3$s details%4$s or %5$supdate now%6$s."
+msgstr ""
+
+#: ../classes/updater/EDD_SL_Plugin_Updater.php:408
+msgid "You do not have permission to install plugin updates"
+msgstr ""
+
+#: ../classes/updater/EDD_SL_Plugin_Updater.php:408
+msgid "Error"
+msgstr ""

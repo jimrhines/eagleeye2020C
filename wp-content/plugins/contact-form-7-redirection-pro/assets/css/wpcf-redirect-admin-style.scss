@@ -1,0 +1,718 @@
+//compilecompressed
+@import 'mixins';
+
+.settings_page_wpc7_redirect .padbox form > div{
+    display: none !important;
+    &#setting-error-not-valid-serial{
+        display: block!important
+    }
+}
+
+.wpcf7r_loader{
+    background: url('../images/loader.gif') 50% 50% rgba(255,255,255,0.8) no-repeat;
+    background-size: 50px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    right: 0;
+    top: 0;
+    opacity: 0;
+    visibility: hidden;
+    @include trans(250ms);
+    &.active{
+        opacity: 1;
+        visibility: visible;
+    }
+}
+.settings_page_wpc7_redirect{
+    .padbox {
+        padding: 20px;
+    }
+}
+div#wpcf7r_leads{
+    .field-wrap {
+        @include flexbox;
+        label{
+            width: 40%;
+        }
+    }
+}
+.wpcfr-popup-wrap{
+    @include popup;
+    /* width */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+      border-radius: 0;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+      background: #ccc;
+      border-radius: 0;
+    }
+    .wpcfr-popup-wrap-inner{
+        -webkit-box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+        border:1px solid #d1d1d1;
+        width: 100%;
+        height: 60%;
+        max-width: 800px;
+        padding:20px;
+        .wpcfr-popup-wrap-content{
+            height: 100%;
+            overflow-y: auto;
+            overflow-x: hidden;
+            textarea{
+                width: 96%;
+                direction: ltr;
+            }
+        }
+    }
+
+}
+#leads-panel{
+    .dashicons-minus {
+        margin-top: 5px;
+    }
+}
+#leads-panel,
+#redirect-panel {
+    .field-wrap {
+        position: relative;
+    }
+    label.error {
+        position: absolute;
+        top: 100%;
+        font-size: 12px;
+        text-align: center;
+        display: block;
+        width: 100%;
+        color: red;
+        z-index: 99;
+    }
+    .dashicons-minus {
+        cursor: pointer;
+    }
+    [data-toggle]{
+        cursor: pointer;
+        @include trans(300ms);
+        &:after{
+            opacity: 0.8;
+        }
+    }
+    .mail-tags-title{
+        text-align: right;
+    }
+    .wp-list-table-inner{
+        tr{
+            position: relative;
+        }
+    }
+    span.err {
+        position: relative;
+        display: block;
+        font-size: 12px;
+        color: red;
+    }
+    .section-inner-wrap {
+        display: none;
+    }
+    select{
+        max-width: 100%;
+    }
+    .hide_api_key{
+        .tags-map-api-key{
+            display: none;
+        }
+    }
+    .qs-tooltip{
+        position: absolute;
+        .qs-tooltip-inner {
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #fff;
+            border: 1px solid;
+            padding: 20px;
+            border-radius: 5px;
+            font-size: 14px;
+            min-width: 200px;
+            opacity:0;
+            z-index: -1;
+            @include trans(500ms);
+        }
+        &:hover{
+            .qs-tooltip-inner {
+                opacity: 1;
+                z-index: 9999;
+            }
+        }
+    }
+    .wpcf7-redirect-butify-wrap{
+        float: right;
+    }
+
+    .action-container{
+        .repeater-table{
+            .field-wrap{
+                margin-bottom: 0;
+            }
+            td{
+                padding:5px 0;
+            }
+        }
+        .qs-repeater-action {
+            margin-top: 0 !important;
+            padding: 6px 0 0 0;
+            span{
+                cursor: pointer;
+                @include trans(300ms);
+                &:hover{
+                    opacity: 0.8;
+                }
+            }
+        }
+    }
+
+    .qs-repeater-row{
+        .dashicons-plus{
+            display: none;
+        }
+        &:last-child{
+            .dashicons-plus{
+                display: inline-block;
+            }
+        }
+        &:first-child{
+            .dashicons-minus{
+                display: none;
+            }
+        }
+        .qs-repeater-action {
+            margin-top: 8px;
+            .dashicons{
+                cursor: pointer;
+            }
+        }
+    }
+    .field-wrap{
+        clear: both;
+        padding:0 10px;
+        .field-wrap{
+            clear: none;
+        }
+    }
+    .qs-section{
+        padding: 10px;
+        background: #f9f9f9;
+        border:1px solid #555;
+        margin:10px;
+        > label {
+            margin-bottom: 0 !important;
+        }
+    }
+    .clearfix:after{
+        clear: both;
+        display: block;
+        content: '';
+    }
+    .migrate-from-redirection,
+    .migrate-from-send-to-api {
+        float: right;
+    }
+    .error-message{
+        &select{
+            border:1px solid red;
+        }
+    }
+    .error-label{
+        font-size: 14px;
+        color: red;
+    }
+    .add-new-action-wrap{
+        .error-label{
+            position: absolute;
+            top: 100%;
+            left: 0;
+        }
+    }
+    .settings_page_wpc7_redirect{
+        .wrap-wpcf7redirect{
+            .padbox{
+                padding: 8px 12px;
+            }
+            h2{
+                font-size: 14px;
+                padding: 8px 12px;
+                margin: 0 -12px 20px;
+                line-height: 1.4;
+                border-bottom: 1px solid #eee;
+            }
+            .postbox{
+
+            }
+        }
+    }
+    .actions-list tbody tr.action-container > td {
+        border-bottom: 0 !important;
+    }
+    .wpcf7r-checkbox {
+        input{
+            position: absolute;
+            visibility: hidden;
+            opacity:0;
+        }
+        input:checked{
+            + .wpcf7r-on-off-button{
+                border: 2px solid #1f8cbe;
+                .wpcf7r-toggle-button{
+                    right: 1px;
+                    background: #1f8cbe;
+                }
+            }
+        }
+        .wpcf7r-on-off-button{
+            padding: 10px;
+            width: 20px;
+            border: 2px solid #4f4f4f;
+            border-radius: 50px;
+            position: relative;
+            display: inline-block;
+            top: 6px;
+            margin-right: 5px;
+            .wpcf7r-toggle-button{
+                width: 18px;
+                height: 18px;
+                top: 1px;
+                @include trans(250ms);
+                right:calc(100% - 20px);
+                background: #4f4f4f;
+                position: absolute;
+                border-radius: 50%;
+                cursor: pointer;
+                display: inline-block;
+            }
+        }
+
+    }
+    .conditional-logic-blocks {
+        display: none;
+
+        &.active{
+            display: block;
+        }
+    }
+    .check-column{
+        padding:10px;
+        .handle{
+            cursor: pointer;
+        }
+    }
+    .action-container{
+        .wp-list-table-inner{
+            td,th{
+                padding:5px 10px;
+            }
+        }
+        td{
+            padding: 0;
+        }
+    }
+    .wp-list-table{
+        tr{
+            td{
+                position: relative;
+            }
+        }
+    }
+    .hidden-action{
+        display: none;
+        padding:10px;
+    }
+    .actions-list{
+        margin-top:20px;
+        margin-bottom: 20px;
+        position: relative;
+        .actions{
+            margin-bottom: 20px;
+        }
+        tbody{
+            tr[data-actionid]{
+                > td{
+                    border-bottom: 1px solid #e1e1e1;
+                }
+            }
+            tr.non-active{
+                .column-status{
+                    a{
+                        color: red;
+                    }
+                }
+            }
+        }
+    }
+    .open-tab{
+        float: right;
+        cursor: pointer;
+    }
+    .active{
+        .open-tab{
+            &.dashicons-arrow-down-alt2:before{
+                content: "\f343";
+            }
+        }
+    }
+    [data-tab]{
+        display: none;
+        width: 100%;
+        clear: both;
+    }
+    h3{
+        margin-top: 0;
+        margin-bottom: 0;
+        &.active{
+            .dashicons-plus-alt:before{
+                content:"\f460";
+            }
+        }
+    }
+    [data-tab-target]{
+        cursor: pointer;
+    }
+    .tab-wrap {
+
+    }
+    .conditional-groups-wrap {
+        &:after{
+            clear: both;
+            display: block;
+            content:'';
+        }
+        .group-title{
+            padding: 0 10px;
+            font-weight: bold;
+        }
+        .wpcf7r-add-block {
+            padding: 5px 0;
+            cursor: pointer;
+            &:hover{
+                @include trans(150ms);
+                color: #1e8cbe;
+            }
+        }
+        .conditional-groups{
+            .dashicons-minus {
+                float: right;
+                padding: 3px;
+                border: 1px solid #ccc;
+                border-radius: 50%;
+                cursor: pointer;
+                @include trans(150ms);
+                &:hover{
+                    background: #1e8cbe;
+                    border: 1px solid #1e8cbe;
+                    color: #fff;
+                }
+            }
+            .row-titles,
+            .wpcfr-rule-group{
+                &:first-child{
+                    .row-template{
+                        &:first-child{
+                            .dashicons-minus{
+                                display: none;
+                            }
+                        }
+                    }
+                }
+
+                ul{
+                    @include flexbox;
+                    @include justify-content(space-around);
+                    margin-bottom: 0;
+                    li {
+                        width: 33%;
+                        padding: 0 10px;
+                        margin-bottom: 0;
+                    }
+                    select{
+                        width: 100%;
+                    }
+                    .group_row_value{
+                        float: left;
+                        width: calc(100% - 50px);
+                    }
+                }
+            }
+            .row-titles{
+                width: 90%;
+            }
+        }
+
+        .wpcfr-rule-group{
+            padding: 0 0 10px 0;
+            &:after{
+                clear: both;
+                display: block;
+                content:'';
+            }
+            &:first-child{
+                .group-title{
+                    display: none;
+                }
+            }
+        }
+    }
+    .leads-list{
+        input{
+            max-width: 100%;
+        }
+        td{
+            padding:5px !important;
+            input,select,textarea{
+                width: 100%;
+            }
+            .field-wrap{
+                padding: 0;
+            }
+        }
+        .qs-condition-actions{
+
+        }
+    }
+    .groups-actions {
+        margin-top: 10px;
+    }
+    .add-condition{
+        float: right;
+        display: none;
+    }
+    .wpcf7r-what-to-do{
+        .field-wrap label {
+            width: calc(100% - 30px);
+            float: right;
+        }
+    }
+    .group-group-0{
+        .row-template{
+            &:first-child{
+                .dashicons-minus{
+                    display: none;
+                }
+            }
+        }
+    }
+    .conditional-group-block{
+        display: none;
+
+        &.active{
+            display: block;
+        }
+        tbody{
+            tr{
+                &:last-child{
+                    .add-condition{
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+    .title-or {
+        text-align: center;
+        margin-bottom: 10px;
+        background: #e8e8e8;
+        padding: 8px !important;
+    }
+    .field-wrap{
+        input[type=checkbox]:checked + label + input{
+            display: block;
+        }
+    }
+    .conditional-group-block-title{
+        padding:0 10px;
+    }
+    .conditional-group-titles{
+        @include flexbox;
+        @include flex-wrap(wrap);
+        &:after{
+            clear: both;
+            display: block;
+            content:'';
+        }
+        .block-title{
+            @include flexbox;
+            &:first-child{
+                .dashicons-minus{
+                    display: none !important;
+                }
+            }
+            [type='text'][readonly] {
+                border: 0;
+                box-shadow: none;
+                width: auto !important;
+                display: inline-block;
+                cursor: pointer;
+            }
+            .dashicons{
+                margin-top: 4px;
+                cursor: pointer;
+                &.show-on-edit{
+                    display: none;
+                }
+            }
+            &.active{
+                color: #0085ba;
+                input{
+                    color: #0085ba;
+                }
+            }
+            &.edit{
+                .dashicons{
+                    display: none;
+                    cursor: pointer;
+                    &.show-on-edit{
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+    .wpcf7-then{
+        padding:10px;
+    }
+    [data-redirect-type]{
+        display: none;
+    }
+    .wpcfr-banner-holder{
+        .dashicons-no{
+            cursor: pointer;
+        }
+    }
+    img{
+        max-width: 100%;
+    }
+  .field-wrap {
+    margin-bottom: 10px;
+    [type='url'], select {
+      height: 28px;
+    }
+    select,[type='url'], [type='text'] {
+      width: 100%;
+      margin:0;
+      height: 28px;
+    }
+    [type='checkbox'] {
+      margin-top: 1px;
+    }
+    textarea {
+      direction: ltr;
+      width: 100%;
+    }
+  }
+  .repeater-wrap {
+        display: block;
+        width: 100%;
+        &:before,
+        &:after {
+            content: " ";
+            display: table;
+            clear: both;
+        }
+    }
+  .qs-row{
+        width: 100%;
+        float: left;
+        margin:0 auto;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        &:before,
+        &:after {
+            content: " ";
+            display: table;
+            clear: both;
+        }
+        .qs-col{
+            float: left;
+            position: relative;
+            padding-left: 10px;
+            padding-right: 10px;
+            clear: none;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            &.clear{
+                clear: both;
+            }
+        }
+        label{
+            display: block;
+        }
+        .qs-col-12{
+            width: 100%;
+        }
+        .qs-col-8{
+            width: 66%;
+        }
+        .qs-col-7{
+            width: 58%;
+        }
+        .qs-col-6{
+            width: 50%;
+        }
+        .qs-col-5{
+            width: 43%;
+        }
+        .qs-col-4{
+            width: 33%;
+        }
+        .qs-col-3{
+            width: 25%;
+        }
+        .qs-col-2{
+            width: 16.666666666666%;
+        }
+        .qs-col-1{
+            width: 8%;
+        }
+    }
+  .field-wrap-after-sent-script {
+    margin-top: 10px;
+  }
+  .field-wrap-page-id label, .field-wrap-after-sent-script label {
+    margin-bottom: 5px;
+  }
+  .field-wrap-http-build-query-selectively [type='text'] {
+    margin-top: 10px;
+  }
+  .field-wrap-after-sent-script .field-message {
+    margin-bottom: 10px;
+  }
+  .field-notice {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid;
+    border-radius: 4px;
+    background: #fff;
+  }
+  .field-notice-alert {
+    color: #8a6d3b;
+    border: 1px solid #faebcc;
+    background-color: #fcf8e3;
+  }
+  .field-hidden, .field-notice-hidden {
+    display: none;
+  }
+  .field-warning-alert {
+    color: #a94442;
+    border-color: #ebccd1;
+    background-color: #f2dede;
+  }
+}

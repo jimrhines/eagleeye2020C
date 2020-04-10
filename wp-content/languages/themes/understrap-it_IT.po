@@ -1,0 +1,646 @@
+# Translation of Themes - UnderStrap in Italian
+# This file is distributed under the same license as the Themes - UnderStrap package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2018-04-30 17:22:46+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/2.4.0-alpha\n"
+"Language: it\n"
+"Project-Id-Version: Themes - UnderStrap\n"
+
+#. Description of the plugin/theme
+msgid "Combination of Automattic´s _s theme and Bootstrap 4. Made as a solid starting point for your next theme project and WordPress website. Use it as starter theme or as a parent theme. It is up to you. Including Font Awesome support, built-in widget slider and much more you need for basic websites. IMPORTANT: All developer dependencies are not bundled with this install file. Just download the .zip, extract it and run \"npm install\" and \"gulp copy-assets\" inside the extracted /understrap folder."
+msgstr "È una combinazione del tema Automattic e di Bootstrap 4. Ideato come un solido punto di partenza per il tuo prossimo tema o sito in WordPress. Stà a te decidere di usarlo come tema iniziale o come tema child. Include il supporto a Font Awesome, un widget slider incorporato e il necessario per un semplice sito web. IMPORTANTE: Non tutti i file per sviluppare sono presenti in questo file di installazione. Scarica lo .zip, estrailo e quindi esegui \"npm install\" e \"gulp copy-assets\" all'interno della cartella /understrap."
+
+#. Theme Name of the plugin/theme
+msgid "UnderStrap"
+msgstr "UnderStrap"
+
+#: woocommerce/product-searchform.php:26
+msgid "Search for:"
+msgstr "Cerca:"
+
+#: woocommerce/global/quantity-input.php:33
+msgid "%s quantity"
+msgstr "%s quantità"
+
+#: inc/pagination.php:17
+msgid "&raquo;"
+msgstr "&raquo;"
+
+#: inc/pagination.php:16
+msgid "&laquo;"
+msgstr "&laquo;"
+
+#: inc/pagination.php:18
+msgid "Posts navigation"
+msgstr "Navigazione degli articoli"
+
+#: author.php:65
+msgid "Permanent Link:"
+msgstr "Link permanente:"
+
+#: woocommerce/product-searchform.php:30
+msgctxt "submit button"
+msgid "Search"
+msgstr "Cerca"
+
+#: woocommerce/product-searchform.php:27
+msgid "Search products&hellip;"
+msgstr "Cerca prodotti&hellip;"
+
+#: woocommerce/myaccount/downloads.php:41 woocommerce/myaccount/orders.php:101
+msgid "Go shop"
+msgstr "Vai allo shop"
+
+#. translators: 1: formatted order total 2: total order items
+#: woocommerce/myaccount/my-orders.php:67 woocommerce/myaccount/orders.php:63
+msgid "%1$s for %2$s item"
+msgid_plural "%1$s for %2$s items"
+msgstr[0] "%1$s per %2$s prodotto"
+msgstr[1] "%1$s per %2$s prodotti"
+
+#: woocommerce/myaccount/my-address.php:57
+msgid "You have not set up this type of address yet."
+msgstr "Non hai ancora impostato questo tipo di indirizzo."
+
+#: woocommerce/cart/cart.php:133 woocommerce/checkout/form-coupon.php:40
+msgid "Apply coupon"
+msgstr "Applica coupon"
+
+#: woocommerce/myaccount/my-address.php:41
+msgid "The following addresses will be used on the checkout page by default."
+msgstr "Il seguente indirizzo verrà impostato come predefinito nella pagine del checkout."
+
+#. translators: %s: post title
+#: comments.php:34
+msgctxt "comments title"
+msgid "One thought on &ldquo;%s&rdquo;"
+msgstr "Un pensiero su &ldquo;%s&rdquo;"
+
+#: woocommerce/checkout/form-checkout.php:55
+msgid "Your order"
+msgstr "Il tuo ordine"
+
+#: woocommerce/checkout/form-checkout.php:29
+msgid "You must be logged in to checkout."
+msgstr "Devi essere connesso per effettuare il checkout."
+
+#. Template Name of the plugin/theme
+msgid "Right Sidebar Layout"
+msgstr "Layout barra laterale a destra"
+
+#: inc/customizer.php:93
+msgid "Set sidebar's default position. Can either be: right, left, both or none. Note: this can be overridden on individual pages."
+msgstr "Imposta la posizione di default della barra laterale. Può essere: destra, sinistra, entrambe o nessuna. Nota: questa impostazione può essere sovrascritta individualmente in ogni pagina."
+
+#: inc/custom-header.php:41
+msgid "Default Header Image"
+msgstr "Immagine dell'header predefinita"
+
+#: inc/extras.php:102
+msgctxt "Next post link"
+msgid "%title&nbsp;<i class=\"fa fa-angle-right\"></i>"
+msgstr "%title&nbsp;<i class=\"fa fa-angle-right\"></i>"
+
+#: inc/extras.php:99
+msgctxt "Previous post link"
+msgid "<i class=\"fa fa-angle-left\"></i>&nbsp;%title"
+msgstr "<i class=\"fa fa-angle-left\"></i>&nbsp;%title"
+
+#: woocommerce/myaccount/form-edit-account.php:45
+msgid "Password change"
+msgstr "Cambia password"
+
+#. Template Name of the plugin/theme
+msgid "Left Sidebar Layout"
+msgstr "Layout barra laterale a sinistra"
+
+#. Template Name of the plugin/theme
+msgid "Left and Right Sidebar Layout"
+msgstr "Layout barra laterale a sinitra e destra"
+
+#: woocommerce/single-product/rating.php:37
+msgid "%s customer review"
+msgid_plural "%s customer reviews"
+msgstr[0] "%s recensione del cliente"
+msgstr[1] "%s recensioni del cliente"
+
+#: woocommerce/myaccount/orders.php:103
+msgid "No order has been made yet."
+msgstr "Non è ancora stato effettuato alcun ordine."
+
+#: inc/pagination.php:48 inc/pagination.php:50 sidebar-hero.php:34
+#: woocommerce/myaccount/orders.php:93
+msgid "Next"
+msgstr "Prossimo"
+
+#: inc/pagination.php:32 inc/pagination.php:34 sidebar-hero.php:26
+#: woocommerce/myaccount/orders.php:89
+msgid "Previous"
+msgstr "Precedente"
+
+#: woocommerce/myaccount/my-orders.php:55 woocommerce/myaccount/orders.php:51
+msgctxt "hash before order number"
+msgid "#"
+msgstr "#"
+
+#: woocommerce/myaccount/my-orders.php:30
+msgid "Recent orders"
+msgstr "Ordini recenti"
+
+#: woocommerce/myaccount/my-orders.php:15
+msgid "Status"
+msgstr "Stato"
+
+#: woocommerce/myaccount/my-orders.php:14
+msgid "Date"
+msgstr "Data"
+
+#: woocommerce/myaccount/my-orders.php:13
+msgid "Order"
+msgstr "Ordine"
+
+#: woocommerce/myaccount/form-reset-password.php:47
+msgid "Save"
+msgstr "Salva"
+
+#: woocommerce/myaccount/form-reset-password.php:34
+msgid "Re-enter new password"
+msgstr "Re-inserisci la password"
+
+#: woocommerce/myaccount/form-reset-password.php:30
+msgid "New password"
+msgstr "Nuova password"
+
+#: woocommerce/myaccount/form-reset-password.php:27
+msgid "Enter a new password below."
+msgstr "Inserisci di seguito una nuova password"
+
+#: woocommerce/myaccount/form-lost-password.php:40
+msgid "Reset password"
+msgstr "Resetta la password"
+
+#: woocommerce/myaccount/form-login.php:84
+msgid "Username"
+msgstr "Nome utente"
+
+#: woocommerce/myaccount/form-login.php:75
+#: woocommerce/myaccount/form-login.php:108
+msgid "Register"
+msgstr "Registrati"
+
+#: woocommerce/myaccount/form-login.php:44
+msgid "Username or email address"
+msgstr "Nome utente o indirizzo email"
+
+#: woocommerce/myaccount/form-edit-address.php:52
+msgid "Save address"
+msgstr "Salva indirizzo"
+
+#: woocommerce/myaccount/form-edit-address.php:23
+#: woocommerce/myaccount/my-address.php:28
+msgid "Shipping address"
+msgstr "Indirizzo di spedizione"
+
+#: woocommerce/myaccount/form-edit-address.php:23
+#: woocommerce/myaccount/my-address.php:27
+#: woocommerce/myaccount/my-address.php:32
+msgid "Billing address"
+msgstr "Indirizzo di fatturazione"
+
+#: woocommerce/myaccount/form-edit-account.php:66
+msgid "Save changes"
+msgstr "Salva le modifiche"
+
+#: woocommerce/myaccount/form-edit-account.php:56
+msgid "Confirm new password"
+msgstr "Conferma la nuova password"
+
+#: woocommerce/myaccount/form-edit-account.php:52
+msgid "New password (leave blank to leave unchanged)"
+msgstr "Nuova password (lascia vuoto per non modificare)"
+
+#: woocommerce/myaccount/form-edit-account.php:48
+msgid "Current password (leave blank to leave unchanged)"
+msgstr "Password attuale (lascia vuoto per non modificare)"
+
+#: woocommerce/myaccount/form-edit-account.php:40
+#: woocommerce/myaccount/form-login.php:91
+msgid "Email address"
+msgstr "Indirizzo email"
+
+#: woocommerce/myaccount/form-edit-account.php:34
+msgid "Last name"
+msgstr "Cognome"
+
+#: woocommerce/myaccount/form-edit-account.php:30
+msgid "First name"
+msgstr "Nome"
+
+#: woocommerce/myaccount/downloads.php:43
+msgid "No downloads available yet."
+msgstr "Non ci sono ancora download disponibili."
+
+#: woocommerce/global/quantity-input.php:33
+msgctxt "Product quantity input tooltip"
+msgid "Qty"
+msgstr "Qtà"
+
+#: woocommerce/global/form-login.php:51 woocommerce/myaccount/form-login.php:58
+msgid "Remember me"
+msgstr "Ricordami"
+
+#: woocommerce/global/form-login.php:39 woocommerce/myaccount/form-login.php:48
+#: woocommerce/myaccount/form-login.php:98
+msgid "Password"
+msgstr "Password"
+
+#: woocommerce/global/form-login.php:35
+#: woocommerce/myaccount/form-lost-password.php:30
+msgid "Username or email"
+msgstr "Nome utente o email"
+
+#: woocommerce/checkout/payment.php:44
+msgid "Update totals"
+msgstr "Aggiorna totali"
+
+#: woocommerce/checkout/payment.php:43
+msgid "Since your browser does not support JavaScript, or it is disabled, please ensure you click the <em>Update Totals</em> button before placing your order. You may be charged more than the amount stated above if you fail to do so."
+msgstr "Dal momento che il tuo browser non supporta javascript o è disabilitato, per favore assicurati di cliccare il bottone <em>Aggiorna totali</em> prima di completare il tuo ordine. Se non lo fai potresti rischiare di trovare un prezzo più alto di quanto mostrato qui sopra."
+
+#: woocommerce/checkout/payment.php:36
+msgid "Please fill in your details above to see available payment methods."
+msgstr "Per favore inserisci i tuoi dati per poter vedere quali metodi di pagamenti sono disponibili."
+
+#: woocommerce/checkout/payment.php:36
+msgid "Sorry, it seems that there are no available payment methods for your state. Please contact us if you require assistance or wish to make alternate arrangements."
+msgstr "Ci spiace, sembra che non ci siano metodi di pagamento disponibili per il tuo stato. Per favore contattaci se hai bisogno di assistenza o se preferisci trovare un altro metodo."
+
+#: woocommerce/checkout/form-pay.php:81
+msgid "Sorry, it seems that there are no available payment methods for your location. Please contact us if you require assistance or wish to make alternate arrangements."
+msgstr "Ci spiace, sembra che non ci siano metodi di pagamento disponibili per il tuo indirizzo. Per favore contattaci se hai bisogno di assistenza o se preferisci trovare un altro metodo."
+
+#: woocommerce/global/form-login.php:55 woocommerce/myaccount/form-login.php:62
+msgid "Lost your password?"
+msgstr "Hai perso la password?"
+
+#: woocommerce/myaccount/form-lost-password.php:27
+msgid "Lost your password? Please enter your username or email address. You will receive a link to create a new password via email."
+msgstr "Hai perso la password? Per favore inserisci il tuo nome utente o il tuo indirizzo email. Riceverai un link via email per creare una nuova password."
+
+#: woocommerce/global/form-login.php:48 woocommerce/myaccount/form-login.php:37
+#: woocommerce/myaccount/form-login.php:56
+msgid "Login"
+msgstr "Accesso"
+
+#: woocommerce/checkout/form-pay.php:31
+msgid "Totals"
+msgstr "Totali"
+
+#: woocommerce/checkout/form-pay.php:30
+msgid "Qty"
+msgstr "Qtà"
+
+#: woocommerce/checkout/form-coupon.php:28
+msgid "Click here to enter your code"
+msgstr "Clicca qui per inserire il tuo codice"
+
+#: woocommerce/checkout/form-coupon.php:28
+msgid "Have a coupon?"
+msgstr "Hai un coupon?"
+
+#: woocommerce/cart/proceed-to-checkout-button.php:27
+msgid "Proceed to checkout"
+msgstr "Procedi al checkout"
+
+#: woocommerce/cart/mini-cart.php:72
+msgid "Subtotal"
+msgstr "Subtotale"
+
+#: woocommerce/cart/mini-cart.php:80
+msgid "No products in the cart."
+msgstr "Non ci sono prodotti nel carrello."
+
+#: woocommerce/cart/cart.php:138
+msgid "Update cart"
+msgstr "Aggiorna carrello"
+
+#: woocommerce/cart/cart.php:133 woocommerce/checkout/form-coupon.php:36
+msgid "Coupon code"
+msgstr "Codice coupon"
+
+#: woocommerce/cart/cart.php:133
+msgid "Coupon:"
+msgstr "Coupon:"
+
+#: woocommerce/cart/cart.php:60 woocommerce/cart/mini-cart.php:47
+msgid "Remove this item"
+msgstr "Rimuovi questo prodotto"
+
+#: woocommerce/cart/cart.php:38 woocommerce/cart/cart.php:115
+#: woocommerce/myaccount/my-orders.php:16
+msgid "Total"
+msgstr "Totale"
+
+#: woocommerce/cart/cart.php:37 woocommerce/cart/cart.php:99
+#: woocommerce/global/quantity-input.php:32
+msgid "Quantity"
+msgstr "Quantità"
+
+#: woocommerce/cart/cart.php:36 woocommerce/cart/cart.php:93
+msgid "Price"
+msgstr "Prezzo"
+
+#: woocommerce/cart/cart.php:35 woocommerce/cart/cart.php:77
+#: woocommerce/checkout/form-pay.php:29
+msgid "Product"
+msgstr "Prodotto"
+
+#: woocommerce/cart/cart-empty.php:33
+msgid "Return to shop"
+msgstr "Ritorna allo shop"
+
+#: inc/customizer.php:103
+msgid "No sidebar"
+msgstr "Nessuna barra laterale"
+
+#: inc/customizer.php:102
+msgid "Left & Right sidebars"
+msgstr "Barra laterale sinistra & destra"
+
+#: inc/customizer.php:101
+msgid "Left sidebar"
+msgstr "Barra laterale sinistra"
+
+#: inc/customizer.php:100
+msgid "Right sidebar"
+msgstr "Barra laterale destra"
+
+#: inc/customizer.php:92
+msgid "Sidebar Positioning"
+msgstr "Posizione barra laterale"
+
+#: inc/customizer.php:75
+msgid "Full width container"
+msgstr "Container a larghezza intera"
+
+#: inc/customizer.php:74
+msgid "Fixed width container"
+msgstr "Container a larghezza fissa"
+
+#: inc/customizer.php:68
+msgid "Container Width"
+msgstr "Larghezza container"
+
+#: inc/customizer.php:39
+msgid "Container width and sidebar defaults"
+msgstr "Larghezza container e colonna laterale di deault"
+
+#: inc/customizer.php:37
+msgid "Theme Layout Settings"
+msgstr "Impostazioni del layout del tema"
+
+#: author.php:67
+msgid "in"
+msgstr "in"
+
+#: woocommerce/cart/cart.php:89
+msgid "Available on backorder"
+msgstr "Disponibili per ordinativi arretrati"
+
+#: inc/customizer.php:69
+msgid "Choose between Bootstrap's container and container-fluid"
+msgstr "Scegli tra il container e il container-fluid di Bootstrap"
+
+#: inc/widgets.php:65
+msgid "Left Sidebar"
+msgstr "Barra laterale sinistra"
+
+#: inc/widgets.php:55
+msgid "Right Sidebar"
+msgstr "Barra laterale destra"
+
+#: inc/extras.php:94
+msgid "Post navigation"
+msgstr "Navigazione articoli"
+
+#. Template Name of the plugin/theme
+msgid "Blank Page Template"
+msgstr "Template di pagina vuoto"
+
+#. translators:
+#: footer.php:39
+msgid "Version: %1$s"
+msgstr "Versione: %1$s"
+
+#: author.php:48
+msgid "Profile"
+msgstr "Profilo"
+
+#. translators: %s: Name of current post
+#: inc/template-tags.php:65
+msgid "Edit %s"
+msgstr "Modifica %s"
+
+#: author.php:53
+msgid "Posts by"
+msgstr "Articoli di"
+
+#: author.php:33
+msgid "About:"
+msgstr "A riguardo:"
+
+#. Template Name of the plugin/theme
+msgid "Empty Page Template"
+msgstr "Template di pagina vuoto"
+
+#: loop-templates/content-page.php:25 loop-templates/content-single.php:31
+#: loop-templates/content.php:37
+msgid "Pages:"
+msgstr "Pagine:"
+
+#: searchform.php:10 searchform.php:16
+msgid "Search"
+msgstr "Cerca"
+
+#. translators:
+#: search.php:31
+msgid "Search Results for: %s"
+msgstr "Risultati di ricerca per: %s"
+
+#. Template Name of the plugin/theme
+msgid "Full Width Page"
+msgstr "Pagina larghezza intera"
+
+#: searchform.php:13
+msgid "Search &hellip;"
+msgstr "Cerca &hellip;"
+
+#: 404.php:47
+msgid "Most Used Categories"
+msgstr "Categorie più utilizzate"
+
+#: loop-templates/content-none.php:38
+msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
+msgstr "Non riusciamo a trovare quello che stavi cercando. Fare una ricerca potrebbe aiutarti."
+
+#: loop-templates/content-none.php:33
+msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
+msgstr "Ci spiace, ma non abbiamo trovato niente corrispondente ai termini della tua ricerca. Per favore prova di nuovo con differenti parole."
+
+#: loop-templates/content-none.php:25
+msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr "Pronto a pubblicare il tuo primo post? <a href=\"%1$s\">Comincia da qui</a>."
+
+#: loop-templates/content-none.php:16
+msgid "Nothing Found"
+msgstr "Non è stato trovato niente"
+
+#: inc/widgets.php:95
+msgid "Footer Full"
+msgstr "Footer intero"
+
+#: inc/widgets.php:85
+msgid "Hero Static"
+msgstr "Hero Static"
+
+#: inc/widgets.php:75
+msgid "Hero Slider"
+msgstr "Hero Slider"
+
+#: inc/template-tags.php:59
+msgid "% Comments"
+msgstr "% Commenti"
+
+#: inc/template-tags.php:59
+msgid "1 Comment"
+msgstr "1 Commento"
+
+#: inc/template-tags.php:59
+msgid "Leave a comment"
+msgstr "Lascia un commento"
+
+#: inc/template-tags.php:54
+msgid "Tagged %1$s"
+msgstr "Taggato %1$s"
+
+#: 404.php:29
+msgid "Oops! That page can&rsquo;t be found."
+msgstr "Oops! La pagina non è stata trovata."
+
+#: 404.php:36
+msgid "It looks like nothing was found at this location. Maybe try one of the links below or a search?"
+msgstr "Sembra che non sia stato trovato niente a questo indirizzo. Prova con uno di questi link o con una ricerca."
+
+#. translators: %1$s: smiley
+#: 404.php:68
+msgid "Try looking in the monthly archives. %1$s"
+msgstr "Prova a guardare nell'archivio mensile. %1$s"
+
+#: comments.php:59 comments.php:89
+msgid "Comment navigation"
+msgstr "Navigazione commento"
+
+#: comments.php:62 comments.php:92
+msgid "&larr; Older Comments"
+msgstr "&larr; Commenti più vecchi"
+
+#: comments.php:66 comments.php:96
+msgid "Newer Comments &rarr;"
+msgstr "Commenti più recenti &rarr;"
+
+#: comments.php:111
+msgid "Comments are closed."
+msgstr "I commenti sono chiusi."
+
+#: footer.php:28
+msgid "http://wordpress.org/"
+msgstr "http://wordpress.org/"
+
+#. translators:
+#: footer.php:30
+msgid "Proudly powered by %s"
+msgstr "Orgogliosamente sviluppato da %s"
+
+#: header.php:33
+msgid "Skip to content"
+msgstr "Salta al contenuto"
+
+#: inc/custom-comments.php:27
+msgid "Name"
+msgstr "Nome"
+
+#: inc/custom-comments.php:30
+msgid "Email"
+msgstr "Email"
+
+#: inc/custom-comments.php:56
+msgctxt "noun"
+msgid "Comment"
+msgstr "Commento"
+
+#: inc/setup.php:126
+msgid "Read More..."
+msgstr "Leggi di più..."
+
+#: inc/template-tags.php:27
+msgctxt "post date"
+msgid "Posted on %s"
+msgstr "Postato il %s"
+
+#: inc/template-tags.php:31
+msgctxt "post author"
+msgid "by %s"
+msgstr "di %s"
+
+#. translators: used between list items, there is a space after the comma
+#: inc/template-tags.php:47 inc/template-tags.php:52
+msgid ", "
+msgstr ","
+
+#: inc/template-tags.php:49
+msgid "Posted in %1$s"
+msgstr "Postato in %1$s"
+
+#. translators: 1: number of comments, 2: post title
+#: comments.php:40
+msgctxt "comments title"
+msgid "%1$s thought on &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
+msgstr[0] "%1$s commento su &ldquo;%2$s&rdquo;"
+msgstr[1] "%1$s commenti su &ldquo;%2$s&rdquo;"
+
+#. translators:
+#: footer.php:35
+msgid "Theme: %1$s by %2$s."
+msgstr "Tema: %1$s by %2$s."
+
+#: inc/setup.php:46
+msgid "Primary Menu"
+msgstr "Menu principale"
+
+#: loop-templates/content-page.php:34 woocommerce/myaccount/my-address.php:53
+msgid "Edit"
+msgstr "Modifica"
+
+#: author.php:41 inc/custom-comments.php:33
+msgid "Website"
+msgstr "Sito web"
+
+#. #-#-#-#-#  understrap.pot (UnderStrap 0.8.2)  #-#-#-#-#
+#. Theme URI of the plugin/theme
+#: footer.php:35
+msgid "http://understrap.com"
+msgstr "http://understrap.com"
+
+#. Author of the plugin/theme
+msgid "Holger Koenemann"
+msgstr "Holger Koenemann"
+
+#. Author URI of the plugin/theme
+msgid "http://www.holgerkoenemann.de"
+msgstr "http://www.holgerkoenemann.de"

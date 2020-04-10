@@ -1,0 +1,83 @@
+# Translation of Plugins - Simple Sitemap &#8211; Create a Responsive HTML Sitemap - Stable (latest release) in French (France)
+# This file is distributed under the same license as the Plugins - Simple Sitemap &#8211; Create a Responsive HTML Sitemap - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2019-11-26 14:51:44+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: GlotPress/2.4.0-alpha\n"
+"Language: fr\n"
+"Project-Id-Version: Plugins - Simple Sitemap &#8211; Create a Responsive HTML Sitemap - Stable (latest release)\n"
+
+#: block_assets/js/blocks.editor.js:11663
+msgid "Page Settings"
+msgstr "Réglages de la page"
+
+#: block_assets/js/blocks.editor.js:11654
+msgid "Tab Settings"
+msgstr "Réglages de l’onglet"
+
+#: block_assets/js/blocks.editor.js:11578
+#: block_assets/js/blocks.editor.js:11839
+msgid "General Settings"
+msgstr "Réglages généraux"
+
+#: classes/settings.php:214
+msgid "Displays a list of taxonomy terms for any registered taxonomy (e.g. categories)."
+msgstr "Affiche une liste de termes de taxonomie pour toute taxonomie enregistrée (ex : catégories)."
+
+#: classes/settings.php:212
+msgid "Displays a list of posts grouped by category, OR tags."
+msgstr "Affiche une liste de publications groupées par catégorie ou par étiquettes."
+
+#. translators: %d: ID of a post
+#: shared/class-wpgo-walker-page.php:96
+msgid "#%d (no title)"
+msgstr "#%d (aucun titre)"
+
+#: classes/settings.php:216
+msgid "Displays a sitemap based on a nav menu."
+msgstr "Affiche un plan du site basé sur un menu de navigation."
+
+#: classes/settings.php:88
+msgid "Welcome to Simple Sitemap!"
+msgstr "Bienvenue sur Simple Sitemap !"
+
+#: shared/links.php:66
+msgid "Get Started"
+msgstr "Commencer"
+
+#: classes/settings.php:218
+msgid "Displays a list of child pages for a specific parent page."
+msgstr "Affiche une liste de pages enfant pour une page parent spécifique."
+
+#: classes/settings.php:210
+msgid "Displays a list of posts for one or more post types."
+msgstr "Affiche une liste de publications pour un ou plusieurs types de publication."
+
+#. Author URI of the plugin
+msgid "http://www.wpgoplugins.com"
+msgstr "http://www.wpgoplugins.com"
+
+#. Description of the plugin
+msgid "HTML sitemap to display content as a single linked list of posts, pages, or custom post types. You can even display posts in groups sorted by taxonomy!"
+msgstr "Plan du site HTML pour afficher le contenu sous la forme d'une liste unique de publications, de pages ou de types de publication personnalisés liés. Vous pouvez même afficher les publications dans des groupes triés par taxonomie !"
+
+#. Author of the plugin
+msgid "David Gwyer"
+msgstr "David Gwyer"
+
+#. Plugin URI of the plugin
+msgid "http://wordpress.org/plugins/simple-sitemap/"
+msgstr "http://wordpress.org/plugins/simple-sitemap/"
+
+#. Plugin Name of the plugin
+#: simple-sitemap.php:87 classes/settings.php:39
+msgid "Simple Sitemap"
+msgstr "Simple Sitemap"
+
+#: classes/settings.php:38
+msgid "Simple Sitemap Settings Page"
+msgstr "Page des réglages de Simple Sitemap"

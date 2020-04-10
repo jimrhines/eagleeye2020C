@@ -1,0 +1,221 @@
+<?php
+/**
+ * The header for our theme.
+ *
+ * Displays all of the <head> section and everything up till <div id="content">
+ *
+ * @package understrap
+ */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
+$container = get_theme_mod( 'understrap_container_type' );
+?>
+<!DOCTYPE html>
+<html <?php language_attributes(); ?>>
+<head>
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-5DMKHFN');</script>
+	<!-- End Google Tag Manager -->
+	<meta charset="<?php bloginfo( 'charset' ); ?>" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+	<link rel="profile" href="http://gmpg.org/xfn/11" />
+	<?php wp_head(); ?>
+	<!-- Start Mailchimp Connected Sites -->
+	<script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/f2346f20cc72e19fc18d07635/2c25cd597878078646ca8aa3a.js");
+	</script>
+	<!-- End Mailchimp Connected Sites -->
+</head>
+
+<body <?php body_class(); ?>>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5DMKHFN" height="0" width="0" style="display:none; visibility:hidden;"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<?php do_action( 'wp_body_open' ); ?>
+<div class="site" id="page">
+	<!-- ******************* The Navbar Area ******************* -->
+	<div id="wrapper-navbar" itemscope itemtype="http://schema.org/WebSite">
+
+		<a class="skip-link sr-only sr-only-focusable" href="#content"><?php esc_html_e( 'Skip to content', 'understrap' ); ?></a>
+
+		<div class="d-none d-print-block">
+			<div class="d-flex flex-row">
+				<div class="col-4">
+					<img src="<?php echo esc_url( home_url( '/' ) ); ?>wp-content/themes/understrap-child/img/eeps-logo.svg" alt="Eagle Eye Power Solutions" />
+				</div>
+				<div class="col-8">
+					1-877-805-3377
+				</div>
+			</div>
+		</div>
+
+		<?php if ( 'container' == $container ) : ?>
+			<div class="container">
+		<?php endif; ?>
+
+			<nav id="navigation" class="navbar navbar-expand-md navbar-light">
+				<div class="col-2 d-sm-block d-md-none p-0">
+					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="<?php esc_attr_e( 'Toggle navigation', 'understrap' ); ?>">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+				</div>
+
+				<div id="site-branding" class="col col-md-3">
+					<a class="navbar-brand" rel="home" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" itemprop="url">
+						<img src="<?php echo esc_url( home_url( '/' ) ); ?>wp-content/themes/understrap-child/img/eeps-logo.svg" alt="<?php bloginfo( 'name' ); ?>" />
+					</a>
+				</div>
+
+				<div id="navbarNavAltMarkup" class="col-md-7 collapse navbar-collapse">
+					<div class="navbar-nav">	
+						<div class="megamenu">
+							<a id="nav-products" class="nav-item nav-link" href="<?php echo get_permalink(174); ?>">Products</a>
+						    <div class="megamenu-content">
+						    	<div class="row">
+						    		<div class="col-md-2 mb-3">
+					    				<?php wp_nav_menu( array( 'theme_location' => 'products-col-one', 'container_class' => 'products-col-one' ) ); ?>
+									</div>
+						    		<div class="col-md-2 mb-3">
+						    			<?php wp_nav_menu( array( 'theme_location' => 'products-col-two', 'container_class' => 'products-col-two' ) ); ?>
+									</div>
+									<div class="col-md-2 mb-3">
+										<?php wp_nav_menu( array( 'theme_location' => 'products-col-three', 'container_class' => 'products-col-three' ) ); ?>
+									</div>
+									<div class="col-md-2 mb-3">
+										<?php wp_nav_menu( array( 'theme_location' => 'products-col-four', 'container_class' => 'products-col-four' ) ); ?>
+									</div>
+									<div class="col-md-2 mb-3">
+										<?php wp_nav_menu( array( 'theme_location' => 'products-col-five', 'container_class' => 'products-col-five' ) ); ?>
+									</div>
+									<div class="col-md-2 mb-3">
+										<?php wp_nav_menu( array( 'theme_location' => 'products-col-six', 'container_class' => 'products-col-six' ) ); ?>
+									</div>
+								</div>
+							</div>
+							<?php //div class="megamenu-background-tint">&#160;</div ?>
+						</div>
+						<!--div class="megamenu"-->
+							<a id="nav-industries" class="nav-item nav-link" href="<?php echo get_permalink(1474); ?>">Industries</a>
+							<!--div class="megamenu-content">
+						    	<div class="row">
+						    		<div class="col-md-2 mb-3">
+					    				<?php wp_nav_menu( array( 'theme_location' => 'industries-col-one', 'container_class' => 'industries-col-one' ) ); ?>
+									</div>
+						    		<div class="col-md-2 mb-3">
+						    			<?php wp_nav_menu( array( 'theme_location' => 'industries-col-two', 'container_class' => 'industries-col-two' ) ); ?>
+									</div>
+									<div class="col-md-2 mb-3">
+										<?php wp_nav_menu( array( 'theme_location' => 'industries-col-three', 'container_class' => 'industries-col-three' ) ); ?>
+									</div>
+									<div class="col-md-2 mb-3">
+										<?php wp_nav_menu( array( 'theme_location' => 'industries-col-four', 'container_class' => 'industries-col-four' ) ); ?>
+									</div>
+									<div class="col-md-2 mb-3">
+										<?php wp_nav_menu( array( 'theme_location' => 'industries-col-five', 'container_class' => 'industries-col-five' ) ); ?>
+									</div>
+									<div class="col-md-2 mb-3">
+										<?php wp_nav_menu( array( 'theme_location' => 'industries-col-six', 'container_class' => 'industries-col-six' ) ); ?>
+									</div>
+								</div>
+							</div>
+						</div-->
+						<a class="nav-item nav-link" href="<?php echo get_permalink(753); ?>">Training</a>
+						<a class="nav-item nav-link d-sm-block d-md-none d-lg-block" href="<?php echo get_permalink(391); ?>">News &amp; Events</a>
+						<!--div class="megamenu"-->
+							<a id="nav-support" class="nav-item nav-link" href="<?php echo get_permalink(295); ?>">Support</a>
+							<!--div class="megamenu-content">
+						    	<div class="row">
+						    		<div class="col-md-2 mb-3">
+					    				<?php wp_nav_menu( array( 'theme_location' => 'support-col-one', 'container_class' => 'support-col-one' ) ); ?>
+									</div>
+						    		<div class="col-md-2 mb-3">
+						    			<?php wp_nav_menu( array( 'theme_location' => 'support-col-two', 'container_class' => 'support-col-two' ) ); ?>
+									</div>
+									<div class="col-md-2 mb-3">
+										<?php wp_nav_menu( array( 'theme_location' => 'support-col-three', 'container_class' => 'support-col-three' ) ); ?>
+									</div>
+									<div class="col-md-2 mb-3">
+										<?php wp_nav_menu( array( 'theme_location' => 'support-col-four', 'container_class' => 'support-col-four' ) ); ?>
+									</div>
+									<div class="col-md-2 mb-3">
+										<?php wp_nav_menu( array( 'theme_location' => 'support-col-five', 'container_class' => 'support-col-five' ) ); ?>
+									</div>
+									<div class="col-md-2 mb-3">
+										<?php wp_nav_menu( array( 'theme_location' => 'support-col-six', 'container_class' => 'support-col-six' ) ); ?>
+									</div>
+								</div>
+							</div>
+						</div-->
+						<a class="nav-item nav-link" href="<?php echo get_permalink(485); ?>">About Us</a>
+					</div>
+				</div>
+
+				<div class="col-2">
+					<div class="d-flex flex-row">
+						<div id="translate-menu" class="col-9 text-left">
+							<!-- The WordPress Menu goes here -->
+							<?php wp_nav_menu(
+								array(
+									'theme_location'  => 'primary',
+									'container_class' => 'collapse navbar-collapse',
+									'container_id'    => 'navbarNavDropdown',
+									'menu_class'      => 'navbar-nav ml-auto',
+									'fallback_cb'     => '',
+									'menu_id'         => 'main-menu',
+									'depth'           => 2,
+									'walker'          => new Understrap_WP_Bootstrap_Navwalker(),
+								)
+							); ?>
+						</div>
+						<div id="search-icon" class="col-3 text-right">
+							<a href="#search">
+								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M23.822 20.88l-6.353-6.354c.93-1.465 1.467-3.2 1.467-5.059.001-5.219-4.247-9.467-9.468-9.467s-9.468 4.248-9.468 9.468c0 5.221 4.247 9.469 9.468 9.469 1.768 0 3.421-.487 4.839-1.333l6.396 6.396 3.119-3.12zm-20.294-11.412c0-3.273 2.665-5.938 5.939-5.938 3.275 0 5.94 2.664 5.94 5.938 0 3.275-2.665 5.939-5.94 5.939-3.274 0-5.939-2.664-5.939-5.939z"/></svg>
+							</a>
+						</div>
+					</div>
+				</div>
+				
+			</nav><!-- .site-navigation -->
+
+			<div id="search">
+				<div class="row">
+					<div class="col-md-10">
+			    		<?php get_search_form(); ?>
+			    	</div>
+		    		<div id="search-cancel-container" class="col-md-2">
+		    			<a href="" id="search-cancel">Cancel</a>
+			    	</div>
+			    </div>
+			</div>
+
+		</div><!-- #wrapper-navbar end -->
+
+	<?php if ( 'container' == $container ) : ?>
+		</div><!-- .container -->
+	<?php endif; ?>
+
+	<?php //Enable Yoast Breadcrumbs on all pages except the home page
+	if(!is_front_page()) :?>
+		<div id="breadcrumbs-container" class="container-fluid">
+			<div class="container">
+				<?php
+					if ( function_exists('yoast_breadcrumb') ) {
+					  yoast_breadcrumb( '<p id="breadcrumbs" class="d-print-none">','</p>' );
+					}
+				?>
+			</div>
+		</div>
+	<?php endif;?>
+	<?php if(is_page_template('page-division.php') or is_page_template('lorem.php')) :?>
+		<div class="landing-hero d-flex flex-column align-items-baseline" style="background-image: url('<?php the_field('division_hero_image'); ?>');">
+			<div class="landing-hero-headline mt-auto">
+				<h1><?php the_title_attribute(); ?></h1>
+			</div>
+		</div>
+	<?php endif;?>

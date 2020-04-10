@@ -1,0 +1,6 @@
+//compilecompressed
+@import 'mixins';
+
+.wpcfr-popup-wrap{
+    @include popup;
+}
