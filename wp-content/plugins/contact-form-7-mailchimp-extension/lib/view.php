@@ -41,7 +41,7 @@ function mce_panel_gen ($apivalid,$listdata,$cf7_mch,$listatags,$mce_txcomodin) 
             <?php mce_html_panel_listmail( $apivalid, $listdata, $cf7_mch); // Get listas ?>
 
         </div>
-        <small class="description">Hit the Connect button to load your lists <a href="https://chimpmatic.com/how-to-find-your-mailchimp-api-key<?php echo vc_utm() ?>MC-list-id" class="helping-field" target="_blank" title="get help with MailChimp List ID:"> Read More <span class="red-icon dashicons dashicons-admin-links"></span></a></small>
+        <small class="description">Hit the Connect button to load your lists <a href="https://chimpmatic.com/how-to-find-your-mailchimp-api-key<?php echo vc_utm() ?>MC-list-id" class="helping-field" target="_blank" title="get help with MailChimp List ID:"> Learn More</a></small>
       </div>
     </div>
 
@@ -49,13 +49,13 @@ function mce_panel_gen ($apivalid,$listdata,$cf7_mch,$listatags,$mce_txcomodin) 
       <div class="mail-field md-half">
         <label for="wpcf7-mailchimp-email"><?php echo esc_html( __( 'Subscriber Email: *|EMAIL|* ', 'wpcf7' ) ); ?> <span class="mce-required" > Required</span></label><br />
          <?php mce_html_selected_tag ('email',$listatags,$cf7_mch,'email') ;  ?>
-        <small class="description">MUST be an email tag <a href="<?php echo MCE_URL ?>/mailchimp-contact-form<?php echo vc_utm() ?>MC-email" class="helping-field" target="_blank" title="get help with Subscriber Email:"> Read More <span class="red-icon dashicons dashicons-admin-links"></span></a></small>
+        <small class="description">MUST be an email tag <a href="<?php echo MCE_URL ?>/mailchimp-contact-form<?php echo vc_utm() ?>MC-email" class="helping-field" target="_blank" title="get help with Subscriber Email:"> Learn More</a></small>
       </div>
 
       <div class="mail-field md-half">
         <label for="wpcf7-mailchimp-name"><?php echo esc_html( __( 'Subscriber Name - *|FNAME|* ', 'wpcf7' ) ); ?></label><br />
          <?php mce_html_selected_tag ('name',$listatags,$cf7_mch,'text') ; ?>
-        <small class="description"> This may be sent as Name <a href="<?php echo MCE_URL ?>/mailchimp-contact-form<?php echo vc_utm() ?>MC-name" class="helping-field" target="_blank" title="get help with Subscriber name:"> Read More <span class="red-icon dashicons dashicons-admin-links"></span></a></small>
+        <small class="description"> This may be sent as Name <a href="<?php echo MCE_URL ?>/mailchimp-contact-form<?php echo vc_utm() ?>MC-name" class="helping-field" target="_blank" title="get help with Subscriber name:"> Learn More</a></small>
       </div>
     </div>
 

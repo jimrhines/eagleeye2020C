@@ -180,6 +180,18 @@ class TRP_Translation_Render{
                     'type'          => 'page_title',
                     'description'   => __( 'Page Title', 'translatepress-multilingual' )
                 ),
+	            array(
+		            'type'          => 'meta_desc',
+		            'attribute'     => 'name',
+		            'value'         => 'DC.Title',
+		            'description'   => __( 'Dublin Core Title', 'translatepress-multilingual' )
+	            ),
+	            array(
+		            'type'          => 'meta_desc',
+		            'attribute'     => 'name',
+		            'value'         => 'DC.Description',
+		            'description'   => __( 'Dublin Core Description', 'translatepress-multilingual' )
+	            ),
 
             ));
 
@@ -334,6 +346,12 @@ class TRP_Translation_Render{
                 $trpremoved = $this->remove_trp_html_tags( $output );
                 return $trpremoved;
             }
+        }
+
+        /* don't do anything on xmlrpc.php  */
+        if( strpos( $this->url_converter->cur_page_url(), 'xmlrpc.php' ) !== false ){
+            $trpremoved = $this->remove_trp_html_tags( $output );
+            return $trpremoved;
         }
 
         global $TRP_LANGUAGE;

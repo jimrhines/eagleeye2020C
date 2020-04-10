@@ -395,8 +395,8 @@ class TRP_Translation_Manager{
             $this->is_admin_request = $this->url_converter->is_admin_request();
         }
 
-        // Do not process gettext strings on wp-login pages. Do not process strings in admin area except for when when is_ajax_on_frontend. Do not process gettext strings when is rest api from admin url referer.
-        if( ( $pagenow != 'wp-login.php' ) && ( !is_admin() || $this::is_ajax_on_frontend() ) && !$this->is_admin_request ) {
+        // Do not process gettext strings on wp-login pages. Do not process strings in admin area except for when when is_ajax_on_frontend. Do not process gettext strings when is rest api from admin url referer. Do not process gettext on xmlrpc.pho
+        if( ( $pagenow != 'wp-login.php' ) && ( !is_admin() || $this::is_ajax_on_frontend() ) && !$this->is_admin_request && $pagenow != 'xmlrpc.php' ) {
             add_filter('gettext', array($this, $prefix.'process_gettext_strings'), 100, 3);
             add_filter('gettext_with_context', array($this, $prefix.'process_gettext_strings_with_context'), 100, 4);
             add_filter('ngettext', array($this, $prefix.'process_ngettext_strings'), 100, 5);

@@ -23,12 +23,11 @@ class TRP_Translation_Memory {
      *
      *
      * @param string    $string         The original string we're searching a similar one.
-     * @param string    $language_code  The language in which we want to search for the similar translated string.
      * @param string    $table_name          The table where we should look for similar strings in. Default dictionary.
      * @param int       $number         The number of similar strings we want to return.
      * @return array                    Array with (original => translated ) pairs based on the number of strings we should account for. Empty array if nothing is found.
      */
-    public function get_similar_string_translation( $string, $language_code, $number, $table_name ){
+    public function get_similar_string_translation( $string, $number, $table_name ){
         if( empty($table_name) ){
             return array();
         }
@@ -58,12 +57,12 @@ class TRP_Translation_Memory {
         if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
             if (isset($_POST['action']) && $_POST['action'] === 'trp_get_similar_string_translation' && !empty($_POST['original_string']) && !empty($_POST['language']) && !empty($_POST['selector']) && in_array($_POST['language'], $this->settings['translation-languages']) )
             {
+                global $TRP_LANGUAGE;
                 check_ajax_referer('getsimilarstring', 'security');
                 $string = ( isset($_POST['original_string']) ) ? $_POST['original_string'] : '';
-                $language_code = ( isset($_POST['language']) ) ? $_POST['language'] : TRP_LANGUAGE;
-                $selector = ( isset($_POST['selector']) ) ? $_POST['selector'] : '';
-                $number = ( isset($_POST['number']) ) ? $_POST['number'] : 3;
-                $current_language = sanitize_text_field($_POST['language']);
+                $language_code = ( isset($_POST['language']) ) ? $_POST['language'] : $TRP_LANGUAGE;
+                $selector = ( isset($_POST['selector']) ) ? sanitize_text_field( $_POST['selector'] ) : '';
+                $number = ( isset($_POST['number']) ) ? (int) $_POST['number'] : 3;
 
                 $trp = TRP_Translate_Press::get_trp_instance();
                 if ( ! $this->trp_query ) {
@@ -73,16 +72,16 @@ class TRP_Translation_Memory {
                 // data-trp-translate-id, data-trp-translate-id-innertext are in the wp_trp_dictionary_* tables
                 $table_name = $this->trp_query->get_table_name( $language_code );
 
-                if($selector === "data-trpgettextoriginal"){
+                if( strpos($selector, "data-trpgettextoriginal" ) !== false ){
                     $table_name = $this->trp_query->get_gettext_table_name( $language_code );
                 }
 
-                $dictionary = $this->get_similar_string_translation($string, $language_code, $number, $table_name);
+                $dictionary = $this->get_similar_string_translation($string, $number, $table_name);
                 echo json_encode($dictionary);
                 wp_die();
             }
         }
-        return json_encode(array());
+        echo json_encode(array());
         wp_die();
     }
 }

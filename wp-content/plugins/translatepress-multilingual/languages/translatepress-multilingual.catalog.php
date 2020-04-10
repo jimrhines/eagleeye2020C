@@ -2,7 +2,6 @@
 <?php __("Error! Duplicate URL slug values.", "translatepress-multilingual"); ?>
 <?php __("Limit this menu item to the following languages", "translatepress-multilingual"); ?>
 <?php __("All Languages", "translatepress-multilingual"); ?>
-<?php __("The Yoast SEO Sitemaps will now contain the default language slug: example.com/en/sitemap_index.xml <br/> This works perfectly, just take it into account when submitting the sitemap to Google.", "translatepress-multilingual"); ?>
 <?php __("<strong>TranslatePress</strong> requires at least PHP version 5.6.20+ to run. It is the <a href=\"%s\">minimum requirement of the latest WordPress version</a>. Please contact your server administrator to update your PHP version.", "translatepress-multilingual"); ?>
 <?php __("First by browser language, then IP address (recommended)", "translatepress-multilingual"); ?>
 <?php __("First by IP address, then by browser language", "translatepress-multilingual"); ?>
@@ -154,6 +153,8 @@
 <?php __("Twitter Title", "translatepress-multilingual"); ?>
 <?php __("Twitter Description", "translatepress-multilingual"); ?>
 <?php __("Page Title", "translatepress-multilingual"); ?>
+<?php __("Dublin Core Title", "translatepress-multilingual"); ?>
+<?php __("Dublin Core Description", "translatepress-multilingual"); ?>
 <?php __("Inserting original strings for language %s...", "translatepress-multilingual"); ?>
 <?php __("Cleaning original strings table for language %s...", "translatepress-multilingual"); ?>
 <?php __("Updating original string ids for language %s...", "translatepress-multilingual"); ?>

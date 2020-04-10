@@ -333,7 +333,7 @@ class TRP_Query{
         /*
         *  select all string that are in the dictionary table and are not in the original tables and insert them in the original
         */
-        $insert_records = $this->db->query( $this->db->prepare( "INSERT INTO `$originals_table` (original) SELECT DISTINCT ( BINARY t1.original ) FROM `$table_name` t1 LEFT JOIN `$originals_table` t2 on t2.original = BINARY t1.original WHERE t2.original IS NULL AND t1.id > %d AND t1.id <= %d AND LENGTH(t1.original) < 20000", $inferior_limit, ($inferior_limit + $batch_size) ) );
+        $insert_records = $this->db->query( $this->db->prepare( "INSERT INTO `$originals_table` (original) SELECT DISTINCT ( BINARY t1.original ) FROM `$table_name` t1 LEFT JOIN `$originals_table` t2 ON ( t2.original = t1.original AND t2.original = BINARY t1.original ) WHERE t2.original IS NULL AND t1.id > %d AND t1.id <= %d AND LENGTH(t1.original) < 20000", $inferior_limit, ($inferior_limit + $batch_size) ) );
 
         if (!empty($this->db->last_error)) {
             $this->error_manager->record_error(array('last_error_insert_original_strings' => $this->db->last_error));
@@ -354,7 +354,12 @@ class TRP_Query{
         }
 
         $originals_table = $this->get_table_name_for_original_strings();
-        $this->db->query( "DELETE t1 FROM `$originals_table` t1 INNER JOIN `$originals_table` t2 WHERE t1.id > t2.id AND t1.original = BINARY t2.original" );
+        $charset_collate = $this->db->get_charset_collate();
+        $charset = "utf8mb4";
+        if( strpos( 'latin1', $charset_collate ) === 0 )
+            $charset = "latin1";
+
+        $this->db->query( "DELETE t1 FROM `$originals_table` t1 INNER JOIN `$originals_table` t2 WHERE t1.id > t2.id AND t1.original COLLATE ".$charset."_bin = t2.original" );
 
         if (!empty($this->db->last_error)) {
             $this->error_manager->record_error(array('last_error_cleaning_original_strings' => $this->db->last_error));
@@ -378,11 +383,15 @@ class TRP_Query{
 
         $originals_table = $this->get_table_name_for_original_strings();
         $table_name = sanitize_text_field( $this->get_table_name( $language_code, $this->settings['default-language'] ) );
+        $charset_collate = $this->db->get_charset_collate();
+        $charset = "utf8mb4";
+        if( strpos( 'latin1', $charset_collate ) === 0 )
+            $charset = "latin1";
 
         /*
         *  perform a UPDATE JOIN with the original table https://www.mysqltutorial.org/mysql-update-join/
         */
-        $update_records = $this->db->query( $this->db->prepare( "UPDATE $table_name, $originals_table SET $table_name.original_id = $originals_table.id WHERE $table_name.original = BINARY $originals_table.original AND $table_name.id > %d AND $table_name.id <= %d", $inferior_limit, ($inferior_limit + $batch_size) ) );
+        $update_records = $this->db->query( $this->db->prepare( "UPDATE $table_name, $originals_table SET $table_name.original_id = $originals_table.id WHERE $table_name.original COLLATE ". $charset ."_bin = $originals_table.original AND $table_name.id > %d AND $table_name.id <= %d", $inferior_limit, ($inferior_limit + $batch_size) ) );
 
         if (!empty($this->db->last_error)) {
             $this->error_manager->record_error(array('last_error_reindex_original_ids' => $this->db->last_error));

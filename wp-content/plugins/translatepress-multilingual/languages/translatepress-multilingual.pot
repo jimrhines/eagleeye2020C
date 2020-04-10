@@ -25,10 +25,6 @@ msgstr ""
 msgid "All Languages"
 msgstr ""
 
-#: ../tp-add-on-seo-pack/class-seo-pack.php:145
-msgid "The Yoast SEO Sitemaps will now contain the default language slug: example.com/en/sitemap_index.xml <br/> This works perfectly, just take it into account when submitting the sitemap to Google."
-msgstr ""
-
 #: ../translatepress/index.php:62
 msgid "<strong>TranslatePress</strong> requires at least PHP version 5.6.20+ to run. It is the <a href=\"%s\">minimum requirement of the latest WordPress version</a>. Please contact your server administrator to update your PHP version."
 msgstr ""
@@ -633,6 +629,14 @@ msgstr ""
 msgid "Page Title"
 msgstr ""
 
+#: ../translatepress/includes/class-translation-render.php:187
+msgid "Dublin Core Title"
+msgstr ""
+
+#: ../translatepress/includes/class-translation-render.php:193
+msgid "Dublin Core Description"
+msgstr ""
+
 #: ../translatepress/includes/class-upgrade.php:115
 msgid "Inserting original strings for language %s..."
 msgstr ""
@@ -669,7 +673,7 @@ msgstr ""
 msgid "Update aborted! Invalid nonce."
 msgstr ""
 
-#: ../translatepress/includes/class-upgrade.php:203, ../translatepress/includes/class-upgrade.php:308, ../translatepress/includes/class-upgrade.php:456, ../translatepress/includes/class-upgrade.php:461
+#: ../translatepress/includes/class-upgrade.php:203, ../translatepress/includes/class-upgrade.php:309, ../translatepress/includes/class-upgrade.php:457, ../translatepress/includes/class-upgrade.php:462
 msgid "Back to TranslatePress Settings"
 msgstr ""
 
@@ -697,27 +701,27 @@ msgstr ""
 msgid " done."
 msgstr ""
 
-#: ../translatepress/includes/class-upgrade.php:456
+#: ../translatepress/includes/class-upgrade.php:457
 msgid "Done."
 msgstr ""
 
-#: ../translatepress/includes/class-upgrade.php:461
+#: ../translatepress/includes/class-upgrade.php:462
 msgid "Invalid nonce."
 msgstr ""
 
-#: ../translatepress/includes/class-upgrade.php:481
+#: ../translatepress/includes/class-upgrade.php:482
 msgid "Querying table <strong>%s</strong>"
 msgstr ""
 
-#: ../translatepress/includes/class-upgrade.php:511
+#: ../translatepress/includes/class-upgrade.php:512
 msgid "%s duplicates removed"
 msgstr ""
 
-#: ../translatepress/includes/class-upgrade.php:541
+#: ../translatepress/includes/class-upgrade.php:542
 msgid "If the page does not redirect automatically"
 msgstr ""
 
-#: ../translatepress/includes/class-upgrade.php:541
+#: ../translatepress/includes/class-upgrade.php:542
 msgid "click here"
 msgstr ""
 

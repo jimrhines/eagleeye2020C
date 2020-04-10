@@ -5,7 +5,7 @@ Tags: attachments, gallery, images, media, media library, tags, categories, IPTC
 Requires at least: 3.5.0
 Tested up to: 5.4
 Requires PHP: 5.3
-Stable tag: 2.82
+Stable tag: 2.83
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -181,6 +181,10 @@ All of the MLA source code has been annotated with "DocBlocks", a special type o
 
 == Changelog ==
 
+= 2.83 =
+* Fix: For Admin Columns Pro v5.1+, correct "Fatal error: Class ACP_Addon_MLA_Export_Strategy..." problem.
+* Fix: For the Media Manager Modal (popup) Window, correct positioning of the attachments area below the toolbar.
+
 = 2.82 =
 * New: For the "MLA Insert Fixit" example plugin, new "Figure Caption" tools let you add or replace `<figcaption>` values for items and galleries in the body of a post/page.
 * New: For the "MLA Insert Fixit" example plugin, a new "Item fields to parent" tool lets you copy custom field values from attached items to their parent post/page.
@@ -332,8 +336,8 @@ All of the MLA source code has been annotated with "DocBlocks", a special type o
 
 == Upgrade Notice ==
 
-= 2.82 =
-Compatibility updates for WordPress 5.4. Security fixes to prevent three categories of attacks. New tools for "MLA Insert Fixit" and “WooCommerce Fixit Tools" example plugins. Fixes for `[mla_gallery]` and Media Manager Modal Window.  Seven enhancements in all, eleven fixes.
+= 2.83 =
+Avoid "Fatal error:" with Admin Columns Pro version 5.1+. Fix Attachments area positioning in the Media Manager Modal (popup) Window. Two fixes in all.
 
 == Other Notes ==
 

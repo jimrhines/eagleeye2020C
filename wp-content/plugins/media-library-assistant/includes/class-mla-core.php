@@ -21,7 +21,7 @@ class MLACore {
 	 *
 	 * @var	string
 	 */
-	const CURRENT_MLA_VERSION = '2.82';
+	const CURRENT_MLA_VERSION = '2.83';
 
 	/**
 	 * Slug for registering and enqueueing plugin style sheets (moved from class-mla-main.php)
@@ -1779,6 +1779,8 @@ class MLACore {
 		require_once( MLA_PLUGIN_PATH . 'includes/class-mla-admin-columns-support.php' );
 
 		if ( function_exists( 'ACP' ) ) {
+			$legacy_version = version_compare( ACP()->get_version(), '5.0.0', '<' );
+
 			if ( version_compare( ACP()->get_version(), '4.5', '>=' ) ) {
 				// Load the latest version, with bulk edit changes
 				require_once( MLA_PLUGIN_PATH . 'includes/class-mla-admin-columns-pro-support.php' );
@@ -1796,7 +1798,11 @@ class MLACore {
 				require_once( MLA_PLUGIN_PATH . 'includes/class-mla-admin-columns-pro-support-40.php' );
 			}
 
-			AC()->register_list_screen( new ACP_Addon_MLA_ListScreen );
+			if ( $legacy_version ) {
+				AC()->register_list_screen( new ACP_Addon_MLA_ListScreen );
+			} else {
+				AC\ListScreenTypes::instance()->register_list_screen( new ACP_Addon_MLA_ListScreen );
+			}
 		} else {
 			AC()->register_list_screen( new AC_Addon_MLA_ListScreen );
 		}

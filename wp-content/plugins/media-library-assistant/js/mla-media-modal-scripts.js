@@ -802,29 +802,67 @@ var wp, wpAjax, ajaxurl, jQuery, _,
 				console.log('toolbarEvent(  ) Event: ', eventName);
 			}, // */
 
-			toolbarOpen: function() {
-				var toolbarOffset, toolbarHeight, attachmentsOffset;
+			toolbarContentActivateBrowse: function() {
+				var toolbarHeight, primaryHeight, secondaryHeight;
 
-				toolbarOffset = $( '.attachments-browser .media-toolbar' ).offset();
-				toolbarHeight = $( '.attachments-browser .media-toolbar' ).height();
-				attachmentsOffset = $( '.attachments-browser .attachments' ).offset();
-				attachmentsOffset.top = toolbarHeight + toolbarOffset.top;
-				$( '.attachments-browser .attachments' ).offset( attachmentsOffset );
+				if ( ( null !== this.models ) && this.models.length && ( null !== this.models[0].active ) ) {
+					mlaModal.settings.$el = this.models[0].frame.$el;
 
-				$( window ).resize( function() {
-					var newHeight, toolbarOffset, attachmentsOffset;
+					// Need to find elements with reliable height
+					secondaryHeight = $( '.attachments-browser .media-toolbar-secondary', mlaModal.settings.$el ).height();
+					primaryHeight = $( '.media-toolbar-primary .mla-search-box', mlaModal.settings.$el ).height();
 
-					newHeight = $( '.media-toolbar', this.$el ).height();
-					if ( newHeight !== mlaModal.settings.oldHeight ) {
-
-						toolbarOffset = $( '.attachments-browser .media-toolbar' ).offset();
-						attachmentsOffset = $( '.attachments-browser .attachments' ).offset();
-						attachmentsOffset.top = newHeight + toolbarOffset.top;
-						$( '.attachments-browser .attachments' ).offset( attachmentsOffset );
-
-						mlaModal.settings.oldHeight = newHeight;
+					if ( primaryHeight > secondaryHeight ) {
+						toolbarHeight = primaryHeight;
+					} else {
+						toolbarHeight = secondaryHeight;
 					}
-				} )
+				
+					if ( ( null !== toolbarHeight ) ) {
+						$( '.attachments-browser .attachments', mlaModal.settings.$el ).css( 'top', toolbarHeight );
+						mlaModal.settings.oldHeight = toolbarHeight;
+					}
+				}
+			},
+
+			toolbarOpen: function() {
+				var toolbarHeight, primaryHeight, secondaryHeight;
+
+				if ( ( null !== this.models ) && this.models.length && ( null !== this.models[0].active ) ) {
+					mlaModal.settings.$el = this.models[0].frame.$el;
+
+					secondaryHeight = $( '.attachments-browser .media-toolbar-secondary', mlaModal.settings.$el ).height();
+					primaryHeight = $( '.media-toolbar-primary .mla-search-box', mlaModal.settings.$el ).height();
+
+					if ( primaryHeight > secondaryHeight ) {
+						toolbarHeight = primaryHeight;
+					} else {
+						toolbarHeight = secondaryHeight;
+					}
+				
+					if ( ( null !== toolbarHeight ) ) {
+						$( '.attachments-browser .attachments', mlaModal.settings.$el ).css( 'top', toolbarHeight );
+						mlaModal.settings.oldHeight = toolbarHeight;
+					}
+
+					$( window ).resize( function() {
+						var toolbarHeight, primaryHeight, secondaryHeight;
+		
+						secondaryHeight = $( '.attachments-browser .media-toolbar-secondary', mlaModal.settings.$el ).height();
+						primaryHeight = $( '.media-toolbar-primary .mla-search-box', mlaModal.settings.$el ).height();
+		
+						if ( primaryHeight > secondaryHeight ) {
+							toolbarHeight = primaryHeight;
+						} else {
+							toolbarHeight = secondaryHeight;
+						}
+						
+						if ( ( null !== toolbarHeight ) && ( toolbarHeight !== mlaModal.settings.oldHeight ) ) {
+							$( '.attachments-browser .attachments' ).css( 'top', toolbarHeight );
+							mlaModal.settings.oldHeight = toolbarHeight;
+						}
+					} )
+				}
 			},
 
 			createToolbar: function() {
@@ -851,6 +889,7 @@ console.log( 'listening to controller events' );
 
 				mlaModal.settings.oldHeight = 0;
 				this.controller.on( 'open', this.toolbarOpen );
+				this.controller.on( 'content:activate:browse', this.toolbarContentActivateBrowse );
 
 				// Enhanced Media Library (eml) plugin has CSS styles that require this patch
 				if ( typeof window.eml !== "undefined" ) {

@@ -543,3 +543,15 @@ function trp_woo_fondy_payment_gateway_exclude_gettext_strings($translation, $te
 }
 
 
+/**
+ * Compatibility with Elementor Popups Links
+ *
+ * The url is urlencoded so we add the language to it but we shouldn't.
+ *
+ */
+add_filter('trp_skip_url_for_language', 'trp_skip_elementor_popup_action_from_url_converter', 10, 2);
+function trp_skip_elementor_popup_action_from_url_converter($value, $url){
+	if(strpos($url, '%23elementor-action') !== false){
+		return true;
+	}
+}

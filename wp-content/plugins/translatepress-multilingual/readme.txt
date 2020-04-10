@@ -3,9 +3,9 @@ Contributors: cozmoslabs, razvan.mo, madalin.ungureanu, cristophor
 Donate link: https://www.translatepress.com/
 Tags: translate, translation, multilingual, automatic translation, bilingual, front-end translation, google translate, language
 Requires at least: 3.1.0
-Tested up to: 5.3.2
+Tested up to: 5.4.0
 Requires PHP: 5.6.20
-Stable tag: 1.6.9
+Stable tag: 1.7.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -143,6 +143,14 @@ For more information please check out [TranslatePress - Multilingual plugin docu
 
 
 == Changelog ==
+= 1.7.0 =
+* Fixed compatibility issue with JetPack plugin in some cases
+* Fixed JS undefined controls error for some setups
+* Fixed translation memory not working properly for gettext in attributes
+* Added support for Dublin Core meta-data
+* Added support to ignore Elementor encoded url for popup action
+* Improved queries for the database upgrade process
+
 = 1.6.9 =
 * Fixed a conflict with Contact Form 7 plugin
 * Fixed some broken html issues caused by a custom trp wrap. Some Revolution Slider plugin issues are fixed by this.

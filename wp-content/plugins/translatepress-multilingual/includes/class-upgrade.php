@@ -289,6 +289,7 @@ class TRP_Upgrade {
 			}
 		}else{
 			$request['trp_updb_lang'] = $language_code;
+            $request['progress_message'] = '.';
 		}
 
 		$query_arguments = array(

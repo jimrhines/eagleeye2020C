@@ -174,9 +174,18 @@ class TRP_Url_Converter {
      */
 
     public function get_url_for_language ( $language = null, $url = null, $trp_link_is_processed = '#TRPLINKPROCESSED') {
-        $debug = false;
-        // initializations
-        global $TRP_LANGUAGE;
+	    $debug = false;
+	    // initializations
+	    global $TRP_LANGUAGE;
+
+	    if ( empty($url) ){
+		    $url = $this->cur_page_url();
+	    }
+
+	    if(apply_filters('trp_skip_url_for_language', false, $url)){
+		    return (string)$url;
+	    }
+
         $hash = hash( 'md4', (string)$language . (string)$url . (string)$trp_link_is_processed . (string)$TRP_LANGUAGE );
         $new_url = wp_cache_get('get_url_for_language_' . $hash, 'trp');
         if ( $new_url !== false ){
@@ -186,10 +195,6 @@ class TRP_Url_Converter {
         $trp_language_copy = $TRP_LANGUAGE;
         if ( empty( $language ) ) {
             $language = $TRP_LANGUAGE;
-        }
-
-        if ( empty($url) ){
-            $url = $this->cur_page_url();
         }
 
         $url_obj = wp_cache_get('url_obj_' . hash('md4', $url), 'trp');
