@@ -76,7 +76,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 															if( $images ): ?>
 															    <?php foreach( $images as $image ): ?>
 																    <div class="carousel-item">
-																		<img src="<?php echo $image['sizes']['large']; ?>" alt="<?php echo $image['alt']; ?>" />
+																		<img src="<?php echo $image['sizes']['1536x1536']; ?>" alt="<?php echo $image['alt']; ?>" />
 																    </div>
 																<?php endforeach; ?>
 													  		<?php endif; ?>
