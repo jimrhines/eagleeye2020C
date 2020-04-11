@@ -41,11 +41,17 @@ $container = get_theme_mod( 'understrap_container_type' );
 			<div class="row d-print-none">
 				<div id="eeps-footer-navigation" class="col-12 col-lg-9">
 					<div class="row">
-						<div class="col-6">
+						<div class="col-6 col-md-3">
 							<?php wp_nav_menu( array( 'theme_location' => 'footer-col-one' ) ); ?>
 						</div>
-						<div class="col-6">
+						<div class="col-6 col-md-3">
 							<?php wp_nav_menu( array( 'theme_location' => 'footer-col-two' ) ); ?>
+						</div>
+						<div class="col-6 col-md-3">
+							<?php wp_nav_menu( array( 'theme_location' => 'footer-col-three' ) ); ?>
+						</div>
+						<div class="col-6 col-md-3">
+							<?php wp_nav_menu( array( 'theme_location' => 'footer-col-four' ) ); ?>
 						</div>
 					</div>
 					<a class="btn btn-primary" href="<?php echo get_permalink(13); ?>" role="button">Get a Quote &gt;</a>

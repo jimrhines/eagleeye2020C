@@ -37,6 +37,8 @@ function register_my_menus() {
         array(
             'footer-col-one' => __( 'Footer Column One' ),
             'footer-col-two' => __( 'Footer Column Two' ),
+            'footer-col-three' => __( 'Footer Column Three' ),
+            'footer-col-four' => __( 'Footer Column Four' ),
             'products-col-one' => __( 'Products Column One' ),
             'products-col-two' => __( 'Products Column Two' ),
             'products-col-three' => __( 'Products Column Three' ),
