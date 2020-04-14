@@ -119,7 +119,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 							</div-->
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="<?php echo get_permalink(753); ?>">Training</a>
+							<a class="nav-link" href="<?php echo get_permalink(297); ?>">Training</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="<?php echo get_permalink(391); ?>">News &amp; Events</a>
