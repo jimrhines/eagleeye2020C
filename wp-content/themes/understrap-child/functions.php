@@ -839,10 +839,7 @@ function wpcf7_post_form_values($contact_form){
         $product_name = $formdata["product-name"];
         $system_needs = $formdata["product-needs"];
         $subscription_consent = $formdata['opt-in'];
-   }
-
-
-echo "ProductName=".$product_name;
+    }
 
     define("NETSUITE_URL", "https://1324912.restlets.api.netsuite.com/app/site/hosting/restlet.nl");
     define("NETSUITE_URL_2", "https://1324912.restlets.api.netsuite.com/app/site/hosting/restlet.nl?script=6&deploy=1");
