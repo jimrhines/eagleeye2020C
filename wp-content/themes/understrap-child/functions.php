@@ -837,6 +837,7 @@ function wpcf7_post_form_values($contact_form){
         }
         $product_name = $formdata["product-name"];
         $system_needs = $formdata["product-needs"];
+        $subscription_consent = $formdata['opt-in'];
     }
 
     define("NETSUITE_URL", "https://1324912.restlets.api.netsuite.com/app/site/hosting/restlet.nl");
@@ -859,7 +860,7 @@ function wpcf7_post_form_values($contact_form){
     }
 
     function sendOrderToNS() {
-        global $first_name, $last_name, $email, $phone, $company, $NScountry, $product_name, $system_needs;
+        global $first_name, $last_name, $email, $phone, $company, $NScountry, $product_name, $system_needs, $subscription_consent;
         $details = array(array("recordtype" => "lead",
                     "action" => "create",
                     "first_name" => $first_name,
@@ -869,7 +870,8 @@ function wpcf7_post_form_values($contact_form){
                     "company" => $company,
                     "country" => $NScountry,
                     "product_name" => $product_name,
-                    "system_needs" => $system_needs));
+                    "system_needs" => $system_needs,
+                    "subscription_consent" => $subscription_consent));
 
         $data_string = json_encode($details);
 
@@ -934,7 +936,6 @@ function wpcf7_post_form_values($contact_form){
         }
 
         //print($result); // Authentication error.
-        header("Location: ../request-quote-confirmation");
         curl_close($ch);
     }
 
