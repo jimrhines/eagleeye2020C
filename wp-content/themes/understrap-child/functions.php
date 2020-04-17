@@ -65,8 +65,9 @@ add_action( 'init', 'register_my_menus' );
 //Send RFQ form data to NetSuite
 add_action( 'wpcf7_before_send_mail', 'wpcf7_post_form_values' );
 function wpcf7_post_form_values($contact_form){
+    $form_id = $contact_form->id();
 
-    if (!isset($contact_form->posted_data) && class_exists(‘WPCF7_Submission’)) {
+    if( $form_id == 7 ) {
         $submission = WPCF7_Submission::get_instance();
         if ($submission) {
             $formdata = $submission->get_posted_data();
@@ -838,7 +839,10 @@ function wpcf7_post_form_values($contact_form){
         $product_name = $formdata["product-name"];
         $system_needs = $formdata["product-needs"];
         $subscription_consent = $formdata['opt-in'];
-    }
+   }
+
+
+echo "ProductName=".$product_name;
 
     define("NETSUITE_URL", "https://1324912.restlets.api.netsuite.com/app/site/hosting/restlet.nl");
     define("NETSUITE_URL_2", "https://1324912.restlets.api.netsuite.com/app/site/hosting/restlet.nl?script=6&deploy=1");
@@ -858,86 +862,81 @@ function wpcf7_post_form_values($contact_form){
 
         return $str;
     }
+    
+    $details = array(array("recordtype" => "lead",
+                "action" => "create",
+                "first_name" => $first_name,
+                "last_name" => $last_name,
+                "email" => $email,
+                "phone" => $phone,
+                "company" => $company,
+                "country" => $NScountry,
+                "product_name" => $product_name,
+                "system_needs" => $system_needs,
+                "subscription_consent" => $subscription_consent));
 
-    function sendOrderToNS() {
-        global $first_name, $last_name, $email, $phone, $company, $NScountry, $product_name, $system_needs, $subscription_consent;
-        $details = array(array("recordtype" => "lead",
-                    "action" => "create",
-                    "first_name" => $first_name,
-                    "last_name" => $last_name,
-                    "email" => $email,
-                    "phone" => $phone,
-                    "company" => $company,
-                    "country" => $NScountry,
-                    "product_name" => $product_name,
-                    "system_needs" => $system_needs,
-                    "subscription_consent" => $subscription_consent));
+    $data_string = json_encode($details);
+echo $data_string;
+    $oauth_nonce = rand_string(20);
+    $oauth_timestamp = time();
+    $oauth_signature_method = "HMAC-SHA1";
+    $oauth_version = "1.0";
+    $base_string =
+        "POST&" . rawurlencode(NETSUITE_URL) . "&" .
+        rawurlencode(
+            "deploy=" . "1"
+                . "&oauth_consumer_key=" . NETSUITE_CONSUMER_KEY
+                . "&oauth_nonce=" . $oauth_nonce
+                . "&oauth_signature_method=" . $oauth_signature_method
+                . "&oauth_timestamp=" . $oauth_timestamp
+                . "&oauth_token=" . NETSUITE_TOKEN_ID
+                . "&oauth_version=" . $oauth_version
+                . "&script=" . "6"
+            );
+    $sig_string = rawurlencode(NETSUITE_CONSUMER_SECRET) . '&' . rawurlencode(NETSUITE_TOKEN_SECRET);
+    $signature = base64_encode(hash_hmac("sha1", $base_string, $sig_string, true));
 
-        $data_string = json_encode($details);
+    $auth_header = 'OAuth '
+        . 'oauth_signature="' . rawurlencode($signature) . '",'
+        . 'oauth_version="' . rawurlencode($oauth_version) . '",'
+        . 'oauth_nonce="' . rawurlencode($oauth_nonce) . '",'
+        . 'oauth_signature_method="' . rawurlencode($oauth_signature_method) . '",'
+        . 'oauth_consumer_key="' . rawurlencode(NETSUITE_CONSUMER_KEY) . '",'
+        . 'oauth_token="' . rawurlencode(NETSUITE_TOKEN_ID) . '",'
+        . 'oauth_timestamp="' . $oauth_timestamp . '",'
+        . 'realm="' . rawurlencode(NETSUITE_ACCOUNT) .'"';
 
-        $oauth_nonce = rand_string(20);
-        $oauth_timestamp = time();
-        $oauth_signature_method = "HMAC-SHA1";
-        $oauth_version = "1.0";
-        $base_string =
-            "POST&" . rawurlencode(NETSUITE_URL) . "&" .
-            rawurlencode(
-                "deploy=" . "1"
-                    . "&oauth_consumer_key=" . NETSUITE_CONSUMER_KEY
-                    . "&oauth_nonce=" . $oauth_nonce
-                    . "&oauth_signature_method=" . $oauth_signature_method
-                    . "&oauth_timestamp=" . $oauth_timestamp
-                    . "&oauth_token=" . NETSUITE_TOKEN_ID
-                    . "&oauth_version=" . $oauth_version
-                    . "&script=" . "6"
-                );
-        $sig_string = rawurlencode(NETSUITE_CONSUMER_SECRET) . '&' . rawurlencode(NETSUITE_TOKEN_SECRET);
-        $signature = base64_encode(hash_hmac("sha1", $base_string, $sig_string, true));
+    //echo "<br><br>Signature:<br><br>";
+    //echo $signature."<br>";
+    //echo rawurlencode($signature);
+    
+    $auth_header_net = 'OAuth oauth_signature="rr%2FMGnVdECllQ9VjFr7uhXrvoV4%3D",oauth_version="1.0",oauth_nonce="qUcnY4KQk5s7mP6BTnjx",oauth_signature_method="HMAC-SHA1",oauth_consumer_key="934688c5814379c8312c2a9bf86dd358849e6918c81aa98e1f75345e11731bc4",oauth_token="a6fb1b38575c62ccef5eb818120f1cb67809191e7881eae141ea903351508aea",oauth_timestamp="1524518367",realm="1324912_SB1"';
 
-        $auth_header = 'OAuth '
-            . 'oauth_signature="' . rawurlencode($signature) . '",'
-            . 'oauth_version="' . rawurlencode($oauth_version) . '",'
-            . 'oauth_nonce="' . rawurlencode($oauth_nonce) . '",'
-            . 'oauth_signature_method="' . rawurlencode($oauth_signature_method) . '",'
-            . 'oauth_consumer_key="' . rawurlencode(NETSUITE_CONSUMER_KEY) . '",'
-            . 'oauth_token="' . rawurlencode(NETSUITE_TOKEN_ID) . '",'
-            . 'oauth_timestamp="' . $oauth_timestamp . '",'
-            . 'realm="' . rawurlencode(NETSUITE_ACCOUNT) .'"';
+    //echo "<br><br>Auth Header:<br>";
+    //echo $auth_header;
+    //echo "<br><br>.Net Auth Header:<br>";
+    //echo $auth_header_net."<br><br>";
 
-        //echo "<br><br>Signature:<br><br>";
-        //echo $signature."<br>";
-        //echo rawurlencode($signature);
-        
-        $auth_header_net = 'OAuth oauth_signature="rr%2FMGnVdECllQ9VjFr7uhXrvoV4%3D",oauth_version="1.0",oauth_nonce="qUcnY4KQk5s7mP6BTnjx",oauth_signature_method="HMAC-SHA1",oauth_consumer_key="934688c5814379c8312c2a9bf86dd358849e6918c81aa98e1f75345e11731bc4",oauth_token="a6fb1b38575c62ccef5eb818120f1cb67809191e7881eae141ea903351508aea",oauth_timestamp="1524518367",realm="1324912_SB1"';
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, NETSUITE_URL_2);
+    curl_setopt($ch, CURLOPT_POST, true); //changed "POST" to true
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, [
+        'User-Agent-x:SuiteScript-Call',
+        'Authorization:' . $auth_header,
+        'Content-Type:application/json',
+        'Accept:application/json',
+        'Content-Length:' . strlen($data_string)
+    ]);
 
-        //echo "<br><br>Auth Header:<br>";
-        //echo $auth_header;
-        //echo "<br><br>.Net Auth Header:<br>";
-        //echo $auth_header_net."<br><br>";
+    $result = curl_exec($ch);
 
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, NETSUITE_URL_2);
-        curl_setopt($ch, CURLOPT_POST, true); //changed "POST" to true
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, [
-            'User-Agent-x:SuiteScript-Call',
-            'Authorization:' . $auth_header,
-            'Content-Type:application/json',
-            'Accept:application/json',
-            'Content-Length:' . strlen($data_string)
-        ]);
-
-        $result = curl_exec($ch);
-
-        if ($result === false) //We are not hitting this since we are getting a server response.
-        {
-            print_r('Curl error: ' . curl_error($ch));
-        }
-
-        //print($result); // Authentication error.
-        curl_close($ch);
+    if ($result === false) //We are not hitting this since we are getting a server response.
+    {
+        print_r('Curl error: ' . curl_error($ch));
     }
 
-    sendOrderToNS(); //Call the function to test.
+    //print($result); // Authentication error.
+    curl_close($ch);
 }
