@@ -877,7 +877,7 @@ function wpcf7_post_form_values($contact_form){
                 "subscription_consent" => $subscription_consent));
 
     $data_string = json_encode($details);
-echo $data_string;
+//echo $data_string;
     $oauth_nonce = rand_string(20);
     $oauth_timestamp = time();
     $oauth_signature_method = "HMAC-SHA1";
