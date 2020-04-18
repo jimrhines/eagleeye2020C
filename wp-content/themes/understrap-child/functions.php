@@ -62,6 +62,10 @@ function register_my_menus() {
 }
 add_action( 'init', 'register_my_menus' );
 
+if( function_exists('acf_add_options_page') ) {
+    acf_add_options_page();  
+}
+
 //Send RFQ form data to NetSuite
 add_action( 'wpcf7_before_send_mail', 'wpcf7_post_form_values' );
 function wpcf7_post_form_values($contact_form){

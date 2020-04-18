@@ -50,7 +50,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 					<img src="<?php echo esc_url( home_url( '/' ) ); ?>wp-content/themes/understrap-child/img/eeps-logo.svg" alt="Eagle Eye Power Solutions" />
 				</div>
 				<div class="col-8">
-					1-877-805-3377
+					<?php the_field('corporate_phone_number', 'option'); ?>
 				</div>
 			</div>
 		</div>
