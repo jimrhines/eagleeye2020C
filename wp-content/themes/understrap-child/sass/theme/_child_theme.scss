@@ -119,6 +119,10 @@ img[src$=".svg"] {
 	padding: 1rem 0;
 
 	.navbar-brand {
+		/*Firefox only*/
+		@media all and (min--moz-device-pixel-ratio:0) {
+			width: 20%;
+		}
 		@include media-breakpoint-down(xs) {
 			width: 70%;
 		}
