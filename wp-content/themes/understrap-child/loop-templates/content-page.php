@@ -14,7 +14,7 @@ defined( 'ABSPATH' ) || exit;
 } ?>
 
 <div class="row">
-	<div class="col-md-8">
+	<div id="general-content" class="col-md-8">
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 		<?php the_content(); ?>
 	</div>

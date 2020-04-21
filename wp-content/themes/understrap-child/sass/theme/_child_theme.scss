@@ -484,6 +484,10 @@ img[src$=".svg"] {
 		}
 	}
 }
+/*Default Template*/
+#general-content {
+	padding: $mobile-container-padding;
+}
 
 /*Divisions Template*/
 .landing-hero {

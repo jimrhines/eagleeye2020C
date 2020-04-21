@@ -11955,6 +11955,10 @@ img[src$=".svg"] {
     #eagle-eye-committment i:hover {
       color: #FEE300; }
 
+/*Default Template*/
+#general-content {
+  padding: 1rem 2rem; }
+
 /*Divisions Template*/
 .landing-hero {
   display: block;
