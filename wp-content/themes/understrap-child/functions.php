@@ -66,6 +66,15 @@ if( function_exists('acf_add_options_page') ) {
     acf_add_options_page();  
 }
 
+//Enable uploading of custom mime types to media library
+add_filter('upload_mimes', 'custom_upload_mimes');
+function custom_upload_mimes ( $existing_mimes=array() ) {
+    // add your extension to the mimes array as below
+    $existing_mimes['zip'] = 'application/zip';
+    $existing_mimes['gz'] = 'application/x-gzip';
+    return $existing_mimes;
+}
+
 //Send RFQ form data to NetSuite
 add_action( 'wpcf7_before_send_mail', 'wpcf7_post_form_values' );
 function wpcf7_post_form_values($contact_form){
