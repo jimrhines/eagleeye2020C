@@ -43,18 +43,12 @@ class TRP_Languages{
             $this->is_admin_request= $trp_is_admin_request->is_admin_request();
         }
 
-        if ( !$this->settings ){
-            $trp = TRP_Translate_Press::get_trp_instance();
-            $trp_settings = $trp->get_component( 'settings' );
-            $this->settings = $trp_settings->get_settings();
-        }
-
 		if ( $this->is_admin_request )
 		    return $locale;
 
 
 	    global $TRP_LANGUAGE;
-		if( !empty($TRP_LANGUAGE) && $this->settings["default-language"] != $TRP_LANGUAGE ){
+		if( !empty($TRP_LANGUAGE) ){
 			$locale = $TRP_LANGUAGE;
 		}
 		return $locale;

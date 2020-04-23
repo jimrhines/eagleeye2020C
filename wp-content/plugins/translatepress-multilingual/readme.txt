@@ -5,7 +5,7 @@ Tags: translate, translation, multilingual, automatic translation, bilingual, fr
 Requires at least: 3.1.0
 Tested up to: 5.4.0
 Requires PHP: 5.6.20
-Stable tag: 1.7.0
+Stable tag: 1.7.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -143,6 +143,11 @@ For more information please check out [TranslatePress - Multilingual plugin docu
 
 
 == Changelog ==
+= 1.7.1 =
+* Fixed issue with gettext when TranslatePress default language is different from WordPress default language
+* Fixed Monthly/Yearly archives showing incorrect month/year
+* Added message to activate Extra languages add-on when trying to add a new language.
+
 = 1.7.0 =
 * Fixed compatibility issue with JetPack plugin in some cases
 * Fixed JS undefined controls error for some setups

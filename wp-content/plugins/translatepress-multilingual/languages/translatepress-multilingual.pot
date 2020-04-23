@@ -17,11 +17,11 @@ msgstr ""
 msgid "Error! Duplicate URL slug values."
 msgstr ""
 
-#: ../tp-add-on-navigation-based-on-language/class-navigation-based-on-language.php:71
+#: ../tp-add-on-navigation-based-on-language/class-navigation-based-on-language.php:75
 msgid "Limit this menu item to the following languages"
 msgstr ""
 
-#: ../tp-add-on-navigation-based-on-language/class-navigation-based-on-language.php:77, ../tp-add-on-extra-languages/partials/language-selector-pro.php:2, ../translatepress/partials/main-settings-language-selector.php:2
+#: ../tp-add-on-navigation-based-on-language/class-navigation-based-on-language.php:81, ../tp-add-on-extra-languages/partials/language-selector-pro.php:2, ../translatepress/partials/main-settings-language-selector.php:2
 msgid "All Languages"
 msgstr ""
 
@@ -877,12 +877,16 @@ msgstr ""
 msgid "Select the language you wish to make your website available in."
 msgstr ""
 
-#: ../translatepress/partials/main-settings-language-selector.php:65
-msgid "To add <strong>more then two languages</strong> and support for SEO Title, Description, Slug and more check out <a href=\"%s\" class=\"button button-primary\" target=\"_blank\" title=\"TranslatePress Pro\">TranslatePress PRO</a>"
+#: ../translatepress/partials/main-settings-language-selector.php:66
+msgid "To add <strong>more than two languages</strong> download and install the <strong>Extra Languages Add-on</strong> from <a href=\"%s\" class=\"trp-translatepress-account-page\" target=\"_blank\" title=\"TranslatePress Account page\">your account</a>. Once activated, you'll be able to add unlimited languages."
 msgstr ""
 
-#: ../translatepress/partials/main-settings-language-selector.php:66
-msgid "Not only you are getting extra features and premium support, you also help fund the future development of TranslatePress."
+#: ../translatepress/partials/main-settings-language-selector.php:69
+msgid "To add <strong>more than two languages</strong> and support for SEO Title, Description, Slug and more check out <a href=\"%s\" class=\"button button-primary\" target=\"_blank\" title=\"TranslatePress Pro\">TranslatePress PRO</a>"
+msgstr ""
+
+#: ../translatepress/partials/main-settings-language-selector.php:70
+msgid "Not only are you getting extra features and premium support, but you also help fund the future development of TranslatePress."
 msgstr ""
 
 #: ../translatepress/partials/main-settings-page.php:10

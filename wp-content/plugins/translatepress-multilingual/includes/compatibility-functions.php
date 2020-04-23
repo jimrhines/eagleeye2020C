@@ -554,4 +554,26 @@ function trp_skip_elementor_popup_action_from_url_converter($value, $url){
 	if(strpos($url, '%23elementor-action') !== false){
 		return true;
 	}
+	return $value;
+}
+
+/**
+ * Strip gettext wrapping from get_the_date function parameter $d
+ */
+add_filter('get_the_date','trp_strip_gettext_from_get_the_date', 1, 3);
+function trp_strip_gettext_from_get_the_date($the_date, $d, $post){
+    $d = TRP_Translation_Manager::strip_gettext_tags( $d );
+    $post = get_post( $post );
+
+    if ( ! $post ) {
+        return false;
+    }
+
+    if ( '' == $d ) {
+        $the_date = get_post_time( get_option( 'date_format' ), false, $post, true );
+    } else {
+        $the_date = get_post_time( $d, false, $post, true );
+    }
+
+    return $the_date;
 }
