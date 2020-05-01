@@ -93,31 +93,6 @@ $container = get_theme_mod( 'understrap_container_type' );
 </div><!-- #page we need this extra closing tag here -->
 
 <?php wp_footer(); ?>
-<!--VISISTAT SNIPPET//-->
-<script>
-	//<![CDATA[
-	var DID=231953;
-	var pcheck=(window.location.protocol == "https:") ? "https://sniff.visistat.com/live.js":"http://stats.visistat.com/live.js";
-	document.writeln('<scr'+'ipt src="'+pcheck+'" type="text\/javascript"><\/scr'+'ipt>');
-	//]]>
-</script>
-<!--VISISTAT SNIPPET//-->
-<!-- Begin WebTrax -->
-<script>
-	var wto = wto || [];
-	wto.push(['setWTID', 'eepowersolutions']);
-	wto.push(['webTraxs']);
-	(function() {
-	var wt = document.createElement('script');
-	wt.src = document.location.protocol + '//www.webtraxs.com/wt.php';
-	wt.type = 'text/javascript';
-	wt.async = true;
-	var s = document.getElementsByTagName('script')[0];
-	s.parentNode.insertBefore(wt, s);
-	})();
-</script>
-<noscript><img src="https://www.webtraxs.com/webtraxs.php?id=eepowersolutions&st=img" alt="" /></noscript>
-<!-- End WebTrax -->
 </body>
 
 </html>
