@@ -159,6 +159,7 @@ class TRP_Advanced_Tab {
         include_once(TRP_PLUGIN_DIR . 'includes/advanced-settings/disable-post-container-tags.php');
         include_once(TRP_PLUGIN_DIR . 'includes/advanced-settings/separators.php');
         include_once(TRP_PLUGIN_DIR . 'includes/advanced-settings/disable-languages-sitemap.php');
+        include_once(TRP_PLUGIN_DIR . 'includes/advanced-settings/remove-duplicates-from-db.php');
 	}
 
 	/*
@@ -214,6 +215,9 @@ class TRP_Advanced_Tab {
 				case 'list':
 					echo $this->add_to_list_setting( $setting );
 					break;
+				case 'text':
+                    echo $this->text_setting( $setting );
+                    break;
 			}
 		}
 	}
@@ -358,6 +362,25 @@ class TRP_Advanced_Tab {
         }
         $html .="<tr><td><h2>" . $setting['label'] . "<h2></td></tr>";
         return apply_filters('trp_advanced_setting_separator', $html );
+    }
+    /**
+     * Return HTML of a text type setting
+     *
+     * @param $setting
+     *
+     * @return 'string'
+     */
+    public function text_setting( $setting ){
+        $html = "
+             <tr>
+                <th scope='row'>" . $setting['label'] . "</th>
+                <td>
+	                <p class='description'>
+                        " . $setting['description'] . "
+                    </p>
+                </td>
+            </tr>";
+        return apply_filters('trp_advanced_setting_text', $html );
     }
 
 	/**

@@ -139,6 +139,7 @@ class TRP_Editor_Api_Gettext_Strings {
 							if ( isset( $string->id ) && is_numeric( $string->id ) ) {
 								array_push($update_strings[ $language ], array(
 									'id' => (int)$string->id,
+                                    'original' => trp_sanitize_string( $string->original ),
 									'translated' => trp_sanitize_string( $string->translated ),
 									'domain' => sanitize_text_field( $string->domain ),
 									'status' => (int)$string->status
@@ -155,6 +156,7 @@ class TRP_Editor_Api_Gettext_Strings {
 
 				foreach( $update_strings as $language => $update_string_array ) {
 					$this->trp_query->update_gettext_strings( $update_string_array, $language, array('id','translated', 'status') );
+                    $this->trp_query->remove_possible_duplicates($update_string_array, $language, 'gettext');
 				}
 			}
 		}

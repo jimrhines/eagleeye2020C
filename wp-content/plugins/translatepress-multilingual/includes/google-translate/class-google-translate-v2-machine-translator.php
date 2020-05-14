@@ -27,6 +27,7 @@ class TRP_Google_Translate_V2_Machine_Translator extends TRP_Machine_Translator 
         $response = wp_remote_post( "https://www.googleapis.com/language/translate/v2", array(
                 'headers' => array(
                     'X-HTTP-Method-Override' => 'GET', //this fakes a GET request
+                    'timeout'                => 45,
                     'Referer'                => $referer
                 ),
                 'body' => $translation_request,

@@ -27,6 +27,9 @@ class TRP_Translate_Press{
     protected $translation_memory;
     protected $machine_translation_tab;
     protected $error_manager;
+    protected $string_translation;
+    protected $string_translation_api_regular;
+    protected $notifications;
     protected $search;
 
     public $active_pro_addons = array();
@@ -53,7 +56,7 @@ class TRP_Translate_Press{
         define( 'TRP_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
         define( 'TRP_PLUGIN_BASE', plugin_basename( __DIR__ . '/index.php' ) );
         define( 'TRP_PLUGIN_SLUG', 'translatepress-multilingual' );
-        define( 'TRP_PLUGIN_VERSION', '1.7.1' );
+        define( 'TRP_PLUGIN_VERSION', '1.7.3' );
 
 	    wp_cache_add_non_persistent_groups(array('trp'));
 
@@ -105,6 +108,8 @@ class TRP_Translate_Press{
         require_once TRP_PLUGIN_DIR . 'assets/lib/simplehtmldom/simple_html_dom.php';
         require_once TRP_PLUGIN_DIR . 'includes/shortcodes.php';
         require_once TRP_PLUGIN_DIR . 'includes/class-machine-translation-tab.php';
+        require_once TRP_PLUGIN_DIR . 'includes/string-translation/class-string-translation.php';
+        require_once TRP_PLUGIN_DIR . 'includes/string-translation/class-string-translation-helper.php';
         require_once TRP_PLUGIN_DIR . 'includes/class-search.php';
         if ( did_action( 'elementor/loaded' ) )
             require_once TRP_PLUGIN_DIR . 'includes/class-elementor-language-for-blocks.php';
@@ -138,6 +143,7 @@ class TRP_Translate_Press{
         $this->license_page               = new TRP_LICENSE_PAGE();
         $this->translation_memory         = new TRP_Translation_Memory( $this->settings->get_settings() );
         $this->error_manager              = new TRP_Error_Manager( $this->settings->get_settings() );
+        $this->string_translation         = new TRP_String_Translation( $this->settings->get_settings(), $this->loader );
         $this->search                     = new TRP_Search( $this->settings->get_settings() );
     }
 
@@ -290,6 +296,11 @@ class TRP_Translate_Press{
         $this->loader->add_action( 'admin_head', $this->translation_manager, 'add_styling_to_admin_bar_button', 10 );
         $this->loader->add_filter( 'show_admin_bar', $this->translation_manager, 'hide_admin_bar_when_in_editor', 90 );
 
+        $this->loader->add_filter( 'template_include', $this->string_translation, 'string_translation_editor', 99999 );
+        $this->loader->add_filter( 'trp_string_types', $this->string_translation, 'register_string_types', 10, 1 );
+        $this->loader->add_filter( 'trp_editor_nonces', $this->string_translation, 'add_nonces_for_saving_translation', 10, 1 );
+        $this->loader->add_action( 'trp_string_translation_editor_footer', $this->string_translation, 'enqueue_scripts_and_styles' );
+        $this->loader->add_action( 'init', $this->string_translation, 'register_ajax_hooks' );
 
 
         $this->loader->add_filter( 'home_url', $this->url_converter, 'add_language_to_home_url', 1, 4 );

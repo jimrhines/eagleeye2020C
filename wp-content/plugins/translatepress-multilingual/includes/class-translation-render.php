@@ -514,6 +514,7 @@ class TRP_Translation_Render{
                 if( count( $row->parent()->children ) == 1 && $row->parent()->innertext == $row->outertext ){
                     $row->outertext = $row->innertext();
                     $row->parent()->setAttribute($no_translate_attribute, '');
+	                $row->parent()->setAttribute('data-trp-gettext', '');
                     // we are in the editor
                     if (isset($_REQUEST['trp-edit-translation']) && $_REQUEST['trp-edit-translation'] == 'preview') {
                         //move up the data-trpgettextoriginal attribute
@@ -827,7 +828,7 @@ class TRP_Translation_Render{
                 $this->url_converter->get_lang_from_url_string( $url ) == null &&
 	            !$is_admin_link &&
                 strpos($url, '#TRPLINKPROCESSED') === false &&
-	            !$this->has_ancestor_attribute( $a_href, $no_translate_attribute )
+	            ( !$this->has_ancestor_attribute( $a_href, $no_translate_attribute ) || $this->has_ancestor_attribute($a_href, 'data-trp-gettext') ) // add language param to link if it's inside a gettext
             ){
                 $a_href->href = apply_filters( 'trp_force_custom_links', $this->url_converter->get_url_for_language( $TRP_LANGUAGE, $url ), $url, $TRP_LANGUAGE, $a_href );
                 $url = $a_href->href;
@@ -992,6 +993,20 @@ class TRP_Translation_Render{
         }
     }
 
+	/**
+	 * Callback for the array_walk_recursive to process links inside json elements that might contain HTML. It processes the values in the resulting json array if they contain html
+	 * @param $value
+	 */
+	function custom_links_and_forms_json (&$value) {
+		//check if it a html text and translate
+		$html_decoded_value = html_entity_decode( (string) $value );
+		if ( $html_decoded_value != strip_tags( $html_decoded_value ) ) {
+			$value = TranslatePress\str_get_html( $value, true, true, TRP_DEFAULT_TARGET_CHARSET, false, TRP_DEFAULT_BR_TEXT, TRP_DEFAULT_SPAN_TEXT );
+			$value = $this->handle_custom_links_and_forms($value);
+			$value = $value->save();
+		}
+	}
+
     public function handle_custom_links_for_default_language(){
         return ( $this->settings['force-language-to-custom-links'] == 'yes' &&
             $this->is_first_language_not_default_language() &&
@@ -1006,6 +1021,35 @@ class TRP_Translation_Render{
      */
     public function render_default_language( $output ){
         if ( $this->handle_custom_links_for_default_language() ) {
+
+	        $json_array = json_decode( $output, true );
+	        /* If we have a json response we need to parse it and only translate the nodes that contain html
+			 *
+			 * Removed is_ajax_on_frontend() check because we need to capture custom ajax events.
+			 * Decided that if $output is json decodable it's a good enough check to handle it this way.
+			 * We have necessary checks so that we don't get to this point when is_admin(), or when language is not default.
+			 */
+	        if( $json_array && $json_array != $output ) {
+		        /* if it's one of our own ajax calls don't do nothing */
+		        if ( ! empty( $_REQUEST['action'] ) && strpos( $_REQUEST['action'], 'trp_' ) === 0 && $_REQUEST['action'] != 'trp_split_translation_block' ) {
+			        return $output;
+		        }
+
+		        //check if we have a json response
+		        if ( ! empty( $json_array ) ) {
+			        if( is_array( $json_array ) ) {
+				        array_walk_recursive($json_array, array($this, 'custom_links_and_forms_json'));
+			        } else {
+
+				        $html = TranslatePress\str_get_html( $json_array, true, true, TRP_DEFAULT_TARGET_CHARSET, false, TRP_DEFAULT_BR_TEXT, TRP_DEFAULT_SPAN_TEXT );
+				        $html = $this->handle_custom_links_and_forms($html);
+				        $json_array = $html->save();
+			        }
+		        }
+
+		        return trp_safe_json_encode( $json_array );
+	        }
+
             $html = TranslatePress\str_get_html( $output, true, true, TRP_DEFAULT_TARGET_CHARSET, false, TRP_DEFAULT_BR_TEXT, TRP_DEFAULT_SPAN_TEXT );
             $html = $this->handle_custom_links_and_forms($html);
             $output = $html->save();

@@ -215,6 +215,7 @@ class TRP_Editor_Api_Regular_Strings {
 						}
 						array_push($update_strings[ $language ], array(
 							'id' => (int)$string->id,
+							'original' => trp_sanitize_string( $string->original ),
 							'translated' => trp_sanitize_string( $string->translated ),
 							'status' => (int)$string->status,
 							'block_type' => (int)$string->block_type
@@ -232,6 +233,7 @@ class TRP_Editor_Api_Regular_Strings {
 
 		foreach( $update_strings as $language => $update_string_array ) {
 			$this->trp_query->update_strings( $update_string_array, $language, array('id','translated', 'status', 'block_type'));
+			$this->trp_query->remove_possible_duplicates($update_string_array, $language, 'regular');
 		}
 		
 	}

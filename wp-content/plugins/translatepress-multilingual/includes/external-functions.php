@@ -56,7 +56,7 @@ function trp_sort_dictionary_by_original( $dictionaries, $type, $group, $languag
 							$found = true;
 
 							if ( isset($string->domain) ){
-								$array[ $key ]['description'] == $string->domain;
+								$array[ $key ]['description'] = $string->domain;
 							}
 							if ( $language == $languageForId ){
 								$array[ $key ][ 'dbID' ] = $string->id;

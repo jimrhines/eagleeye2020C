@@ -732,7 +732,7 @@ class TRP_Query{
                 $translated = $string['translated'];
                 $status = self::HUMAN_REVIEWED;
             }
-                
+
             array_push( $values, $string['original'], $translated, $string['domain'], $status );
             $place_holders[] = "( '%s', '%s', '%s', '%d')";
         }
@@ -743,7 +743,7 @@ class TRP_Query{
         $this->db->query( $this->db->prepare($query . ' ', $values) );
 
         $this->maybe_record_automatic_translation_error(array( 'details' => 'Error running insert_gettext_strings()' ) );
-        
+
         if( count( $new_strings ) == 1 )
             return $this->db->insert_id;
         else
@@ -967,17 +967,19 @@ class TRP_Query{
         return $wpdb->get_blog_prefix() . 'trp_gettext_' . strtolower( $language_code );
     }
 
-     /**
+    /**
      * Return entire rows for given ids or original strings.
      *
-     * @param array $id_array           Int array of db ids.
-     * @param array $original_array     String array of originals.
-     * @param string $language_code     Language code of table.
+     * @param array $id_array Int array of db ids.
+     * @param array $original_array String array of originals.
+     * @param string $language_code Language code of table.
+     * @param string $output Return format
+     * @param bool $is_original_id_array Whether the id array refers to the id or original_id column
      * @return object                   Associative Array of objects with translations where key is id.
      */
-    public function get_string_rows( $id_array, $original_array, $language_code, $output = OBJECT_K ){
-
-        $select_query = "SELECT id, original, translated, status, block_type FROM `" . sanitize_text_field( $this->get_table_name( $language_code ) ) . "` WHERE ";
+    public function get_string_rows( $id_array, $original_array, $language_code, $output = OBJECT_K, $is_original_id_array = false ){
+        $original_id = ($is_original_id_array) ? ' original_id, ' : '';
+        $select_query = "SELECT " . $original_id . "id, original, translated, status, block_type FROM `" . sanitize_text_field( $this->get_table_name( $language_code ) ) . "` WHERE ";
 
         $prepared_query1 = '';
         if ( is_array( $original_array ) && count ( $original_array ) > 0 ) {
@@ -1000,8 +1002,8 @@ class TRP_Query{
                 $placeholders[] = '%d';
                 $values[] = intval($id);
             }
-
-            $query2 = "id IN ( " . implode(", ", $placeholders) . " )";
+            $original_or_not = ( $is_original_id_array ) ? 'original_' : '';
+            $query2 = $original_or_not . "id IN ( " . implode(", ", $placeholders) . " )";
             $prepared_query2 = $this->db->prepare($query2, $values);
         }
 
@@ -1122,7 +1124,38 @@ class TRP_Query{
 	 */
 	public function remove_duplicate_rows_in_dictionary_table( $language_code, $batch ){
 		$table_name = $this->get_table_name( $language_code );
-		$query = '	DELETE `b`
+        $query = $this->get_remove_identical_duplicates_query($table_name, $batch, 'regular' );
+		return $this->db->query( $query );
+	}
+
+    /**
+     * Removes duplicate rows of gettext strings table
+     *
+     * (original, translated, domain, status) have to be identical.
+     * Only the row with the lowest ID remains
+     *
+     * @param $table
+     */
+	public function remove_duplicate_rows_in_gettext_table( $language_code, $batch ){
+        $table_name = $this->get_gettext_table_name( $language_code );
+        $query = $this->get_remove_identical_duplicates_query($table_name, $batch, 'gettext' );
+        return $this->db->query( $query );
+    }
+
+    /**
+     * Function that builds the query string for removing identical entries
+     * @param $table_name
+     * @param $batch
+     * @param $type string possible values are 'regular' or 'gettext'
+     * @return string
+     */
+    private function get_remove_identical_duplicates_query( $table_name, $batch, $type ){
+        $charset_collate = $this->db->get_charset_collate();
+        $charset = "utf8mb4";
+        if( strpos( 'latin1', $charset_collate ) === 0 )
+            $charset = "latin1";
+
+        $query = '	DELETE `b`
 					FROM
 					    ' . $table_name . ' AS `a`,
 					    ' . $table_name . ' AS `b`
@@ -1133,13 +1166,16 @@ class TRP_Query{
 					    AND `a`.`ID` < `b`.`ID`
 					
 					    -- Check for all duplicates. Binary ensure case sensitive comparison
-					    AND (`a`.`original` = BINARY `b`.`original` OR `a`.`original` IS NULL AND `b`.`original` IS NULL)
-					    AND (`a`.`translated` = BINARY`b`.`translated` OR `a`.`translated` IS NULL AND `b`.`translated` IS NULL)
-					    AND (`a`.`status` = `b`.`status` OR `a`.`status` IS NULL AND `b`.`status` IS NULL)
-					    AND (`a`.`block_type` = `b`.`block_type` OR `a`.`block_type` IS NULL AND `b`.`block_type` IS NULL)
-					    ;';
-		return $this->db->query( $query );
-	}
+					    AND (`a`.`original` COLLATE '.$charset.'_bin = `b`.`original` OR `a`.`original` IS NULL AND `b`.`original` IS NULL)
+					    AND (`a`.`translated` COLLATE '.$charset.'_bin = `b`.`translated` OR `a`.`translated` IS NULL AND `b`.`translated` IS NULL)
+					    AND (`a`.`status` = `b`.`status` OR `a`.`status` IS NULL AND `b`.`status` IS NULL)';
+        if($type === 'gettext')
+            $query .= 'AND (`a`.`domain` = `b`.`domain` OR `a`.`domain` IS NULL AND `b`.`domain` IS NULL)';
+        else if($type === 'regular')
+            $query .= 'AND (`a`.`block_type` = `b`.`block_type` OR `a`.`block_type` IS NULL AND `b`.`block_type` IS NULL)';
+        $query .=	    ';';
+        return $query;
+    }
 
 	/**
 	 * Removes a row if translation status 0, if the original exists translated
@@ -1148,18 +1184,49 @@ class TRP_Query{
 	 */
 	public function remove_untranslated_strings_if_translation_available( $language_code ){
 		$table_name = $this->get_table_name( $language_code );
-		$query = '	DELETE `a`
+		$query = $this->get_remove_untranslated_duplicates_query( $table_name, 'regular' );
+		return $this->db->query( $query );
+	}
+
+    /**
+     * Removes a row if translation status 0, if the original exists translated in gettext tables
+     *
+     * Only the original with translation remains
+     */
+    public function remove_untranslated_strings_if_gettext_translation_available( $language_code ){
+        $table_name = $this->get_gettext_table_name( $language_code );
+        $query = $this->get_remove_untranslated_duplicates_query( $table_name, 'gettext' );
+        return $this->db->query( $query );
+    }
+
+    /**
+     * Function that builds the query string for removing identical entries
+     * @param $table_name
+     * @param $batch
+     * @param $type string possible values are 'regular' or 'gettext'
+     * @return string
+     */
+    private function get_remove_untranslated_duplicates_query( $table_name, $type ){
+        $charset_collate = $this->db->get_charset_collate();
+        $charset = "utf8mb4";
+        if( strpos( 'latin1', $charset_collate ) === 0 )
+            $charset = "latin1";
+
+        $query = '	DELETE `a`
 						FROM
 						    ' . $table_name . ' AS `a`,
 						    ' . $table_name . ' AS `b`
 						WHERE
-						    (`a`.`original` = BINARY `b`.`original` OR `a`.`original` IS NULL AND `b`.`original` IS NULL)
+						    (`a`.`original` COLLATE '.$charset.'_bin = `b`.`original` OR `a`.`original` IS NULL AND `b`.`original` IS NULL)
 						    AND (`a`.`status` = 0 )
-						    AND (`b`.`status` != 0 )
-						    AND (`a`.`block_type` = `b`.`block_type` OR `a`.`block_type` IS NULL AND `b`.`block_type` IS NULL)
-						    ;';
-		return $this->db->query( $query );
-	}
+						    AND (`b`.`status` != 0 )';
+        if($type === 'gettext')
+            $query .= 'AND (`a`.`domain` = `b`.`domain` OR `a`.`domain` IS NULL AND `b`.`domain` IS NULL)';
+        else if($type === 'regular')
+            $query .= 'AND (`a`.`block_type` = `b`.`block_type` OR `a`.`block_type` IS NULL AND `b`.`block_type` IS NULL)';
+        $query .=	    ';';
+        return $query;
+    }
 
 	/*
 	 * Get last inserted ID for this table
@@ -1244,4 +1311,40 @@ class TRP_Query{
         return $table_found;
     }
 
+    /**
+     * Removes any other strings from DB that have the same original with the provided array
+     *
+     * Keeps only the rows with the ids specified. Any other rows with the same original (and domain for gettext) are deleted from DB
+     *
+     * @param $update_string_array
+     * @param $language
+     * @param $string_type
+     * @return bool|int|void
+     */
+    public function remove_possible_duplicates( $update_string_array, $language, $string_type ){
+        if ( !is_array( $update_string_array ) || count ($update_string_array) < 1 ) {
+            return;
+        }
+
+        $charset_collate = $this->db->get_charset_collate();
+        $charset = (strpos( 'latin1', $charset_collate ) === 0 ) ? "latin1" : "utf8mb4";
+
+        $table_name = ( $string_type === 'gettext' ) ? $this->get_gettext_table_name( $language ) : $this->get_table_name( $language );
+
+        $values = array();
+        $place_holders = array();
+        foreach( $update_string_array as $string ){
+            if ( $string_type === 'gettext' ) {
+                array_push( $values, $string['original'], $string['domain'], $string['id'] );
+            }else{
+                array_push( $values, $string['original'], $string['id'] );
+            }
+            $domain = ( $string_type === 'gettext') ? "AND domain COLLATE " . $charset . "_bin = '%s' " : "";
+            $place_holders[] = "(original COLLATE " . $charset . "_bin = '%s' " . $domain . "AND id != '%d'  )";
+        }
+
+        $sql = "DELETE FROM `" . sanitize_text_field( $table_name ). "` WHERE " . implode( $place_holders, " OR " );
+        $query = $this->db->prepare( $sql, $values );
+        return $this->db->query( $query );
+    }
 }

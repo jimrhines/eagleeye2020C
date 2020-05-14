@@ -63,7 +63,7 @@ function trp_utf8ize($mixed) {
  * @TODO this was developped firstly for woocommerce so it maybe needs further development.
 */
 function trp_x( $text, $context, $domain, $language ){
-
+    $original_text = $text;
     /* try to find the correct path for the textdomain */
     $path = trp_find_translation_location_for_domain( $domain, $language );
 
@@ -77,14 +77,14 @@ function trp_x( $text, $context, $domain, $language ){
             wp_cache_set( 'trp_x_' . $domain .'_'. $language, $mo_file );
         }
 
-        if ( !$mo_file ) return $text;
+        if ( !$mo_file ) return apply_filters('trp_x', $text, $original_text, $context, $domain, $language );
 
 
         if (!empty($mo_file->entries[$context . '' . $text]))
             $text = $mo_file->entries[$context . '' . $text]->translations[0];
     }
 
-    return $text;
+    return apply_filters('trp_x', $text, $original_text,  $context, $domain, $language );
 }
 
 /**

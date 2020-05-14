@@ -143,6 +143,10 @@
 <?php __("Gettext Strings", "translatepress-multilingual"); ?>
 <?php __("Images", "translatepress-multilingual"); ?>
 <?php __("Dynamically Added Strings", "translatepress-multilingual"); ?>
+<?php __("Visual Editor", "translatepress-multilingual"); ?>
+<?php __("String Translation", "translatepress-multilingual"); ?>
+<?php __("Current User", "translatepress-multilingual"); ?>
+<?php __("Logged Out", "translatepress-multilingual"); ?>
 <?php __("Translate Page", "translatepress-multilingual"); ?>
 <?php __("Security check", "translatepress-multilingual"); ?>
 <?php __("<strong>Warning:</strong> Some strings have possibly incorrectly encoded characters. This may result in breaking the queries, rendering the page untranslated in live mode. Consider revising the following strings or their method of outputting.", "translatepress-multilingual"); ?>
@@ -244,14 +248,13 @@
 <?php __("Response:", "translatepress-multilingual"); ?>
 <?php __("Response Body:", "translatepress-multilingual"); ?>
 <?php __("Entire Response From wp_remote_get():", "translatepress-multilingual"); ?>
-<?php __("Current User", "translatepress-multilingual"); ?>
-<?php __("Logged Out", "translatepress-multilingual"); ?>
 <?php __("Remove duplicate rows from TranslatePress tables", "translatepress-multilingual"); ?>
-<?php __("<strong>IMPORTANT NOTE: Before performing this action it is strongly recommended to first backup the database.</strong><br><br>This feature can be used to cleanup duplicate entries in TranslatePress trp_dictionary tables. Such duplicates can appear in exceptional situations of unexpected behavior.", "translatepress-multilingual"); ?>
-<?php __("IMPORTANT: It is strongly recommended to first backup the database!!\nAre you sure you want to continue?", "translatepress-multilingual"); ?>
+<?php __("<strong>IMPORTANT NOTE: Before performing this action it is strongly recommended to first backup the database.</strong><br><br>This feature can be used to cleanup duplicate entries in TranslatePress trp_dictionary or trp_gettext tables. Such duplicates can appear in exceptional situations of unexpected behavior.", "translatepress-multilingual"); ?>
+<?php __("IMPORTANT: It is strongly recommended to first backup the database!! Are you sure you want to continue?", "translatepress-multilingual"); ?>
 <?php __("Batch size", "translatepress-multilingual"); ?>
 <?php __("The number of rows to check at once.<br>Choosing a smaller number helps solve the 504 error \"Page took too long to respond\" on large databases.<br>May take several minutes depending on the database size.", "translatepress-multilingual"); ?>
-<?php __("Remove duplicate rows", "translatepress-multilingual"); ?>
+<?php __("Remove duplicate dictionary rows", "translatepress-multilingual"); ?>
+<?php __("Remove duplicate gettext rows", "translatepress-multilingual"); ?>
 <?php __("TranslatePress Database Updater", "translatepress-multilingual"); ?>
 <?php __("Updating TranslatePress tables", "translatepress-multilingual"); ?>
 <?php __(" TranslatePress Settings", "translatepress-multilingual"); ?>
@@ -285,6 +288,8 @@
 <?php __("General attempt to fix broken or missing HTML on translated pages.<br/><strong>Only try this if the \"Fix spaces between html attribute\" did not solve the issue.</strong>", "translatepress-multilingual"); ?>
 <?php __("Fix spaces between HTML attributes", "translatepress-multilingual"); ?>
 <?php __("Fixes attributes without spaces between them because they are not valid HTML.<br> May help fix missing or broken content from the HTML on translated pages.", "translatepress-multilingual"); ?>
+<?php __("Remove duplicate rows", "translatepress-multilingual"); ?>
+<?php __("Click <a href=\"%s\">here</a> to remove duplicate rows from the database.", "translatepress-multilingual"); ?>
 <?php __("Troubleshooting", "translatepress-multilingual"); ?>
 <?php __("Exclude strings", "translatepress-multilingual"); ?>
 <?php __("Debug", "translatepress-multilingual"); ?>
@@ -299,3 +304,41 @@
 <?php __("Google Translate API Key", "translatepress-multilingual"); ?>
 <?php __("Visit <a href=\"https://cloud.google.com/docs/authentication/api-keys\" target=\"_blank\">this link</a> to see how you can set up an API key, <strong>control API costs</strong> and set HTTP referrer restrictions.", "translatepress-multilingual"); ?>
 <?php __("Your HTTP referrer is: %s", "translatepress-multilingual"); ?>
+<?php __("Human reviewed", "translatepress-multilingual"); ?>
+<?php __("Automatically translated", "translatepress-multilingual"); ?>
+<?php __("Not translated", "translatepress-multilingual"); ?>
+<?php __("Bulk Actions", "translatepress-multilingual"); ?>
+<?php __("Delete entries", "translatepress-multilingual"); ?>
+<?php __("Edit", "translatepress-multilingual"); ?>
+<?php __("Delete entry", "translatepress-multilingual"); ?>
+<?php __("Translation Status", "translatepress-multilingual"); ?>
+<?php __("Filter", "translatepress-multilingual"); ?>
+<?php __("Filter by language", "translatepress-multilingual"); ?>
+<?php __("Add New", "translatepress-multilingual"); ?>
+<?php __("Import / Export", "translatepress-multilingual"); ?>
+<?php __("items", "translatepress-multilingual"); ?>
+<?php __("of", "translatepress-multilingual"); ?>
+<?php __("See More", "translatepress-multilingual"); ?>
+<?php __("See Less", "translatepress-multilingual"); ?>
+<?php __("Apply", "translatepress-multilingual"); ?>
+<?php __("No strings match your query.", "translatepress-multilingual"); ?>
+<?php __("An error occurred while loading results. Most likely you were logged out. Reload page?", "translatepress-multilingual"); ?>
+<?php __("Select All", "translatepress-multilingual"); ?>
+<?php __("Select Visible", "translatepress-multilingual"); ?>
+<?php __("You are about to perform this action on all the strings matching your filter, not just the visibly checked. To perform the action only to the visible strings click \"Select Visible\" from the table header dropdown.", "translatepress-multilingual"); ?>
+<?php __("You are about to perform this action only on the visible strings. To perform the action on all the strings matching the filter click \"Select All\" from the table header dropdown.", "translatepress-multilingual"); ?>
+<?php __("To continue please type the word:", "translatepress-multilingual"); ?>
+<?php __("The word typed was incorrect. Action was cancelled.", "translatepress-multilingual"); ?>
+<?php __("in", "translatepress-multilingual"); ?>
+<?php __("Navigate to next page", "translatepress-multilingual"); ?>
+<?php __("Navigate to previous page", "translatepress-multilingual"); ?>
+<?php __("Navigate to first page", "translatepress-multilingual"); ?>
+<?php __("Navigate to last page", "translatepress-multilingual"); ?>
+<?php __("Type a page number to navigate to", "translatepress-multilingual"); ?>
+<?php __("Incorrect page number. Type a page number between 1 and total number of pages", "translatepress-multilingual"); ?>
+<?php __("Search original strings containing typed keywords while also matching selected filters", "translatepress-multilingual"); ?>
+<?php __("Filter strings according to selected translation status, filters and keywords and selected filters", "translatepress-multilingual"); ?>
+<?php __("See options for selecting all strings", "translatepress-multilingual"); ?>
+<?php __("Click to sort strings by this column", "translatepress-multilingual"); ?>
+<?php __("Language in which the translation status filter applies. Leave unselected for the translation status to apply to ANY language", "translatepress-multilingual"); ?>
+<?php __("String Translation Editor", "translatepress-multilingual"); ?>

@@ -452,14 +452,14 @@ class TRP_Upgrade {
 			// iteration not started
 			return;
 		}
-		if ( $_GET['trp_rm_duplicates'] === 'done' ){
+		if ( sanitize_text_field( $_GET['trp_rm_duplicates'] ) === 'done' ){
 			// iteration finished
-			echo esc_html__('Done.', 'translatepress-multilingual' ) . '<br><br><a href="' . esc_url( site_url('wp-admin/options-general.php?page=translate-press') ) . '"> <input type="button" value="' . esc_attr__('Back to TranslatePress Settings', 'translatepress-multilingual' ) . '" class="button-primary"></a>';
+			echo esc_html__('Done.', 'translatepress-multilingual' ) . '<br><br><a href="' . esc_url( site_url('wp-admin/admin.php?page=trp_advanced_page') ) . '"> <input type="button" value="' . esc_attr__('Back to TranslatePress Settings', 'translatepress-multilingual' ) . '" class="button-primary"></a>';
 			return;
 		}
 		$nonce = wp_verify_nonce( $_GET['trp_rm_nonce'], 'tpremoveduplicaterows' );
 		if ( $nonce === false ){
-			echo esc_html__('Invalid nonce.', 'translatepress-multilingual' ) . '<br><br><a href="' . esc_url( site_url('wp-admin/options-general.php?page=translate-press') ) . '"> <input type="button" value="' . esc_attr__('Back to TranslatePress Settings', 'translatepress-multilingual' ) . '" class="button-primary"></a>';
+			echo esc_html__('Invalid nonce.', 'translatepress-multilingual' ) . '<br><br><a href="' . esc_url( site_url('wp-admin/admin.php?page=trp_advanced_page') ) . '"> <input type="button" value="' . esc_attr__('Back to TranslatePress Settings', 'translatepress-multilingual' ) . '" class="button-primary"></a>';
 			return;
 		}
 
@@ -468,17 +468,21 @@ class TRP_Upgrade {
 		if ( !empty( $_GET['trp_rm_batch_size'] )  && (int) $_GET['trp_rm_batch'] > 0 ){
 			$batch_size = (int) $_GET['trp_rm_batch_size'];
 		}
-		if ( in_array( $_GET['trp_rm_duplicates'], $this->settings['translation-languages'] ) ) {
+		if ( in_array( sanitize_text_field( $_GET['trp_rm_duplicates'] ), $this->settings['translation-languages'] ) ) {
 			// language code found in array
-			$language_code = $_GET['trp_rm_duplicates'];
+			$language_code = sanitize_text_field( $_GET['trp_rm_duplicates'] );
 			// skip default language since it doesn't have a table
-			if ( $language_code != $this->settings['default-language'] ) {
+			if ( ( isset($_GET['trp_rm_duplicates_dictionary']) && $language_code != $this->settings['default-language'] ) || isset($_GET['trp_rm_duplicates_gettext']) ) {
 				if ( ! $this->trp_query ) {
 					$trp = TRP_Translate_Press::get_trp_instance();
 					/* @var TRP_Query */
 					$this->trp_query = $trp->get_component( 'query' );
 				}
-				$table_name = $this->trp_query->get_table_name( $language_code );
+                if (isset($_GET['trp_rm_duplicates_dictionary']) )
+				    $table_name = $this->trp_query->get_table_name( $language_code );
+                else if (isset($_GET['trp_rm_duplicates_gettext']) )
+                    $table_name = $this->trp_query->get_gettext_table_name( $language_code );
+
 				echo '<div>' . sprintf( wp_kses( __( 'Querying table <strong>%s</strong>', 'translatepress-multilingual' ), [ 'strong' => [] ] ), $table_name ) . '</div>';
 
 				$last_id = $this->trp_query->get_last_id( $table_name );
@@ -495,14 +499,26 @@ class TRP_Upgrade {
 				 * then delete duplicates of the first 20k rows( 1 to 20 000, not 10 000 to 20 000 because we there could still be duplicates).
 				 * Same goes for higher numbers.
 				 */
-				$result1 = $this->trp_query->remove_duplicate_rows_in_dictionary_table( $language_code, $batch );
-				$result2 = 0;
-				if ( $batch > $last_id ){
-					// execute this query only when we do not have any more duplicate rows
-					$result2 = $this->trp_query->remove_untranslated_strings_if_translation_available( $language_code );
-				}else{
-					$next_get_batch = $get_batch + 1;
-				}
+                if (isset($_GET['trp_rm_duplicates_dictionary']) ) {
+                    $result1 = $this->trp_query->remove_duplicate_rows_in_dictionary_table($language_code, $batch);
+                    $result2 = 0;
+                    if ($batch > $last_id) {
+                        // execute this query only when we do not have any more duplicate rows
+                        $result2 = $this->trp_query->remove_untranslated_strings_if_translation_available($language_code);
+                    } else {
+                        $next_get_batch = $get_batch + 1;
+                    }
+                }
+                else if (isset($_GET['trp_rm_duplicates_gettext']) ){
+                    $result1 = $this->trp_query->remove_duplicate_rows_in_gettext_table($language_code, $batch);
+                    $result2 = 0;
+                    if ($batch > $last_id) {
+                        // execute this query only when we do not have any more duplicate rows
+                        $result2 = $this->trp_query->remove_untranslated_strings_if_gettext_translation_available($language_code);
+                    } else {
+                        $next_get_batch = $get_batch + 1;
+                    }
+                }
 
 				if ( ( $result1 === false ) || ( $result2 === false ) ) {
 					// if query outputted error do not continue iteration
@@ -531,13 +547,21 @@ class TRP_Upgrade {
 		}
 
 		// construct and redirect to next url
-		$url = add_query_arg( array(
-			'page'                      => 'trp_remove_duplicate_rows',
-			'trp_rm_duplicates'         => $next_language,
-			'trp_rm_batch'              => $next_get_batch,
-			'trp_rm_batch_size'         => $batch_size,
-			'trp_rm_nonce'              => wp_create_nonce('tpremoveduplicaterows')
-		), site_url('wp-admin/admin.php') );
+        $next_page_args =  array(
+            'page'                      => 'trp_remove_duplicate_rows',
+            'trp_rm_duplicates'         => $next_language,
+            'trp_rm_batch'              => $next_get_batch,
+            'trp_rm_batch_size'         => $batch_size,
+            'trp_rm_nonce'              => wp_create_nonce('tpremoveduplicaterows')
+        );
+
+        if (isset($_GET['trp_rm_duplicates_dictionary']) )
+            $next_page_args['trp_rm_duplicates_dictionary'] = true;
+        else if (isset($_GET['trp_rm_duplicates_gettext']) ){
+            $next_page_args['trp_rm_duplicates_gettext'] = true;
+        }
+
+		$url = add_query_arg( $next_page_args, site_url('wp-admin/admin.php') );
 		echo '<meta http-equiv="refresh" content="0; url=' . esc_url( $url ) . '" />';
 		echo '<br> ' . esc_html__( 'If the page does not redirect automatically', 'translatepress-multilingual' ) . ' <a href="' . esc_url( $url ) . '" >' . esc_html__( 'click here', 'translatepress-multilingual' ) . '.</a>';
 		exit;

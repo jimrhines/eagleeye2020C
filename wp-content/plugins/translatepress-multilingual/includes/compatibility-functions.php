@@ -577,3 +577,26 @@ function trp_strip_gettext_from_get_the_date($the_date, $d, $post){
 
     return $the_date;
 }
+
+
+/**
+ * Compatibility with Affiliate Theme
+ * It's adding parameters found in the filter forms automatically, braking the query.
+ * TranslatePress adds the trp-form-language for other reasons. So we need to remove it in this case.
+ * https://affiliatetheme.io
+ *
+ */
+add_filter('at_set_product_filter_query', 'trp_remove_lang_param_from_query');
+function trp_remove_lang_param_from_query($args){
+
+	if ( isset( $args['meta_query'] ) && is_array( $args['meta_query']) ){
+		foreach($args['meta_query'] as $key => $value){
+			if ($value['key'] == 'trp-form-language'){
+				unset( $args['meta_query'][$key] );
+			}
+		}
+		$args['meta_query'] = array_values($args['meta_query']);
+	}
+
+	return $args;
+}

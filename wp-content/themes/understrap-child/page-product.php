@@ -24,7 +24,11 @@ $container = get_theme_mod( 'understrap_container_type' );
 				<main id="main" class="site-main">
 					<?php while ( have_posts() ) : the_post(); ?>
 						<div class="row">
-
+							<div class="col text-right mt-4 pr-4">
+								<a href="<?php echo esc_url( home_url( '/' ) ); ?>request-a-quote/?product-name=<?php the_field('product_model_number'); ?>" class="btn btn-primary btn-super d-print-none" role="button">Get a Quote &#62;</a>
+							</div>
+						</div>
+						<div class="row">
 							<?php if (has_post_thumbnail( $p->ID ) ) { ?>
 								<div class="col-md-4">
 									<?php 
@@ -100,7 +104,6 @@ $container = get_theme_mod( 'understrap_container_type' );
 							<div id="product-narrative" class="col-md-8">
 								<h1><?php the_title_attribute(); ?></h1>
 								<?php get_template_part( 'loop-templates/content-blank', 'nofeaturedimg' ); ?>
-								<a href="<?php echo esc_url( home_url( '/' ) ); ?>request-a-quote/?product-name=<?php the_field('product_model_number'); ?>" class="btn btn-primary btn-lg d-print-none" role="button">Get a Quote &#62;</a>
 							</div>
 						</div>
 					<?php endwhile; // End of the loop.?>
