@@ -25,7 +25,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 					<?php while ( have_posts() ) : the_post(); ?>
 						<div class="row">
 							<div class="col text-right mt-4 pr-4">
-								<a href="<?php echo esc_url( home_url( '/' ) ); ?>request-a-quote/?product-name=<?php the_field('product_model_number'); ?>" class="btn btn-primary btn-super d-print-none" role="button">Get a Quote &#62;</a>
+								<a href="<?php echo esc_url( home_url( '/' ) ); ?>request-a-quote/?product-name=<?php the_field('product_model_number'); ?>" class="btn btn-primary d-print-none" role="button">Get a Quote &#62;</a>
 							</div>
 						</div>
 						<div class="row">

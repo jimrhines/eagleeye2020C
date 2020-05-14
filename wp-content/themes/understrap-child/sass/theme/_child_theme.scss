@@ -47,6 +47,7 @@ img[src$=".svg"] {
 	border-radius: 0;
 	font-family: $accent-font-family;
 	font-size: 80%;
+	font-weight: 700;
 
 	&:active,
 	&:focus {
@@ -970,7 +971,7 @@ img[src$=".svg"] {
 
 		.btn-primary {
 			color: $brand-black;
-			font-weight: 400;
+			font-weight: 700;
 		}
 	}
 

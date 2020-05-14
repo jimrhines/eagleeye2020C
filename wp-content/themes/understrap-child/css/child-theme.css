@@ -11638,7 +11638,8 @@ img[src$=".svg"] {
   text-transform: uppercase;
   border-radius: 0;
   font-family: "Montserrat", sans-serif;
-  font-size: 80%; }
+  font-size: 80%;
+  font-weight: 700; }
   .btn:active, .wpcf7 input:active[type=submit], .btn:focus,
   .wpcf7 input:focus[type=submit],
   .wpcf7 input[type="submit"]:active,
@@ -12279,7 +12280,7 @@ img[src$=".svg"] {
     font-weight: 400; }
   #wrapper-footer #eeps-footer-navigation .btn-primary {
     color: #413f42;
-    font-weight: 400; }
+    font-weight: 700; }
   #wrapper-footer #eeps-channels a {
     color: #FEE300;
     font-weight: bold;
