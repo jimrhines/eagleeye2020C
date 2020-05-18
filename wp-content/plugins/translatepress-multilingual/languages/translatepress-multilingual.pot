@@ -113,7 +113,7 @@ msgstr ""
 msgid "Select the languages you wish to make your website available in."
 msgstr ""
 
-#: ../tp-add-on-seo-pack/includes/class-slug-manager.php:32
+#: ../tp-add-on-seo-pack/includes/class-slug-manager.php:37, ../tp-add-on-seo-pack/includes/string-translation/class-string-translation-seo.php:56
 msgid "Post Slug"
 msgstr ""
 
@@ -565,7 +565,7 @@ msgstr ""
 msgid "Click to Copy"
 msgstr ""
 
-#: ../translatepress/includes/class-translation-manager.php:157
+#: ../translatepress/includes/class-translation-manager.php:157, ../tp-add-on-seo-pack/includes/string-translation/class-string-translation-seo.php:12
 msgid "Slugs"
 msgstr ""
 
@@ -1055,6 +1055,98 @@ msgstr ""
 
 #: ../trp-add-on-translator-accounts-add-on/includes/class-translator-accounts.php:128
 msgid "Allow this user to translate the website."
+msgstr ""
+
+#: ../tp-add-on-seo-pack/includes/string-translation/class-string-translation-seo.php:11
+msgid "URL Slugs Translation"
+msgstr ""
+
+#: ../tp-add-on-seo-pack/includes/string-translation/class-string-translation-seo.php:16
+msgid "Taxonomy Slugs"
+msgstr ""
+
+#: ../tp-add-on-seo-pack/includes/string-translation/class-string-translation-seo.php:17
+msgid "Search Taxonomy Slugs"
+msgstr ""
+
+#: ../tp-add-on-seo-pack/includes/string-translation/class-string-translation-seo.php:23
+msgid "Taxonomy Slug"
+msgstr ""
+
+#: ../tp-add-on-seo-pack/includes/string-translation/class-string-translation-seo.php:24, ../tp-add-on-seo-pack/includes/string-translation/class-string-translation-seo.php:37, ../tp-add-on-seo-pack/includes/string-translation/class-string-translation-seo.php:57, ../tp-add-on-seo-pack/includes/string-translation/class-string-translation-seo.php:77, ../tp-add-on-seo-pack/includes/string-translation/class-string-translation-seo.php:95
+msgid "Translation"
+msgstr ""
+
+#: ../tp-add-on-seo-pack/includes/string-translation/class-string-translation-seo.php:30
+msgid "Term Slugs"
+msgstr ""
+
+#: ../tp-add-on-seo-pack/includes/string-translation/class-string-translation-seo.php:31
+msgid "Search Term Slugs"
+msgstr ""
+
+#: ../tp-add-on-seo-pack/includes/string-translation/class-string-translation-seo.php:36
+msgid "Term Slug"
+msgstr ""
+
+#: ../tp-add-on-seo-pack/includes/string-translation/class-string-translation-seo.php:38
+msgid "Taxonomy"
+msgstr ""
+
+#: ../tp-add-on-seo-pack/includes/string-translation/class-string-translation-seo.php:43
+msgid "Filter by Taxonomy"
+msgstr ""
+
+#: ../tp-add-on-seo-pack/includes/string-translation/class-string-translation-seo.php:49
+msgid "Post Slugs"
+msgstr ""
+
+#: ../tp-add-on-seo-pack/includes/string-translation/class-string-translation-seo.php:50
+msgid "Search Post Slugs"
+msgstr ""
+
+#: ../tp-add-on-seo-pack/includes/string-translation/class-string-translation-seo.php:55
+msgid "Post ID"
+msgstr ""
+
+#: ../tp-add-on-seo-pack/includes/string-translation/class-string-translation-seo.php:58
+msgid "Post Type"
+msgstr ""
+
+#: ../tp-add-on-seo-pack/includes/string-translation/class-string-translation-seo.php:63
+msgid "Filter by Post Type"
+msgstr ""
+
+#: ../tp-add-on-seo-pack/includes/string-translation/class-string-translation-seo.php:67
+msgid "Published"
+msgstr ""
+
+#: ../tp-add-on-seo-pack/includes/string-translation/class-string-translation-seo.php:68
+msgid "Any Post Status"
+msgstr ""
+
+#: ../tp-add-on-seo-pack/includes/string-translation/class-string-translation-seo.php:74
+msgid "Post Type Base Slugs"
+msgstr ""
+
+#: ../tp-add-on-seo-pack/includes/string-translation/class-string-translation-seo.php:76
+msgid "Post Type Base Slug"
+msgstr ""
+
+#: ../tp-add-on-seo-pack/includes/string-translation/class-string-translation-seo.php:80
+msgid "Search Post Type Base Slugs"
+msgstr ""
+
+#: ../tp-add-on-seo-pack/includes/string-translation/class-string-translation-seo.php:92
+msgid "WooCommerce Slugs"
+msgstr ""
+
+#: ../tp-add-on-seo-pack/includes/string-translation/class-string-translation-seo.php:94
+msgid "WooCommerce Slug"
+msgstr ""
+
+#: ../tp-add-on-seo-pack/includes/string-translation/class-string-translation-seo.php:98
+msgid "Search WooCommerce Slugs"
 msgstr ""
 
 #: ../translatepress/includes/advanced-settings/disable-dynamic-translation.php:8

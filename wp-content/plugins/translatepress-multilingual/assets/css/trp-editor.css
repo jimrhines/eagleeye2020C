@@ -814,6 +814,7 @@ a:hover {
   text-decoration: none;
   outline: 0;
   font-size: 14px;
+  visibility: visible !important;
 }
 
 .trp-tooltip-toggle svg {

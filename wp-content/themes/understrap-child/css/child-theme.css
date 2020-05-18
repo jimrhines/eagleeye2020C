@@ -11615,10 +11615,10 @@ h1 {
 
 a {
   color: #336; }
+  a:visited {
+    color: #413f42; }
   a:hover {
     color: #6699CC; }
-  a:visited {
-    color: #551A8B; }
 
 img[src$=".svg"] {
   width: 100%;
@@ -12288,7 +12288,7 @@ img[src$=".svg"] {
     #wrapper-footer #eeps-channels a:hover {
       color: #FFCC00; }
     #wrapper-footer #eeps-channels a:visited {
-      color: #551A8B; }
+      color: #413f42; }
   #wrapper-footer #eeps-channels #eeps-social {
     margin: 0.5rem 0 0 0; }
     #wrapper-footer #eeps-channels #eeps-social li {

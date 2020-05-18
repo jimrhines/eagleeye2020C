@@ -16,13 +16,14 @@ h1 {
 a {
 	color: $link;
 
+	&:visited {
+    	color: $visited;
+    }
+
 	&:hover {
     	color: $hover;
     }
-
-    &:visited {
-    	color: $visited;
-    }
+    
 }
 
 img[src$=".svg"] { 

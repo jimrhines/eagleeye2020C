@@ -5,7 +5,7 @@ Tags: translate, translation, multilingual, automatic translation, bilingual, fr
 Requires at least: 3.1.0
 Tested up to: 5.4.1
 Requires PHP: 5.6.20
-Stable tag: 1.7.3
+Stable tag: 1.7.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -138,6 +138,16 @@ For more information please check out our [documentation](https://translatepress
 
 
 == Changelog ==
+= 1.7.4 =
+* Fix fatal error with get_the_date filter due to other plugins calling incorrect params
+* Fix issue with identical string in multiple places not showing all related strings
+* Fixed Next and Previous buttons not working in the interface
+* Fixed Yoast SEO canonical contain the correct language
+* Fixed info icons too large before css loading
+* Added compatibility with Superfly menu
+* Add locale to user on user register and ignore a gettext string from WordPress and WooCommerce that added trpstr strings in the database
+* Fix compatibility with Dflip plugin and Elementor Editor when a secondary language is the first one displayed
+
 = 1.7.3 =
 * Fixed an error when WooCommerce is active and you access a term link that does not exist
 * Added compatibility with SEO Pack version 1.2.4 or older

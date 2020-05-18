@@ -260,6 +260,29 @@
 <?php __(" TranslatePress Settings", "translatepress-multilingual"); ?>
 <?php __("Translator", "translatepress-multilingual"); ?>
 <?php __("Allow this user to translate the website.", "translatepress-multilingual"); ?>
+<?php __("URL Slugs Translation", "translatepress-multilingual"); ?>
+<?php __("Taxonomy Slugs", "translatepress-multilingual"); ?>
+<?php __("Search Taxonomy Slugs", "translatepress-multilingual"); ?>
+<?php __("Taxonomy Slug", "translatepress-multilingual"); ?>
+<?php __("Translation", "translatepress-multilingual"); ?>
+<?php __("Term Slugs", "translatepress-multilingual"); ?>
+<?php __("Search Term Slugs", "translatepress-multilingual"); ?>
+<?php __("Term Slug", "translatepress-multilingual"); ?>
+<?php __("Taxonomy", "translatepress-multilingual"); ?>
+<?php __("Filter by Taxonomy", "translatepress-multilingual"); ?>
+<?php __("Post Slugs", "translatepress-multilingual"); ?>
+<?php __("Search Post Slugs", "translatepress-multilingual"); ?>
+<?php __("Post ID", "translatepress-multilingual"); ?>
+<?php __("Post Type", "translatepress-multilingual"); ?>
+<?php __("Filter by Post Type", "translatepress-multilingual"); ?>
+<?php __("Published", "translatepress-multilingual"); ?>
+<?php __("Any Post Status", "translatepress-multilingual"); ?>
+<?php __("Post Type Base Slugs", "translatepress-multilingual"); ?>
+<?php __("Post Type Base Slug", "translatepress-multilingual"); ?>
+<?php __("Search Post Type Base Slugs", "translatepress-multilingual"); ?>
+<?php __("WooCommerce Slugs", "translatepress-multilingual"); ?>
+<?php __("WooCommerce Slug", "translatepress-multilingual"); ?>
+<?php __("Search WooCommerce Slugs", "translatepress-multilingual"); ?>
 <?php __("Disable dynamic translation", "translatepress-multilingual"); ?>
 <?php __("It disables detection of strings displayed dynamically using JavaScript. <br/>Strings loaded via a server side AJAX call will still be translated.", "translatepress-multilingual"); ?>
 <?php __("Exclude translated links from sitemap", "translatepress-multilingual"); ?>

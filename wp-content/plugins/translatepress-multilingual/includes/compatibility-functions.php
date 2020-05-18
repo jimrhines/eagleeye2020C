@@ -561,7 +561,11 @@ function trp_skip_elementor_popup_action_from_url_converter($value, $url){
  * Strip gettext wrapping from get_the_date function parameter $d
  */
 add_filter('get_the_date','trp_strip_gettext_from_get_the_date', 1, 3);
-function trp_strip_gettext_from_get_the_date($the_date, $d, $post){
+function trp_strip_gettext_from_get_the_date($the_date, $d = NULL, $post = NULL){
+	if ( $d === NULL || $post === NULL ){
+		return $the_date;
+	}
+
     $d = TRP_Translation_Manager::strip_gettext_tags( $d );
     $post = get_post( $post );
 
@@ -600,3 +604,78 @@ function trp_remove_lang_param_from_query($args){
 
 	return $args;
 }
+
+
+/**
+ * Set user prefered language to the language he was present on new user creation.
+ * Only set it if an existing locale isn't set already, in case the registration comes from a form that sets the locale manually.
+ *
+ */
+add_action( 'user_register', 'trp_add_user_prefered_language', 10 );
+function trp_add_user_prefered_language($user_id) {
+	global $TRP_LANGUAGE;
+	if ( ! empty( $TRP_LANGUAGE ) ) {
+		$user_locale = get_user_meta( $user_id, 'locale', true );
+		if ( empty( $user_locale ) ) {
+			update_user_meta( $user_id, 'locale', $TRP_LANGUAGE );
+		}
+	}
+}
+
+/*
+ * Dflip Compatibility
+ * With Secondary Language First, it deferes jquery and scripts don't load on the Elementor Editor.
+ * Not sure exactly what's causing. I assume it's because Elementor loads with Ajax certain elements and that comes back broken somehow.
+ */
+add_action('wp_enqueue_scripts', 'trp_remove_dflip_defer_script', 9999);
+function trp_remove_dflip_defer_script(){
+	if(class_exists('DFlip')){
+		$dflip_instance = DFlip::get_instance();
+		remove_filter( 'script_loader_tag', array( $dflip_instance, 'add_defer_attribute' ), 10, 2 );
+	}
+}
+
+/**
+ * Ignore WooCommerce display_name gettext
+ * _x( '%1$s %2$s', 'display name', 'woocommerce' ) || wordpress\wp-content\plugins\woocommerce\includes\class-wc-customer.php
+ * _x( '%1$s %2$s', 'Display name based on first name and last name')   || wordpress\wp-includes\user.php
+ * This will insert trpstr strings in the database. So just ignore it.
+ *
+ */
+add_filter('trp_skip_gettext_processing', 'trp_exclude_woo_display_name_gettext', 2000, 4 );
+function trp_exclude_woo_display_name_gettext ( $return, $translation, $text, $domain ){
+	if($text == '%1$s %2$s' && $domain == 'woocommerce'){
+		return true;
+	}
+
+	if($text == '%1$s %2$s' && $domain == 'default'){
+		return true;
+	}
+
+	return $return;
+}
+
+/** Compatibility with superfly menu plugin.
+ *
+ *  Moving their script later so that dynamic translation detects their strings.
+ */
+add_action('wp_head','trp_superfly_change_menu_loading_hook', 5);
+function trp_superfly_change_menu_loading_hook(){
+    if ( remove_action ('wp_head', 'sf_dynamic') ){
+        add_action ('wp_print_footer_scripts', 'sf_dynamic', 20);
+    }
+}
+
+/**
+ * Compatibility with Yoast SEO Canonical URL
+ * Yoast places the canonical wrongly and it's not processed correctly.
+ */
+add_filter( 'wpseo_canonical', 'trp_wpseo_canonical_compat', 99999, 2);
+function trp_wpseo_canonical_compat( $canonical, $presentation_class ){
+	global $TRP_LANGUAGE;
+	$trp = TRP_Translate_Press::get_trp_instance();
+	$url_converter = $trp->get_component( 'url_converter' );
+	$canonical = $url_converter->get_url_for_language($TRP_LANGUAGE, $canonical, '');
+
+	return $canonical;
+};
