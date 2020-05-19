@@ -516,10 +516,12 @@ img[src$=".svg"] {
 	@include media-breakpoint-up(md) {
 		padding: 3rem 0;
 	}
-}
 
-.divisions-insights {
-	border-top: solid 1px $brand-gray;
+	@include media-breakpoint-up(xl) {
+		#divisions-video {
+			padding: 0 8rem;
+		}
+	}
 }
 
 #division-products {
@@ -570,9 +572,38 @@ img[src$=".svg"] {
 	}
 }
 
+#division-parameters-insights {
+	padding: $mobile-container-padding;
+	@include media-breakpoint-up(md) {
+		padding: $universal-container-padding;
+	}
+}
+
+.divisions-parameters {
+	padding-top: 2rem;
+	@include media-breakpoint-up(md) {
+		padding-top: 0;
+	}
+
+	h2 {
+		margin: 0 0 2rem 0;
+	}
+
+	.col {
+		text-align: center;
+	}
+}
+
+.division-parameter-single {
+	border-bottom: solid 1px $brand-gray;
+
+	.col-md {
+		text-align: center;
+	}
+}
+
 .divisions-insights {
-	padding-top: 3rem;
-	border-top: none;
+	padding: 3rem 0 0 0;
 
 	h2 {
 		margin: 0 0 2rem 0;

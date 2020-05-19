@@ -28,7 +28,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 								<div id="division-introduction" class="col-md-6">
 									<?php get_template_part( 'loop-templates/content-blank', 'nofeaturedimg' ); ?>
 								</div>
-								<div class="col-md-6 d-print-none">
+								<div id="divisions-video" class="col-md-6 d-print-none">
 									<div class="embed-container">
 										<?php the_field('division_video_url'); ?>
 									</div>
@@ -66,7 +66,33 @@ $container = get_theme_mod( 'understrap_container_type' );
 		</div>
 	<?php endif; ?>
 
-	<div class="container">
+	<div id="division-parameters-insights" class="container">
+		<?php if( have_rows('division_parameters') ): while ( have_rows('division_parameters') ) : the_row(); 
+			$division_parameters = get_field('division_parameters');
+		?>
+			<div class="divisions-parameters row">
+				<div class="col">
+					<h2><?php echo $division_parameters['headline']; ?></h2>
+					<p><?php echo $division_parameters['supporting_copy']; ?></p>
+				</div>
+			</div>
+			<?php if( have_rows('parameter') ): ?>
+				<div class="division-parameter-single row">
+					<?php while ( have_rows('parameter') ) : the_row();
+						$image = get_sub_field('image');
+						$headline = get_sub_field('headline');
+						$supporting_copy = get_sub_field('supporting_copy');
+					?>
+						<div class="col-md">
+							<img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
+							<h3><?php echo $headline; ?></h3>
+							<p><?php echo $supporting_copy; ?></p>
+						</div>
+					<?php endwhile; ?>
+				</div>
+			<?php endif;
+		endwhile; endif; ?>
+
 		<div class="divisions-insights row">
 			<?php $division_whats_new = get_field('division_whats_new');
 			if( $division_whats_new ): ?>
@@ -85,7 +111,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 			<?php $division_featured_case_studies = get_field('division_featured_case_studies');
 			if( $division_featured_case_studies ): ?>
 				<div id="division-featured-cases" class="col-md-6">
-					<h2>Featured Technical Documents</h2>
+					<h2><?php the_field('division_featured_case_studies_headline'); ?></h2>
 					<?php foreach( $division_featured_case_studies as $p ): // variable must NOT be called $post (IMPORTANT) ?>
 						<a href="<?php echo get_permalink( $p->ID ); ?>">
 							<h3><?php echo get_the_title( $p->ID ); ?></h3>
