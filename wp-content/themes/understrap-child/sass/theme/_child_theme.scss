@@ -599,7 +599,9 @@ img[src$=".svg"] {
 	border-bottom: solid 1px $brand-gray;
 
 	.col-md {
-		text-align: center;
+		img {
+			text-align: center;
+		}
 	}
 }
 
@@ -614,7 +616,6 @@ img[src$=".svg"] {
 	#division-featured-cases {
 		a {
 			color: $brand-black;
-			text-decoration: underline;
 
 			&:hover {
 		    	color: $brand-gray;
@@ -626,7 +627,6 @@ img[src$=".svg"] {
 			
 			h3 {
 				color: $brand-black;
-				text-decoration: underline;
 
 				&:hover {
 			    	color: $brand-gray;
