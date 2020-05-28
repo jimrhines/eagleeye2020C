@@ -73,7 +73,10 @@ $container = get_theme_mod( 'understrap_container_type' );
 			<div class="divisions-parameters row">
 				<div class="col">
 					<h2><?php echo $division_parameters['headline']; ?></h2>
-					<p><?php echo $division_parameters['supporting_copy']; ?></p>
+					<?php $division_parameters_supporting_copy = $division_parameters['supporting_copy'];
+					if( $division_parameters_supporting_copy ): ?>
+						<p><?php echo $division_parameters_supporting_copy; ?></p>
+					<?php endif; ?>
 				</div>
 			</div>
 			<?php if( have_rows('parameter') ): ?>
@@ -84,7 +87,9 @@ $container = get_theme_mod( 'understrap_container_type' );
 						$supporting_copy = get_sub_field('supporting_copy');
 					?>
 						<div class="col-md">
-							<img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
+							<?php if( $image ): ?>
+								<img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
+							<?php endif; ?>
 							<h3><?php echo $headline; ?></h3>
 							<p><?php echo $supporting_copy; ?></p>
 						</div>
