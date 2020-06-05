@@ -40,6 +40,14 @@ if( !class_exists('TRP_EDD_SL_Plugin_Updater') ) {
             $this->api_data = $_api_data;
             $this->name = plugin_basename($_plugin_file);
             $this->slug = basename($_plugin_file, '.php');
+
+            // IMPORTANT TranslatePress modification.
+            if ( $this->slug === 'index') {
+                // $this->slug is the add-on file name. For Deepl and Translator accounts the file name is 'index' causing a conflict.
+                $this->slug = dirname( plugin_basename( $_plugin_file ) );
+            }
+            // end modification
+
             $this->version = $_api_data['version'];
             $this->wp_override = isset($_api_data['wp_override']) ? (bool)$_api_data['wp_override'] : false;
             $this->beta = !empty($this->api_data['beta']) ? true : false;

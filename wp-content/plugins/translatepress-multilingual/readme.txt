@@ -5,7 +5,7 @@ Tags: translate, translation, multilingual, automatic translation, bilingual, fr
 Requires at least: 3.1.0
 Tested up to: 5.4.1
 Requires PHP: 5.6.20
-Stable tag: 1.7.4
+Stable tag: 1.7.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -138,6 +138,12 @@ For more information please check out our [documentation](https://translatepress
 
 
 == Changelog ==
+= 1.7.5 =
+* Dix incorrect opengraph url in Yoast SEO that caused fatal error with older versions
+* Fix for blog page url slug translation
+* Fix problem with updating Translator Accounts Add-on
+* Fix incorrect number of parameters in wpseo_canonical filter
+
 = 1.7.4 =
 * Fix fatal error with get_the_date filter due to other plugins calling incorrect params
 * Fix issue with identical string in multiple places not showing all related strings

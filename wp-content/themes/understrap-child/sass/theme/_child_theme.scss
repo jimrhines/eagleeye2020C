@@ -1026,6 +1026,10 @@ img[src$=".svg"] {
 		#eeps-social {
 			margin: 0.5rem 0 0 0;
 
+			@include media-breakpoint-up(lg) {
+				margin-bottom: 2rem;
+			}
+
 			li {
 				display: inline;
 				margin: 0 0.5rem 0 0;
@@ -1041,6 +1045,18 @@ img[src$=".svg"] {
 				}
 			}
 
+		}
+
+		#eeps-iso {
+			text-align: right;
+
+			@include media-breakpoint-up(lg) {
+				text-align: left;
+			}
+
+			img {
+				width: 170px;
+			}
 		}
 	}
 

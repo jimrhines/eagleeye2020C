@@ -321,6 +321,10 @@ class TRP_Url_Converter {
                     $new_url = $url;
 
                 $TRP_LANGUAGE = $trp_language_copy;
+        }else if( is_home() ) {
+            $TRP_LANGUAGE = $language;
+            $new_url = get_post_type_archive_link( 'post' );
+            $TRP_LANGUAGE = $trp_language_copy;
         }else {
             // we're just adding the new language to the url
             $new_url_obj = $url_obj;

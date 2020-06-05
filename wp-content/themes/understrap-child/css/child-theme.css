@@ -12310,6 +12310,9 @@ img[src$=".svg"] {
       color: #413f42; }
   #wrapper-footer #eeps-channels #eeps-social {
     margin: 0.5rem 0 0 0; }
+    @media (min-width: 992px) {
+      #wrapper-footer #eeps-channels #eeps-social {
+        margin-bottom: 2rem; } }
     #wrapper-footer #eeps-channels #eeps-social li {
       display: inline;
       margin: 0 0.5rem 0 0; }
@@ -12317,6 +12320,13 @@ img[src$=".svg"] {
         fill: #FEE300; }
         #wrapper-footer #eeps-channels #eeps-social li svg path:hover {
           fill: #FFCC00; }
+  #wrapper-footer #eeps-channels #eeps-iso {
+    text-align: right; }
+    @media (min-width: 992px) {
+      #wrapper-footer #eeps-channels #eeps-iso {
+        text-align: left; } }
+    #wrapper-footer #eeps-channels #eeps-iso img {
+      width: 170px; }
   #wrapper-footer .site-info {
     margin-top: 3rem;
     border-top: solid 1px #999; }

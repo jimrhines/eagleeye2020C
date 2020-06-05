@@ -113,7 +113,7 @@ msgstr ""
 msgid "Select the languages you wish to make your website available in."
 msgstr ""
 
-#: ../tp-add-on-seo-pack/includes/class-slug-manager.php:37, ../tp-add-on-seo-pack/includes/string-translation/class-string-translation-seo.php:56
+#: ../tp-add-on-seo-pack/includes/class-slug-manager.php:40, ../tp-add-on-seo-pack/includes/string-translation/class-string-translation-seo.php:56
 msgid "Post Slug"
 msgstr ""
 
@@ -129,35 +129,35 @@ msgstr ""
 msgid "Are you sure you want to remove this item?"
 msgstr ""
 
-#: ../translatepress/includes/class-edd-sl-plugin-updater.php:681, ../translatepress/includes/class-edd-sl-plugin-updater.php:713, ../translatepress/includes/class-edd-sl-plugin-updater.php:784
+#: ../translatepress/includes/class-edd-sl-plugin-updater.php:689, ../translatepress/includes/class-edd-sl-plugin-updater.php:721, ../translatepress/includes/class-edd-sl-plugin-updater.php:792
 msgid "An error occurred, please try again."
 msgstr ""
 
-#: ../translatepress/includes/class-edd-sl-plugin-updater.php:692
+#: ../translatepress/includes/class-edd-sl-plugin-updater.php:700
 msgid "Your license key expired on %s."
 msgstr ""
 
-#: ../translatepress/includes/class-edd-sl-plugin-updater.php:697
+#: ../translatepress/includes/class-edd-sl-plugin-updater.php:705
 msgid "Your license key has been disabled."
 msgstr ""
 
-#: ../translatepress/includes/class-edd-sl-plugin-updater.php:700
+#: ../translatepress/includes/class-edd-sl-plugin-updater.php:708
 msgid "Invalid license."
 msgstr ""
 
-#: ../translatepress/includes/class-edd-sl-plugin-updater.php:704
+#: ../translatepress/includes/class-edd-sl-plugin-updater.php:712
 msgid "Your license is not active for this URL."
 msgstr ""
 
-#: ../translatepress/includes/class-edd-sl-plugin-updater.php:707
+#: ../translatepress/includes/class-edd-sl-plugin-updater.php:715
 msgid "This appears to be an invalid license key for %s."
 msgstr ""
 
-#: ../translatepress/includes/class-edd-sl-plugin-updater.php:710
+#: ../translatepress/includes/class-edd-sl-plugin-updater.php:718
 msgid "Your license key has reached its activation limit."
 msgstr ""
 
-#: ../translatepress/includes/class-edd-sl-plugin-updater.php:744
+#: ../translatepress/includes/class-edd-sl-plugin-updater.php:752
 msgid "You have successfully activated your license"
 msgstr ""
 

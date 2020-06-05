@@ -667,11 +667,11 @@ function trp_superfly_change_menu_loading_hook(){
 }
 
 /**
- * Compatibility with Yoast SEO Canonical URL
+ * Compatibility with Yoast SEO Canonical URL and Opengraph URL
  * Yoast places the canonical wrongly and it's not processed correctly.
  */
 add_filter( 'wpseo_canonical', 'trp_wpseo_canonical_compat', 99999, 2);
-function trp_wpseo_canonical_compat( $canonical, $presentation_class ){
+function trp_wpseo_canonical_compat( $canonical, $presentation_class = null ){
 	global $TRP_LANGUAGE;
 	$trp = TRP_Translate_Press::get_trp_instance();
 	$url_converter = $trp->get_component( 'url_converter' );
@@ -679,3 +679,13 @@ function trp_wpseo_canonical_compat( $canonical, $presentation_class ){
 
 	return $canonical;
 };
+
+add_filter( 'wpseo_opengraph_url', 'trp_opengraph_url', 99999 );
+function trp_opengraph_url( $url ) {
+	global $TRP_LANGUAGE;
+	$trp = TRP_Translate_Press::get_trp_instance();
+	$url_converter = $trp->get_component( 'url_converter' );
+	$url = $url_converter->get_url_for_language($TRP_LANGUAGE, $url, '');
+
+	return $url;
+}
