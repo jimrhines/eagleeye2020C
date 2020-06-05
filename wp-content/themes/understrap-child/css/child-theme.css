@@ -12312,10 +12312,10 @@ img[src$=".svg"] {
     margin: 0.5rem 0 0 0; }
     @media (min-width: 992px) {
       #wrapper-footer #eeps-channels #eeps-social {
-        margin-bottom: 2rem; } }
+        margin-bottom: 1.5rem; } }
     #wrapper-footer #eeps-channels #eeps-social li {
-      display: inline;
-      margin: 0 0.5rem 0 0; }
+      display: inline-block;
+      margin: 0 0.5rem 0.5rem 0; }
       #wrapper-footer #eeps-channels #eeps-social li svg path {
         fill: #FEE300; }
         #wrapper-footer #eeps-channels #eeps-social li svg path:hover {

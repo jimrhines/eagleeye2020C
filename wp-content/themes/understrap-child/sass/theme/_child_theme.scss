@@ -1027,12 +1027,12 @@ img[src$=".svg"] {
 			margin: 0.5rem 0 0 0;
 
 			@include media-breakpoint-up(lg) {
-				margin-bottom: 2rem;
+				margin-bottom: 1.5rem;
 			}
 
 			li {
-				display: inline;
-				margin: 0 0.5rem 0 0;
+				display: inline-block;
+				margin: 0 0.5rem 0.5rem 0;
 
 				svg {
 					path {
