@@ -109,7 +109,6 @@ $container = get_theme_mod( 'understrap_container_type' );
 						</a>
 						<p><?php the_field('news_article_summary', $p->ID); ?> <a href="<?php echo get_permalink( $p->ID ); ?>">Read More <span class="sr-only">about <?php echo get_the_title( $p->ID ); ?></span></a></p>
 					<?php endforeach; ?>
-					<a href="<?php echo get_permalink(391); ?>" class="text-cta d-print-none">See all News</a> <span class="text-cta-accent d-print-none">&gt;</span>
 				</div>
 			<?php endif; ?>
 
@@ -121,7 +120,6 @@ $container = get_theme_mod( 'understrap_container_type' );
 						<a href="<?php echo get_permalink( $p->ID ); ?>"><h3><?php echo get_the_title( $p->ID ); ?></h3></a>
 						<p><?php the_field('case_study_summary', $p->ID); ?> <a href="<?php echo get_permalink( $p->ID ); ?>">Read More <span class="sr-only">about <?php echo get_the_title( $p->ID ); ?></span></a></p>
 					<?php endforeach; ?>
-					<a href="<?php echo get_permalink(357); ?>" class="text-cta d-print-none">See all Technical Documents</a> <span class="text-cta-accent d-print-none">&gt;</span>
 				</div>
 			<?php endif; ?>
 		</div>
