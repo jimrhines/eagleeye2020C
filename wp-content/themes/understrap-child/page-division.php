@@ -104,9 +104,16 @@ $container = get_theme_mod( 'understrap_container_type' );
 				<div id="division-whats-new" class="col-md-6">
 					<h2>What&#39;s New</h2>
 					<?php foreach( $division_whats_new as $p ): // variable must NOT be called $post (IMPORTANT) ?>
-						<a href="<?php echo get_permalink( $p->ID ); ?>">
-							<h3><?php echo get_the_title( $p->ID ); ?></h3>
-						</a>
+						<h3>
+							<a href="<?php echo get_permalink( $p->ID ); ?>">
+								<?php 
+								if ( get_field( 'news_article_link', $p->ID) ):
+									echo the_field('news_article_link', $p->ID);
+								else:
+									echo get_the_title( $p->ID );
+								endif; ?>
+							</a>
+						</h3>
 						<p><?php the_field('news_article_summary', $p->ID); ?> <a href="<?php echo get_permalink( $p->ID ); ?>">Read More <span class="sr-only">about <?php echo get_the_title( $p->ID ); ?></span></a></p>
 					<?php endforeach; ?>
 				</div>
@@ -117,7 +124,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 				<div id="division-featured-cases" class="col-md-6">
 					<h2><?php the_field('division_featured_case_studies_headline'); ?></h2>
 					<?php foreach( $division_featured_case_studies as $p ): // variable must NOT be called $post (IMPORTANT) ?>
-						<a href="<?php echo get_permalink( $p->ID ); ?>"><h3><?php echo get_the_title( $p->ID ); ?></h3></a>
+						<h3><a href="<?php echo get_permalink( $p->ID ); ?>"><?php echo get_the_title( $p->ID ); ?></a></h3>
 						<p><?php the_field('case_study_summary', $p->ID); ?> <a href="<?php echo get_permalink( $p->ID ); ?>">Read More <span class="sr-only">about <?php echo get_the_title( $p->ID ); ?></span></a></p>
 					<?php endforeach; ?>
 				</div>
