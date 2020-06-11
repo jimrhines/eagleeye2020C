@@ -102,18 +102,9 @@ $container = get_theme_mod( 'understrap_container_type' );
 			<?php $division_whats_new = get_field('division_whats_new');
 			if( $division_whats_new ): ?>
 				<div id="division-whats-new" class="col-md-6">
-					<h2>What&#39;s New</h2>
+					<h2><?php the_field('division_whats_new_headline'); ?></h2>
 					<?php foreach( $division_whats_new as $p ): // variable must NOT be called $post (IMPORTANT) ?>
-						<h3>
-							<a href="<?php echo get_permalink( $p->ID ); ?>">
-								<?php 
-								if ( get_field( 'news_article_link', $p->ID) ):
-									echo the_field('news_article_link', $p->ID);
-								else:
-									echo get_the_title( $p->ID );
-								endif; ?>
-							</a>
-						</h3>
+						<h3><a href="<?php echo get_permalink( $p->ID ); ?>"><?php echo get_the_title( $p->ID ); ?></a></h3>
 						<p><?php the_field('news_article_summary', $p->ID); ?> <a href="<?php echo get_permalink( $p->ID ); ?>">Read More <span class="sr-only">about <?php echo get_the_title( $p->ID ); ?></span></a></p>
 					<?php endforeach; ?>
 				</div>
