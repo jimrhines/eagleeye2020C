@@ -12043,30 +12043,23 @@ img[src$=".svg"] {
   padding: 3rem 0 0 0; }
   .divisions-insights h2 {
     margin: 0 0 2rem 0; }
-  .divisions-insights #division-whats-new a,
-  .divisions-insights #division-featured-cases a {
+  .divisions-insights #division-whats-new h3 a,
+  .divisions-insights #division-featured-cases h3 a {
     color: #413f42; }
-    .divisions-insights #division-whats-new a:hover,
-    .divisions-insights #division-featured-cases a:hover {
+    .divisions-insights #division-whats-new h3 a:hover,
+    .divisions-insights #division-featured-cases h3 a:hover {
       color: #999; }
-    .divisions-insights #division-whats-new a:visited,
-    .divisions-insights #division-featured-cases a:visited {
+    .divisions-insights #division-whats-new h3 a:visited,
+    .divisions-insights #division-featured-cases h3 a:visited {
       color: #413f42; }
-    .divisions-insights #division-whats-new a h3,
-    .divisions-insights #division-featured-cases a h3 {
-      color: #413f42; }
-      .divisions-insights #division-whats-new a h3:hover,
-      .divisions-insights #division-featured-cases a h3:hover {
-        color: #999; }
-      .divisions-insights #division-whats-new a h3:visited,
-      .divisions-insights #division-featured-cases a h3:visited {
-        color: #413f42; }
   .divisions-insights #division-whats-new p,
   .divisions-insights #division-featured-cases p {
     margin: 0 0 2rem 0;
     padding: 0 0 2rem 0;
-    color: #999;
     border-bottom: solid 1px #999; }
+    .divisions-insights #division-whats-new p a,
+    .divisions-insights #division-featured-cases p a {
+      text-decoration: underline; }
   .divisions-insights #division-whats-new {
     margin: 0 0 5rem 0; }
     @media (min-width: 768px) {
@@ -12248,6 +12241,8 @@ img[src$=".svg"] {
   @media (min-width: 768px) {
     #class-narrative {
       padding: 3rem 6rem; } }
+  #class-narrative a {
+    text-decoration: underline; }
 
 /*Newsletter Sign-up*/
 #mc_embed_signup {
@@ -12278,6 +12273,8 @@ img[src$=".svg"] {
     #mc_embed_signup form div.mce_inline_error {
       background-color: #FFF;
       color: #dc3545; }
+  #mc_embed_signup a {
+    text-decoration: underline; }
 
 /*Footer*/
 #wrapper-footer {

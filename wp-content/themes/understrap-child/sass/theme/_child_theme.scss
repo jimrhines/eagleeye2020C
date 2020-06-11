@@ -614,18 +614,8 @@ img[src$=".svg"] {
 
 	#division-whats-new,
 	#division-featured-cases {
-		a {
-			color: $brand-black;
-
-			&:hover {
-		    	color: $brand-gray;
-		    }
-
-		    &:visited {
-		    	color: $brand-black;
-		    }
-			
-			h3 {
+		h3 {
+			a {
 				color: $brand-black;
 
 				&:hover {
@@ -635,14 +625,17 @@ img[src$=".svg"] {
 			    &:visited {
 			    	color: $brand-black;
 			    }
-			}	
+			}
 		}
 
 		p {
 			margin: 0 0 2rem 0;
 			padding: 0 0 2rem 0;
-			color: $brand-gray;
 			border-bottom: solid 1px $brand-gray;
+
+			a {
+				text-decoration: underline;
+			}
 		}
 	}
 
@@ -925,6 +918,10 @@ img[src$=".svg"] {
 	@include media-breakpoint-up(md) {
 		padding: $universal-container-padding;
 	}
+
+	a {
+		text-decoration: underline;
+	}
 }
 
 /*Newsletter Sign-up*/
@@ -966,6 +963,10 @@ img[src$=".svg"] {
 			background-color: $white;
 			color: $danger;
 		}
+	}
+
+	a {
+		text-decoration: underline;
 	}
 }
 
