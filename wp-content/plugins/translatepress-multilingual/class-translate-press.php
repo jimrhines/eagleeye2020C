@@ -31,6 +31,7 @@ class TRP_Translate_Press{
     protected $string_translation_api_regular;
     protected $notifications;
     protected $search;
+    protected $install_plugins;
 
     public $active_pro_addons = array();
     public static $translate_press = null;
@@ -56,7 +57,7 @@ class TRP_Translate_Press{
         define( 'TRP_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
         define( 'TRP_PLUGIN_BASE', plugin_basename( __DIR__ . '/index.php' ) );
         define( 'TRP_PLUGIN_SLUG', 'translatepress-multilingual' );
-        define( 'TRP_PLUGIN_VERSION', '1.7.5' );
+        define( 'TRP_PLUGIN_VERSION', '1.7.6' );
 
 	    wp_cache_add_non_persistent_groups(array('trp'));
 
@@ -111,6 +112,7 @@ class TRP_Translate_Press{
         require_once TRP_PLUGIN_DIR . 'includes/string-translation/class-string-translation.php';
         require_once TRP_PLUGIN_DIR . 'includes/string-translation/class-string-translation-helper.php';
         require_once TRP_PLUGIN_DIR . 'includes/class-search.php';
+        require_once TRP_PLUGIN_DIR . 'includes/class-install-plugins.php';
         if ( did_action( 'elementor/loaded' ) )
             require_once TRP_PLUGIN_DIR . 'includes/class-elementor-language-for-blocks.php';
     }
@@ -145,6 +147,7 @@ class TRP_Translate_Press{
         $this->error_manager              = new TRP_Error_Manager( $this->settings->get_settings() );
         $this->string_translation         = new TRP_String_Translation( $this->settings->get_settings(), $this->loader );
         $this->search                     = new TRP_Search( $this->settings->get_settings() );
+        $this->install_plugins            = new TRP_Install_Plugins();
     }
 
     /**
@@ -225,6 +228,7 @@ class TRP_Translate_Press{
         $this->loader->add_action( 'wp_ajax_trp_get_similar_string_translation', $this->translation_memory, 'ajax_get_similar_string_translation' );
 
 	    $this->loader->add_filter( 'trp_get_existing_translations', $this->translation_manager, 'display_possible_db_errors', 20, 3 );
+        $this->loader->add_action( 'wp_ajax_trp_save_editor_user_meta', $this->translation_manager, 'save_editor_user_meta', 10 );
 
 
         $this->loader->add_action( 'wp_ajax_trp_process_js_strings_in_translation_editor', $this->translation_render, 'process_js_strings_in_translation_editor' );
@@ -235,6 +239,8 @@ class TRP_Translate_Press{
 	    $this->loader->add_action( 'admin_init', $this->upgrade, 'show_admin_notice' );
 	    $this->loader->add_action( 'admin_enqueue_scripts', $this->upgrade, 'enqueue_update_script', 10, 1 );
 	    $this->loader->add_action( 'wp_ajax_trp_update_database', $this->upgrade, 'trp_update_database' );
+
+        $this->loader->add_action( 'wp_ajax_trp_install_plugins', $this->install_plugins, 'install_plugins_request' );
 
         /* add hooks for license operations  */
         if( !empty( $this->active_pro_addons ) ) {

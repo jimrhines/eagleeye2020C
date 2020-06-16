@@ -312,10 +312,10 @@ class TRP_Url_Converter {
             trp_bulk_debug($debug, array('url' => $url, 'new url' => $new_url, 'found post id' => $post_id, 'url type' => 'based on permalink', 'for language' => $TRP_LANGUAGE));
             $TRP_LANGUAGE = $trp_language_copy;
 
-        }else if( isset( $trp_current_url_term_slug ) && isset($trp_current_url_taxonomy) ) { // check here if it is a term link
+        }else if( isset( $trp_current_url_term_slug ) && isset($trp_current_url_taxonomy) && $url == get_term_link( $trp_current_url_term_slug, $trp_current_url_taxonomy) ) { // check here if it is a term link
                 $TRP_LANGUAGE = $language;
-                $check_term_link = get_term_link( $trp_current_url_term_slug, $trp_current_url_taxonomy);
-                if( !is_wp_error($check_term_link) )
+                $check_term_link = get_term_link($trp_current_url_term_slug, $trp_current_url_taxonomy);
+                if (!is_wp_error($check_term_link))
                     $new_url = $check_term_link;
                 else
                     $new_url = $url;

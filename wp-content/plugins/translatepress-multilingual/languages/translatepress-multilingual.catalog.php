@@ -58,6 +58,7 @@
 <?php __("Test it to see if everything is working. If something went wrong, you can restore the backup that you've made at the first step. Check if no more errors occur while browsing your website in a translated language. Look at the timestamps of the errors to make sure you are not seeing the old errors. Only the most recent 5 errors are displayed.", "translatepress-multilingual"); ?>
 <?php __("Plan C.", "translatepress-multilingual"); ?>
 <?php __("If your problem still isn't solved, try asking your hosting about your errors. The most common issue is missing permissions for the SQL user, such as the Create Tables permission.", "translatepress-multilingual"); ?>
+<?php __("Could not install. Try again from <a href=\"%s\" >Plugins Dashboard.</a>", "translatepress-multilingual"); ?>
 <?php __("Automatic Translation", "translatepress-multilingual"); ?>
 <?php __("DeepL", "translatepress-multilingual"); ?>
 <?php __("You are not using a permalink structure! Please <a href=\"%s\">enable</a> one or install our <a href=\"%s\">\"Language by GET parameter\"</a> addon, so that TranslatePress can function properly.", "translatepress-multilingual"); ?>
@@ -76,6 +77,7 @@
 <?php __("Bottom Left", "translatepress-multilingual"); ?>
 <?php __("Top Right", "translatepress-multilingual"); ?>
 <?php __("Top Left", "translatepress-multilingual"); ?>
+<?php __("Install & Activate", "translatepress-multilingual"); ?>
 <?php __("Current Language", "translatepress-multilingual"); ?>
 <?php __("General", "translatepress-multilingual"); ?>
 <?php __("Translate Site", "translatepress-multilingual"); ?>
@@ -117,6 +119,8 @@
 <?php __("Navigate to previous string in dropdown list. Shortcut: CTRL(⌘) + ALT + Left Arrow", "translatepress-multilingual"); ?>
 <?php __("Discard all changes. Shortcut: CTRL(⌘) + ALT + Z", "translatepress-multilingual"); ?>
 <?php __("Discard changes to this text box. To discard changes to all text boxes use shortcut: CTRL(⌘) + ALT + Z", "translatepress-multilingual"); ?>
+<?php __("Dismiss tooltip", "translatepress-multilingual"); ?>
+<?php __("Quick Intro", "translatepress-multilingual"); ?>
 <?php __("Are you sure you want to split this phrase into smaller parts?", "translatepress-multilingual"); ?>
 <?php __("This string is not ready for translation yet. <br>Try again in a moment...", "translatepress-multilingual"); ?>
 <?php __("For this option to work, please update the Browse as other role add-on to the latest version.", "translatepress-multilingual"); ?>
@@ -137,6 +141,10 @@
 <?php __("No available suggestions", "translatepress-multilingual"); ?>
 <?php __("Suggestions from translation memory", "translatepress-multilingual"); ?>
 <?php __("Click to Copy", "translatepress-multilingual"); ?>
+<?php __("Hover any text on the page, click <img src=\"%s\" class=\"trp-edit-icon-inline\">, then modify the translation in the sidebar.", "translatepress-multilingual"); ?>
+<?php __("Don't forget to Save Translation. Use keyboard shortcut CTRL(⌘) + S", "translatepress-multilingual"); ?>
+<?php __("Switch language to see the translation changes directly on the page.", "translatepress-multilingual"); ?>
+<?php __("Search for any text in this page in the dropdown.", "translatepress-multilingual"); ?>
 <?php __("Slugs", "translatepress-multilingual"); ?>
 <?php __("Meta Information", "translatepress-multilingual"); ?>
 <?php __("String List", "translatepress-multilingual"); ?>
@@ -193,6 +201,12 @@
 <?php __("Create translator accounts for new users or allow existing users <br/>that are not administrators to translate your website.", "translatepress-multilingual"); ?>
 <?php __("Navigate your website just like a particular user role would. <br/>Really useful for dynamic content or hidden content that appears for particular users.", "translatepress-multilingual"); ?>
 <?php __("Configure different menu items for different languages.", "translatepress-multilingual"); ?>
+<?php __("Recommended Plugins by the same developers", "translatepress-multilingual"); ?>
+<?php __("A short list of plugins you can use to extend your website.", "translatepress-multilingual"); ?>
+<?php __("Capture more user information on the registration form with the help of Profile Builder's custom user profile fields and/or add an Email Confirmation process to verify your customers accounts.", "translatepress-multilingual"); ?>
+<?php __("Learn More", "translatepress-multilingual"); ?>
+<?php __("Installing...", "translatepress-multilingual"); ?>
+<?php __("Accept user payments, create subscription plans and restrict content on your membership site.", "translatepress-multilingual"); ?>
 <?php __("TranslatePress Advanced Settings", "translatepress-multilingual"); ?>
 <?php __("Save Changes", "translatepress-multilingual"); ?>
 <?php __("TranslatePress Errors", "translatepress-multilingual"); ?>

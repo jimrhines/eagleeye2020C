@@ -130,6 +130,25 @@ class TRP_Settings{
      * Addons page content.
      */
     public function addons_page_content(){
+        $trp = TRP_Translate_Press::get_trp_instance();
+        $install_plugins = $trp->get_component('install_plugins');
+
+        $active_plugin = __('Active', 'translatepress-multilingual');
+        $inactive_plugin = __('Install & Activate', 'translatepress-multilingual');
+
+        $plugins = array( 'pb', 'pms' );
+        $plugin_settings = array();
+        foreach($plugins as $plugin ){
+            $plugin_settings[$plugin] = array();
+            if ( $install_plugins->is_plugin_active( $plugin ) ) {
+                $plugin_settings[$plugin]['install_button'] = $active_plugin;
+                $plugin_settings[$plugin]['disabled']       = 'disabled';
+            }else{
+                $plugin_settings[$plugin]['install_button'] = $inactive_plugin;
+                $plugin_settings[$plugin]['disabled']       = '';
+            }
+        }
+
         require_once TRP_PLUGIN_DIR . 'partials/addons-settings-page.php';
     }
 
@@ -380,6 +399,11 @@ class TRP_Settings{
             wp_enqueue_script( 'trp-select2-lib-js', TRP_PLUGIN_URL . 'assets/lib/select2-lib/dist/js/select2.min.js', array( 'jquery' ), TRP_PLUGIN_VERSION );
             wp_enqueue_style( 'trp-select2-lib-css', TRP_PLUGIN_URL . 'assets/lib/select2-lib/dist/css/select2.min.css', array(), TRP_PLUGIN_VERSION );
 
+        }
+
+        if( in_array( $hook, array( 'admin_page_trp_addons_page' ) ) ) {
+            wp_enqueue_script( 'trp-add-ons-script', TRP_PLUGIN_URL . 'assets/js/trp-back-end-add-ons.js', array( ), TRP_PLUGIN_VERSION, true );
+            wp_localize_script( 'trp-add-ons-script', 'trp_addons_localized', array( 'admin_ajax_url' => admin_url( 'admin-ajax.php' ), 'nonce' =>  wp_create_nonce( 'trp_install_plugins' )) );
         }
     }
 

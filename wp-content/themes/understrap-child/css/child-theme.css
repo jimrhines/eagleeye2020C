@@ -12029,8 +12029,7 @@ img[src$=".svg"] {
     .divisions-parameters {
       padding-top: 0; } }
   .divisions-parameters h2 {
-    margin: 0 0 2rem 0; }
-  .divisions-parameters .col {
+    margin: 0 0 2rem 0;
     text-align: center; }
 
 .division-parameter-single {

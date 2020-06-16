@@ -3,9 +3,9 @@ Contributors: cozmoslabs, razvan.mo, madalin.ungureanu, cristophor
 Donate link: https://www.translatepress.com/
 Tags: translate, translation, multilingual, automatic translation, bilingual, front-end translation, google translate, language
 Requires at least: 3.1.0
-Tested up to: 5.4.1
+Tested up to: 5.4.2
 Requires PHP: 5.6.20
-Stable tag: 1.7.5
+Stable tag: 1.7.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -138,6 +138,13 @@ For more information please check out our [documentation](https://translatepress
 
 
 == Changelog ==
+= 1.7.6 =
+* Added a help wizard for the Visual Editor
+* Added Puerto Rico flag
+* Fixed issue with custom links on term archive pages where the term had a translated slug
+* Added a recommended plugins section on the addons tab.
+* Fixed a display issues in Strings interface for Safari
+
 = 1.7.5 =
 * Dix incorrect opengraph url in Yoast SEO that caused fatal error with older versions
 * Fix for blog page url slug translation

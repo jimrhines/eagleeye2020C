@@ -187,3 +187,24 @@ table.trp-adst-list-option th{
     margin-top: 25px;
     font-size: 15px;
 }
+
+/* Add-ons page */
+
+.trp-add-ons-plugins-container{
+    display: flex;
+    justify-content: start;
+}
+
+.trp-add-ons-plugins-column{
+    padding-right: 40px;
+    width: 50%;
+}
+
+a.trp-recommended-learn-more{
+    margin-right: 10px;
+    text-decoration: none;
+}
+
+.trp-recommended-buttons{
+    margin-bottom: 40px;
+}

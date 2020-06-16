@@ -602,6 +602,7 @@ body {
   left: 0;
   border-right: 2px solid #ddd;
   background: #eee;
+  z-index: 1;
 }
 
 .trp-controls-container {
@@ -610,6 +611,7 @@ body {
   top: 46px;
   bottom: 0px;
   width: inherit;
+  transition: all 0.3s ease;
 }
 
 .trp-controls-container.trp-show-editors-navigation {
@@ -879,6 +881,31 @@ a:hover {
           transform: translate3d(-50%, calc(-100% - 16px), 0);
 }
 
+.trp-close-tooltip {
+  cursor: pointer;
+  font: 400 20px/40px dashicons;
+  display: block;
+  width: 25px;
+  height: 25px;
+  border: none;
+  color: #ddd;
+  float: right;
+  text-decoration: none;
+  margin: -12px -6px 0 0;
+}
+
+.trp-close-tooltip:after {
+  content: "\F335";
+}
+
+.trp-close-tooltip:hover {
+  font-weight: bold;
+}
+
+.trp-tooltip-text {
+  margin-top: 7px;
+}
+
 /*
     View as Dropdown
  */
@@ -911,9 +938,10 @@ a:hover {
   padding: 3px;
 }
 
-span.select2-container {
+#trp-language-switch,
+#trp-string-list,
+#trp-view-as {
   margin-bottom: 10px;
-  /*width: 100% !important;*/
 }
 
 #trp-lists {
@@ -948,6 +976,83 @@ span.select2-container {
   min-width: 85px;
 }
 
+.trp-button-container {
+  position: relative;
+}
+
+.trp-button-container:hover .trp-dismissible-tooltip,
+.trp-dismissible-tooltip:hover,
+.trp-button-container:hover .trp-tooltip-triangle {
+  opacity: 0.95;
+  visibility: visible;
+}
+
+.trp-tooltip-triangle {
+  z-index: 2;
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
+  left: 50%;
+  top: 30px;
+  transition: all 0.3s ease;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0px 6px 6px 6px;
+  border-color: transparent transparent #23282D transparent;
+}
+
+.trp-dismissible-tooltip {
+  z-index: 9999999;
+  text-transform: none;
+  font-size: 14px;
+  position: absolute;
+  top: 36px;
+  color: white;
+  background: #23282D;
+  padding: 8px 12px;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  max-width: 150px;
+  opacity: 0;
+  border-top: 20px transparent;
+  border-radius: 4px;
+  -webkit-transform: translate3d(-50%, 0%, 0);
+          transform: translate3d(-50%, 0%, 0);
+  transition: all 0.3s ease;
+  white-space: normal;
+  line-height: initial;
+  text-align: center;
+  visibility: hidden;
+}
+
+.trp-previous-tooltip .trp-dismissible-tooltip {
+  left: 86px;
+}
+
+.trp-next-tooltip .trp-dismissible-tooltip {
+  left: -2px;
+}
+
+.trp-save-tooltip .trp-dismissible-tooltip {
+  left: 40px;
+  top: 32px;
+}
+
+.trp-save-tooltip .trp-tooltip-triangle {
+  top: 26px;
+}
+
+.trp-discardall-tooltip .trp-tooltip-triangle {
+  top: 18px;
+}
+
+.trp-discardall-tooltip .trp-dismissible-tooltip {
+  left: 4px;
+  top: 24px;
+}
+
 .trp-toggle-languages,
 .tablenav-pages-navspan {
   -webkit-touch-callout: none;
@@ -968,6 +1073,110 @@ span.select2-container {
   color: #008000;
   font-size: 14px;
   display: none;
+}
+
+.trp-help-toggle {
+  padding: 13px 7px 13px 7px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  box-shadow: none;
+  -webkit-appearance: none;
+  background: 0 0;
+  color: #555d66;
+  border: none;
+}
+
+.trp-help-toggle:before {
+  padding: 4px;
+}
+
+.trp-help-toggle.trp-help-toggle-never-opened:before {
+  -webkit-animation: blinker 2s linear infinite;
+          animation: blinker 2s linear infinite;
+  border-radius: 100%;
+}
+
+@-webkit-keyframes blinker {
+  20% {
+    box-shadow: 0 0 0 1px #5b9dd9, 0 0 2px 1px rgba(30, 140, 190, 0.8);
+    padding: 4px;
+  }
+}
+
+@keyframes blinker {
+  20% {
+    box-shadow: 0 0 0 1px #5b9dd9, 0 0 2px 1px rgba(30, 140, 190, 0.8);
+    padding: 4px;
+  }
+}
+
+.trp-help-toggle:hover,
+.trp-help-toggle.trp-help-toggle-open {
+  color: #0073aa;
+}
+
+.trp-help-toggle:focus {
+  outline: 0;
+}
+
+.trp-help-toggle:focus:before {
+  box-shadow: 0 0 0 1px #5b9dd9, 0 0 2px 1px rgba(30, 140, 190, 0.8);
+  border-radius: 100%;
+  padding: 4px;
+}
+
+.trp-help-panel {
+  position: absolute;
+  background: #fff;
+  border-bottom: 1px solid #ddd;
+  height: 173px;
+  width: 100%;
+}
+
+.trp-inner-panel {
+  padding: 12px;
+  overflow-y: auto;
+  height: 114px;
+}
+
+.trp-help-panel-pagination {
+  display: flex;
+  justify-content: space-between;
+}
+
+.trp-controls-container.help-panel-open {
+  top: 221px;
+}
+
+.trp-edit-icon-inline {
+  margin-bottom: -8px;
+}
+
+.trp-highlight-for-panel {
+  border: 2px solid red !important;
+}
+
+a.trp-link-button {
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  color: #0073aa;
+}
+
+a.trp-link-button:hover {
+  color: #00a0d2;
+}
+
+a.trp-link-button.trp-link-button-disabled {
+  color: initial;
+}
+
+.trp-help-panel-pagination {
+  padding: 7px 12px 0 12px;
+  height: 50px;
 }
 
 /*
@@ -1347,6 +1556,7 @@ Translation Input component
 
 select.trp-select-all {
   width: 20px;
+  height: 20px;
   padding: 0 13px !important;
   margin: -7px -10px 0px 2px;
 }

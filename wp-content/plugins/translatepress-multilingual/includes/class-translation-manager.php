@@ -123,6 +123,8 @@ class TRP_Translation_Manager {
                 'previous_title_attr'                        => esc_attr__( 'Navigate to previous string in dropdown list. Shortcut: CTRL(⌘) + ALT + Left Arrow', 'translatepress-multilingual' ),
                 'discard_all_title_attr'                     => esc_attr__( 'Discard all changes. Shortcut: CTRL(⌘) + ALT + Z', 'translatepress-multilingual' ),
                 'discard_individual_changes_title_attribute' => esc_attr__( 'Discard changes to this text box. To discard changes to all text boxes use shortcut: CTRL(⌘) + ALT + Z', 'translatepress-multilingual' ),
+                'dismiss_tooltip_title_attribute'            => esc_attr__( 'Dismiss tooltip', 'translatepress-multilingual' ),
+                'quick_intro_title_attribute'                => esc_attr__( 'Quick Intro', 'translatepress-multilingual' ),
 
                 'split_confirmation'         => esc_js( __( 'Are you sure you want to split this phrase into smaller parts?', 'translatepress-multilingual' ) ),
                 'translation_not_loaded_yet' => wp_kses( __( 'This string is not ready for translation yet. <br>Try again in a moment...', 'translatepress-multilingual' ), array( 'br' => array() ) ),
@@ -152,6 +154,67 @@ class TRP_Translation_Manager {
             );
     }
 
+    public function get_help_panel_content() {
+        $edit_icon = TRP_PLUGIN_URL . 'assets/images/edit-icon.png';
+        return apply_filters( 'trp_help_panel_content', array(
+            array(
+                'title'   => esc_html__( 'Quick Intro', 'translatepress-multilingual' ),
+                'content' => wp_kses( sprintf( __( 'Hover any text on the page, click <img src="%s" class="trp-edit-icon-inline">, then modify the translation in the sidebar.', 'translatepress-multilingual' ), $edit_icon ),
+                    array( 'img' => array( 'src' => array(), 'class' => array() ) ) ),
+                'event'   => 'trp_hover_text_help_panel'
+            ),
+            array(
+                'title'   => esc_html__( 'Quick Intro', 'translatepress-multilingual' ),
+                'content' => wp_kses( __( 'Don\'t forget to Save Translation. Use keyboard shortcut CTRL(⌘) + S', 'translatepress-multilingual' ), array() ),
+                'event'   => 'trp_save_translation_help_panel'
+            ),
+            array(
+                'title'   => esc_html__( 'Quick Intro', 'translatepress-multilingual' ),
+                'content' => wp_kses( __( 'Switch language to see the translation changes directly on the page.', 'translatepress-multilingual' ), array() ),
+                'event'   => 'trp_switch_language_help_panel'
+            ),
+            array(
+                'title'   => esc_html__( 'Quick Intro', 'translatepress-multilingual' ),
+                'content' => wp_kses( __( 'Search for any text in this page in the dropdown.', 'translatepress-multilingual' ), array() ),
+                'event'   => 'trp_search_string_help_panel'
+            )
+        ) );
+    }
+
+    public function get_default_editor_user_meta(){
+        return apply_filters( 'trp_default_editor_user_meta', array(
+            'helpPanelOpened'          => false,
+            'dismissTooltipSave'       => false,
+            'dismissTooltipNext'       => false,
+            'dismissTooltipPrevious'   => false,
+            'dismissTooltipDismissAll' => false,
+        ) );
+    }
+
+    public function get_editor_user_meta() {
+        $user_meta = get_user_meta( get_current_user_id(), 'trp_editor_user_meta', true );
+        $user_meta = wp_parse_args( $user_meta, $this->get_default_editor_user_meta() );
+        return apply_filters( 'trp_editor_user_meta', $user_meta );
+    }
+
+    public function save_editor_user_meta(){
+        if ( defined( 'DOING_AJAX' ) && DOING_AJAX && current_user_can( apply_filters( 'trp_translating_capability', 'manage_options' ) ) ) {
+            check_ajax_referer( 'trp_editor_user_meta', 'security' );
+            if ( isset( $_POST['action'] ) && $_POST['action'] === 'trp_save_editor_user_meta' && !empty( $_POST['user_meta'] ) ) {
+               $submitted_user_meta = json_decode(stripslashes($_POST['user_meta']), true);
+               $existing_user_meta = $this->get_editor_user_meta();
+               foreach( $existing_user_meta as $key => $existing ){
+                   if ( isset( $submitted_user_meta[$key] ) ) {
+                       $existing_user_meta[ $key ] = (bool)$submitted_user_meta[ $key ];
+                   }
+               }
+               update_user_meta(get_current_user_id(), 'trp_editor_user_meta', $existing_user_meta );
+            }
+        }
+        echo trp_safe_json_encode( array() );
+        die();
+    }
+
     public function string_groups() {
         $string_groups = array(
             'slugs'           => esc_html__( 'Slugs', 'translatepress-multilingual' ),
@@ -176,6 +239,7 @@ class TRP_Translation_Manager {
             'mergetbnonce'                  => wp_create_nonce( 'merge_translation_block' ),
             'logged_out'                    => wp_create_nonce( 'trp_view_aslogged_out' . get_current_user_id() ),
             'getsimilarstring'              => wp_create_nonce( 'getsimilarstring' ),
+            'trp_editor_user_meta'          => wp_create_nonce( 'trp_editor_user_meta' )
         );
 
         return apply_filters( 'trp_editor_nonces', $nonces );
@@ -317,7 +381,9 @@ class TRP_Translation_Manager {
             'merge_rules'                 => $this->get_merge_rules(),
             'paid_version'                => trp_is_paid_version() ? 'true' : 'false',
             'flags_path'                  => $flags_path,
-            'editors_navigation'          => $editors_navigation
+            'editors_navigation'          => $editors_navigation,
+            'help_panel_content'          => $this->get_help_panel_content(),
+            'user_meta'                   => $this->get_editor_user_meta(),
         );
 
         return apply_filters( 'trp_editor_data', $trp_editor_data );
