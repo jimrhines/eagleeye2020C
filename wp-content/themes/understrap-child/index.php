@@ -95,7 +95,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 				?>
 				<div id="eagle-eye-committment" class="row d-print-none" style="background: url(<?php echo $eagle_eye_commitment_background_image ?>) top center / cover no-repeat;;">
 					<div class="col text-center">
-						<a href="<?php echo $eagle_eye_commitment_link; ?>">
+						<a href="<?php echo $eagle_eye_commitment_link; ?>" target="_blank" rel="noopener">
 							<h3 class="h1"><?php echo $eagle_eye_commitment_headline; ?></h3>
 							<i class="fa fa-play-circle-o"></i>
 						</a>

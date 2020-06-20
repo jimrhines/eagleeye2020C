@@ -31,6 +31,22 @@ $container = get_theme_mod( 'understrap_container_type' );
 	<script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/f2346f20cc72e19fc18d07635/2c25cd597878078646ca8aa3a.js");
 	</script>
 	<!-- End Mailchimp Connected Sites -->
+	<!-- Start SharpSpring Tracking -->
+	<script>
+		var _ss = _ss || [];
+		_ss.push(['_setDomain', 'https://koi-3QNMNV32OO.marketingautomation.services/net']);
+		_ss.push(['_setAccount', 'KOI-49SV1JOW94']);
+		_ss.push(['_trackPageView']);
+		(function() {
+		    var ss = document.createElement('script');
+		    ss.type = 'text/javascript';
+		    ss.async = true;
+		    ss.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'koi-3QNMNV32OO.marketingautomation.services/client/ss.js?ver=2.4.0';
+		    var scr = document.getElementsByTagName('script')[0];
+		    scr.parentNode.insertBefore(ss, scr);
+		})();
+	</script>
+	<!-- End SharpSpring Tracking -->
 </head>
 
 <body <?php body_class(); ?>>
