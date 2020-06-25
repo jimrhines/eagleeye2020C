@@ -125,6 +125,11 @@ img[src$=".svg"] {
 		@media all and (min--moz-device-pixel-ratio:0) {
 			width: 20%;
 		}
+		/*Safari only*/
+		@media not all and (min-resolution:.001dpcm)
+		{ @supports (-webkit-appearance:none) and (stroke-color:transparent) {
+		        width: 25%;
+		}}
 		@include media-breakpoint-down(xs) {
 			width: 70%;
 		}
