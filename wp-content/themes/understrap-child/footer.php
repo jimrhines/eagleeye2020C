@@ -18,7 +18,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 
 <div id="newsletter-signup" class="d-print-none">
 	<?php if ( shortcode_exists( 'contact-form-7' ) ) { 
-		echo do_shortcode('[contact-form-7 id="2091" title="Newsletter Signup"]'); 
+		echo do_shortcode('[contact-form-7 id="2195" title="Newsletter Signup"]'); 
 	} ?>
 	<p><small><?php bloginfo( 'name' ); ?> respects your privacy. We don&#39;t rent or sell your personal information to anyone. Ever. <a href="<?php echo get_permalink(3); ?>">Read our <?php echo get_the_title(3); ?></a>.</small></p>
 </div>
