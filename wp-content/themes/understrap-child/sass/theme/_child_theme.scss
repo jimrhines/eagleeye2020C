@@ -926,8 +926,8 @@ img[src$=".svg"] {
 	}
 }
 
-/*Newsletter Sign-up*/
-#mc_embed_signup {
+/*Newsletter Signup*/
+#newsletter-signup {
 	padding: $mobile-container-padding;
 	@include media-breakpoint-up(md) {
 		padding: $universal-container-padding;
@@ -940,31 +940,21 @@ img[src$=".svg"] {
 		width: auto;
 		margin: 0 0 1rem 0;
 
-		label {
-			position: relative;
-			top: 0;
+		#email-address {
 			display: inline-block;
-
-			@media only screen and (min-width: 850px) {
-				top: 0.5rem;
-			}
-		}
-
-		#mce-EMAIL {
 			width: 100%;
-			margin: 0.5rem 0;
+			margin: 0.5rem 0 0 0;
 
 			@include media-breakpoint-up(sm) {
 				width: 300px;
-				margin: 0.5rem;
 			}
 
 		}
 
-		div.mce_inline_error {
-			background-color: $white;
-			color: $danger;
+		.wpcf7-not-valid-tip {
+			font-size: 1rem;
 		}
+
 	}
 
 	a {

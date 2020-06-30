@@ -16,24 +16,21 @@ $container = get_theme_mod( 'understrap_container_type' );
 
 <?php get_template_part( 'sidebar-templates/sidebar', 'footerfull' ); ?>
 
-<!-- Begin Mailchimp Signup Form -->
-<div id="mc_embed_signup" class="d-print-none">
-	<form action="https://eepowersolutions.us19.list-manage.com/subscribe/post?u=f2346f20cc72e19fc18d07635&amp;id=efe67149f4" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate form-inline" target="_blank" novalidate>
-		<div class="mc-field-group mr-sm-2 mb-2">
-			<label for="mce-EMAIL" class="h3">Sign up for our newsletter <span class="sr-only">Enter Email Address</span></label>
-			<input type="email" id="mce-EMAIL" class="form-control" placeholder="Enter Email Address" value="" name="EMAIL" required />
-			<input type="submit" id="mc-embedded-subscribe" class="btn btn-primary" value="Subscribe &gt;" name="subscribe" />
-		</div>
-	    <div id="mce-responses">
-			<div id="mce-error-response" class="response" style="display: none;"></div>
-			<div id="mce-success-response" class="response" style="display: none;"></div>
-		</div>
-	</form>
+<div id="newsletter-signup" class="d-print-none">
+	<?php if ( shortcode_exists( 'contact-form-7' ) ) { 
+		echo do_shortcode('[contact-form-7 id="2091" title="Newsletter Signup"]'); 
+	} ?>
 	<p><small><?php bloginfo( 'name' ); ?> respects your privacy. We don&#39;t rent or sell your personal information to anyone. Ever. <a href="<?php echo get_permalink(3); ?>">Read our <?php echo get_the_title(3); ?></a>.</small></p>
 </div>
-<script src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script>
-<script>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';fnames[3]='ADDRESS';ftypes[3]='address';fnames[4]='PHONE';ftypes[4]='phone';fnames[5]='MMERGE5';ftypes[5]='text';fnames[6]='MMERGE6';ftypes[6]='text';fnames[7]='MMERGE7';ftypes[7]='text';fnames[8]='MMERGE8';ftypes[8]='text';fnames[9]='MMERGE9';ftypes[9]='text';fnames[10]='MMERGE10';ftypes[10]='text';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
-<!--End Mailchimp Signup Form-->
+<!-- Start SharpSpring Signup Form -->
+<script>
+    var __ss_noform = __ss_noform || [];
+    __ss_noform.push(['baseURI', 'https://app-3QNMNV32OO.marketingautomation.services/webforms/receivePostback/MzawMLEwMjK0AAA/']);
+    __ss_noform.push(['endpoint', 'ebb85961-277d-491d-a0cb-c9caf3c667b3']);
+</script>
+<script src="https://koi-3QNMNV32OO.marketingautomation.services/client/noform.js?ver=1.24"></script>
+<!-- End SharpSpring Signup Form -->
+
 
 <div class="wrapper" id="wrapper-footer">
 	<footer class="site-footer" id="colophon">

@@ -27,10 +27,6 @@ $container = get_theme_mod( 'understrap_container_type' );
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 	<link rel="profile" href="http://gmpg.org/xfn/11" />
 	<?php wp_head(); ?>
-	<!-- Start Mailchimp Connected Sites -->
-	<script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/f2346f20cc72e19fc18d07635/2c25cd597878078646ca8aa3a.js");
-	</script>
-	<!-- End Mailchimp Connected Sites -->
 	<!-- Start SharpSpring Tracking -->
 	<script>
 		var _ss = _ss || [];

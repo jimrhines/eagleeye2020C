@@ -12248,36 +12248,28 @@ img[src$=".svg"] {
   #class-narrative a {
     text-decoration: underline; }
 
-/*Newsletter Sign-up*/
-#mc_embed_signup {
+/*Newsletter Signup*/
+#newsletter-signup {
   padding: 1rem 2rem;
   border-top: solid 1px #999;
   text-align: center; }
   @media (min-width: 768px) {
-    #mc_embed_signup {
+    #newsletter-signup {
       padding: 3rem 6rem; } }
-  #mc_embed_signup form {
+  #newsletter-signup form {
     display: block;
     width: auto;
     margin: 0 0 1rem 0; }
-    #mc_embed_signup form label {
-      position: relative;
-      top: 0;
-      display: inline-block; }
-      @media only screen and (min-width: 850px) {
-        #mc_embed_signup form label {
-          top: 0.5rem; } }
-    #mc_embed_signup form #mce-EMAIL {
+    #newsletter-signup form #email-address {
+      display: inline-block;
       width: 100%;
-      margin: 0.5rem 0; }
+      margin: 0.5rem 0 0 0; }
       @media (min-width: 576px) {
-        #mc_embed_signup form #mce-EMAIL {
-          width: 300px;
-          margin: 0.5rem; } }
-    #mc_embed_signup form div.mce_inline_error {
-      background-color: #FFF;
-      color: #dc3545; }
-  #mc_embed_signup a {
+        #newsletter-signup form #email-address {
+          width: 300px; } }
+    #newsletter-signup form .wpcf7-not-valid-tip {
+      font-size: 1rem; }
+  #newsletter-signup a {
     text-decoration: underline; }
 
 /*Footer*/
