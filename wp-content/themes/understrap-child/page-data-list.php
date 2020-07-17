@@ -41,15 +41,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 				</main>
 			</div>
 		</div>
-	</div>
-					
-	<div class="container-fluid">
-		<div class="row secondary-cta d-print-none">
-			<div class="col h2">
-				<span>Need pricing?</span> <a class="btn btn-primary button-super" href="<?php echo get_permalink(13); ?>" role="button">Get a Quote &gt;</a>
-			</div>
-		</div>
-	</div>
+	</div>			
 </div>
 
 <?php get_footer(); ?>
