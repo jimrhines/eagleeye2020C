@@ -129,6 +129,13 @@ class TRP_Url_Converter {
      */
     public function add_hreflang_to_head(){
 
+    	// exclude hreflang for URL
+	    $default_language= $this->settings["default-language"];
+	    $original_url = str_replace('#TRPLINKPROCESSED', '', $this->get_url_for_language( $default_language ) ) ;
+	    if ( apply_filters('trp-exclude-hreflang', false, $original_url) ){
+    		return;
+	    }
+
         $languages = $this->settings['publish-languages'];
         if ( isset( $_GET['trp-edit-translation'] ) && $_GET['trp-edit-translation'] == 'preview' ) {
             $languages = $this->settings['translation-languages'];
@@ -413,6 +420,24 @@ class TRP_Url_Converter {
 
         return is_file($path);
     }
+
+
+	/**
+	 * Check for a spacial type of URL. Currently includes mailto, tel, callto URL types.
+	 *
+	 * @param string $url
+	 * @return bool
+	 */
+    public function url_is_extra( $url ){
+	    $allowed = array( 'mailto', 'tel', 'callto' );
+	    $parsed = parse_url($url);
+	    if (is_array($parsed) && isset( $parsed['scheme'] )){
+	        return in_array( $parsed['scheme'], $allowed );
+	    } else {
+	    	return false;
+	    }
+    }
+
 
     /**
      * Get language code slug to use in url.

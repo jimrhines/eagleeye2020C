@@ -97,7 +97,7 @@ msgstr ""
 msgid "Are you sure you want to remove this language?"
 msgstr ""
 
-#: ../tp-add-on-extra-languages/partials/language-selector-pro.php:43, ../translatepress/includes/class-advanced-tab.php:422, ../translatepress/includes/class-advanced-tab.php:432, ../translatepress/partials/main-settings-language-selector.php:40
+#: ../tp-add-on-extra-languages/partials/language-selector-pro.php:43, ../translatepress/includes/class-advanced-tab.php:423, ../translatepress/includes/class-advanced-tab.php:433, ../translatepress/partials/main-settings-language-selector.php:40
 msgid "Remove"
 msgstr ""
 
@@ -105,7 +105,7 @@ msgstr ""
 msgid "Choose..."
 msgstr ""
 
-#: ../tp-add-on-extra-languages/partials/language-selector-pro.php:58, ../translatepress/includes/class-advanced-tab.php:432, ../translatepress/partials/main-settings-language-selector.php:55
+#: ../tp-add-on-extra-languages/partials/language-selector-pro.php:58, ../translatepress/includes/class-advanced-tab.php:433, ../translatepress/partials/main-settings-language-selector.php:55
 msgid "Add"
 msgstr ""
 
@@ -121,11 +121,11 @@ msgstr ""
 msgid "Advanced"
 msgstr ""
 
-#: ../translatepress/includes/class-advanced-tab.php:241, ../translatepress/includes/class-error-manager.php:155, ../translatepress/partials/machine-translation-settings-page.php:13, ../translatepress/partials/machine-translation-settings-page.php:78, ../translatepress/partials/machine-translation-settings-page.php:111, ../translatepress/partials/main-settings-page.php:41, ../translatepress/partials/main-settings-page.php:54, ../translatepress/partials/main-settings-page.php:67
+#: ../translatepress/includes/class-advanced-tab.php:242, ../translatepress/includes/class-error-manager.php:155, ../translatepress/partials/machine-translation-settings-page.php:13, ../translatepress/partials/machine-translation-settings-page.php:78, ../translatepress/partials/machine-translation-settings-page.php:111, ../translatepress/partials/main-settings-page.php:41, ../translatepress/partials/main-settings-page.php:54, ../translatepress/partials/main-settings-page.php:67
 msgid "Yes"
 msgstr ""
 
-#: ../translatepress/includes/class-advanced-tab.php:422, ../translatepress/includes/class-advanced-tab.php:432
+#: ../translatepress/includes/class-advanced-tab.php:423, ../translatepress/includes/class-advanced-tab.php:433
 msgid "Are you sure you want to remove this item?"
 msgstr ""
 
@@ -1251,6 +1251,14 @@ msgstr ""
 
 #: ../translatepress/includes/advanced-settings/enable-hreflang-xdefault.php:9
 msgid "Enables the hreflang=\"x-default\" for an entire language. See documentation for more details."
+msgstr ""
+
+#: ../translatepress/includes/advanced-settings/enable-numerals-translation.php:9
+msgid "Translate numbers and numerals"
+msgstr ""
+
+#: ../translatepress/includes/advanced-settings/enable-numerals-translation.php:10
+msgid "Enable translation of numbers ( e.g. phone numbers)"
 msgstr ""
 
 #: ../translatepress/includes/advanced-settings/exclude-dynamic-selectors.php:9, ../translatepress/includes/advanced-settings/exclude-selectors.php:9

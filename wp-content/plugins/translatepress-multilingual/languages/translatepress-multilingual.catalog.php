@@ -309,6 +309,8 @@
 <?php __("Generate automatic translations of slugs for posts, pages and Custom Post Types.<br/>Requires <a href=\"https://translatepress.com/docs/addons/seo-pack/\" title=\"TranslatePress Add-on SEO Pack documentation\" target=\"_blank\"> SEO Pack Add-on</a> to be installed and activated.", "translatepress-multilingual"); ?>
 <?php __("Enable the hreflang x-default tag for language:", "translatepress-multilingual"); ?>
 <?php __("Enables the hreflang=\"x-default\" for an entire language. See documentation for more details.", "translatepress-multilingual"); ?>
+<?php __("Translate numbers and numerals", "translatepress-multilingual"); ?>
+<?php __("Enable translation of numbers ( e.g. phone numbers)", "translatepress-multilingual"); ?>
 <?php __("Selector", "translatepress-multilingual"); ?>
 <?php __("Exclude from dynamic translation", "translatepress-multilingual"); ?>
 <?php __("Do not dynamically translate strings that are found in html nodes matching these selectors.<br>Excludes all the children of HTML nodes matching these selectors from being translated using JavaScript.<br/>These strings will still be translated on the server side if possible.", "translatepress-multilingual"); ?>

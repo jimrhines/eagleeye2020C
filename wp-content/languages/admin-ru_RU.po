@@ -2,12 +2,12 @@
 # This file is distributed under the same license as the WordPress - 5.4.x - Development - Administration package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-03-24 17:05:08+0000\n"
+"PO-Revision-Date: 2020-06-18 12:47:27+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: GlotPress/2.4.0-alpha\n"
+"Plural-Forms: nplurals=3; plural=(n % 10 == 1 && n % 100 != 11) ? 0 : ((n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14)) ? 1 : 2);\n"
+"X-Generator: GlotPress/3.0.0-alpha.2\n"
 "Language: ru\n"
 "Project-Id-Version: WordPress - 5.4.x - Development - Administration\n"
 
@@ -27,11 +27,19 @@ msgstr "1"
 msgid "Continue"
 msgstr "Продолжить"
 
-#: wp-admin/about.php:130
+#: wp-admin/includes/theme.php:304
+msgid "Wide Blocks"
+msgstr "Широкие блоки"
+
+#: wp-admin/includes/theme.php:281
+msgid "Block Editor Styles"
+msgstr "Стили редактора блоков"
+
+#: wp-admin/about.php:188
 msgid "See progress as you process export and erasure requests through the privacy tools."
 msgstr "Следите за прогрессом исполнения запросов экспорта и стирания в инструментах работы с персональными данными."
 
-#: wp-admin/about.php:129
+#: wp-admin/about.php:187
 msgid "Now personal data exports include users session information and users location data from the community events widget. Plus, a table of contents!"
 msgstr "Новый формат экспорта персональных данных включает информацию о сессиях пользователя и данные о местонахождении из виджета мероприятий сообщества. А ещё оглавление!"
 
@@ -49,138 +57,138 @@ msgid "Unable to write to %s file."
 msgstr "Невозможно записать в файл %s."
 
 #. translators: %s: WordPress 5.4 Field Guide link.
-#: wp-admin/about.php:201
+#: wp-admin/about.php:259
 msgid "There&#8217;s lots more for developers to love in WordPress 5.4. To discover more and learn how to make these changes shine on your sites, themes, plugins and more, check the <a href=\"%s\">WordPress 5.4 Field Guide</a>."
 msgstr "Гораздо больше вкусностей для разработчиков в WordPress 5.4. Узнать больше и научиться использовать эти изменения во всей красе на ваших сайтах, в темах, плагинах, и не только, вы сможете прочитав <a href=\"%s\">WordPress 5.4 Field Guide</a>."
 
-#: wp-admin/about.php:188
+#: wp-admin/about.php:246
 msgid "In embeds, now the block editor supports TikTok—and CollegeHumor is gone."
 msgstr "В встраиваемом содержимом редактора блоков мы добавили TikTok, но убрали CollegeHumor."
 
-#: wp-admin/about.php:187
+#: wp-admin/about.php:245
 msgid "Let users do more with two new APIs: block variations and gradients."
 msgstr "Больше возможностей с двумя новыми API: вариации блоков и градиенты."
 
-#: wp-admin/about.php:186
+#: wp-admin/about.php:244
 msgid "If you build plugins, now you can register collections of your blocks by namespace across categories—a great way to get more brand visibility."
-msgstr "Если вы создаете плагины, теперь вы можете зарегистрировать коллекции блоков используя пространства имен по категориям, это отличная возможность \"раскрутки\" бренда."
+msgstr "Если вы создаёте плагины, теперь можно зарегистрировать коллекции блоков, используя пространства имён по категориям — это отличная возможность «раскрутки» бренда."
 
-#: wp-admin/about.php:185
+#: wp-admin/about.php:243
 msgid "<strong>Radically</strong> simpler block styling. Negative margins and default padding are gone! Now you can style blocks the way you need them. And, a refactor got rid of four redundant wrapper divs."
 msgstr "<strong>Радикально</strong> упрощённая стилизация блоков. Убраны отрицательные отступы и границы по умолчанию. Теперь можно стилизовать блоки так, как вам нужно. И мы избавились от четырёх лишних div врапперов."
 
-#: wp-admin/about.php:183
+#: wp-admin/about.php:241
 msgid "Blocks! Simpler styling, new APIs and embeds"
 msgstr "Блоки! Упрощение стилей, новые API и встраивание содержимого"
 
-#: wp-admin/about.php:179
+#: wp-admin/about.php:237
 msgid "Check your code and see where these new actions can replace your custom code, and if you&#8217;re concerned about duplication, add a check for the WordPress version."
-msgstr "Пересмотрите свой код и возможно эти новые действия смогут заменить ваш пользовательский код, тем не менее, используя их, стоит осуществлять проверку версии WordPress."
+msgstr "Пересмотрите свой код — возможно, эти новые действия смогут заменить ваш предыдущий код. Чтобы избежать дублирования произвольных полей, добавьте проверку версии WordPress."
 
 #. translators: %s: 'wp_nav_menu_item_custom_fields_customize_template' action
 #. name.
-#: wp-admin/about.php:173
+#: wp-admin/about.php:231
 msgid "In the Customizer, %s fires at the end of the menu-items form-fields template."
-msgstr "В интерфейса настройки %s запускается в конце элементов меню шаблона полей формы."
+msgstr "В интерфейсе настройки в конце шаблона полей формы элемента меню срабатывает действие %s."
 
 #. translators: %s: 'wp_nav_menu_item_custom_fields' action name.
-#: wp-admin/about.php:164
+#: wp-admin/about.php:222
 msgid "On the Menus admin screen, %s fires just before the move buttons of a nav menu item in the menu editor."
-msgstr "На экране настройки меню %s запускается перед перемещением элементов навигационного меню в редакторе."
+msgstr "На экране «Меню» перед кнопками перемещения элемента меню срабатывает действие %s."
 
-#: wp-admin/about.php:158
+#: wp-admin/about.php:216
 msgid "Two new actions let you add custom fields to menu items&mdash;without a plugin and without writing custom walkers."
-msgstr "Два новых действия позволяют вам добавить пользовательские поля к элементам меню, без плагинов и пользовательского кода."
+msgstr "С помощью двух новых действий можно добавить пользовательские поля к элементам меню, без плагинов и собственных классов обхода меню."
 
-#: wp-admin/about.php:156
+#: wp-admin/about.php:214
 msgid "Add custom fields to menu items—natively"
 msgstr "Нативно добавляйте поля к элементам меню."
 
-#: wp-admin/about.php:140
+#: wp-admin/about.php:198
 msgid "Just for developers"
 msgstr "Только для разработчиков"
 
-#: wp-admin/about.php:131
+#: wp-admin/about.php:189
 msgid "Plus, little enhancements throughout give the privacy tools a little cleaner look. Your eyes will thank you!"
 msgstr "А ещё, небольшие улучшения придают более чистый вид инструментам конфиденциальности. Ваши глаза порадуются!"
 
-#: wp-admin/about.php:127
+#: wp-admin/about.php:185
 msgid "Take a look:"
 msgstr "Посмотрите:"
 
-#: wp-admin/about.php:126
+#: wp-admin/about.php:184
 msgid "5.4 helps with a variety of privacy issues around the world. So when users and stakeholders ask about regulatory compliance, or how your team handles user data, the answers should be a lot easier to get right."
 msgstr "Версия 5.4 продолжает улучшать обработку конфиденциальных данных. Когда вас спрашивают о следовании инструкциям регуляторов или как вы обрабатываете пользовательские данные, вам будет гораздо проще правильно ответить."
 
-#: wp-admin/about.php:125
+#: wp-admin/about.php:183
 msgid "Your fundamental right: privacy"
 msgstr "Ваше фундаментальное право: конфиденциальность"
 
-#: wp-admin/about.php:109
+#: wp-admin/about.php:167
 msgid "Of course, if you want to work with the very latest tools and features, install the <a href=\"https://wordpress.org/plugins/gutenberg/\">Gutenberg plugin</a>. You&#8217;ll get to be the first to use new and exciting features in the block editor, before anyone else has seen them!"
 msgstr "Разумеется, если вы хотите работать с самыми последними инструментами и возможностями, то вы можете установить плагин <a href=\"https://ru.wordpress.org/plugins/gutenberg/\">Gutenberg</a>. И вы будете в числе первых, кто станет использовать новые и захватывающие возможности редактора блоков, ещё до того, как их увидят другие!"
 
-#: wp-admin/about.php:107
+#: wp-admin/about.php:165
 msgid "Know at a glance whether you&#8217;re in a block&#8217;s Edit or Navigation mode. Or, if you have restricted vision, your screen reader will tell you which mode you&#8217;re in."
 msgstr "Узнайте сразу о нахождении в режиме редактирования или навигации. А если у вас  снижено зрение, то программа чтения с экрана может подсказать вам об этом."
 
-#: wp-admin/about.php:106
+#: wp-admin/about.php:164
 msgid "Tips are gone. In their place, a Welcome Guide window you can bring up when you need it&mdash;and only when you need it&mdash;again and again."
 msgstr "Мы убрали советы. Вместо них есть инструкция для начинающих, вы сможете открывать ее тогда, когда она вам потребуется, снова и снова."
 
-#: wp-admin/about.php:105
+#: wp-admin/about.php:163
 msgid "Speed! 14% faster loading of the editor, 51% faster time-to-type!"
 msgstr "Скорость! Редактор загружается на 14% быстрее, на 51% быстрее доступность для ввода!"
 
-#: wp-admin/about.php:104
+#: wp-admin/about.php:162
 msgid "For when you need to navigate with the keyboard, better tabbing and focus. Plus, you can tab over to the sidebar of nearly any block."
 msgstr "При навигации с клавиатуры лучшая фокусировка и переходы. А еще вы можете перейти на боковую панель практически любого блока."
 
-#: wp-admin/about.php:103
+#: wp-admin/about.php:161
 msgid "Clearer block navigation with block breadcrumbs. And easier selection once you get there."
 msgstr "Более понятная навигация по блокам с \"хлебными крошками\" блоков. И более простой выбор с их помощью."
 
-#: wp-admin/about.php:101
+#: wp-admin/about.php:159
 msgid "Cleaner UI, clearer navigation—and easier tabbing!"
 msgstr "Чистый интерфейс, понятная навигация, простые переходы!"
 
-#: wp-admin/about.php:94
+#: wp-admin/about.php:152
 msgid "And if you&#8217;ve ever thought your image in the Media+Text block should link to something else&mdash;perhaps a picture of a brochure should download that brochure as a document? Well, now it can."
 msgstr "А если вдруг вы захотите, чтобы блок Медиа+Текст стал ссылкой на что-либо еще, к примеру изображение брошюры стало ссылкой на её файл, то теперь вы сможете это сделать!"
 
-#: wp-admin/about.php:93
+#: wp-admin/about.php:151
 msgid "Guess a whole lot less! Version 5.4 streamlines the whole process for placing and replacing multimedia in every block. Now it works the same way in almost every block!"
 msgstr "Меньше гаданий! В версии 5.4 процесс размещения и замены мультимедиа в блоках стал проще и работает одинаково почти во всех блоках!"
 
-#: wp-admin/about.php:92
+#: wp-admin/about.php:150
 msgid "New ways with color: Gradients in the Buttons and Cover block, toolbar access to color options in Rich Text blocks, and for the first time, color options in the Group and Columns blocks."
 msgstr "Новые способы работы с цветом: градиенты в блоках Кнопки и Обложка, доступ к панели инструментов для параметров цвета в блоках Rich Text и впервые - параметры цвета в блоках Группа и Столбцы."
 
-#: wp-admin/about.php:91
+#: wp-admin/about.php:149
 msgid "Two brand-new blocks: Social Icons and Buttons make adding interactive features fast and easy."
 msgstr "Два новых блока: социальные ссылки и кнопки сделают возможности взаимодействия проще и быстрее."
 
-#: wp-admin/about.php:89
+#: wp-admin/about.php:147
 msgid "Two new blocks. And better blocks overall."
 msgstr "Два новых блока. И в целом лучшие блоки."
 
-#: wp-admin/about.php:75
+#: wp-admin/about.php:133
 msgid "And more speed everywhere, so as you build sections or galleries, or just type in a line of prose, you can feel how much faster your work flows."
 msgstr "И больше скорости везде, так что, когда вы создаете разделы или галереи или просто пишете строки прозы, вы можете почувствовать, насколько быстрее вы это делаете."
 
-#: wp-admin/about.php:72
+#: wp-admin/about.php:130
 msgid "More ways to make your vision real, and put blocks in the perfect place&mdash;even if a particular kind of block is new to you. More efficient processes."
 msgstr "Больше способов воплотить свое видение в реальность и поставить блоки в идеальное место, даже если еще не знакомы с определенным типом блоков. Ещё более эффективная работа."
 
-#: wp-admin/about.php:67
+#: wp-admin/about.php:125
 msgid "More ways to bring your visitors in, and keep them engaged, with the richness of embedded media from the web&#8217;s top services."
 msgstr "Больше способов привлекать и вовлекать посетителей с богатством встроенного мультимедиа содержимого лучших вебсервисов."
 
-#: wp-admin/about.php:66
+#: wp-admin/about.php:124
 msgid "More ways to make posts and pages come alive with your best images."
 msgstr "Больше способов оживить страницы и записи вашими лучшими изображениями."
 
-#: wp-admin/about.php:63
+#: wp-admin/about.php:121
 msgid "Every major release adds more to the block editor."
 msgstr "Каждый значимый выпуск добавляет ещё больше к редактору блоков."
 
@@ -220,9 +228,9 @@ msgstr "Локализованная версия содержит и перев
 #: wp-admin/includes/dashboard.php:1843
 msgid "Take a look at the <strong>%1$d item</strong> on the <a href=\"%2$s\">Site Health screen</a>."
 msgid_plural "Take a look at the <strong>%1$d items</strong> on the <a href=\"%2$s\">Site Health screen</a>."
-msgstr[0] "Обратите внимание на <strong>%1$d элемент</strong> на экране <a href=\"%2$s\">Состояния здоровья сайта</a>."
-msgstr[1] "Обратите внимание на <strong>%1$d элемента</strong> на экране <a href=\"%2$s\">Состояния здоровья сайта</a>."
-msgstr[2] "Обратите внимание на <strong>%1$d элементов</strong> на экране <a href=\"%2$s\">Состояния здоровья сайта</a>."
+msgstr[0] "Обратите внимание на <strong>%1$d элемент</strong> на экране <a href=\"%2$s\">«Здоровье сайта»</a>."
+msgstr[1] "Обратите внимание на <strong>%1$d элемента</strong> на экране <a href=\"%2$s\">«Здоровье сайта»</a>."
+msgstr[2] "Обратите внимание на <strong>%1$d элементов</strong> на экране <a href=\"%2$s\">«Здоровье сайта»</a>."
 
 #: wp-admin/includes/dashboard.php:1833
 msgid "Your site&#8217;s health is looking good, but there are still some things you can do to improve its performance and security."
@@ -239,7 +247,7 @@ msgstr "На вашем сайте есть критические пробле�
 #. translators: %s: URL to Site Health screen.
 #: wp-admin/includes/dashboard.php:1821
 msgid "Site health checks will automatically run periodically to gather information about your site. You can also <a href=\"%s\">visit the Site Health screen</a> to gather information about your site now."
-msgstr "Проверка состояния здоровья сайта будет периодически автоматически запускаться и собирать информацию о вашем сайте. Вы можете перейти к экрану <a href=\"%s\">Состояния здоровья сайта</a>, чтобы сделать это сейчас."
+msgstr "Проверка состояния здоровья сайта будет периодически запускаться и собирать информацию о вашем сайте. Можно перейти на экран <a href=\"%s\">«Здоровье сайта»</a>, чтобы сделать это сейчас."
 
 #: wp-admin/includes/dashboard.php:1809
 msgid "No information yet&hellip;"
@@ -259,7 +267,7 @@ msgstr "В корзине нет комментариев."
 msgid "File is empty. Please upload something more substantial. This error could also be caused by uploads being disabled in your %1$s file or by %2$s being defined as smaller than %3$s in %1$s."
 msgstr "Файл пуст. Пожалуйста загрузите что-то более существенное. Эта ошибка также может проявляться при отключении загрузки файлов в %1$s или при определении %2$s менее чем в %3$s в %1$s."
 
-#: wp-admin/includes/class-wp-site-health.php:2296
+#: wp-admin/includes/class-wp-site-health.php:2302
 msgid "A test is unavailable"
 msgstr "Тест недоступен"
 
@@ -764,9 +772,9 @@ msgid ""
 "dynamically generated, and should only be modified via WordPress filters.\n"
 "Any changes to the directives between these markers will be overwritten."
 msgstr ""
-"Строки между `BEGIN %1$s` и `END %1$s` были созданы автоматически.\n"
-"Они могут быть изменены только фильтрами WordPress.\n"
-"Все изменения между этими отметками будут перезаписаны."
+"Директивы (строки) между `BEGIN %1$s` и `END %1$s`\n"
+"созданы автоматически и подлежат изменению только через фильтры WordPress.\n"
+"Сделанные вручную изменения между этими маркерами будут перезаписаны."
 
 #: wp-admin/includes/image-edit.php:214
 msgid "Rotate right"
@@ -988,7 +996,7 @@ msgstr "Расширения PHP выполняют многие задачи н
 
 #: wp-admin/includes/dashboard.php:1739
 msgid "PHP is the programming language we use to build and maintain WordPress. Newer versions of PHP are both faster and more secure, so updating will have a positive effect on your site&#8217;s performance."
-msgstr "PHP — язык программирования, на основе которого создан WordPress. Новые версии PHP и быстрее и безопаснее, поэтому обновление будет иметь положительный эффект для производительности сайта."
+msgstr "PHP — язык программирования, на основе которого создан WordPress. Новые версии PHP и быстрее и безопаснее, поэтому обновление окажет положительный эффект на производительность сайта."
 
 #: wp-admin/includes/class-wp-site-health.php:1352
 msgid "Get help resolving this issue."
@@ -1283,7 +1291,7 @@ msgstr "Доступна новая версия %1$s, но обновление
 msgid "This plugin failed to load properly and is paused during recovery mode."
 msgstr "Код плагина не мог быть корректно загружен и приостановлен в режиме восстановления."
 
-#: wp-admin/includes/theme.php:935
+#: wp-admin/includes/theme.php:937
 msgid "Go to the Themes screen"
 msgstr "Перейти к экрану тем"
 
@@ -2561,8 +2569,10 @@ msgid "Cannot Install"
 msgstr "Установка невозможна"
 
 #. translators: %s: WordPress version.
+#. translators: %s: WordPress version
 #: wp-admin/includes/update.php:300 wp-admin/install.php:239
-#: wp-admin/update-core.php:82 wp-admin/upgrade.php:83
+#: wp-admin/update-core.php:82 wp-admin/upgrade.php:83 wp-admin/about.php:73
+#: wp-admin/about.php:98
 msgid "https://wordpress.org/support/wordpress-version/version-%s/"
 msgstr "https://wordpress.org/support/wordpress-version/version-%s/"
 
@@ -2577,11 +2587,11 @@ msgctxt "plugin"
 msgid "Resume %s"
 msgstr "Продолжить выполнение %s"
 
-#: wp-admin/includes/theme.php:933
+#: wp-admin/includes/theme.php:935
 msgid "You can find more details and make changes on the Themes screen."
 msgstr "Вы можете найти подробности проблемы и внести исправления на экране управления темами."
 
-#: wp-admin/includes/theme.php:932
+#: wp-admin/includes/theme.php:934
 msgid "One or more themes failed to load properly."
 msgstr "Загрузка одной или нескольких тем не удалась."
 
@@ -2590,7 +2600,7 @@ msgstr "Загрузка одной или нескольких тем не уд
 msgid "Deleting a category does not delete the posts in that category. Instead, posts that were only assigned to the deleted category are set to the default category %s. The default category cannot be deleted."
 msgstr "Удаление рубрики не приводит к удалению записей этой рубрики, записи назначенные удалённой рубрике будут переназначены на рубрику по умолчанию - %s. Рубрика по умолчанию не может быть удалена."
 
-#: wp-admin/includes/theme.php:905
+#: wp-admin/includes/theme.php:907
 msgid "Could not resume the theme."
 msgstr "Невозможно продолжить выполнение темы."
 
@@ -2791,7 +2801,7 @@ msgid "Privacy Policy Page"
 msgstr "Страница политики конфиденциальности"
 
 #. translators: %s: Page title.
-#: wp-admin/includes/misc.php:1385
+#: wp-admin/includes/misc.php:1410
 msgid "%s (Draft)"
 msgstr "%s (Черновик)"
 
@@ -3964,7 +3974,7 @@ msgstr "Неизвестно"
 msgid "View posts by %s"
 msgstr "Просмотр записей автора %s"
 
-#: wp-admin/includes/class-wp-terms-list-table.php:542
+#: wp-admin/includes/class-wp-terms-list-table.php:543
 msgid "No description"
 msgstr "Нет описания"
 
@@ -4133,7 +4143,7 @@ msgid "Select one or more Theme features to filter by"
 msgstr "Выберите одну или больше возможностей темы для фильтра"
 
 #. translators: %s: Number of ratings.
-#: wp-admin/includes/theme.php:746 wp-admin/theme-install.php:342
+#: wp-admin/includes/theme.php:748 wp-admin/theme-install.php:342
 msgid "(%s ratings)"
 msgstr "(%s рейтинг)"
 
@@ -4304,7 +4314,7 @@ msgstr "%s успешно удалён."
 msgid "The search for installed plugins will search for terms in their name, description, or author."
 msgstr "Поиск по установленным плагинам ищет ключевые слова в их названии, описании и имени автора."
 
-#: wp-admin/includes/theme.php:284
+#: wp-admin/includes/theme.php:285
 msgid "Custom Logo"
 msgstr "Произвольный логотип"
 
@@ -4473,11 +4483,11 @@ msgstr "Магазин"
 msgid "Blog"
 msgstr "Блог"
 
-#: wp-admin/includes/theme.php:288
+#: wp-admin/includes/theme.php:289
 msgid "Footer Widgets"
 msgstr "Виджеты в подвале"
 
-#: wp-admin/includes/theme.php:296
+#: wp-admin/includes/theme.php:297
 msgid "Grid Layout"
 msgstr "Разметка в виде сетки"
 
@@ -5075,7 +5085,7 @@ msgid "(Currently set to: %s)"
 msgstr "(Сейчас отображает меню «%s»)"
 
 #. translators: %s: WordPress version number.
-#: wp-admin/about.php:237
+#: wp-admin/about.php:295
 msgid "<strong>Version %s</strong> addressed one security issue."
 msgstr "В <strong>версии %s</strong> решена проблема с безопасностью."
 
@@ -5087,15 +5097,15 @@ msgstr "https://ru.gravatar.com/"
 msgid "Profile Picture"
 msgstr "Аватар"
 
-#: wp-admin/about.php:234
+#: wp-admin/about.php:53 wp-admin/about.php:292
 msgid "Maintenance and Security Releases"
 msgstr "Технические обновления безопасности"
 
-#: wp-admin/about.php:231
+#: wp-admin/about.php:289
 msgid "Security Releases"
 msgstr "Обновления безопасности"
 
-#: wp-admin/about.php:228
+#: wp-admin/about.php:286
 msgid "Maintenance Releases"
 msgstr "Технические обновления"
 
@@ -5950,7 +5960,7 @@ msgstr "Страница записей"
 msgid "You are currently editing the page that shows your latest posts."
 msgstr "Вы редактируете страницу, на которой отображаются свежие записи."
 
-#: wp-admin/includes/theme.php:710 wp-admin/themes.php:538
+#: wp-admin/includes/theme.php:712 wp-admin/themes.php:538
 msgid "Close details dialog"
 msgstr "Закрыть окно с информацией"
 
@@ -6056,7 +6066,7 @@ msgstr ""
 
 #. translators: Do not translate USERNAME, ADMIN_URL, EMAIL, SITENAME, SITEURL:
 #. those are placeholders.
-#: wp-admin/includes/misc.php:1306
+#: wp-admin/includes/misc.php:1331
 msgid ""
 "Howdy ###USERNAME###,\n"
 "\n"
@@ -6694,7 +6704,7 @@ msgid "Accessibility Ready"
 msgstr "Поддержка специальных возможностей"
 
 #. translators: %s: Theme name.
-#: wp-admin/includes/theme.php:767 wp-admin/themes.php:578
+#: wp-admin/includes/theme.php:769 wp-admin/themes.php:578
 msgid "This is a child theme of %s."
 msgstr "Это дочерняя тема для %s."
 
@@ -6789,15 +6799,15 @@ msgstr "Следующие плагины успешно обновлены:"
 msgid "Add Widget"
 msgstr "Добавить виджет"
 
-#: wp-admin/includes/theme.php:709 wp-admin/themes.php:537
+#: wp-admin/includes/theme.php:711 wp-admin/themes.php:537
 msgid "Show next theme"
 msgstr "Показать следующую тему"
 
-#: wp-admin/includes/theme.php:708 wp-admin/themes.php:536
+#: wp-admin/includes/theme.php:710 wp-admin/themes.php:536
 msgid "Show previous theme"
 msgstr "Показать предыдущую тему"
 
-#: wp-admin/includes/theme.php:757 wp-admin/themes.php:568
+#: wp-admin/includes/theme.php:759 wp-admin/themes.php:568
 msgid "Update Available"
 msgstr "Доступно обновление"
 
@@ -7625,7 +7635,7 @@ msgid "You cannot move this item to the Trash. %s is currently editing."
 msgstr "Вы не можете переместить этот элемент в корзину. Его сейчас редактирует %s."
 
 #. translators: %s: User's display name.
-#: wp-admin/includes/misc.php:1075
+#: wp-admin/includes/misc.php:1100
 msgid "%s has taken over and is currently editing."
 msgstr "%s перехватил и сейчас редактирует этот материал."
 
@@ -7679,7 +7689,7 @@ msgid "The Documentation menu below the editor lists the PHP functions recognize
 msgstr "В меню &laquo;Документация&raquo; под редактором перечислены все функции, обнаруженные в файле плагина. При нажатии на кнопку &laquo;Поиск&raquo; откроется веб-страница с информацией об этой функции."
 
 #. translators: %s: User's display name.
-#: wp-admin/includes/misc.php:1025
+#: wp-admin/includes/misc.php:1050
 #: wp-admin/includes/class-wp-posts-list-table.php:1003
 msgid "%s is currently editing"
 msgstr "%s сейчас редактирует этот материал"
@@ -8424,7 +8434,7 @@ msgstr[2] "Приостановленные <span class=\"count\">(%s)</span>"
 
 #. translators: New admin email address notification email subject. %s: Site
 #. title.
-#: wp-admin/includes/misc.php:1359
+#: wp-admin/includes/misc.php:1384
 msgid "[%s] New Admin Email Address"
 msgstr "[%s] Новый адрес администратора"
 
@@ -8634,30 +8644,33 @@ msgid "Show Toolbar when viewing site"
 msgstr "Показывать верхнюю панель при просмотре сайта"
 
 #. translators: 1: WordPress version number, 2: Plural number of bugs.
-#: wp-admin/about.php:242
+#: wp-admin/about.php:300
 msgid "<strong>Version %1$s</strong> addressed %2$s bug."
 msgid_plural "<strong>Version %1$s</strong> addressed %2$s bugs."
 msgstr[0] "В <strong>версии %1$s</strong> исправлена %2$s ошибка."
 msgstr[1] "В <strong>версии %1$s</strong> исправлены %2$s ошибки."
 msgstr[2] "В <strong>версии %1$s</strong> исправлены %2$s ошибок."
 
+#. translators: 1: WordPress version number, 2: plural number of bugs. More
+#. than one security issue.
 #. translators: 1: WordPress version number, 2: Plural number of bugs. More
 #. than one security issue.
-#: wp-admin/about.php:254
+#: wp-admin/about.php:58 wp-admin/about.php:83 wp-admin/about.php:312
 msgid "<strong>Version %1$s</strong> addressed some security issues and fixed %2$s bug."
 msgid_plural "<strong>Version %1$s</strong> addressed some security issues and fixed %2$s bugs."
 msgstr[0] "В <strong>версии %1$s</strong> решены несколько проблем с безопасностью и исправлена %2$s ошибка."
 msgstr[1] "В <strong>версии %1$s</strong> решены несколько проблем с безопасностью и исправлены %2$s ошибки."
 msgstr[2] "В <strong>версии %1$s</strong> решены несколько проблем с безопасностью и исправлены %2$s ошибок."
 
+#. translators: %s: HelpHub URL
 #. translators: %s: Documentation URL.
-#: wp-admin/about.php:260
+#: wp-admin/about.php:70 wp-admin/about.php:95 wp-admin/about.php:318
 msgid "For more information, see <a href=\"%s\">the release notes</a>."
 msgstr "Дополнительную информацию можно найти в <a href=\"%s\">заметке о выпуске</a>."
 
 #. translators: 1: WordPress version number, 2: Plural number of bugs. Singular
 #. security issue.
-#: wp-admin/about.php:248
+#: wp-admin/about.php:306
 msgid "<strong>Version %1$s</strong> addressed a security issue and fixed %2$s bug."
 msgid_plural "<strong>Version %1$s</strong> addressed a security issue and fixed %2$s bugs."
 msgstr[0] "В <strong>версии %1$s</strong> решена проблема с безопасностью и исправлена %2$s ошибка."
@@ -8669,15 +8682,15 @@ msgid "Welcome to your WordPress Dashboard! This is the screen you will see when
 msgstr "Добро пожаловать в консоль WordPress! Этот экран вы будете видеть после авторизации. Он даёт доступ ко всем функциям управления сайтом. Можно получить помощь по каждому экрану, нажав на вкладку &laquo;Помощь&raquo; над заголовком экрана."
 
 #. translators: %s: WordPress version number.
-#: wp-admin/about.php:239
+#: wp-admin/about.php:297
 msgid "<strong>Version %s</strong> addressed some security issues."
 msgstr "В <strong>версии %s</strong> решены несколько проблем с безопасностью."
 
-#: wp-admin/about.php:227
+#: wp-admin/about.php:285
 msgid "Maintenance Release"
 msgstr "Техническое обновление"
 
-#: wp-admin/about.php:230
+#: wp-admin/about.php:288
 msgid "Security Release"
 msgstr "Обновление безопасности"
 
@@ -8686,7 +8699,7 @@ msgstr "Обновление безопасности"
 msgid "What&#8217;s New"
 msgstr "Что нового"
 
-#: wp-admin/about.php:233
+#: wp-admin/about.php:291
 msgid "Maintenance and Security Release"
 msgstr "Техническое обновление безопасности"
 
@@ -8699,7 +8712,7 @@ msgstr "На этом экране можно выбрать структуру 
 msgid "Welcome to WordPress %1$s. <a href=\"%2$s\">Learn more</a>."
 msgstr "Добро пожаловать в WordPress %1$s. <a href=\"%2$s\">Узнать больше</a>."
 
-#: wp-admin/about.php:214
+#: wp-admin/about.php:272
 msgid "Return to Updates"
 msgstr "Вернуться на страницу &laquo;Обновления&raquo;"
 
@@ -8971,15 +8984,15 @@ msgid "Because this is a multisite installation, you may add accounts that alrea
 msgstr "Поскольку это сеть сайтов, можно добавлять существующие в ней учётные записи, указав имя пользователя или e-mail и выбрав роль. Чтобы иметь больше возможностей &#8212; например, назначать пароль &#8212; нужно быть администратором сети и использовать ссылку для редактирования профиля пользователя, которая появляется под его именем в разделе &laquo;Управление сетью&raquo; &rarr; &laquo;Все пользователи&raquo;."
 
 #. translators: %s: The current WordPress version number.
-#: wp-admin/about.php:56
+#: wp-admin/about.php:114
 msgid "Welcome to WordPress %s."
 msgstr "Добро пожаловать в WordPress %s"
 
-#: wp-admin/about.php:214
+#: wp-admin/about.php:272
 msgid "Return to Dashboard &rarr; Updates"
 msgstr "Вернуться на страницу &laquo;Консоль&raquo; &rarr; &laquo;Обновления&raquo;"
 
-#: wp-admin/about.php:217
+#: wp-admin/about.php:275
 msgid "Go to Dashboard &rarr; Home"
 msgstr "Перейти на страницу &laquo;Консоль&raquo; &rarr; &laquo;Главная&raquo;"
 
@@ -9161,7 +9174,7 @@ msgid "Plugins %s"
 msgstr "Плагины %s"
 
 #. translators: %s: Plugin name.
-#: wp-admin/includes/theme.php:793
+#: wp-admin/includes/theme.php:795
 #: wp-admin/includes/class-wp-theme-install-list-table.php:483
 #: wp-admin/includes/deprecated.php:1384 wp-admin/theme-install.php:300
 #: wp-admin/theme-install.php:320
@@ -9175,7 +9188,7 @@ msgstr "Все пользователи"
 #: wp-admin/includes/class-wp-links-list-table.php:88
 #: wp-admin/includes/class-wp-links-list-table.php:334
 #: wp-admin/includes/class-wp-themes-list-table.php:233
-#: wp-admin/includes/theme.php:788
+#: wp-admin/includes/theme.php:790
 #: wp-admin/includes/class-wp-plugins-list-table.php:531
 #: wp-admin/includes/class-wp-plugins-list-table.php:699
 #: wp-admin/includes/class-wp-plugins-list-table.php:748
@@ -9280,7 +9293,7 @@ msgstr "Пользователь добавлен."
 #: wp-admin/includes/class-wp-debug-data.php:853
 #: wp-admin/includes/class-wp-debug-data.php:1036
 #: wp-admin/includes/class-wp-themes-list-table.php:263
-#: wp-admin/includes/theme.php:734
+#: wp-admin/includes/theme.php:736
 #: wp-admin/includes/class-wp-plugins-list-table.php:904
 #: wp-admin/includes/class-wp-plugin-install-list-table.php:507
 #: wp-admin/includes/class-wp-theme-install-list-table.php:360
@@ -9407,19 +9420,19 @@ msgstr ""
 "Перейдите по ссылке, чтобы активировать вашу учётную запись:\n"
 "%%s"
 
-#: wp-admin/includes/theme.php:287
+#: wp-admin/includes/theme.php:288
 msgid "Featured Images"
 msgstr "Изображения записей"
 
-#: wp-admin/includes/theme.php:290 wp-admin/includes/meta-boxes.php:480
+#: wp-admin/includes/theme.php:291 wp-admin/includes/meta-boxes.php:480
 msgid "Post Formats"
 msgstr "Форматы записей"
 
-#: wp-admin/includes/theme.php:289
+#: wp-admin/includes/theme.php:290
 msgid "Full Width Template"
 msgstr "Одноколоночный шаблон"
 
-#: wp-admin/includes/theme.php:286
+#: wp-admin/includes/theme.php:287
 msgid "Featured Image Header"
 msgstr "Изображения записей в заголовке"
 
@@ -9439,7 +9452,7 @@ msgstr "Некоторые элементы меню некорректны. П�
 
 #: wp-admin/edit-tags.php:440
 #: wp-admin/includes/class-wp-terms-list-table.php:182
-#: wp-admin/includes/class-wp-terms-list-table.php:645
+#: wp-admin/includes/class-wp-terms-list-table.php:646
 #: wp-admin/edit-tag-form.php:132
 msgctxt "term name"
 msgid "Name"
@@ -9590,7 +9603,7 @@ msgstr "Загруженные изображения"
 msgid "<strong>Random:</strong> Show a different image on each page."
 msgstr "<strong>Случайно:</strong> Показывать разные изображения на каждой странице."
 
-#: wp-admin/includes/theme.php:295 wp-admin/includes/theme.php:330
+#: wp-admin/includes/theme.php:296 wp-admin/includes/theme.php:332
 #: wp-admin/includes/class-wp-screen.php:1200 wp-admin/index.php:68
 msgid "Layout"
 msgstr "Разметка"
@@ -9874,7 +9887,7 @@ msgstr "Процесс обновления начался. На некотор�
 msgid "Apply Filters"
 msgstr "Применить фильтры"
 
-#: wp-admin/includes/theme.php:285
+#: wp-admin/includes/theme.php:286
 msgid "Editor Style"
 msgstr "Стиль для редактора"
 
@@ -10832,7 +10845,7 @@ msgstr "Элемент меню"
 msgid "Please enter a valid menu name."
 msgstr "Пожалуйста, введите корректное название меню."
 
-#: wp-admin/about.php:217
+#: wp-admin/about.php:275
 msgid "Go to Dashboard"
 msgstr "Перейти на страницу &laquo;Консоль&raquo;"
 
@@ -10958,7 +10971,7 @@ msgstr "Доступные виджеты"
 msgid "Error in displaying the widget settings form."
 msgstr "Ошибка при отображении формы настроек виджета."
 
-#: wp-admin/includes/misc.php:1195 wp-admin/includes/post.php:1941
+#: wp-admin/includes/misc.php:1220 wp-admin/includes/post.php:1941
 #: wp-admin/widgets.php:378
 msgid "Error while saving."
 msgstr "Ошибка при сохранении."
@@ -11101,7 +11114,7 @@ msgstr "Имя"
 msgid "Enable keyboard shortcuts for comment moderation."
 msgstr "Использовать горячие клавиши для проверки комментариев."
 
-#: wp-admin/includes/misc.php:924 wp-admin/user-edit.php:295
+#: wp-admin/includes/misc.php:949 wp-admin/user-edit.php:295
 msgid "Admin Color Scheme"
 msgstr "Цветовая схема"
 
@@ -11239,7 +11252,7 @@ msgstr ""
 "Вы собираетесь удалить тему «%s»\n"
 "  «Отмена» — оставить, «OK» — удалить."
 
-#: wp-admin/includes/theme.php:723 wp-admin/themes.php:551
+#: wp-admin/includes/theme.php:725 wp-admin/themes.php:551
 msgid "Current Theme"
 msgstr "Текущая тема"
 
@@ -11255,7 +11268,7 @@ msgstr "Выберите тему для изменения:"
 msgid "Edit Themes"
 msgstr "Редактировать темы"
 
-#: wp-admin/includes/theme.php:777 wp-admin/themes.php:584
+#: wp-admin/includes/theme.php:779 wp-admin/themes.php:584
 msgid "Tags:"
 msgstr "Метки:"
 
@@ -12080,7 +12093,7 @@ msgid "Unable to locate WordPress theme directory."
 msgstr "Не удалось определить директорию тем WordPress."
 
 #. translators: %s: Theme version.
-#: wp-admin/includes/theme.php:728 wp-admin/themes.php:556
+#: wp-admin/includes/theme.php:730 wp-admin/themes.php:556
 #: wp-admin/theme-install.php:352
 msgid "Version: %s"
 msgstr "Версия: %s"
@@ -12097,47 +12110,47 @@ msgstr "Найти темы"
 msgid "Holiday"
 msgstr "Праздник"
 
-#: wp-admin/includes/theme.php:267 wp-admin/includes/theme.php:332
+#: wp-admin/includes/theme.php:267 wp-admin/includes/theme.php:334
 msgid "Subject"
 msgstr "Тема"
 
-#: wp-admin/includes/theme.php:291
+#: wp-admin/includes/theme.php:292
 msgid "Sticky Post"
 msgstr "Прилепленная запись"
 
-#: wp-admin/includes/theme.php:292
+#: wp-admin/includes/theme.php:293
 msgid "Theme Options"
 msgstr "Настройки темы"
 
-#: wp-admin/includes/theme.php:282
+#: wp-admin/includes/theme.php:283
 msgid "Custom Colors"
 msgstr "Настройка цветов"
 
-#: wp-admin/includes/theme.php:279 wp-admin/includes/theme.php:331
+#: wp-admin/includes/theme.php:279 wp-admin/includes/theme.php:333
 msgid "Features"
 msgstr "Функции"
 
-#: wp-admin/includes/theme.php:302
+#: wp-admin/includes/theme.php:303
 msgid "Right Sidebar"
 msgstr "Меню справа"
 
-#: wp-admin/includes/theme.php:301
+#: wp-admin/includes/theme.php:302
 msgid "Left Sidebar"
 msgstr "Меню слева"
 
-#: wp-admin/includes/theme.php:300
+#: wp-admin/includes/theme.php:301
 msgid "Four Columns"
 msgstr "Четыре колонки"
 
-#: wp-admin/includes/theme.php:299
+#: wp-admin/includes/theme.php:300
 msgid "Three Columns"
 msgstr "Три колонки"
 
-#: wp-admin/includes/theme.php:298
+#: wp-admin/includes/theme.php:299
 msgid "Two Columns"
 msgstr "Две колонки"
 
-#: wp-admin/includes/theme.php:297
+#: wp-admin/includes/theme.php:298
 msgid "One Column"
 msgstr "Одна колонка"
 
@@ -12319,7 +12332,7 @@ msgstr "Заголовок"
 msgid "Quick&nbsp;Edit"
 msgstr "Свойства"
 
-#: wp-admin/includes/class-wp-terms-list-table.php:642
+#: wp-admin/includes/class-wp-terms-list-table.php:643
 #: wp-admin/includes/class-wp-posts-list-table.php:1528
 msgid "Quick Edit"
 msgstr "Свойства"
@@ -12691,10 +12704,6 @@ msgstr "Опубликовать <b>сразу</b>"
 #: wp-admin/includes/meta-boxes.php:189
 msgid "Stick this post to the front page"
 msgstr "Прилепить на главную страницу"
-
-#: wp-admin/includes/meta-boxes.php:166 wp-admin/includes/meta-boxes.php:191
-msgid "Password protected"
-msgstr "Защищено паролем"
 
 #: wp-admin/includes/meta-boxes.php:99 wp-admin/edit-form-comment.php:98
 #: wp-admin/export.php:222 wp-admin/export.php:269
@@ -13837,7 +13846,7 @@ msgstr "Ошибка при обработке изображения"
 msgid "Header updated. <a href=\"%s\">Visit your site</a> to see how it looks."
 msgstr "Заголовок обновлён. <a href=\"%s\">Перейдите на сайт</a>, чтобы посмотреть, как он выглядит."
 
-#: wp-admin/includes/theme.php:283
+#: wp-admin/includes/theme.php:284
 #: wp-admin/includes/class-custom-image-header.php:475
 msgid "Custom Header"
 msgstr "Произвольный заголовок"
@@ -13858,7 +13867,7 @@ msgid "Background updated. <a href=\"%s\">Visit your site</a> to see how it look
 msgstr "Фон обновлён. <a href=\"%s\">Перейдите на сайт</a>, чтобы посмотреть, как он выглядит."
 
 #: wp-admin/includes/class-custom-background.php:226
-#: wp-admin/includes/theme.php:281
+#: wp-admin/includes/theme.php:282
 msgid "Custom Background"
 msgstr "Произвольный фон"
 
@@ -13938,12 +13947,12 @@ msgid "Someone"
 msgstr "Кто-то"
 
 #. translators: %s: Date and time.
-#: wp-admin/includes/misc.php:1203
+#: wp-admin/includes/misc.php:1228
 msgid "Draft saved at %s."
 msgstr "Черновик сохранён в %s."
 
 #. translators: Draft saved date format, see https://www.php.net/date
-#: wp-admin/includes/misc.php:1199
+#: wp-admin/includes/misc.php:1224
 msgid "g:i:s a"
 msgstr "H:i:s"
 

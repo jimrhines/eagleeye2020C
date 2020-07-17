@@ -1,166 +1,330 @@
-# Translation of Stable (latest release) in German
-# This file is distributed under the same license as the Stable (latest release) package.
+# Translation of Plugins - Nested Pages - Stable (latest release) in German
+# This file is distributed under the same license as the Plugins - Nested Pages - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2016-03-23 23:57:38+0000\n"
+"PO-Revision-Date: 2020-01-30 08:21:19+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: GlotPress/1.1.0-alpha\n"
-"Project-Id-Version: Stable (latest release)\n"
+"X-Generator: GlotPress/2.4.0-alpha\n"
+"Language: de\n"
+"Project-Id-Version: Plugins - Nested Pages - Stable (latest release)\n"
 
-#: app/Views/forms/quickedit-post.php:135
+#: app/Views/settings/settings-general.php:127
+#: app/Views/settings/settings-general.php:134
+msgid "Reset User Preferences"
+msgstr "Benutzereinstellungen zurücksetzen"
+
+#: app/Entities/Post/PrivatePostParent.php:30
+msgid "(no parent)"
+msgstr "(keine übergeordnete Seite)"
+
+#: app/Views/partials/row.php:200
+msgid "Push to Bottom"
+msgstr "An das Ende verschieben"
+
+#: app/Views/partials/row.php:189
+msgid "Push to Top"
+msgstr "An den Anfang verschieben"
+
+#: app/Activation/Dependencies.php:152
+msgid "Insert After"
+msgstr "Danach einfügen"
+
+#: app/Activation/Dependencies.php:151
+msgid "Insert Before"
+msgstr "Davor einfügen"
+
+#: app/Views/partials/row.php:174
+msgid "Insert %s After"
+msgstr "Einfügen %s danach"
+
+#: app/Views/partials/row.php:166
+msgid "Insert %s Before"
+msgstr "Einfügen %s davor"
+
+#: app/Views/partials/list-header.php:17 app/Views/partials/tool-list.php:150
+msgid "Apply"
+msgstr "Anwenden"
+
+#: app/Views/partials/bulk-edit.php:72
+msgid "— No Change —"
+msgstr "— Keine Änderung —"
+
+#: app/Views/settings/settings-posttypes.php:302
+msgid "Default (Menu Order)"
+msgstr "Standard (Menüreihenfolge)"
+
+#: app/Views/settings/settings-general.php:111
+msgid "Reset Plugin Settings"
+msgstr "Plugin-Einstellungen zurücksetzen"
+
+#: app/Views/settings/settings-general.php:118
+msgid "Reset Nested Pages Settings"
+msgstr "Nested Pages Einstellungen zurücksetzen"
+
+#: app/Views/settings/settings-general.php:122
+msgid "Settings have been successfully reset."
+msgstr "Die Einstellungen wurden erfolgreich zurückgesetzt."
+
+#: app/Entities/PluginIntegration/WPML.php:223
+msgid "All Languages"
+msgstr "Alle Sprachen"
+
+#: app/Views/partials/wpml-translations.php:4
+msgid "Translations for "
+msgstr "Übersetzungen für"
+
+#: app/Views/settings/settings-posttypes.php:281
+msgid "Add and remove sort options."
+msgstr "Hinzufügen und Entfernen von Sortieroptionen"
+
+#: app/Views/settings/settings-posttypes.php:280
+msgid "Sort Options"
+msgstr "Sortieroptionen"
+
+#: app/Form/Listeners/WpmlTranslations.php:28
+msgid "WPML is not currently installed."
+msgstr "WPML ist derzeit nicht installiert."
+
+#: app/Activation/Dependencies.php:149
+msgid "Add Translation"
+msgstr "Übersetzung hinzufügen"
+
+#: app/Form/Listeners/WpmlTranslations.php:35
+msgid "There are currently no translations for the selected post."
+msgstr "Für den ausgewählten Beitrag liegen derzeit keine Übersetzungen vor."
+
+#: app/Views/partials/wpml-translations.php:13
+msgid "Close"
+msgstr "Schließen"
+
+#: app/Views/forms/quickedit-post.php:181
+msgid "Make Sticky"
+msgstr "Oben halten"
+
+#: app/Entities/PluginIntegration/WPML.php:146
+msgid "Sync WPML Menus"
+msgstr "WPML-Menüs synchronisieren"
+
+#: app/Activation/Dependencies.php:146
+#: app/Views/settings/partials/nav-menu-settings.php:44
+#: app/Views/settings/settings-posttypes.php:87
+msgid "Remove"
+msgstr "Entfernen"
+
+#: app/Views/settings/settings-posttypes.php:109
+msgid "There are currently no pages available."
+msgstr "Zur Zeit sind keine Seiten verfügbar."
+
+#: app/Views/settings/settings-posttypes.php:96
+msgid "No pages were found."
+msgstr "Es wurden keine Seiten gefunden."
+
+#: app/Views/settings/settings-posttypes.php:95
+msgid "Search Pages"
+msgstr "Seiten durchsuchen"
+
+#: app/Views/partials/bulk-edit.php:102 app/Views/partials/bulk-edit.php:112
+msgid "Show"
+msgstr "Zeigen"
+
+#: app/Views/settings/partials/nav-menu-settings/header.php:27
+#: app/Views/partials/bulk-edit.php:101 app/Views/partials/bulk-edit.php:111
+msgid "Hide"
+msgstr "Verbergen"
+
+#: app/Activation/Dependencies.php:138 app/Views/partials/list-header.php:11
+msgid "Bulk Actions"
+msgstr "Massenaktionen"
+
+#: app/Views/settings/settings-posttypes.php:249
+msgid "Advanced Custom Fields"
+msgstr "Erweiterte benutzerdefinierte Felder"
+
+#. Description of the plugin
+msgid "Provides an intuitive drag and drop interface for managing pages in the Wordpress admin, while enhancing quick edit. Includes an auto-generated menu to match the nested interface, support for all post types and more."
+msgstr "Bietet eine intuitive Drag & Drop-Oberfläche für die Verwaltung von Seiten im WordPress-Dashboard und verbessert gleichzeitig die schnelle Bearbeitung. Enthält ein automatisch generiertes Menü, das der Oberfläche entspricht. Unterstützung für alle Post-Typen und mehr."
+
+#: app/Config/SettingsRepository.php:95
+msgid "Post Status"
+msgstr "Post Status"
+
+#: app/Config/SettingsRepository.php:93
+msgid "Post Date"
+msgstr "Post Datum"
+
+#: app/Config/SettingsRepository.php:91
+msgid "Post Title"
+msgstr "Post Titel"
+
+#: app/Activation/Dependencies.php:140
+msgid "Are you sure you would like to delete this item? This action is not reversible."
+msgstr "Bist Du sicher, dass Du diesen Artikel löschen möchtest? Diese Aktion ist nicht umkehrbar."
+
+#: app/Views/settings/settings-posttypes.php:147
+msgid "Medium"
+msgstr "Mittel"
+
+#: app/Views/settings/settings-posttypes.php:146
+msgid "Small"
+msgstr "Klein"
+
+#: app/Views/partials/list-header.php:13
+msgid "Move to Trash"
+msgstr "In den Papierkorb verschieben"
+
+#: app/Views/partials/bulk-edit.php:92
+msgid "Do not allow"
+msgstr "Nicht erlauben"
+
+#: app/Views/partials/bulk-edit.php:91
+msgid "Allow"
+msgstr "Erlauben"
+
+#: app/Views/partials/bulk-edit.php:88
+msgid "Comments"
+msgstr "Kommentare"
+
+#: app/Views/settings/settings-posttypes.php:236
+#: app/Views/settings/settings-posttypes.php:240
+msgid "Configure Custom Fields"
+msgstr "Konfiguriere benutzerdefinierte Felder"
+
+#: app/Views/settings/settings-posttypes.php:148
+msgid "Large"
+msgstr "Breit"
+
+#: app/Views/partials/bulk-edit.php:25 app/Views/partials/bulk-edit.php:46
+#: app/Views/partials/bulk-edit.php:60 app/Views/partials/bulk-edit.php:90
+#: app/Views/partials/bulk-edit.php:100 app/Views/partials/bulk-edit.php:110
+msgid "No Change"
+msgstr "Keine Änderung"
+
+#: app/Config/SettingsRepository.php:96
+msgid "Password/Private"
+msgstr "Passwort/Privat"
+
+#: app/Activation/Dependencies.php:142
+msgid "Trash Posts and Delete Links"
+msgstr "Beiträge und Links löschen"
+
+#: app/Config/SettingsRepository.php:102 app/Views/forms/quickedit-post.php:27
 msgid "Menu Options"
 msgstr "Menü-Optionen"
 
-#: app/Views/forms/quickedit-post.php:139
+#: app/Config/SettingsRepository.php:113 app/Views/forms/quickedit-post.php:24
 msgid "Taxonomies"
 msgstr "Taxonomien"
 
-#: app/Views/listing.php:35
+#: app/Views/listing.php:61 app/Views/listing.php:66
 msgid "Sync Menu"
 msgstr "Menü synchronisieren"
 
-#: app/Views/partials/row.php:23
+#: app/Entities/Listing/Listing.php:228
 msgid "Front Page"
 msgstr "Startseite"
 
-#: app/Views/partials/row.php:24
+#: app/Entities/Listing/Listing.php:229
 msgid "Posts Page"
 msgstr "Beitragsseite"
 
-#: app/Views/partials/row.php:53
-msgid "currently editing"
-msgstr "Gerade in Bearbeitung"
-
-#: app/Views/partials/row.php:57
+#: app/Activation/Dependencies.php:150 app/Views/partials/list-header.php:15
+#: app/Views/partials/row.php:70 app/Views/forms/quickedit-post.php:245
 msgid "Edit"
 msgstr "Bearbeiten"
 
-#: app/Views/partials/tool-list.php:6
+#: app/Views/partials/tool-list.php:14
 msgid "All"
 msgstr "Alle"
 
-#: app/Views/partials/tool-list.php:24
+#: app/Views/partials/tool-list.php:37
 msgid "Trash"
 msgstr "Papierkorb"
 
-#: app/Views/partials/tool-list.php:25
-msgid "Empty"
-msgstr "Leeren"
-
-#: app/Views/partials/tool-list.php:47
+#: app/Views/partials/tool-list.php:65
 msgid "All Authors"
 msgstr "Alle Autoren"
 
-#: app/Views/partials/tool-list.php:62
+#: app/Views/partials/tool-list.php:86
 msgid "Menu Order"
 msgstr "Menüreihenfolge"
 
-#: app/Views/partials/tool-list.php:66
+#: app/Views/settings/settings-posttypes.php:292
+#: app/Views/partials/tool-list.php:90
 msgid "Order By"
 msgstr "Sortieren nach"
 
-#: app/Views/partials/tool-list.php:80
+#: app/Views/settings/settings-posttypes.php:322
+#: app/Views/partials/tool-list.php:111
 msgid "Ascending"
 msgstr "Aufsteigend"
 
-#: app/Views/partials/tool-list.php:81
-msgid "Decending"
+#: app/Views/settings/settings-posttypes.php:323
+#: app/Views/partials/tool-list.php:112
+msgid "Descending"
 msgstr "Absteigend"
 
-#: app/Views/partials/tool-list.php:110
+#: app/Views/partials/tool-list.php:164
 msgid "All "
 msgstr "Alle Seiten"
 
-#: app/Views/settings/settings-general.php:4
+#: app/Views/settings/settings-general.php:5
 msgid "Currently Enabled"
 msgstr "Gerade aktiv"
 
-#: app/Views/settings/settings-general.php:4
+#: app/Views/settings/settings-general.php:5
 msgid "Currently Disabled"
 msgstr "Gerade inaktiv"
 
-#: app/Views/settings/settings-general.php:8
+#: app/Views/settings/settings-general.php:10
 msgid "Nested Pages Version"
 msgstr "Nested Pages Version"
 
-#: app/Views/settings/settings-general.php:13
+#: app/Views/settings/settings-general.php:15
 msgid "Menu Name"
 msgstr "Menüname"
 
-#: app/Views/settings/settings-general.php:16
+#: app/Views/settings/settings-general.php:18
 msgid "Important: Once the menu name has changed, theme files should be updated to reference the new name."
 msgstr "Wichtig: Wird der Menüname verändert, sollten auch die Theme-Dateien bearbeitet und die Menü-Referenz angepasst werden."
 
-#: app/Views/settings/settings-general.php:21
+#: app/Views/settings/settings-general.php:23
 msgid "Display Options"
 msgstr "Anzeigeoptionen"
 
-#: app/Views/settings/settings-general.php:25
+#: app/Views/settings/settings-general.php:28
 msgid "Enable Date Picker in Quick Edit"
 msgstr "Datumswähler in QuickEdit aktivieren"
 
-#: app/Views/settings/settings-general.php:30
+#: app/Views/settings/settings-general.php:40
 msgid "Menu Sync"
 msgstr "Menü-Synchronisierung"
 
-#: app/Views/settings/settings-general.php:36
-msgid "Hide Menu Sync Checkbox"
-msgstr "Checkbox für Menü-Synchronisierung ausblenden"
-
-#: app/Views/settings/settings-general.php:43
-msgid "Disable Menu Sync Completely"
+#: app/Views/settings/settings-general.php:65
+msgid "Disable menu sync completely"
 msgstr "Menü-Synchronisierung komplett deaktivieren"
 
-#: app/Views/settings/settings-general.php:49
+#: app/Views/settings/settings-general.php:72
 msgid "Allow Page Sorting"
 msgstr "Seitensortierung erlauben"
 
-#: app/Views/settings/settings-general.php:59
+#: app/Views/settings/settings-general.php:84
 msgid "Admins always have sorting ability."
 msgstr "Admins dürfen Seiten immer sortieren."
 
-#: app/Views/settings/settings-posttypes.php:7
-msgid "Enable Nested Pages for:"
-msgstr "Nested Pages aktivieren für:"
-
-#: app/Views/settings/settings-posttypes.php:14
-msgid "Post Type"
-msgstr "Beitragsart"
-
-#: app/Views/settings/settings-posttypes.php:15
-msgid "Hierarchical"
-msgstr "Verschachtelt"
-
-#: app/Views/settings/settings-posttypes.php:16
-msgid "Enabled"
-msgstr "Aktiviert"
-
-#: app/Views/settings/settings-posttypes.php:17
+#: app/Views/settings/settings-posttypes.php:30
 msgid "Replace Default Menu"
 msgstr "Standardmenü ersetzen"
 
-#: app/Views/settings/settings-posttypes.php:18
-msgid "Hide Default Link"
-msgstr "Standardlink ausblenden"
-
-#: app/Views/settings/settings-posttypes.php:19
+#: app/Views/settings/settings-posttypes.php:64
 msgid "Disable Nesting"
 msgstr "Verschachtelung deaktivieren"
 
-#: app/Views/settings/settings-posttypes.php:51
-msgid "Note: Nesting features not enabled for non-hierarchical post types."
-msgstr "Hinweis: Die Verschachtelungsfunktionen sind nicht aktiviert für unverschachtelte (non-hierarchical) Beitragsarten."
-
-#: app/Views/settings/settings-posttypes.php:54
+#: app/Views/settings/settings-posttypes.php:355
 msgid "If default menu is not replaced, an additional submenu item will be added for \"Nested/Sort View\""
 msgstr "Wenn das Standardmenü nicht ersetzt wird, wird dem Menü ein zusätzlicher Untermenüpunkt \"Verschachtelte Ansicht\" hinzugefügt."
-
-#: app/Views/settings/settings-posttypes.php:57
-msgid "<strong>Important:</strong> Changing page structures on live sites may effect SEO and existing inbound links. Limit URL structure changes on live sites by disabling nesting. Sorting within the current nesting structure will still be available. If nesting changes are made to a live site, it may help to add a 301 redirect from the old location to the new one."
-msgstr "<strong>Wichtig:</strong> Änderungen an der Seitenstruktur können Auswirkungen auf SEO und bestehende eingehende Links haben. Durch das Deaktivieren der Verschachtelungsfunktion können ungewollte URL-Änderungen verhindert werden. Die Sortierungsfunktion innerhalb der bestehenden Seitenstruktur bleibt dabei erhalten. Wenn Änderungen an der Seitenstruktur einer Live-Site vorgenommen werden, kann es hilfreich sein, 301-Umleitungen von den alten auf die neuen Adressen anzulegen."
 
 #: app/Views/settings/settings.php:6
 msgid "General"
@@ -170,355 +334,299 @@ msgstr "Allgemein"
 msgid "Post Types"
 msgstr "Beitragsarten"
 
-#. Plugin URI of the plugin/theme
+#. Plugin URI of the plugin
 msgid "http://nestedpages.com"
 msgstr "http://nestedpages.com"
 
-#. Description of the plugin/theme
-msgid "Provides an intuitive drag and drop interface for managing pages in the Wordpress admin, while maintaining quick edit functionality."
-msgstr "Bietet eine intuitive Drag- und Drop-Schnittstelle für Seiten in der WordPress-Administration, während die QuickEdit-Funktionalität beibehalten wird."
-
-#. Author of the plugin/theme
+#. Author of the plugin
 msgid "Kyle Phillips"
 msgstr "Kyle Phillips"
 
-#. Author URI of the plugin/theme
+#. Author URI of the plugin
 msgid "https://github.com/kylephillips"
 msgstr "https://github.com/kylephillips"
 
-#: app/Activation/Dependencies.php:108 app/Views/listing.php:29
+#: app/Views/settings/settings-posttypes.php:358
+msgid "<strong>Important:</strong> Changing page structures on live sites may effect SEO and existing inbound links. Limit URL structure changes on live sites by disabling nesting. Sorting within the current nesting structure will still be available. If nesting changes are made to a live site, it may help to add a 301 redirect from the old location to the new one."
+msgstr "<strong>Wichtig:</strong> Änderungen an der Seitenstruktur können Auswirkungen auf SEO und bestehende eingehende Links haben. Durch das Deaktivieren der Verschachtelungsfunktion können ungewollte URL-Änderungen verhindert werden. Die Sortierungsfunktion innerhalb der bestehenden Seitenstruktur bleibt dabei erhalten. Wenn Änderungen an der Seitenstruktur einer Live-Site vorgenommen werden, kann es hilfreich sein, 301-Umleitungen von den alten auf die neuen Adressen anzulegen."
+
+#: app/Views/partials/row.php:63
+msgid "%s currently editing"
+msgstr "%s bearbeitet momentan"
+
+#: app/Activation/Dependencies.php:119 app/Views/partials/list-header.php:19
+#: app/Views/listing.php:36
 msgid "Expand All"
 msgstr "Alle ausklappen"
 
-#: app/Activation/Dependencies.php:109
+#: app/Activation/Dependencies.php:120
 msgid "Collapse All"
 msgstr "Alle einklappen"
 
-#: app/Activation/Dependencies.php:110 app/Views/partials/tool-list.php:18
+#: app/Activation/Dependencies.php:121 app/Views/partials/tool-list.php:27
 msgid "Show Hidden"
 msgstr "Versteckte einblenden"
 
-#: app/Activation/Dependencies.php:111
+#: app/Activation/Dependencies.php:122 app/Views/partials/tool-list.php:29
 msgid "Hide Hidden"
 msgstr "Versteckte ausblenden"
 
-#: app/Activation/Dependencies.php:112 app/Views/listing.php:16
-#: app/Views/listing.php:17
+#: app/Activation/Dependencies.php:123 app/Views/listing.php:29
+#: app/Views/listing.php:30
 msgid "Add Link"
 msgstr "Link hinzufügen"
 
-#: app/Activation/Dependencies.php:113
+#: app/Activation/Dependencies.php:124 app/Views/partials/row.php:146
 msgid "Add Child Link"
 msgstr "Unterlink hinzufügen"
 
-#: app/Activation/Dependencies.php:114
-#: app/Entities/Post/PostUpdateRepository.php:69
+#: app/Entities/Post/PostUpdateRepository.php:94
+#: app/Activation/Dependencies.php:125
+#: app/Views/settings/settings-posttypes.php:300
+#: app/Views/partials/tool-list.php:88 app/Views/forms/quickedit-post.php:42
 #: app/Views/forms/new-child.php:19 app/Views/forms/new-child.php:21
-#: app/Views/forms/quickedit-post.php:20 app/Views/partials/tool-list.php:64
 msgid "Title"
 msgstr "Titel"
 
-#: app/Activation/Dependencies.php:115 app/Views/forms/quickedit-post.php:11
-#: app/Views/partials/row-link.php:68 app/Views/partials/row.php:130
+#: app/Activation/Dependencies.php:126 app/Views/partials/row.php:256
+#: app/Views/partials/row-link.php:75 app/Views/forms/quickedit-post.php:18
 msgid "Quick Edit"
 msgstr "Quick Edit"
 
-#: app/Activation/Dependencies.php:116
+#: app/Activation/Dependencies.php:127
 msgid "Page Title"
 msgstr "Seitentitel"
 
-#: app/Activation/Dependencies.php:117 app/Views/partials/row.php:134
+#: app/Activation/Dependencies.php:128 app/Views/partials/row.php:262
 msgid "View"
 msgstr "Ansehen"
 
-#: app/Activation/Dependencies.php:118 app/Views/forms/new-child.php:7
-#: app/Views/partials/row.php:94
+#: app/Activation/Dependencies.php:129 app/Views/forms/new-child.php:7
 msgid "Add Child"
 msgstr "Unterseite hinzufügen"
 
-#: app/Activation/Dependencies.php:119
+#: app/Activation/Dependencies.php:130
 msgid "Add Child Page"
 msgstr "Unterseite erstellen"
 
-#: app/Activation/Dependencies.php:120
+#: app/Activation/Dependencies.php:131
 msgid "Add Child Pages"
 msgstr "Unterseiten erstellen"
 
-#: app/Activation/Dependencies.php:121 app/Views/forms/link-form.php:105
-#: app/Views/forms/new-child.php:93
+#: app/Activation/Dependencies.php:132 app/Views/forms/link-form.php:115
+#: app/Views/forms/new-child.php:106
 msgid "Add"
 msgstr "Erstellen"
 
-#: app/Activation/Dependencies.php:122
+#: app/Activation/Dependencies.php:133
 msgid "Add Page"
 msgstr "Seite erstellen"
 
-#: app/Activation/Dependencies.php:123
+#: app/Activation/Dependencies.php:134
 msgid "Add Pages"
 msgstr "Seiten erstellen"
 
-#: app/Activation/Dependencies.php:124 app/Views/listing.php:10
-#: app/Views/listing.php:11
+#: app/Activation/Dependencies.php:135 app/Views/listing.php:23
+#: app/Views/listing.php:24
 msgid "Add Multiple"
 msgstr "Mehrere erstellen"
 
-#: app/Activation/Dependencies.php:125
+#: app/Views/forms/empty-trash-modal.php:9
 msgid "Are you sure you would like to empty the trash? This action is not reversable."
 msgstr "Papierkorb wirklich leeren? Diese Aktion kann nicht rückgängig gemacht werden."
 
-#: app/Activation/Dependencies.php:126 app/Views/partials/row-link.php:40
-#: app/Views/partials/row.php:45
+#: app/Activation/Dependencies.php:137 app/Views/partials/row.php:55
+#: app/Views/partials/row-link.php:50
 msgid "Hidden"
 msgstr "Versteckt"
 
-#: app/Bootstrap.php:69
+#: app/Bootstrap.php:69 app/Views/settings/settings-posttypes.php:23
+#: app/Views/settings/settings-admincustom.php:14
 msgid "Settings"
 msgstr "Einstellungen"
 
-#: app/Config/Settings.php:53 app/Views/settings/settings.php:2
-msgid "Nested Pages Settings"
-msgstr "Einstellungen für Nested Pages"
-
-#. #-#-#-#-#  tmp-wp-nested-pages.pot (Nested Pages 1.5.3)  #-#-#-#-#
-#. Plugin Name of the plugin/theme
-#: app/Config/Settings.php:54
+#. Plugin Name of the plugin
+#: app/Config/Settings.php:84
 msgid "Nested Pages"
 msgstr "Nested Pages"
 
-#: app/Entities/AdminMenu/AdminSubmenu.php:75
-#: app/Views/partials/tool-list.php:33
-msgid "Default"
-msgstr "Standard"
-
-#: app/Entities/Confirmation/LinkDeletedConfirmation.php:12
-msgid "Link successfully deleted."
-msgstr "Link wurde erfolgreich gelöscht."
-
-#: app/Entities/Confirmation/TrashConfirmation.php:16
-msgid "pages moved to the Trash"
-msgstr "Seiten wurden in den Papierkorb verschoben."
-
-#: app/Entities/Confirmation/TrashConfirmation.php:18
-msgid "moved to the Trash"
-msgstr "Seite wurde in den Papierkorb verschoben."
-
-#: app/Entities/Confirmation/TrashConfirmation.php:23
+#: app/Entities/Confirmation/TrashConfirmation.php:31
 msgid "Undo"
 msgstr "Rückgängig"
 
-#: app/Entities/Confirmation/TrashRestoredConfirmation.php:14
-msgid "pages"
-msgstr "Seiten"
-
-#: app/Entities/Confirmation/TrashRestoredConfirmation.php:14
-msgid "page"
-msgstr "Seite"
-
-#: app/Entities/Confirmation/TrashRestoredConfirmation.php:15
-msgid "restored from trash"
-msgstr "Aus Papierkorb wiederhergestellt."
-
-#: app/Entities/PostType/PostTypeRepository.php:193
+#: app/Entities/PostType/PostTypeRepository.php:413
 msgid "Nested View"
 msgstr "Verschachtelte Ansicht"
 
-#: app/Entities/PostType/PostTypeRepository.php:193
-msgid "Sort View"
-msgstr "Sortierungsansicht"
-
-#: app/Entities/PostType/RegisterPostTypes.php:22
-msgid "Redirects"
-msgstr "Umleitungen"
-
-#: app/Entities/PostType/RegisterPostTypes.php:23
-msgid "Redirect"
-msgstr "Umleitung"
-
-#: app/Form/Listeners/BaseHandler.php:80
+#: app/Form/Listeners/BaseHandler.php:94
 msgid "Incorrect Form Field"
 msgstr "Falsches Formularfeld"
 
-#: app/Form/Listeners/BaseHandler.php:109
+#: app/Form/Listeners/BaseHandler.php:128
 msgid "There was an error updating the page."
 msgstr "Beim Aktualisieren der Seite ist ein Fehler aufgetreten."
 
-#: app/Form/Listeners/ClonePost.php:36
+#: app/Form/Listeners/TrashWithChildren.php:50
+#: app/Form/Listeners/ClonePost.php:35
+#: app/Form/Listeners/WpmlTranslations.php:47
 msgid "Post Not Found"
 msgstr "Dieser Beitrag konnte nicht gefunden werden."
 
-#: app/Form/Listeners/EmptyTrash.php:19
+#: app/Form/Listeners/EmptyTrash.php:17
 msgid "Trash successfully emptied."
 msgstr "Papierkorb erfolgreich geleert."
 
-#: app/Form/Listeners/NewMenuItem.php:27
-msgid "Custom Links must have a label"
+#: app/Form/Listeners/NewMenuItem.php:26
+msgid "Custom Links must have a label."
 msgstr "Links müssen eine Beschriftung haben."
 
-#: app/Form/Listeners/NewMenuItem.php:28
-msgid "Please provide a valid URL"
-msgstr "Bitte eine gültige URL angeben."
-
-#: app/Form/Listeners/NewMenuItem.php:47
-#: app/Form/Listeners/QuickEditLink.php:30
-msgid "Link successfully updated"
+#: app/Form/Listeners/NewMenuItem.php:46
+#: app/Form/Listeners/QuickEditLink.php:28
+msgid "Link successfully updated."
 msgstr "Link erfolgreich hinzugefügt."
 
-#: app/Form/Listeners/QuickEdit.php:32
-msgid "Post successfully updated"
+#: app/Form/Listeners/QuickEdit.php:35
+msgid "Post successfully updated."
 msgstr "Beitrag erfolgreich aktualisiert."
 
-#: app/Form/Listeners/Sort.php:29
+#: app/Form/Listeners/Sort.php:30
 msgid "Page order successfully updated."
 msgstr "Seitenreihenfolge erfolgreich aktualisiert."
 
-#: app/Form/Listeners/Sort.php:31
+#: app/Form/Listeners/Sort.php:32
 msgid "There was an error updating the page order."
 msgstr "Beim Aktualisieren der Seitenreihenfolge ist ein Fehler aufgetreten."
 
-#: app/Form/Listeners/SyncMenu.php:27
+#: app/Form/Listeners/SyncMenu.php:34
 msgid "Menu sync enabled."
 msgstr "Menüsynchronisation aktiviert."
 
-#: app/Form/Listeners/SyncMenu.php:30
+#: app/Form/Listeners/SyncMenu.php:24
 msgid "Menu sync disabled."
 msgstr "Menüsynchronisation deaktiviert."
 
-#: app/Form/Validation/Validation.php:134
+#: app/Form/Validation/Validation.php:136
 msgid "Please provide a valid date."
 msgstr "Bitte ein gültiges Datum angeben."
 
-#: app/Form/Validation/Validation.php:145
+#: app/Form/Validation/Validation.php:147
 msgid "Please provide a menu title."
 msgstr "Bitte Menü-Titel angeben."
 
-#: app/Form/Validation/Validation.php:148
+#: app/Form/Validation/Validation.php:150 app/Form/Listeners/NewMenuItem.php:27
 msgid "Please provide a valid URL."
 msgstr "Bitte eine gültige URL angeben."
 
-#: app/Form/Validation/Validation.php:158
+#: app/Form/Validation/Validation.php:160
 msgid "Please provide a "
 msgstr "Bitte eine"
 
-#: app/Form/Validation/Validation.php:171
+#: app/Form/Validation/Validation.php:174
 msgid "A valid parent page was not provided."
 msgstr "Es wurde keine gültige Seite angegeben."
 
-#: app/Form/Validation/Validation.php:178
-msgid "Please provide at least one page title."
-msgstr "Bitte gib mindestens einen Seitentitel an."
-
-#: app/Form/Validation/Validation.php:186
+#: app/Form/Validation/Validation.php:202
 msgid "Page titles cannot be blank."
 msgstr "Seitentitel dürfen nicht leer sein."
 
-#: app/Views/forms/clone-form.php:9 app/Views/forms/clone-form.php:65
-#: app/Views/partials/row.php:99
+#: app/Views/partials/row.php:210 app/Views/forms/clone-form.php:10
+#: app/Views/forms/clone-form.php:66
 msgid "Clone"
 msgstr "Klonen"
 
-#: app/Views/forms/clone-form.php:14
+#: app/Views/forms/clone-form.php:15
 msgid "Number of Copies"
 msgstr "Anzahl der Kopien"
 
-#: app/Views/forms/clone-form.php:26 app/Views/forms/new-child.php:35
-#: app/Views/forms/quickedit-link.php:27 app/Views/forms/quickedit-post.php:76
+#: app/Views/partials/bulk-edit.php:44 app/Views/forms/quickedit-link.php:27
+#: app/Views/forms/quickedit-post.php:111 app/Views/forms/clone-form.php:27
+#: app/Views/forms/new-child.php:35
 msgid "Status"
 msgstr "Status"
 
-#: app/Views/forms/clone-form.php:29 app/Views/forms/new-child.php:38
-#: app/Views/forms/quickedit-link.php:30 app/Views/forms/quickedit-post.php:79
-#: app/Views/partials/tool-list.php:10
+#: app/Entities/PostType/PostTypeRepository.php:473
+#: app/Views/partials/tool-list.php:18 app/Views/partials/bulk-edit.php:48
+#: app/Views/forms/quickedit-link.php:30 app/Views/forms/clone-form.php:30
+#: app/Views/forms/new-child.php:38
 msgid "Published"
 msgstr "Publiziert"
 
-#: app/Views/forms/clone-form.php:31 app/Views/forms/quickedit-link.php:33
-#: app/Views/forms/quickedit-post.php:82
+#: app/Entities/PostType/PostTypeRepository.php:477
+#: app/Views/partials/bulk-edit.php:51 app/Views/forms/quickedit-link.php:33
+#: app/Views/forms/clone-form.php:32
 msgid "Pending Review"
 msgstr "Überprüfung ausstehend"
 
-#: app/Views/forms/clone-form.php:32 app/Views/forms/new-child.php:40
-#: app/Views/forms/quickedit-link.php:34 app/Views/forms/quickedit-post.php:83
-#: app/Views/partials/tool-list.php:14
+#: app/Entities/PostType/PostTypeRepository.php:478
+#: app/Views/partials/tool-list.php:22 app/Views/partials/bulk-edit.php:52
+#: app/Views/forms/quickedit-link.php:34 app/Views/forms/clone-form.php:33
+#: app/Views/forms/new-child.php:40
 msgid "Draft"
 msgstr "Entwurf"
 
-#: app/Views/forms/clone-form.php:50 app/Views/forms/new-child.php:61
-#: app/Views/forms/quickedit-post.php:67
+#: app/Config/SettingsRepository.php:94
+#: app/Views/settings/settings-posttypes.php:287
+#: app/Views/partials/bulk-edit.php:35 app/Views/forms/quickedit-post.php:97
+#: app/Views/forms/clone-form.php:51 app/Views/forms/new-child.php:62
 msgid "Author"
 msgstr "Autor"
 
-#: app/Views/forms/clone-form.php:62
-#: app/Views/forms/delete-confirmation-modal.php:11
-#: app/Views/forms/empty-trash-modal.php:11 app/Views/forms/link-form.php:101
-#: app/Views/forms/new-child.php:90 app/Views/forms/quickedit-link.php:84
-#: app/Views/forms/quickedit-post.php:207
+#: app/Views/partials/bulk-edit.php:143 app/Views/forms/link-form.php:111
+#: app/Views/forms/quickedit-link.php:84 app/Views/forms/quickedit-post.php:286
+#: app/Views/forms/clone-form.php:63 app/Views/forms/empty-trash-modal.php:10
+#: app/Views/forms/new-child.php:103
+#: app/Views/forms/delete-confirmation-modal.php:10
 msgid "Cancel"
 msgstr "Abbrechen"
 
-#: app/Views/forms/delete-confirmation-modal.php:12
-msgid "Delete"
-msgstr "Löschen"
-
-#: app/Views/forms/empty-trash-modal.php:12
+#: app/Views/forms/empty-trash-modal.php:11
 msgid "Empty Trash"
 msgstr "Papierkorb leeren"
 
-#: app/Views/forms/link-form.php:18
+#: app/Views/forms/link-form.php:19
 msgid "Custom Link"
 msgstr "Link"
 
-#: app/Views/forms/link-form.php:27 app/Views/forms/link-form.php:44
+#: app/Views/forms/link-form.php:28 app/Views/forms/link-form.php:52
 msgid "Search"
 msgstr "Suche"
 
-#: app/Views/forms/link-form.php:27 app/Views/forms/link-form.php:44
+#: app/Views/forms/link-form.php:35 app/Views/forms/link-form.php:52
 msgid "No Results"
 msgstr "Keine Suchergebnisse"
 
-#: app/Views/forms/link-form.php:58
+#: app/Views/forms/link-form.php:66
 msgid "Select an item"
 msgstr "Eintrag auswählen"
 
-#: app/Views/forms/link-form.php:63
+#: app/Views/forms/link-form.php:71
 msgid "Original"
 msgstr "Original"
 
-#: app/Views/forms/link-form.php:68 app/Views/forms/quickedit-link.php:22
+#: app/Views/forms/link-form.php:76 app/Views/forms/quickedit-link.php:22
 msgid "URL"
 msgstr "URL"
 
-#: app/Views/forms/link-form.php:72 app/Views/forms/quickedit-link.php:17
-#: app/Views/forms/quickedit-post.php:171
+#: app/Views/forms/link-form.php:80 app/Views/forms/quickedit-link.php:17
+#: app/Views/forms/quickedit-post.php:250
 msgid "Navigation Label"
 msgstr "Navigationsbeschriftnug"
 
-#: app/Views/forms/link-form.php:76 app/Views/forms/quickedit-link.php:44
-#: app/Views/forms/quickedit-post.php:175
+#: app/Views/forms/link-form.php:84 app/Views/forms/quickedit-link.php:44
+#: app/Views/forms/quickedit-post.php:254
 msgid "Title Attribute"
 msgstr "Titel-Attribut"
-
-#: app/Views/forms/link-form.php:80
-msgid "CSS Classes (optional)"
-msgstr "CSS-Klasse (optional)"
-
-#: app/Views/forms/link-form.php:86 app/Views/forms/quickedit-link.php:66
-#: app/Views/forms/quickedit-post.php:193
-msgid "Open link in a new window/tab"
-msgstr "Link in neuem Fenster/Tab öffnen"
 
 #: app/Views/forms/new-child.php:28
 msgid "+"
 msgstr "+"
 
-#: app/Views/forms/new-child.php:71 app/Views/forms/quickedit-post.php:93
-msgid "Template"
-msgstr "Vorlage"
-
-#: app/Views/forms/new-child.php:73 app/Views/forms/quickedit-post.php:95
+#: app/Views/partials/bulk-edit.php:61 app/Views/forms/quickedit-post.php:140
+#: app/Views/forms/new-child.php:74
 msgid "Default Template"
 msgstr "Standard-Vorlage"
 
-#: app/Views/forms/new-child.php:96
+#: app/Views/forms/new-child.php:109
 msgid "Add & Edit"
 msgstr "Erstellen & bearbeiten"
 
@@ -526,59 +634,108 @@ msgstr "Erstellen & bearbeiten"
 msgid "Link"
 msgstr "Link"
 
-#: app/Views/forms/quickedit-link.php:31 app/Views/forms/quickedit-post.php:80
-msgid "Scheduled"
-msgstr "Geplant"
-
-#: app/Views/forms/quickedit-link.php:48 app/Views/forms/quickedit-post.php:179
+#: app/Views/forms/quickedit-link.php:48 app/Views/forms/quickedit-post.php:258
 msgid "CSS Classes"
 msgstr "CSS-Klasse"
 
-#: app/Views/forms/quickedit-link.php:54 app/Views/forms/quickedit-post.php:187
+#: app/Views/partials/bulk-edit.php:108 app/Views/forms/quickedit-link.php:54
+#: app/Views/forms/quickedit-post.php:266 app/Views/forms/new-child.php:84
 msgid "Hide in Nav Menu"
 msgstr "Im Menü verstecken"
 
-#: app/Views/forms/quickedit-link.php:60 app/Views/forms/quickedit-post.php:126
-msgid "Hide in Nested Pages"
-msgstr "In verschachtelten Seiten verstecken"
-
-#: app/Views/forms/quickedit-link.php:87 app/Views/forms/quickedit-post.php:210
+#: app/Views/partials/bulk-edit.php:146 app/Views/forms/quickedit-link.php:87
+#: app/Views/forms/quickedit-post.php:289
 msgid "Update"
 msgstr "Aktualisieren"
 
-#: app/Views/forms/quickedit-post.php:24
-msgid "Slug"
-msgstr "Permalink"
-
-#: app/Views/forms/quickedit-post.php:30 app/Views/forms/quickedit-post.php:45
-#: app/Views/partials/tool-list.php:63
+#: app/Views/settings/settings-posttypes.php:299
+#: app/Views/partials/tool-list.php:87 app/Views/forms/quickedit-post.php:57
+#: app/Views/forms/quickedit-post.php:74
 msgid "Date"
 msgstr "Datum"
 
-#: app/Views/forms/quickedit-post.php:33
+#: app/Views/forms/quickedit-post.php:60
 msgid "@"
 msgstr "@"
 
-#: app/Views/forms/quickedit-post.php:36
+#: app/Views/forms/quickedit-post.php:64
 msgid "am"
 msgstr "am"
 
-#: app/Views/forms/quickedit-post.php:37
+#: app/Views/forms/quickedit-post.php:65
 msgid "pm"
 msgstr "pm"
 
-#: app/Views/forms/quickedit-post.php:103
+#: app/Views/forms/quickedit-post.php:148
 msgid "Password"
 msgstr "Passwort"
 
-#: app/Views/forms/quickedit-post.php:106
+#: app/Views/forms/quickedit-post.php:151
 msgid "&ndash;OR&ndash;"
 msgstr "&ndash;ODER&ndash;"
 
-#: app/Views/forms/quickedit-post.php:109
+#: app/Activation/Dependencies.php:154 app/Views/partials/bulk-edit.php:50
+#: app/Views/forms/quickedit-post.php:154
 msgid "Private"
 msgstr "Privat"
 
-#: app/Views/forms/quickedit-post.php:118
+#: app/Config/SettingsRepository.php:97 app/Views/forms/quickedit-post.php:164
 msgid "Allow Comments"
 msgstr "Kommentare erlauben"
+
+#: app/Activation/Dependencies.php:141
+#: app/Views/forms/delete-confirmation-modal.php:11
+msgid "Delete"
+msgstr "Löschen"
+
+#: app/Form/Validation/Validation.php:194
+msgid "Please provide at least one page title."
+msgstr "Bitte gib mindestens einen Seitentitel an."
+
+#: app/Entities/PostType/PostTypeRepository.php:474
+#: app/Views/forms/quickedit-link.php:31
+msgid "Scheduled"
+msgstr "Planen"
+
+#: app/Views/forms/link-form.php:94 app/Views/forms/quickedit-link.php:66
+#: app/Views/forms/quickedit-post.php:272
+msgid "Open link in a new window/tab"
+msgstr "In neuem Link/neuem Tab öffnen"
+
+#: app/Views/forms/link-form.php:88
+msgid "CSS Classes (optional)"
+msgstr "CSS-Klassen (optional)"
+
+#: app/Config/SettingsRepository.php:92 app/Views/forms/quickedit-post.php:49
+msgid "Slug"
+msgstr "Titelform"
+
+#: app/Config/Settings.php:83 app/Views/settings/settings.php:2
+msgid "Nested Pages Settings"
+msgstr "Nested Pages Einstellungen"
+
+#: app/Config/SettingsRepository.php:105 app/Views/forms/quickedit-link.php:60
+#: app/Views/forms/quickedit-post.php:173
+msgid "Hide in Nested Pages"
+msgstr "In Nested Pages verstecken"
+
+#: app/Config/SettingsRepository.php:101 app/Views/partials/bulk-edit.php:58
+#: app/Views/forms/quickedit-post.php:138 app/Views/forms/new-child.php:72
+msgid "Template"
+msgstr "Template"
+
+#: app/Entities/PostType/RegisterPostTypes.php:30
+msgid "Redirect"
+msgstr "Weiterleitung"
+
+#: app/Entities/PostType/RegisterPostTypes.php:29
+msgid "Redirects"
+msgstr "Weiterleitungen"
+
+#: app/Entities/PostType/PostTypeRepository.php:413
+msgid "Sort View"
+msgstr "Ansicht sortieren"
+
+#: app/Entities/Confirmation/LinkDeletedConfirmation.php:11
+msgid "Link successfully deleted."
+msgstr "Link erfolgreich gelöscht"

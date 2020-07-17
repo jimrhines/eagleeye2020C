@@ -1,13 +1,31 @@
 <?php
 
+
 /**
  * Trim strings.
  *
- * @param string $string      Raw string.
+ * @param string $string Raw string.
+ *
+ * @param array $args Array of options eg. enable numerals translation
+ *
  * @return string           Trimmed string.
  */
-function trp_full_trim( $string ) {
-	/* Make sure you update full_trim function from trp-ajax too*/
+
+ /* NB: We don't always have access to WP get_option, for instance while calling trp_full_trim inside trp-ajax */
+ /* So this falls back to the option being transmitted either as a param from another function or obtained directly if get_option is available */
+function trp_full_trim( $string, $args = array()  ) {
+	if ( !isset( $args['numerals']) ) {
+		if ( function_exists( 'get_option' ) ) {
+			$opt = get_option( 'trp_advanced_settings', false );
+			if ( isset( $opt["enable_numerals_translation"] ) ) {
+				$args['numerals'] = $opt["enable_numerals_translation"];
+			} else {
+				$args['numerals'] = "no";
+			}
+		} else {
+			$args['numerals'] = "no";
+		}
+	}
 
 	/* Apparently the � char in the trim function turns some strings in an empty string so they can't be translated but I don't really know if we should remove it completely
 	Removed chr( 194 ) . chr( 160 ) because it altered some special characters (¿¡)
@@ -31,10 +49,15 @@ function trp_full_trim( $string ) {
 		}
 	}while( $string != $previous_iteration_string );
 
-	if ( strip_tags( $string ) == "" || trim ($string, " \t\n\r\0\x0B\xA0�.,/`~!@#\$€£%^&*():;-_=+[]{}\\|?/<>1234567890'\"" ) == '' ){
-		$string = '';
+	if ($args['numerals'] === "yes") {
+		$filter_string = " \t\n\r\0\x0B\xA0�.,/`~!@#\$€£%^&*():;-_=+[]{}\\|?/<>'\"";
+	} else {
+		$filter_string = " \t\n\r\0\x0B\xA0�.,/`~!@#\$€£%^&*():;-_=+[]{}\\|?/<>1234567890'\"";
 	}
 
+	if ( strip_tags( $string ) === '' || trim ($string, $filter_string) === '' ){
+		$string = '';
+	}
 	return $string;
 }
 

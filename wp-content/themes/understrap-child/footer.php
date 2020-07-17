@@ -31,7 +31,6 @@ $container = get_theme_mod( 'understrap_container_type' );
 <script src="https://koi-3QNMNV32OO.marketingautomation.services/client/noform.js?ver=1.24"></script>
 <!-- End SharpSpring Signup Form -->
 
-
 <div class="wrapper" id="wrapper-footer">
 	<footer class="site-footer" id="colophon">
 		<div class="container">

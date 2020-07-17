@@ -13,10 +13,11 @@ function TRP_Translator(){
         characterData: false,//this could be CDATA so I set it to false in v 1.4.5
         subtree: true
     };
+    var translate_numerals_opt = trp_data.trp_translate_numerals_opt;
     var custom_ajax_url = trp_data.trp_custom_ajax_url;
     var wp_ajax_url = trp_data.trp_wp_ajax_url;
     var language_to_query;
-    var except_characters = " \t\n\r  �.,/`~!@#$€£%^&*():;-_=+[]{}\\|?/<>1234567890'";
+    this.except_characters = " \t\n\r  �.,/`~!@#$€£%^&*():;-_=+[]{}\\|?/<>1234567890'";
     var trim_characters = " \t\n\r  �\x0A\x0B" + "\302" + "\240";
     var already_detected = [];
     var duplicate_detections_allowed = parseInt( trp_data.duplicate_detections_allowed )
@@ -37,7 +38,8 @@ function TRP_Translator(){
                 original_language        : original_language, // used for trp custom ajax
                 originals                : JSON.stringify( string_originals ),
                 skip_machine_translation : JSON.stringify( skip_machine_translation ),
-                dynamic_strings          : 'true'
+                dynamic_strings          : 'true',
+                translate_numerals_opt   : translate_numerals_opt
             },
             success: function( response ) {
                 if ( response === 'error' ) {
@@ -280,12 +282,12 @@ function TRP_Translator(){
     this.get_translateable_textcontent = function( node ){
         var string_originals = [];
         var nodesInfo = [];
-        if ( node.textContent && _this.trim( node.textContent.trim(), except_characters ) != '' ) {
+        if ( node.textContent && _this.trim( node.textContent.trim(), _this.except_characters ) != '' ) {
 
             var direct_string = get_string_from_node( node );
             if ( direct_string ) {
                 // a text without HTML was added
-                if ( _this.trim( direct_string.textContent, except_characters ) != '' ) {
+                if ( _this.trim( direct_string.textContent, _this.except_characters ) != '' ) {
                     var extracted_original = _this.trim(direct_string.textContent, trim_characters);
                     if ( ! _this.skip_string_original( extracted_original, false )) {
                         nodesInfo.push({node: node, original: extracted_original, attribute: ''});
@@ -311,7 +313,7 @@ function TRP_Translator(){
                 }
                 var all_strings_length = all_strings.length;
                 for (var j = 0; j < all_strings_length; j++ ) {
-                    if ( _this.trim( all_strings[j].textContent, except_characters ) != '' ) {
+                    if ( _this.trim( all_strings[j].textContent, _this.except_characters ) != '' ) {
                         if ( ! _this.skip_string_original( all_strings[j].textContent, false )) {
                             nodesInfo.push({node: all_strings[j], original: all_strings[j].textContent, attribute: ''});
                             string_originals.push(all_strings[j].textContent)
@@ -347,7 +349,7 @@ function TRP_Translator(){
                         if ( _this.skip_string_original( attribute_content, attribute_selector_item.accessor )){
                             continue;
                         }
-                        if ( attribute_content && _this.trim( attribute_content.trim(), except_characters ) != '' ) {
+                        if ( attribute_content && _this.trim( attribute_content.trim(), _this.except_characters ) != '' ) {
                             nodesInfo.push({node: all_nodes[j], original: attribute_content, attribute: attribute_selector_item.accessor });
                             string_originals.push( attribute_content )
                             if ( trp_data ['showdynamiccontentbeforetranslation'] == false && ( attribute_selector_item.accessor != 'src' ) ) {
@@ -429,6 +431,11 @@ function TRP_Translator(){
         current_language = trp_data.trp_current_language;
         original_language = trp_data.trp_original_language;
         language_to_query = trp_data.trp_language_to_query;
+        translate_numerals_opt = trp_data.trp_translate_numerals_opt;
+
+        if ( typeof translate_numerals_opt !== "undefined" && translate_numerals_opt !== '' && translate_numerals_opt === "yes") {
+            _this.except_characters = " \t\n\r  �.,/`~!@#$€£%^&*():;-_=+[]{}\\|?/<>'";
+        }
 
         // create an observer instance
         observer = new MutationObserver( _this.detect_new_strings_callback );

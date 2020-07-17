@@ -1076,7 +1076,7 @@ a:hover {
 }
 
 .trp-help-toggle {
-  padding: 13px 7px 13px 7px;
+  padding: 14px 22px 18px 4px;
   width: 20px;
   height: 20px;
   cursor: pointer;
@@ -1184,10 +1184,9 @@ a.trp-link-button.trp-link-button-disabled {
  */
 
 .trp-ajax-loader {
-  margin-bottom: -16px;
-  margin-left: 20px;
-  margin-right: 3px;
   display: inline-block;
+  float: left;
+  margin: 12px 3px -16px 20px;
   z-index: 50;
   -ms-filter: "progid:DXImageTransform.Microsoft.gradient(GradientType=1, StartColorStr='#E57EB149', EndColorStr='#E57EB149')";
   filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=1, StartColorStr="#E57EB149", EndColorStr="#E57EB149");

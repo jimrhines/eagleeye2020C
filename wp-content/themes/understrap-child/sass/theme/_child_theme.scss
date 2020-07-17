@@ -676,7 +676,8 @@ img[src$=".svg"] {
 	}
 }
 
-#category-products {
+#category-products,
+#category-general {
 	padding-top: 3rem;
 	padding-bottom: 3rem;
 
@@ -714,6 +715,10 @@ img[src$=".svg"] {
 
 		}
 	}
+}
+
+#category-general {
+	padding-top: 0;
 }
 
 /*Products Template*/

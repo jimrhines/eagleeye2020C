@@ -5,7 +5,7 @@ Tags: translate, translation, multilingual, automatic translation, bilingual, fr
 Requires at least: 3.1.0
 Tested up to: 5.4.2
 Requires PHP: 5.6.20
-Stable tag: 1.7.6
+Stable tag: 1.7.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -138,6 +138,17 @@ For more information please check out our [documentation](https://translatepress
 
 
 == Changelog ==
+= 1.7.8 =
+* Added possibility to exclude hreflang from an original URL
+* Fixed translating json inside json. It ensures compatibility with Brizy
+* Fixed http 500 response in trp-ajax calls
+
+= 1.7.7 =
+* Added option to enable translation of numerals
+* Added capability to translate special URLs like tel, callto or mailto
+* Added support for translating oembed response data
+* Fixed some CSS issues on Safari
+
 = 1.7.6 =
 * Added a help wizard for the Visual Editor
 * Added Puerto Rico flag

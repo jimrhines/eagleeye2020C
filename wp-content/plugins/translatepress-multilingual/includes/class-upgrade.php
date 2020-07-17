@@ -339,7 +339,7 @@ class TRP_Upgrade {
 			return true;
 		}
 		foreach( $strings as $key => $string ){
-			$strings[$key]['original'] = trp_full_trim( $strings[$key]['original'] );
+			$strings[$key]['original'] = trp_full_trim( $strings[ $key ]['original'] );
 		}
 
 		// overwrite original only

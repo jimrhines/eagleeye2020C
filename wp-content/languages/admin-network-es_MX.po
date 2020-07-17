@@ -2,12 +2,12 @@
 # This file is distributed under the same license as the WordPress - 5.4.x - Development - Administration - Network Admin package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-03-05 15:34:51+0000\n"
+"PO-Revision-Date: 2020-06-04 23:14:28+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: GlotPress/2.4.0-alpha\n"
+"X-Generator: GlotPress/3.0.0-alpha.2\n"
 "Language: es_MX\n"
 "Project-Id-Version: WordPress - 5.4.x - Development - Administration - Network Admin\n"
 
@@ -57,11 +57,11 @@ msgstr[1] "Todos <span class=\"count\">(%s)</span>"
 
 #: wp-admin/network/upgrade.php:31
 msgid "<a href=\"https://wordpress.org/support/article/network-admin-updates-screen/\">Documentation on Upgrade Network</a>"
-msgstr "<a href=\"https://wordpress.org/support/article/network-admin-updates-screen/\">Documentación sobre la actualización de la red</a>"
+msgstr "<a href=\"https://es-mx.wordpress.org/support/article/network-admin-updates-screen/\">Documentación sobre la actualización de la red</a>"
 
 #: wp-admin/network/index.php:55
 msgid "<a href=\"https://wordpress.org/support/article/network-admin/\">Documentation on the Network Admin</a>"
-msgstr "<a href=\"https://wordpress.org/support/article/network-admin/\">Documentación sobre la administración de la red</a>"
+msgstr "<a href=\"https://es-mx.wordpress.org/support/article/network-admin/\">Documentación sobre la administración de la red</a>"
 
 #. translators: %s: Number of themes.
 #: wp-admin/includes/class-wp-ms-themes-list-table.php:331
@@ -77,11 +77,11 @@ msgstr "Principal"
 
 #: wp-admin/network.php:67 wp-admin/network.php:80
 msgid "<a href=\"https://wordpress.org/support/article/tools-network-screen/\">Documentation on the Network Screen</a>"
-msgstr "<a href=\"https://wordpress.org/support/article/tools-network-screen/\">Documentación sobre la pantalla de la red</a>"
+msgstr "<a href=\"https://es-mx.wordpress.org/support/article/tools-network-screen/\">Documentación sobre la pantalla de la red</a>"
 
 #: wp-admin/network.php:66 wp-admin/network.php:79
 msgid "<a href=\"https://wordpress.org/support/article/create-a-network/\">Documentation on Creating a Network</a>"
-msgstr "<a href=\"https://wordpress.org/support/article/create-a-network/\">Documentación sobre la creación de una red</a>"
+msgstr "<a href=\"https://es-mx.wordpress.org/support/article/create-a-network/\">Documentación sobre la creación de una red</a>"
 
 #. translators: %s: DO_NOT_UPGRADE_GLOBAL_TABLES
 #: wp-admin/includes/network.php:115

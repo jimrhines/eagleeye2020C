@@ -57,7 +57,7 @@ class TRP_Translate_Press{
         define( 'TRP_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
         define( 'TRP_PLUGIN_BASE', plugin_basename( __DIR__ . '/index.php' ) );
         define( 'TRP_PLUGIN_SLUG', 'translatepress-multilingual' );
-        define( 'TRP_PLUGIN_VERSION', '1.7.6' );
+        define( 'TRP_PLUGIN_VERSION', '1.7.8' );
 
 	    wp_cache_add_non_persistent_groups(array('trp'));
 
@@ -280,6 +280,7 @@ class TRP_Translate_Press{
         $this->loader->add_action( "trp_set_translation_for_attribute", $this->translation_render, 'translate_image_srcset_attributes', 10, 3 );
         $this->loader->add_action( "trp_allow_machine_translation_for_string", $this->translation_render, 'allow_machine_translation_for_string', 10, 4 );
         $this->loader->add_action( "init", $this->translation_render, 'add_callbacks_for_translating_rest_api', 10, 4 );
+        $this->loader->add_filter( "oembed_response_data", $this->translation_render, 'oembed_response_data', 10, 4 );
 
         /* add custom containers for post content and pots title so we can identify string that are part of them */
         $this->loader->add_filter( "the_content", $this->translation_render, 'wrap_with_post_id', 1000 );

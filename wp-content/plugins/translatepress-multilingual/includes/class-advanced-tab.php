@@ -146,6 +146,7 @@ class TRP_Advanced_Tab {
 	public function include_custom_codes(){
         include_once(TRP_PLUGIN_DIR . 'includes/advanced-settings/disable-dynamic-translation.php');
         include_once(TRP_PLUGIN_DIR . 'includes/advanced-settings/enable-auto-translate-slug.php');
+        include_once(TRP_PLUGIN_DIR . 'includes/advanced-settings/enable-numerals-translation.php');
         include_once(TRP_PLUGIN_DIR . 'includes/advanced-settings/exclude-dynamic-selectors.php');
         include_once(TRP_PLUGIN_DIR . 'includes/advanced-settings/exclude-gettext-strings.php');
         include_once(TRP_PLUGIN_DIR . 'includes/advanced-settings/exclude-selectors.php');

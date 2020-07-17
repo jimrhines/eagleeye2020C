@@ -273,6 +273,32 @@ class TRP_Translation_Render{
     }
 
     /**
+     * Function that translates the content post title, site title and post content in oembed response
+     *
+     * @param $data
+     * @param $post
+     * @param $width
+     * @param $height
+     *
+     * @return array
+     */
+    public function oembed_response_data($data, $post, $width, $height ){
+        if ( !empty( $data )) {
+            $translatable_items = apply_filters( 'trp_oembed_response_data_translatable_items', array('title', 'html', 'provider_name') );
+            foreach( $translatable_items as $item ){
+                if ( isset( $data[$item] ) ) {
+                    $data[$item] = $this->translate_page( $data[$item] );
+                }
+            }
+        }
+
+        // Otherwise we incorrectly unescape the sequence to end CDATA from ']]&gt;' to ']]>' breaking the xml. It needs to stay escaped in oembed response data.
+        remove_filter( 'trp_before_translate_content', array( $this, 'handle_cdata'), 1000);
+
+        return $data;
+    }
+
+    /**
      * Function that translates the content excerpt and post title in the REST API
      * @param $response
      * @return mixed
@@ -342,7 +368,7 @@ class TRP_Translation_Render{
          */
         global $wp_rewrite;
         if( is_object($wp_rewrite) ) {
-            if( strpos( $this->url_converter->cur_page_url(), get_rest_url() ) !== false && strpos( current_filter(), 'rest_prepare_' ) !== 0){
+            if( strpos( $this->url_converter->cur_page_url(), get_rest_url() ) !== false && strpos( current_filter(), 'rest_prepare_' ) !== 0 && current_filter() !== 'oembed_response_data' ){
                 $trpremoved = $this->remove_trp_html_tags( $output );
                 return $trpremoved;
             }
@@ -373,7 +399,7 @@ class TRP_Translation_Render{
 	     *
 	     * Removed is_ajax_on_frontend() check because we need to capture custom ajax events.
 		 * Decided that if $output is json decodable it's a good enough check to handle it this way.
-		 * We have necessary checks so that we don't get to this point when is_admin(), or when language is not default.
+		 * We have necessary checks so that we don't get to this point when is_admin(), or when language is default.
 	     */
 	    if( $json_array && $json_array != $output ) {
 		    /* if it's one of our own ajax calls don't do nothing */
@@ -590,14 +616,14 @@ class TRP_Translation_Render{
             }
         }
         foreach ( $html->find('.translation-block') as $row ){
-            $trimmed_string = trp_full_trim($row->innertext);
+            $trimmed_string = trp_full_trim( $row->innertext );
             $parent = $row->parent();
             if( $trimmed_string!=""
                 && $parent->tag!="script"
                 && $parent->tag!="style"
                 && $parent->tag != 'title'
                 && strpos($row->outertext,'[vc_') === false
-                && !is_numeric($trimmed_string)
+                && !$this->trp_is_numeric($trimmed_string)
                 && !preg_match('/^\d+%$/',$trimmed_string)
                 && !$this->has_ancestor_attribute( $row, $no_translate_attribute ) )
             {
@@ -612,13 +638,13 @@ class TRP_Translation_Render{
         foreach ( $html->find('trptext') as $row ){
             $outertext = $row->outertext;
             $parent = $row->parent();
-            $trimmed_string = trp_full_trim($outertext);
+            $trimmed_string = trp_full_trim( $outertext );
             if( $trimmed_string!=""
                 && $parent->tag!="script"
                 && $parent->tag!="style"
                 && $parent->tag != 'title'
                 && strpos($outertext,'[vc_') === false
-                && !is_numeric($trimmed_string)
+                && !$this->trp_is_numeric($trimmed_string)
                 && !preg_match('/^\d+%$/',$trimmed_string)
                 && !$this->has_ancestor_attribute( $row, $no_translate_attribute )
                 && !$this->has_ancestor_class( $row, 'translation-block') )
@@ -648,15 +674,15 @@ class TRP_Translation_Render{
 	    	if ( isset( $node_accessor['selector'] ) ){
 			    foreach ( $html->find( $node_accessor['selector'] ) as $k => $row ){
 			    	$current_node_accessor_selector = $node_accessor['accessor'];
-				    $trimmed_string = trp_full_trim($row->$current_node_accessor_selector);
+				    $trimmed_string = trp_full_trim( $row->$current_node_accessor_selector );
 			    	if ( $current_node_accessor_selector === 'href' ) {
-					    $translate_href = ( $this->is_external_link( $trimmed_string, $home_url ) || $this->url_converter->url_is_file( $trimmed_string ) );
+					    $translate_href = ( $this->is_external_link( $trimmed_string, $home_url ) || $this->url_converter->url_is_file( $trimmed_string ) || $this->url_converter->url_is_extra($trimmed_string) );
 					    $translate_href = apply_filters( 'trp_translate_this_href', $translate_href, $row, $TRP_LANGUAGE );
 					    $trimmed_string = ( $translate_href ) ? $trimmed_string : '';
 				    }
 
 				    if( $trimmed_string!=""
-				        && !is_numeric($trimmed_string)
+				        && !$this->trp_is_numeric($trimmed_string)
 				        && !preg_match('/^\d+%$/',$trimmed_string)
 				        && !$this->has_ancestor_attribute( $row, $no_translate_attribute )
 				        && !$this->has_ancestor_attribute( $row, $no_translate_attribute . '-' . $current_node_accessor_selector )
@@ -985,7 +1011,16 @@ class TRP_Translation_Render{
         //check if it a html text and translate
         $html_decoded_value = html_entity_decode( (string) $value );
         if ( $html_decoded_value != strip_tags( $html_decoded_value ) ) {
-            $value =   $this->translate_page( stripslashes( $value ) );
+
+            $json_array = json_decode( $value, true );
+            if( ! ( $json_array && $json_array != $value ) ) {
+                /* stripslashes only if not json. Covers the case where we have json inside json.
+                 * Not sure why we need stripslashes for html though.
+                 * Keeping it because it's legacy and it might solve a use case we are unaware of right now */
+                $value = stripslashes($value);
+            }
+
+            $value = $this->translate_page( $value );
             /*the translate-press tag can appear on a gettext string without html and should not be left in the json
             as we don't know how it will be inserted into the page by js */
             $value = preg_replace( '/(<|&lt;)translate-press (.*?)(>|&gt;)/', '', $value );
@@ -1432,7 +1467,8 @@ class TRP_Translation_Render{
             'showdynamiccontentbeforetranslation'                  => apply_filters( 'trp_show_dynamic_content_before_translation', false ),
             'skip_strings_from_dynamic_translation'                => apply_filters( 'trp_skip_strings_from_dynamic_translation', array() ),
             'skip_strings_from_dynamic_translation_for_substrings' => apply_filters( 'trp_skip_strings_from_dynamic_translation_for_substrings', array( 'href' => array('amazon-adsystem', 'googleads', 'g.doubleclick') ) ),
-            'duplicate_detections_allowed'                         => apply_filters( 'trp_duplicate_detections_allowed', 100 )
+            'duplicate_detections_allowed'                         => apply_filters( 'trp_duplicate_detections_allowed', 100 ),
+            'trp_translate_numerals_opt'                           => isset ($this->settings["trp_advanced_settings"]["enable_numerals_translation"]) ? $this->settings["trp_advanced_settings"]["enable_numerals_translation"] : 'no'
 		);
 	}
 
@@ -1687,4 +1723,24 @@ class TRP_Translation_Render{
 
         return $content;
     }
+
+	/**
+	 * Function that wraps around the PHP's is_numeric function and adds an additional check,
+	 * namely the option to translate numerals/numbers to be on.
+	 * @param $str
+	 * @return bool
+	 */
+    function trp_is_numeric($str){
+    	if (is_numeric($str)){
+    		if (isset($this->settings["trp_advanced_settings"]["enable_numerals_translation"]) && $this->settings["trp_advanced_settings"]["enable_numerals_translation"] === 'yes') {
+	            return false;
+		        } else {
+			    return true;
+		        }
+    	}
+    	else {
+    		return false;
+    	}
+    }
+
 }
