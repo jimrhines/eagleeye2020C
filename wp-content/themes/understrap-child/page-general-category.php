@@ -22,9 +22,9 @@ $container = get_theme_mod( 'understrap_container_type' );
 		<div class="row">
 			<div id="primary" class="content-area w-100">
 				<main id="main" class="site-main">
-					<header class="entry-header">	
-						<h1 class="entry-title"><?php the_title_attribute(); ?></h1>
-					</header>
+					<?php while ( have_posts() ) : the_post(); ?>
+						<?php get_template_part( 'loop-templates/content', 'page' ); ?>
+					<?php endwhile; // end of the loop. ?>
 					<?php $category_products = get_field('category_products');
 					if( $category_products ): ?>
 						<div class="container">

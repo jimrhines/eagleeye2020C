@@ -216,7 +216,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 			</div>
 		</div>
 	<?php endif;?>
-	<?php if(is_page_template('page-division.php') or is_page_template('lorem.php')) :?>
+	<?php if(is_page_template('page-division.php')) :?>
 		<div class="landing-hero d-flex flex-column align-items-baseline" style="background-image: url('<?php the_field('division_hero_image'); ?>');">
 			<div class="landing-hero-headline mt-auto">
 				<h1><?php the_title_attribute(); ?></h1>
