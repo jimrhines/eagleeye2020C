@@ -30,7 +30,9 @@ $container = get_theme_mod( 'understrap_container_type' );
 						<ul class="list-group list-group-flush">
 							<?php foreach( $category_products as $p ): // variable must NOT be called $post (IMPORTANT) ?>
 								<li class="list-group-item">
-									<p><?php echo get_the_date( $p->ID ); ?></p>
+									<?php if( get_field('date_display') == 'No' ) { ?>
+										<p><?php echo get_the_date(); ?></p>
+									<?php } ?>
 									<h2 class="h3 entry-content">
 										<a href="<?php echo get_permalink( $p->ID ); ?>"><?php echo get_the_title( $p->ID ); ?></a>
 									</h2>
