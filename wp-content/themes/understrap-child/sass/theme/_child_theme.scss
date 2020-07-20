@@ -919,6 +919,17 @@ img[src$=".svg"] {
 	border: solid 1px $brand-black;
 }
 
+/*Video List Template*/
+.video-list {
+	h2 {
+		margin: 0 0 2rem 0;
+	}
+
+	p {
+		margin: 1rem 0 2rem 0;
+	}
+}
+
 /*Class Template*/
 #class-narrative {
 	padding: $mobile-container-padding;
