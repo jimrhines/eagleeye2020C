@@ -20,7 +20,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 <div class="wrapper" id="page-wrapper">
 	<div class="<?php echo esc_attr( $container ); ?>" id="content">
 		<div class="row">
-			<div id="primary" class="content-area w-100">
+			<div id="primary" class="col-md content-area">
 				<main id="main" class="site-main">
 					<?php while ( have_posts() ) : the_post(); ?>
 						<?php get_template_part( 'loop-templates/content', 'page' ); ?>
