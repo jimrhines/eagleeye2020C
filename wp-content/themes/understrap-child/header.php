@@ -134,7 +134,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 							<a class="nav-link" href="<?php echo get_permalink(297); ?>">Training</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="<?php echo get_permalink(391); ?>">News &amp; Resources</a>
+							<a class="nav-link" href="<?php echo get_permalink(2257); ?>">News &amp; Resources</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="<?php echo get_permalink(295); ?>">Support</a>
