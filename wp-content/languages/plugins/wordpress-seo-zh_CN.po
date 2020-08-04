@@ -2,32 +2,36 @@
 # This file is distributed under the same license as the Plugins - Yoast SEO - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-06-23 07:31:22+0000\n"
+"PO-Revision-Date: 2020-07-23 11:30:37+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: GlotPress/3.0.0-alpha\n"
+"X-Generator: GlotPress/3.0.0-alpha.2\n"
 "Language: zh_CN\n"
 "Project-Id-Version: Plugins - Yoast SEO - Stable (latest release)\n"
 
-#: languages/wordpress-seojs.php:276
+#: languages/wordpress-seojs.php:231
+msgid "%s preview"
+msgstr "%s预览"
+
+#: languages/wordpress-seojs.php:293
 msgid "%s (opens in a new tab)"
 msgstr "%s（在新标签页中打开）"
 
-#: languages/wordpress-seojs.php:273
+#: languages/wordpress-seojs.php:290
 msgid "Open in new tab"
 msgstr "在新选项卡中打开"
 
-#: languages/wordpress-seojs.php:267
+#: languages/wordpress-seojs.php:284
 msgid "Search engines should ignore this link (mark as %1$snofollow%2$s)%3$s"
 msgstr "搜索引擎应忽略此链接 (标记为 %1$snofollow%2$s)%3$s"
 
-#: languages/wordpress-seojs.php:252
+#: languages/wordpress-seojs.php:269
 msgid "Link"
 msgstr "链接"
 
-#: languages/wordpress-seojs.php:102
+#: languages/wordpress-seojs.php:98
 msgid "Share your post!"
 msgstr "分享你的文章！"
 
@@ -56,23 +60,23 @@ msgstr "我们估计，由于您网站的规模，这可能需要很长时间。
 msgid "a theme that has proper title-tag theme support, or adapt your theme to have that support"
 msgstr "具有适当的标题标签主题支持的主题，或调整主题以具有该支持"
 
-#: src/integrations/admin/indexation-integration.php:182
+#: src/integrations/admin/indexation-integration.php:197
 msgid "Optimization failed, please try again later."
 msgstr "优化失败，请稍后重试。"
 
-#: src/integrations/admin/indexation-integration.php:181
+#: src/integrations/admin/indexation-integration.php:196
 msgid "Optimization completed."
 msgstr "优化已完成。"
 
-#: src/integrations/admin/indexation-integration.php:180
+#: src/integrations/admin/indexation-integration.php:195
 msgid "Optimization in progress..."
 msgstr "正在优化..."
 
-#: src/integrations/admin/indexation-integration.php:177
+#: src/integrations/admin/indexation-integration.php:192
 msgid "Something went wrong while optimizing the SEO data of your site. Please try again later."
 msgstr "在优化网站的SEO数据时出现问题。请稍后再试。"
 
-#: src/integrations/admin/indexation-integration.php:176
+#: src/integrations/admin/indexation-integration.php:191
 msgid "Good job! You've sped up your site."
 msgstr "很好！您加快了网站速度。"
 
@@ -278,34 +282,34 @@ msgstr "%1$s 转到\"讨论设置\"页面%2$s"
 msgid "Date in Google Preview"
 msgstr "Google 预览中的日期"
 
-#: languages/yoast-components.php:147
+#: languages/yoast-components.php:159
 msgid "Mobile result"
 msgstr "移动结果"
 
-#: languages/yoast-components.php:144
+#: languages/yoast-components.php:156
 msgid "Preview as:"
 msgstr "预览为："
 
-#: languages/yoast-components.php:141
+#: languages/yoast-components.php:153
 msgid "Desktop result"
 msgstr "桌面结果"
 
-#: languages/wordpress-seojs.php:99 languages/yoast-seo-js.php:515
+#: languages/wordpress-seojs.php:123 languages/yoast-seo-js.php:519
 msgid "Google preview"
 msgstr "谷歌预览"
 
-#: languages/wordpress-seojs.php:243
+#: languages/wordpress-seojs.php:251
 msgid "When you click OK we will open our HelpScout beacon where you can find answers to your questions. This beacon will load our support data and also potentially set cookies."
 msgstr "当您单击确定时，我们将打开我们的HelpScout信标，您可以在其中找到问题的答案。 该信标将加载我们的支持数据，并可能设置cookie。"
 
-#: admin/metabox/class-metabox.php:162
+#: admin/metabox/class-metabox.php:159
 msgid "If you want to apply advanced <code>meta</code> robots settings for this page, please define them in the following field."
 msgstr "如果要 <code>meta</code> 为此页面应用高级机器人设置，请在以下字段中定义它们。"
 
 #. translators: 1: Link start tag to the Firefox website, 2: Link start tag to
 #. the Chrome website, 3: Link start tag to the Edge website, 4: Link closing
 #. tag.
-#: admin/metabox/class-metabox.php:126 admin/taxonomy/class-taxonomy.php:102
+#: admin/metabox/class-metabox.php:123 admin/taxonomy/class-taxonomy.php:102
 msgid "The browser you are currently using is unfortunately rather dated. Since we strive to give you the best experience possible, we no longer support this browser. Instead, please use %1$sFirefox%4$s, %2$sChrome%4$s or %3$sMicrosoft Edge%4$s."
 msgstr "很遗憾，您当前使用的浏览器版本较低。 由于我们努力为您提供最佳体验，因此我们不再支持该浏览器。 相反，请使用%1$sFirefox%4$s，%2$sChrome%4$s或%3$sMicrosoft Edge%4$s。"
 
@@ -354,7 +358,7 @@ msgstr "您的 %1$s 设置："
 msgid "Import settings from another %1$s installation by pasting them here and clicking \"%2$s\"."
 msgstr "通过将设置粘贴到此处并单击“%2$s”，从另一个%1$s安装导入设置。"
 
-#: languages/wordpress-seojs.php:289
+#: languages/wordpress-seojs.php:306
 msgid "Schema"
 msgstr "Schema架构"
 
@@ -514,7 +518,7 @@ msgstr[0] "该窗口包含 %1$s 错误%2$s"
 msgid "Activate %s for your site on MyYoast"
 msgstr "在 MyYoast 上为您的网站激活 %s"
 
-#: languages/yoast-components.php:72
+#: languages/yoast-components.php:75
 msgid "%d occurrences"
 msgstr "%d次"
 
@@ -522,33 +526,33 @@ msgstr "%d次"
 msgid "Show blog page in breadcrumbs"
 msgstr "在面包屑中显示博客页面"
 
-#: languages/yoast-components.php:93
+#: languages/yoast-components.php:96
 msgid "We could not find any relevant articles on your website that you could link to from your post."
 msgstr "我们无法在您的网站上找到可以从您的文章链接到的任何相关文章。"
 
 #. translators: %1$s expands to the opening anchor tag, %2$s to the closing
 #. anchor tag, %3$s to the SEO score.
-#: admin/formatter/class-metabox-formatter.php:116
 #: admin/formatter/class-metabox-formatter.php:123
 #: admin/formatter/class-metabox-formatter.php:130
 #: admin/formatter/class-metabox-formatter.php:137
+#: admin/formatter/class-metabox-formatter.php:144
 msgid "%1$sSEO%2$s: %3$s"
 msgstr "%1$sSEO%2$s： %3$s"
 
-#: languages/yoast-seo-js.php:469
+#: languages/yoast-seo-js.php:473
 msgid "Has feedback"
 msgstr "发送反馈"
 
-#: languages/yoast-seo-js.php:463
+#: languages/yoast-seo-js.php:467
 msgid "Content optimization:"
 msgstr "内容优化："
 
 #. translators: %1$s expands to the opening anchor tag, %2$s to the closing
 #. anchor tag, %3$s to the readability score.
-#: admin/formatter/class-metabox-formatter.php:86
 #: admin/formatter/class-metabox-formatter.php:93
 #: admin/formatter/class-metabox-formatter.php:100
 #: admin/formatter/class-metabox-formatter.php:107
+#: admin/formatter/class-metabox-formatter.php:114
 msgid "%1$sReadability%2$s: %3$s"
 msgstr "%1$s可读性%2$s： %3$s"
 
@@ -712,7 +716,7 @@ msgstr "SoundCloud个人资料网址"
 msgid "MySpace profile URL"
 msgstr "Myspace个人资料网址"
 
-#: src/generators/schema/article.php:130
+#: src/generators/schema/article.php:135
 msgid "Uncategorized"
 msgstr "未分类"
 
@@ -766,18 +770,10 @@ msgstr "维基百科网址"
 msgid "No JSON object was returned."
 msgstr "没有JSON对象返回。"
 
-#: languages/yoast-components.php:117
-msgid "The image you selected is too small for Facebook"
-msgstr "您选择的图像对Facebook来说太小了"
-
 #. translators: %1$s resolves to Keyword research training
 #: admin/config-ui/components/class-component-suggestions.php:57
 msgid "Keyword research is essential in any SEO strategy. You decide the search terms you want to be found for, and figure out what words your audience uses to find you. Great keyword research tells you what content you need to start ranking for the terms you want to rank for. Make sure your efforts go into the keywords you actually have a chance at ranking for! The %1$s walks you through this process, step by step."
 msgstr "关键词搜索对于SEO策略来说至关重要。您决定您将被什么关键词搜索到，并且找到用户经常使用什么关键词搜索您。杰出的关键词搜索能够告诉您需要如何按照关键词的排名调整对应内容。请保证您再关键词修改上的努力有实质的改观！千里之行%1$s，始于足下。"
-
-#: languages/yoast-components.php:114
-msgid "The given image url cannot be loaded"
-msgstr "无法加载指定的图像网址"
 
 #: admin/config-ui/components/class-component-suggestions.php:54
 msgid "Find out what words your audience uses to find you"
@@ -791,11 +787,11 @@ msgstr "收到内链"
 msgid "Outgoing internal links"
 msgstr "传出内链"
 
-#: languages/wordpress-seojs.php:329
+#: languages/wordpress-seojs.php:346
 msgid "New step added"
 msgstr "下一步"
 
-#: languages/wordpress-seojs.php:292
+#: languages/wordpress-seojs.php:309
 msgid "New question added"
 msgstr "新问题已添加"
 
@@ -806,7 +802,7 @@ msgstr "新问题已添加"
 msgid "%1$sFlesch Reading Ease%2$s: The copy scores %3$s in the test, which is considered %4$s to read. %5$s"
 msgstr "%1$s弗莱士易读性指数%2$s: 测试中的副本评分是%3$s, 预计应是%4$s的阅读指数.%5$s"
 
-#: admin/class-meta-columns.php:124
+#: admin/class-meta-columns.php:120
 msgid "Keyphrase"
 msgstr "关键词"
 
@@ -842,20 +838,6 @@ msgstr "您要做的就是按下下面的按钮，我们会帮您浏览所有的
 #: admin/links/class-link-notifier.php:94
 msgid "To make sure all the links in your texts are counted, we need to analyze all your texts."
 msgstr "为了确保您文本中的所有链接都被计算在内，我们需要分析您的所有文本。"
-
-#: deprecated/class-recalibration-beta.php:97
-msgid "Simply switch the toggle to \"on\" and you'll be able to use the recalibrated analysis. At the same time, we'll add you to our specific mailing list. We'll only email you about your experiences with this recalibration!"
-msgstr "只需将开关切换到“开”即可使用重新校准的分析。同时，我们会将您添加到我们的特定邮件列表中。我们只会给您发告诉您重新校准的经验的邮件！"
-
-#. translators: 1: link opening tag, 2: link closing tag, 3: strong opening
-#. tag, 4: strong closing tag
-#: deprecated/class-recalibration-beta.php:71
-msgid "We have %1$srecalibrated our analysis%2$s. With the new analysis, we will get even closer to how Google sees your website. It would be %3$sawesome%4$s if you would like to %3$sbeta test this feature%4$s for us!"
-msgstr "我们有%1$s重新校准了我们的分析%2$s。通过新的分析，我们将更接近谷歌对您的网站的看法。如果您想%3$s测试这项功能%4$s，这将是%3$s太棒了%4$s！"
-
-#: deprecated/class-recalibration-beta.php:67
-msgid "Get an even better analysis"
-msgstr "获得更好的分析"
 
 #. translators: %1$s expands to the requested url
 #: admin/exceptions/class-file-size-exception.php:40
@@ -1009,8 +991,8 @@ msgid "Not showing the date archives in the search results technically means tho
 msgstr "不在搜索结果中显示日期归档技术上意味着这些将有一个%1$s Robot Meta，%2$s有关搜索结果设置的详细信息%3$s。"
 
 #. translators: %s expands to Yoast SEO Premium
-#: admin/views/sidebar.php:24 admin/views/sidebar.php:152
-#: admin/class-premium-upsell-admin-block.php:84
+#: admin/class-premium-upsell-admin-block.php:84 admin/views/sidebar.php:24
+#: admin/views/sidebar.php:152
 msgid "Upgrade to %s"
 msgstr "升级到%s"
 
@@ -1031,75 +1013,51 @@ msgstr "警告："
 #. Translators: %1$s and $3$s expand to the admin search page for the keyword,
 #. %2$d expands to the number of times this keyword has been used before, %4$s
 #. and %5$s expand to links to yoast.com, %6$s expands to the anchor end tag
-#: languages/yoast-seo-js.php:460
+#: languages/yoast-seo-js.php:464
 msgid "%4$sPreviously used keyphrase%6$s: You've used this keyphrase %1$s%2$d times before%3$s. %5$sDo not use your keyphrase more than once%6$s."
 msgstr "%4$s以前使用过关键词%6$s:您在%3$s之前使用过此关键词%1$s%2$d次，%5$s不要多次使用关键词%6$s。"
 
 #. Translators: %1$s and %2$s expand to an admin link where the keyword is
 #. already used. %3$s and %4$s expand to links on yoast.com, %4$s expands to
 #. the anchor end tag.
-#: languages/yoast-seo-js.php:454
+#: languages/yoast-seo-js.php:458
 msgid "%3$sPreviously used keyphrase%5$s: You've used this keyphrase %1$sonce before%2$s. %4$sDo not use your keyphrase more than once%5$s."
 msgstr "%3$s以前使用过关键词%5$s：您在%2$s之前使用过此关键词%1$s一次，%4$s不要多次使用关键词%5$s。"
 
-#: languages/yoast-seo-js.php:449
+#: languages/yoast-seo-js.php:453
 msgid "%1$sPreviously used keyphrase%2$s: You've not used this keyphrase before, very good."
 msgstr "%1$s以前使用过关键词%2$s：您以前没有使用过这个关键词，非常好。"
 
 #. Translators: %1$s and %2$s open links to an articles about stopwords, %3$s
 #. closes the links
-#: languages/yoast-seo-js.php:441
+#: languages/yoast-seo-js.php:445
 msgid "%1$sSlug stopwords%3$s: The slug for this page contains a stop word. %2$sRemove it%3$s!"
 msgid_plural "%1$sSlug stopwords%3$s: The slug for this page contains stop words. %2$sRemove them%3$s!"
 msgstr[0] "%1$s禁用词 Slug%3$s：此页的 Slug包含一个禁用字，%2$s删除%3$s！"
 
 #. Translators:  %1$s and %2$s expand to links on yoast.com, %3$s expands to
 #. the anchor end tag
-#: languages/yoast-seo-js.php:437
+#: languages/yoast-seo-js.php:441
 msgid "%1$sSlug too long%3$s: the slug for this page is a bit long. %2$sShorten it%3$s!"
 msgstr "%1$sv Slug太长%3$s：此页的 Slug有点长，%2$s缩短些%3$s！"
 
 #. Translators:  %1$s expands to a link on yoast.com, %2$s expands to the
 #. anchor end tag
-#: languages/yoast-seo-js.php:433
+#: languages/yoast-seo-js.php:437
 msgid "%1$sKeyphrase in slug%2$s: More than half of your keyphrase appears in the slug. That's great!"
 msgstr "%1$s别名中的关键词%2$s：超过一半的关键短语出现在别名中。 太棒了！"
 
 #. Translators:  %1$s and %2$s expand to links on yoast.com, %3$s expands to
 #. the anchor end tag
-#: languages/yoast-seo-js.php:429
+#: languages/yoast-seo-js.php:433
 msgid "%1$sKeyphrase in slug%3$s: (Part of) your keyphrase does not appear in the slug. %2$sChange that%3$s!"
 msgstr "%1$s别名中的关键词%3$s：（部分）您的关键短语没有出现在网址中。 %2$s调整这个%3$s!"
 
 #. Translators:  %1$s expands to a link on yoast.com, %2$s expands to the
 #. anchor end tag
-#: languages/yoast-seo-js.php:424
+#: languages/yoast-seo-js.php:428
 msgid "%1$sKeyphrase in slug%2$s: Great work!"
 msgstr "%1$s别名中的关键词%2$s：非常好！"
-
-#. Translators: %1$s and %2$s expand to a link on yoast.com, %3$s expands to
-#. the anchor end tag, %4$s expands to the keyword of the article.
-#: languages/yoast-seo-js.php:420
-msgid "%1$sKeyphrase in title%3$s: Not all the words from your keyphrase \"%4$s\" appear in the SEO title. %2$sTry to use the exact match of your keyphrase in the SEO title%3$s."
-msgstr "%1$s标题关键词%3$s：并非所有来自您的关键词“%4$s”的单词都出现在SEO标题中，%2$s尝试在SEO标题%3$s中使用与您的关键词完全匹配的词。"
-
-#. Translators: %1$s and %2$s expand to a link on yoast.com, %3$s expands to
-#. the anchor end tag.
-#: languages/yoast-seo-js.php:415
-msgid "%1$sKeyphrase in title%3$s: Does not contain the exact match. %2$sTry to write the exact match of your keyphrase in the SEO title%3$s."
-msgstr "%1$s标题关键词%3$s：不包含完全匹配项。%2$s尝试在SEO标题%3$s中写入与您的关键词完全匹配的内容。"
-
-#. Translators: %1$s and %2$s expand to a link on yoast.com, %3$s expands to
-#. the anchor end tag.
-#: languages/yoast-seo-js.php:409
-msgid "%1$sKeyphrase in title%3$s: The exact match of the keyphrase appears in the SEO title, but not at the beginning. %2$sTry to move it to the beginning%3$s."
-msgstr "%1$s标题关键词%3$s：关键词的精确匹配出现在SEO标题中，但不是在开头。%2$s尝试将其移动到开始的%3$s。"
-
-#. Translators: %1$s expands to a link on yoast.com, %2$s expands to the anchor
-#. end tag.
-#: languages/yoast-seo-js.php:404
-msgid "%1$sKeyphrase in title%2$s: The exact match of the keyphrase appears at the beginning of the SEO title. Good job!"
-msgstr "%1$s标题关键词%2$s：关键词的完全匹配出现在SEO标题的开头，很好！"
 
 #. Translators: %1$s and %2$s expand to links on yoast.com, %3$s expands to the
 #. anchor end tag
@@ -1554,11 +1512,11 @@ msgstr "同义词和相关关键词"
 msgid "Add related keyphrase"
 msgstr "添加相关短语"
 
-#: admin/formatter/class-metabox-formatter.php:58
+#: admin/formatter/class-metabox-formatter.php:61
 msgid "Remove keyphrase"
 msgstr "删除关键字"
 
-#: admin/formatter/class-metabox-formatter.php:57
+#: admin/formatter/class-metabox-formatter.php:60
 msgid "Keyphrase:"
 msgstr "关键词："
 
@@ -1575,7 +1533,7 @@ msgstr "%1$s 视频"
 msgid "This feature has been disabled by the network admin."
 msgstr "网络管理员已禁用此功能。"
 
-#: admin/class-meta-columns.php:178 admin/class-meta-columns.php:662
+#: admin/class-meta-columns.php:170 admin/class-meta-columns.php:654
 msgid "Focus keyphrase not set."
 msgstr "焦点关键词未设置。"
 
@@ -1583,28 +1541,28 @@ msgstr "焦点关键词未设置。"
 msgid "Multiple keyphrases"
 msgstr "多个关键词"
 
-#: admin/class-yoast-form.php:585 admin/metabox/class-metabox.php:631
+#: admin/metabox/class-metabox.php:625
 #: admin/taxonomy/class-taxonomy-fields-presenter.php:129
+#: admin/class-yoast-form.php:585
 msgid "Clear Image"
 msgstr "清除图像"
 
 #. translators: %s expands to 'Yoast SEO Premium'.
 #. translators: %s expands to Yoast SEO Premium
-#: languages/wordpress-seojs.php:170 admin/class-add-keyword-modal.php:38
-#: admin/views/sidebar.php:46 admin/class-keyword-synonyms-modal.php:38
-#: admin/class-premium-popup.php:81
-#: admin/formatter/class-metabox-formatter.php:213
-#: admin/watchers/class-slug-change-watcher.php:223
-#: admin/class-multiple-keywords-modal.php:38
+#: languages/wordpress-seojs.php:170 admin/class-multiple-keywords-modal.php:38
+#: admin/formatter/class-metabox-formatter.php:220
+#: admin/class-keyword-synonyms-modal.php:38
 #: admin/class-premium-upsell-admin-block.php:67
+#: admin/class-premium-popup.php:81 admin/class-add-keyword-modal.php:38
+#: admin/watchers/class-slug-change-watcher.php:223 admin/views/sidebar.php:46
 msgid "Get %s"
 msgstr "获得%s"
 
-#: languages/wordpress-seojs.php:368
+#: languages/wordpress-seojs.php:385
 msgid "Optional. Customize how you want to describe the duration of the instruction"
 msgstr "可选，自定义描述指令持续时间的方式"
 
-#: languages/wordpress-seojs.php:365
+#: languages/wordpress-seojs.php:382
 msgid "Describe the duration of the instruction:"
 msgstr "描述指令的持续时间："
 
@@ -1627,124 +1585,124 @@ msgstr "冒号"
 msgid "Both %1$s and %2$s manage the SEO of your site. Running two SEO plugins at the same time is detrimental."
 msgstr "%1$s和%2$s都管理站点的SEO。同时运行两个SEO插件是有害的。"
 
-#: languages/yoast-components.php:84
+#: languages/yoast-components.php:87
 msgid "This is a list of related content to which you could link in your post. {{a}}Read our article about site structure{{/a}} to learn more about how internal linking can help improve your SEO."
 msgstr "这是您可以在日志中链接到的相关内容的列表。{{a}}阅读我们关于站点结构的文章{{a}}了解更多关于内部链接如何帮助改进SEO的信息。"
 
-#: languages/wordpress-seojs.php:416
+#: languages/wordpress-seojs.php:433
 msgid "%s, %s and %s"
 msgstr "%s，%s和%s"
 
-#: languages/wordpress-seojs.php:412
+#: languages/wordpress-seojs.php:429
 msgid "%s and %s"
 msgstr "%s 和 %s"
 
-#: languages/wordpress-seojs.php:408
+#: languages/wordpress-seojs.php:425
 msgid "%d minute"
 msgid_plural "%d minutes"
 msgstr[0] "%d 分钟"
 
-#: languages/wordpress-seojs.php:404
+#: languages/wordpress-seojs.php:421
 msgid "%d hour"
 msgid_plural "%d hours"
 msgstr[0] "%d 小时"
 
-#: languages/wordpress-seojs.php:400
+#: languages/wordpress-seojs.php:417
 msgid "%d day"
 msgid_plural "%d days"
 msgstr[0] "%d 天"
 
-#: languages/wordpress-seojs.php:393
+#: languages/wordpress-seojs.php:410
 msgid "Enter a step title"
 msgstr "输入步骤标题"
 
-#: languages/wordpress-seojs.php:362
+#: languages/wordpress-seojs.php:379
 msgid "Optional. This can give you better control over the styling of the steps."
 msgstr "可选，这样可以更好地控制步骤的样式。"
 
-#: languages/wordpress-seojs.php:359
+#: languages/wordpress-seojs.php:376
 msgid "CSS class(es) to apply to the steps"
 msgstr "应用于步骤的CSS类"
 
-#: languages/wordpress-seojs.php:350
+#: languages/wordpress-seojs.php:367
 msgid "minutes"
 msgstr "分钟"
 
-#: languages/wordpress-seojs.php:347
+#: languages/wordpress-seojs.php:364
 msgid "hours"
 msgstr "小时"
 
-#: languages/wordpress-seojs.php:344
+#: languages/wordpress-seojs.php:361
 msgid "days"
 msgstr "天"
 
-#: languages/wordpress-seojs.php:320
+#: languages/wordpress-seojs.php:337
 msgid "Create a How-to guide in an SEO-friendly way. You can only use one How-to block per post."
 msgstr "以一种SEO友好的方式创建一个如何引导。每个文章只能使用一个“如何阻止”。"
 
-#: languages/wordpress-seojs.php:279
+#: languages/wordpress-seojs.php:296
 msgid "List your Frequently Asked Questions in an SEO-friendly way. You can only use one FAQ block per post."
 msgstr "以一种SEO友好的方式列出您经常问的问题。每个日志只能使用一个FAQ块。"
 
-#: languages/wordpress-seojs.php:117
+#: languages/wordpress-seojs.php:113
 msgid "Copy error"
 msgstr "复制错误"
 
-#: languages/wordpress-seojs.php:114
+#: languages/wordpress-seojs.php:110
 msgid "An error occurred loading the %s primary taxonomy picker."
 msgstr "加载%s主分类选取器时出错。"
 
 #. translators: %1$s expands to Yoast.
-#: inc/class-structured-data-blocks.php:73
+#: src/integrations/blocks/block-categories.php:41
 msgid "%1$s Structured Data Blocks"
 msgstr "%1$s 结构化数据块"
 
-#: languages/wordpress-seojs.php:378
+#: languages/wordpress-seojs.php:395
 msgid "Time needed:"
 msgstr "所需时间："
 
-#: languages/wordpress-seojs.php:307
+#: languages/wordpress-seojs.php:324
 msgid "Move question down"
 msgstr "向下移动问题"
 
-#: languages/wordpress-seojs.php:304
+#: languages/wordpress-seojs.php:321
 msgid "Move question up"
 msgstr "向上移动问题"
 
-#: languages/wordpress-seojs.php:301
+#: languages/wordpress-seojs.php:318
 msgid "Insert question"
 msgstr "插入问题"
 
-#: languages/wordpress-seojs.php:298
+#: languages/wordpress-seojs.php:315
 msgid "Delete question"
 msgstr "删除问题"
 
-#: languages/wordpress-seojs.php:313
+#: languages/wordpress-seojs.php:330
 msgid "Enter the answer to the question"
 msgstr "输入问题的答案"
 
-#: languages/wordpress-seojs.php:310
+#: languages/wordpress-seojs.php:327
 msgid "Enter a question"
 msgstr "输入问题"
 
-#: languages/wordpress-seojs.php:295
+#: languages/wordpress-seojs.php:312
 msgid "Add question"
 msgstr "添加问题"
 
-#: languages/wordpress-seojs.php:285
+#: languages/wordpress-seojs.php:302
 msgid "Frequently Asked Questions"
 msgstr "常见问题"
 
 #. translators: %s expands to a 'Yoast SEO Premium' text linked to the
 #. yoast.com website.
-#: languages/wordpress-seojs.php:228 admin/class-add-keyword-modal.php:26
+#: languages/wordpress-seojs.php:228 admin/class-multiple-keywords-modal.php:26
+#: admin/formatter/class-metabox-formatter.php:208
 #: admin/class-keyword-synonyms-modal.php:26
-#: admin/formatter/class-metabox-formatter.php:201
-#: admin/class-multiple-keywords-modal.php:26
+#: admin/class-add-keyword-modal.php:26
 msgid "Great news: you can, with %s!"
 msgstr "好消息：您可以，用%s！"
 
-#: languages/wordpress-seojs.php:120
+#: languages/wordpress-seojs.php:116
 msgid "Select the primary %s"
 msgstr "选择主要%s"
 
@@ -1756,71 +1714,71 @@ msgstr "检查此URL的链接"
 msgid "Keyword research training"
 msgstr "关键字研究培训"
 
-#: languages/yoast-components.php:111
+#: languages/yoast-components.php:114
 msgid "Are you trying to use multiple keyphrases? You should add them separately below."
 msgstr "您想用多个关键词吗？您应该在下面单独添加。"
 
-#: languages/wordpress-seojs.php:74 languages/yoast-components.php:108
+#: languages/wordpress-seojs.php:74 languages/yoast-components.php:111
 msgid "Mark as cornerstone content"
 msgstr "标记为基石内容"
 
-#: languages/wordpress-seojs.php:390
+#: languages/wordpress-seojs.php:407
 msgid "Move step down"
 msgstr "向下移动"
 
-#: languages/wordpress-seojs.php:387
+#: languages/wordpress-seojs.php:404
 msgid "Move step up"
 msgstr "向上移动"
 
-#: languages/wordpress-seojs.php:384
+#: languages/wordpress-seojs.php:401
 msgid "Insert step"
 msgstr "插入步骤"
 
-#: languages/wordpress-seojs.php:381
+#: languages/wordpress-seojs.php:398
 msgid "Delete step"
 msgstr "删除步骤"
 
-#: languages/wordpress-seojs.php:317
+#: languages/wordpress-seojs.php:334
 msgid "Add image"
 msgstr "添加图像"
 
-#: languages/wordpress-seojs.php:396
+#: languages/wordpress-seojs.php:413
 msgid "Enter a step description"
 msgstr "输入步骤描述"
 
-#: languages/wordpress-seojs.php:374
+#: languages/wordpress-seojs.php:391
 msgid "Enter a description"
 msgstr "输入描述"
 
-#: languages/wordpress-seojs.php:371
+#: languages/wordpress-seojs.php:388
 msgid "Unordered list"
 msgstr "无序列表"
 
-#: languages/wordpress-seojs.php:338
+#: languages/wordpress-seojs.php:355
 msgid "Showing step items as an ordered list."
 msgstr "将步骤项显示为有序列表。"
 
-#: languages/wordpress-seojs.php:335
+#: languages/wordpress-seojs.php:352
 msgid "Showing step items as an unordered list"
 msgstr "将步骤项显示为无序列表"
 
-#: languages/wordpress-seojs.php:332
+#: languages/wordpress-seojs.php:349
 msgid "Add step"
 msgstr "添加步骤"
 
-#: languages/wordpress-seojs.php:353
+#: languages/wordpress-seojs.php:370
 msgid "Delete total time"
 msgstr "删除总时间"
 
-#: languages/wordpress-seojs.php:341
+#: languages/wordpress-seojs.php:358
 msgid "Add total time"
 msgstr "添加总时间"
 
-#: languages/wordpress-seojs.php:326
+#: languages/wordpress-seojs.php:343
 msgid "How to"
 msgstr "如何"
 
-#: languages/wordpress-seojs.php:323
+#: languages/wordpress-seojs.php:340
 msgid "How-to"
 msgstr "如何"
 
@@ -1883,39 +1841,39 @@ msgstr "已删除"
 msgid "Would you like to add another keyphrase?"
 msgstr "您想添加另一个关键词吗？"
 
-#: languages/yoast-components.php:207
+#: languages/yoast-components.php:210
 msgid "image preview"
 msgstr "图像预览"
 
-#: languages/yoast-components.php:99
+#: languages/yoast-components.php:102
 msgid "Copied!"
 msgstr "已复制！"
 
-#: languages/yoast-components.php:102
+#: languages/yoast-components.php:105
 msgid "Not supported!"
 msgstr "获取帮助！"
 
-#: languages/yoast-components.php:105
+#: languages/yoast-components.php:108
 msgid "Read {{a}}our article about site structure{{/a}} to learn more about how internal linking can help improve your SEO."
 msgstr "阅读{{a}}我们关于站点结构的文章{{a}}了解更多关于内部链接如何帮助改进SEO的信息。"
 
-#: languages/yoast-components.php:96
+#: languages/yoast-components.php:99
 msgid "Once you add a bit more copy, we'll give you a list of related content here to which you could link in your post."
 msgstr "一旦您再增加一点副本，我们会给您一份相关内容的列表，您可以在这里链接到您的文章。"
 
-#: languages/yoast-components.php:87
+#: languages/yoast-components.php:90
 msgid "Consider linking to these {{a}}cornerstone articles:{{/a}}"
 msgstr "考虑链接到这些{{a}}基石文章：{{/a}}"
 
-#: languages/yoast-components.php:90
+#: languages/yoast-components.php:93
 msgid "Consider linking to these articles:"
 msgstr "考虑链接到这些文章："
 
-#: languages/yoast-components.php:78
+#: languages/yoast-components.php:81
 msgid "Copy link"
 msgstr "复制链接"
 
-#: languages/yoast-components.php:81
+#: languages/yoast-components.php:84
 msgid "Copy link to suggested article: %s"
 msgstr "将链接复制到建议文章：%s"
 
@@ -1956,8 +1914,8 @@ msgstr "添加同义词"
 msgid "Would you like to add keyphrase synonyms?"
 msgstr "您想添加关键词同义词吗？"
 
+#: admin/formatter/class-metabox-formatter.php:205
 #: admin/class-add-keyword-modal.php:23
-#: admin/formatter/class-metabox-formatter.php:198
 msgid "Would you like to add more than one keyphrase?"
 msgstr "您想添加多个关键词吗？"
 
@@ -1971,7 +1929,7 @@ msgstr "您可以在%1$s商店页面%2$s上编辑此自定义类型的SEO Meta�
 msgid "You haven't set a Shop page in your WooCommerce settings. Please do this first."
 msgstr "您还没有在WooCommerce设置中设置一个商店页面。请先完成此操作。"
 
-#: languages/wordpress-seojs.php:419
+#: languages/wordpress-seojs.php:436
 msgid "Current year"
 msgstr "今年"
 
@@ -1979,27 +1937,23 @@ msgstr "今年"
 msgid "Something went wrong. Please reload the page."
 msgstr "出了些问题。请重新加载页面。"
 
-#: languages/yoast-components.php:185
+#: languages/yoast-components.php:188
 msgid "Url preview"
 msgstr "网址预览"
 
-#: languages/yoast-components.php:182
+#: languages/yoast-components.php:185
 msgid "Please provide a meta description by editing the snippet below. If you don’t, Google will try to find a relevant part of your post to show in the search results."
 msgstr "请通过编辑下面的代码段提供元描述。如果不这样做，Google会尝试在搜索结果中找到您帖子的相关部分。"
 
-#: languages/yoast-components.php:150
-msgid "Insert snippet variable"
-msgstr "插入代码段变量"
-
-#: languages/wordpress-seojs.php:434 inc/class-wpseo-replace-vars.php:1252
+#: languages/wordpress-seojs.php:451 inc/class-wpseo-replace-vars.php:1252
 msgid "Tagline"
 msgstr "标语"
 
-#: languages/wordpress-seojs.php:428
+#: languages/wordpress-seojs.php:445
 msgid "Page"
 msgstr "页面"
 
-#: languages/wordpress-seojs.php:123 languages/yoast-components.php:167
+#: languages/wordpress-seojs.php:119 languages/yoast-components.php:170
 msgid "Modify your meta description by editing it right here"
 msgstr "通过在此处进行编辑来修改元描述"
 
@@ -2039,7 +1993,7 @@ msgstr "页码"
 msgid "User description"
 msgstr "用户描述"
 
-#: languages/wordpress-seojs.php:425 inc/class-wpseo-replace-vars.php:1280
+#: languages/wordpress-seojs.php:442 inc/class-wpseo-replace-vars.php:1280
 msgid "ID"
 msgstr "标识（ID）"
 
@@ -2055,11 +2009,11 @@ msgstr "文章类型(复数)"
 msgid "Post type (singular)"
 msgstr "文章类型(单数)"
 
-#: languages/wordpress-seojs.php:455 inc/class-wpseo-replace-vars.php:1264
+#: languages/wordpress-seojs.php:472 inc/class-wpseo-replace-vars.php:1264
 msgid "Separator"
 msgstr "分隔线"
 
-#: languages/wordpress-seojs.php:431 inc/class-wpseo-replace-vars.php:1262
+#: languages/wordpress-seojs.php:448 inc/class-wpseo-replace-vars.php:1262
 msgid "Search phrase"
 msgstr "搜索短语"
 
@@ -2067,23 +2021,23 @@ msgstr "搜索短语"
 msgid "Term title"
 msgstr "术语标题"
 
-#: languages/wordpress-seojs.php:467 inc/class-wpseo-replace-vars.php:1260
+#: languages/wordpress-seojs.php:484 inc/class-wpseo-replace-vars.php:1260
 msgid "Term description"
 msgstr "术语描述"
 
-#: languages/wordpress-seojs.php:464 inc/class-wpseo-replace-vars.php:1259
+#: languages/wordpress-seojs.php:481 inc/class-wpseo-replace-vars.php:1259
 msgid "Tag description"
 msgstr "标签描述"
 
-#: languages/wordpress-seojs.php:461 inc/class-wpseo-replace-vars.php:1258
+#: languages/wordpress-seojs.php:478 inc/class-wpseo-replace-vars.php:1258
 msgid "Category description"
 msgstr "类别描述"
 
-#: languages/wordpress-seojs.php:452 inc/class-wpseo-replace-vars.php:1257
+#: languages/wordpress-seojs.php:469 inc/class-wpseo-replace-vars.php:1257
 msgid "Primary category"
 msgstr "主要类别"
 
-#: languages/wordpress-seojs.php:440 inc/class-wpseo-replace-vars.php:1256
+#: languages/wordpress-seojs.php:457 inc/class-wpseo-replace-vars.php:1256
 msgid "Category"
 msgstr "类别"
 
@@ -2091,15 +2045,15 @@ msgstr "类别"
 msgid "Tag"
 msgstr "标签"
 
-#: languages/wordpress-seojs.php:458 inc/class-wpseo-replace-vars.php:1254
+#: languages/wordpress-seojs.php:475 inc/class-wpseo-replace-vars.php:1254
 msgid "Excerpt only"
 msgstr "仅摘录"
 
-#: languages/wordpress-seojs.php:449 inc/class-wpseo-replace-vars.php:1253
+#: languages/wordpress-seojs.php:466 inc/class-wpseo-replace-vars.php:1253
 msgid "Excerpt"
 msgstr "摘录"
 
-#: languages/wordpress-seojs.php:437 inc/class-wpseo-replace-vars.php:1251
+#: languages/wordpress-seojs.php:454 inc/class-wpseo-replace-vars.php:1251
 msgid "Site title"
 msgstr "网站标题"
 
@@ -2107,11 +2061,11 @@ msgstr "网站标题"
 msgid "Archive title"
 msgstr "归档标题"
 
-#: languages/wordpress-seojs.php:446 inc/class-wpseo-replace-vars.php:1249
+#: languages/wordpress-seojs.php:463 inc/class-wpseo-replace-vars.php:1249
 msgid "Parent title"
 msgstr "父级标题"
 
-#: languages/wordpress-seojs.php:422 inc/class-wpseo-replace-vars.php:1247
+#: languages/wordpress-seojs.php:439 inc/class-wpseo-replace-vars.php:1247
 msgid "Date"
 msgstr "时间"
 
@@ -2164,15 +2118,6 @@ msgstr "此页面上的设置允许您指定您拥有的任何内容类型的默
 msgid "Dismiss this notice"
 msgstr "关闭此通知"
 
-#: languages/yoast-components.php:156
-msgid "No results"
-msgstr "没有结果"
-
-#: languages/yoast-components.php:153
-msgid "%d result found, use up and down arrow keys to navigate"
-msgid_plural "%d results found, use up and down arrow keys to navigate"
-msgstr[0] "找到%d 果，使用向上和向下箭头键进行导航"
-
 #: languages/yoast-components.php:57
 msgid "Your site language is set to %s. If this is not correct, contact your site administrator."
 msgstr "您站点的语言设置为%s如果不正确，请联系您的站点管理员。"
@@ -2219,7 +2164,7 @@ msgid "Baidu verification code"
 msgstr "百度验证码"
 
 #. translators: %s is replaced with Yoast SEO.
-#: admin/import/plugins/class-abstract-plugin-importer.php:254
+#: admin/import/plugins/class-abstract-plugin-importer.php:256
 msgid "The %s importer functionality uses temporary database tables. It seems your WordPress install does not have the capability to do this, please consult your hosting provider."
 msgstr "%s导入程序功能使用临时数据库表。看来您的WordPress安装没有能力做到这一点，请咨询您的主机提供商。"
 
@@ -2330,8 +2275,8 @@ msgstr "%s 成功导入。"
 msgid "%s data not found."
 msgstr "未找到 %s。"
 
-#: languages/wordpress-seojs.php:210 admin/views/sidebar.php:38
-#: admin/class-premium-upsell-admin-block.php:58
+#: languages/wordpress-seojs.php:210
+#: admin/class-premium-upsell-admin-block.php:58 admin/views/sidebar.php:38
 msgid "24/7 email support"
 msgstr "24/7 电子邮件支持"
 
@@ -2424,8 +2369,8 @@ msgstr "当您将媒体（例如图像或视频）上传到 WordPress 时，它�
 msgid "Learn more about the Media and attachment URLs setting"
 msgstr "详细了解媒体和附件 URL 设置"
 
-#: admin/views/tabs/metas/paper-content/general/title-separator.php:12
 #: admin/views/tabs/social/facebook.php:35
+#: admin/views/tabs/metas/paper-content/general/title-separator.php:12
 msgid "Learn more about the title separator setting"
 msgstr "详细了解标题分隔符设置"
 
@@ -2520,14 +2465,13 @@ msgstr "您可以使用下面的框来验证不同的站点管理员工具。此
 msgid "Learn more about the Webmaster Tools verification"
 msgstr "详细了解站点管理员工具验证"
 
-#: languages/yoast-components.php:66 deprecated/class-recalibration-beta.php:61
-#: admin/views/tabs/dashboard/features.php:52
+#: languages/yoast-components.php:66 admin/views/tabs/dashboard/features.php:52
 msgid "On"
 msgstr "开启"
 
 #. translators: %s expands to a feature's name
-#: admin/views/tabs/network/features.php:45
 #: admin/views/tabs/dashboard/features.php:45
+#: admin/views/tabs/network/features.php:45
 msgid "Help on: %s"
 msgstr "在线求助：%s"
 
@@ -2536,9 +2480,8 @@ msgstr "在线求助：%s"
 msgid "%1$s comes with a lot of features. You can enable / disable some of them below. Clicking the question mark gives more information about the feature."
 msgstr "%1$s有很多功能。您可以在下面启用/禁用其中一些。单击问号可提供有关该功能的更多信息。"
 
-#: languages/yoast-components.php:69 deprecated/class-recalibration-beta.php:62
+#: languages/yoast-components.php:69 admin/views/tabs/dashboard/features.php:53
 #: admin/views/class-yoast-feature-toggles.php:142
-#: admin/views/tabs/dashboard/features.php:53
 msgid "Off"
 msgstr "关闭"
 
@@ -2600,17 +2543,17 @@ msgid "Content Types"
 msgstr "内容类型"
 
 #. translators: %1$s expands to the post type name.
-#: admin/metabox/class-metabox.php:157
+#: admin/metabox/class-metabox.php:154
 msgid "Should search engines follow links on this %1$s?"
 msgstr "搜索引擎是否应该跟踪此%1$s上的链接？"
 
 #. translators: %1$s expands to Yes or No,  %2$s expands to the post type name.
-#: admin/metabox/class-metabox.php:152
+#: admin/metabox/class-metabox.php:149
 msgid "Default for %2$s, currently: %1$s"
 msgstr "默认为%2$s，目前：%1$s"
 
 #. translators: %s expands to the post type name.
-#: languages/wordpress-seojs.php:53 admin/metabox/class-metabox.php:147
+#: languages/wordpress-seojs.php:53 admin/metabox/class-metabox.php:144
 msgid "Allow search engines to show this %s in search results?"
 msgstr "允许搜索引擎在搜索结果中显示此%s吗？"
 
@@ -2658,7 +2601,7 @@ msgid "The text link counter helps you improve your site structure."
 msgstr "文本链接计数器可帮助您完善您的站点结构。"
 
 #: languages/yoast-components.php:20
-#: admin/formatter/class-metabox-formatter.php:178
+#: admin/formatter/class-metabox-formatter.php:185
 msgid "Good results"
 msgstr "好结果"
 
@@ -2713,8 +2656,7 @@ msgstr "了解更多关于 %s 是怎样运作的。"
 msgid "Enable this feature if you want Facebook and other social media to display a preview with images and a text excerpt when a link to your site is shared."
 msgstr "当文章被分享时，如果您需要 Facebook 和其它社交媒体显示预览图像和一段文本摘要，请开启此功能。"
 
-#. translators: %s expands to Yoast SEO Premium.
-#: admin/class-social-admin.php:191
+#: languages/wordpress-seojs.php:234
 msgid "Find out why you should upgrade to %s"
 msgstr "找出您应该升级到的原因%s"
 
@@ -2732,11 +2674,11 @@ msgid "Latest blog posts on %1$s"
 msgstr "%1$s 最新文章"
 
 #: languages/yoast-components.php:8
-#: admin/formatter/class-metabox-formatter.php:182
+#: admin/formatter/class-metabox-formatter.php:189
 msgid "Remove highlight from the text"
 msgstr "从文本中删除高亮显示"
 
-#: admin/formatter/class-metabox-formatter.php:179
+#: admin/formatter/class-metabox-formatter.php:186
 msgid "Your site language is set to {language}."
 msgstr "您站点的语言设置为{language}。"
 
@@ -2750,7 +2692,7 @@ msgstr "用%1$s %2$s快速开始配置向导%3$s!"
 msgid "First-time SEO configuration"
 msgstr "首次SEO的配置"
 
-#: admin/formatter/class-metabox-formatter.php:180
+#: admin/formatter/class-metabox-formatter.php:187
 msgid "Your site language is set to {language}. If this is not correct, contact your site administrator."
 msgstr "您站点的语言设置为{language}，如果不正确，请联系您的站点管理员。"
 
@@ -2759,22 +2701,22 @@ msgid "Your site language is set to %s. "
 msgstr "您的站点语言设置为%s。 "
 
 #: languages/yoast-components.php:11
-#: admin/formatter/class-metabox-formatter.php:181
+#: admin/formatter/class-metabox-formatter.php:188
 msgid "Highlight this result in the text"
 msgstr "在文本中高亮显示此结果"
 
 #: languages/yoast-components.php:17
-#: admin/formatter/class-metabox-formatter.php:177
+#: admin/formatter/class-metabox-formatter.php:184
 msgid "Considerations"
 msgstr "注意事项"
 
 #: languages/yoast-components.php:23
-#: admin/formatter/class-metabox-formatter.php:174
+#: admin/formatter/class-metabox-formatter.php:181
 msgid "Errors"
 msgstr "错误"
 
 #: languages/yoast-components.php:60
-#: admin/formatter/class-metabox-formatter.php:173
+#: admin/formatter/class-metabox-formatter.php:180
 msgid "Change language"
 msgstr "更改语言"
 
@@ -2862,14 +2804,14 @@ msgstr "在 MyYoast 上管理您的 %s 订阅"
 msgid "Mark the most important %1$s as 'cornerstone content' to improve your site structure. %2$sLearn more about cornerstone content%3$s."
 msgstr "将最重要的%1$s标记为“基石内容”，以改善您的站点结构。%2$s详细了解基础内容%3$s。"
 
-#: languages/yoast-components.php:75 admin/class-add-keyword-modal.php:42
-#: admin/views/licenses.php:111 admin/class-keyword-synonyms-modal.php:42
-#: admin/class-admin-utils.php:78 admin/class-premium-popup.php:82
-#: admin/formatter/class-metabox-formatter.php:184
-#: admin/formatter/class-metabox-formatter.php:217
-#: admin/watchers/class-slug-change-watcher.php:224
-#: admin/class-multiple-keywords-modal.php:42
+#: languages/yoast-components.php:78 admin/class-multiple-keywords-modal.php:42
+#: admin/formatter/class-metabox-formatter.php:191
+#: admin/formatter/class-metabox-formatter.php:224
+#: admin/class-admin-utils.php:78 admin/class-keyword-synonyms-modal.php:42
 #: admin/class-premium-upsell-admin-block.php:68
+#: admin/class-premium-popup.php:82 admin/class-add-keyword-modal.php:42
+#: admin/watchers/class-slug-change-watcher.php:224
+#: admin/views/licenses.php:111
 msgid "(Opens in a new browser tab)"
 msgstr "（在新的浏览器选项卡中打开）"
 
@@ -2981,11 +2923,11 @@ msgstr "已激活"
 msgid "%1$s recommendations for you"
 msgstr "%1$s 推荐给您"
 
-#: admin/class-meta-columns.php:277
+#: admin/class-meta-columns.php:269
 msgid "All Readability Scores"
 msgstr "可读性总分"
 
-#: admin/class-meta-columns.php:274
+#: admin/class-meta-columns.php:266
 msgid "Filter by Readability Score"
 msgstr "根据可读性分数过滤"
 
@@ -2999,12 +2941,6 @@ msgstr "您没有受到升级或技术支持！在 %2$s 添加站点与激活 %1
 #: admin/class-remote-request.php:95
 msgid "Request method %1$s is not valid."
 msgstr "所请求的方法 %1$s 无效。"
-
-#. translators: %1$s expands to the social network's name, %2$s to Yoast SEO
-#. Premium.
-#: admin/class-social-admin.php:184
-msgid "Do you want to preview what it will look like if people share this post on %1$s? You can, with %2$s."
-msgstr "您想预览别人在%1$s上分享这篇文章的外观吗？ 您可以使用%2$s。"
 
 #: admin/links/class-link-reindex-dashboard.php:174
 msgid "Good job! All the links in your texts have been counted."
@@ -3040,8 +2976,8 @@ msgstr "所有的文章已经被统计，不需要再重新统计。"
 msgid "Count links in your texts"
 msgstr "统计文章中的链接"
 
-#: admin/views/class-yoast-feature-toggles.php:96
 #: admin/links/class-link-reindex-dashboard.php:65
+#: admin/views/class-yoast-feature-toggles.php:96
 msgid "Text link counter"
 msgstr "文本链接计数器"
 
@@ -3058,20 +2994,20 @@ msgstr "本文中的内链数。 参考帮助菜单中的 “Yoast 栏目” 获
 msgid "%s Columns"
 msgstr "%s 栏目"
 
-#: admin/class-meta-columns.php:117
 #: admin/taxonomy/class-taxonomy-columns.php:72
+#: admin/class-meta-columns.php:113
 msgid "Readability score"
 msgstr "可读性分数"
 
 #. translators: %s expands to 'Yoast SEO Premium'.
-#: languages/wordpress-seojs.php:218 admin/class-add-keyword-modal.php:32
+#: languages/wordpress-seojs.php:218 admin/class-multiple-keywords-modal.php:32
+#: admin/formatter/class-metabox-formatter.php:214
 #: admin/class-keyword-synonyms-modal.php:32
-#: admin/formatter/class-metabox-formatter.php:207
-#: admin/class-multiple-keywords-modal.php:32
+#: admin/class-add-keyword-modal.php:32
 msgid "Other benefits of %s for you:"
 msgstr "%s给您的其他好处："
 
-#: languages/yoast-components.php:179 languages/yoast-seo-js.php:536
+#: languages/yoast-seo-js.php:540 languages/yoast-components.php:182
 msgid "Scroll to see the preview content."
 msgstr "滚动查看预览内容。"
 
@@ -3127,10 +3063,10 @@ msgstr "好消息：有了%1$s，您可以的!"
 msgid "Save changes"
 msgstr "保存更改"
 
-#: languages/wordpress-seojs.php:222 admin/class-add-keyword-modal.php:41
+#: languages/wordpress-seojs.php:222 admin/class-multiple-keywords-modal.php:41
+#: admin/formatter/class-metabox-formatter.php:223
 #: admin/class-keyword-synonyms-modal.php:41 admin/class-premium-popup.php:88
-#: admin/formatter/class-metabox-formatter.php:216
-#: admin/class-multiple-keywords-modal.php:41
+#: admin/class-add-keyword-modal.php:41
 msgid "1 year free support and updates included!"
 msgstr "包括1年免费支持和更新!"
 
@@ -3149,8 +3085,8 @@ msgstr "%1$s社交媒体预览：%2$sFacebook & Twitter"
 msgid "%1$sNo more dead links%2$s: easy redirect manager"
 msgstr "%1$s消灭死链%2$s：重定向便捷管理器"
 
-#: languages/wordpress-seojs.php:214 admin/views/sidebar.php:39
-#: admin/class-premium-upsell-admin-block.php:59
+#: languages/wordpress-seojs.php:214
+#: admin/class-premium-upsell-admin-block.php:59 admin/views/sidebar.php:39
 msgid "No ads!"
 msgstr "没有广告！"
 
@@ -3182,18 +3118,12 @@ msgstr "变量"
 msgid "Available variables"
 msgstr "可用变量"
 
-#. translators: %1$s will be a link to a review explanation page. Text between
-#. %2$s and %3$s will be a link to an SEO copywriting course page.
-#: admin/config-ui/fields/class-field-upsell-site-review.php:33
-msgid "If you want more help creating awesome content, check out our %2$sSEO copywriting course%3$s. Do you want to know all about the features of the plugin, consider doing our %1$s!"
-msgstr "如果您想要更多帮助创建酷炫的内容，请查看我们的%2$s SEO写作课程%3$s。 您想知道所有的插件的功能，请考虑我们的%1$s！"
-
 #: admin/class-admin.php:319
 msgid "Scroll to see the table content."
 msgstr "滚动查看表内容。"
 
 #. Translators: %1$s expands to the name of the assessment.
-#: languages/yoast-seo-js.php:446
+#: languages/yoast-seo-js.php:450
 msgid "An error occurred in the '%1$s' assessment"
 msgstr "在评估'%1$s'过程中出现错误"
 
@@ -3235,7 +3165,7 @@ msgstr[0] "元描述包含 %1$d 句话， %2$s建议不超过 %3$s 词%4$s。 �
 msgid "The meta description contains no sentences %1$sover %2$s words%3$s."
 msgstr "元描述在%2$s个单词%3$s中不包含句子%1$s。"
 
-#: languages/yoast-components.php:138
+#: languages/yoast-components.php:132
 msgid "Step %1$d: %2$s"
 msgstr "步骤%1$d：%2$s"
 
@@ -3256,60 +3186,60 @@ msgstr "保存"
 msgid "%1$s, Author at %2$s"
 msgstr "%1$s，作者%2$s"
 
-#: languages/yoast-seo-js.php:533
+#: languages/yoast-seo-js.php:537
 msgid "Mobile preview"
 msgstr "手机版预览"
 
-#: languages/yoast-seo-js.php:530
+#: languages/yoast-seo-js.php:534
 msgid "Desktop preview"
 msgstr "桌面版预览"
 
-#: languages/yoast-seo-js.php:539
+#: languages/yoast-seo-js.php:543
 msgid "Please provide an SEO title by editing the snippet below."
 msgstr "在下面的编辑框当作中输入SEO标题。"
 
-#: languages/yoast-seo-js.php:524
+#: languages/yoast-seo-js.php:528
 msgid "Meta description preview:"
 msgstr "元描述预览："
 
-#: languages/yoast-seo-js.php:521
+#: languages/yoast-seo-js.php:525
 msgid "Slug preview:"
 msgstr "别名预览："
 
-#: languages/yoast-seo-js.php:518
+#: languages/yoast-seo-js.php:522
 msgid "SEO title preview:"
 msgstr "SEO标题预览："
 
-#: languages/yoast-components.php:170 languages/yoast-seo-js.php:512
+#: languages/yoast-seo-js.php:516 languages/yoast-components.php:173
 msgid "Close snippet editor"
 msgstr "关闭片段编辑器"
 
-#: languages/yoast-components.php:176 languages/yoast-seo-js.php:506
+#: languages/yoast-seo-js.php:510 languages/yoast-components.php:179
 msgid "Slug"
 msgstr "别名"
 
-#: languages/yoast-seo-js.php:497
+#: languages/yoast-seo-js.php:501
 msgid "Remove marks in the text"
 msgstr "删除文本中的标记"
 
-#: languages/yoast-seo-js.php:494
+#: languages/yoast-seo-js.php:498
 msgid "Mark this result in the text"
 msgstr "在文段中标记这个结果"
 
-#: languages/yoast-components.php:5 languages/yoast-seo-js.php:491
-#: admin/formatter/class-metabox-formatter.php:183
+#: languages/yoast-seo-js.php:495 languages/yoast-components.php:5
+#: admin/formatter/class-metabox-formatter.php:190
 msgid "Marks are disabled in current view"
 msgstr "标记/对号在当前视图已被禁用"
 
-#: languages/yoast-seo-js.php:485
+#: languages/yoast-seo-js.php:489
 msgid "Good SEO score"
 msgstr "SEO分数较高"
 
-#: languages/yoast-seo-js.php:478
+#: languages/yoast-seo-js.php:482
 msgid "OK SEO score"
 msgstr "SEO得分良好"
 
-#: languages/yoast-seo-js.php:466
+#: languages/yoast-seo-js.php:470
 msgid "Feedback"
 msgstr "反馈"
 
@@ -3317,19 +3247,19 @@ msgstr "反馈"
 msgid "ok"
 msgstr "确定"
 
-#: languages/yoast-components.php:204
+#: languages/yoast-components.php:207
 msgid "Choose an image"
 msgstr "选择一张图像"
 
-#: languages/yoast-components.php:210
+#: languages/yoast-components.php:213
 msgid "Remove the image"
 msgstr "删除图像"
 
-#: languages/yoast-components.php:200
+#: languages/yoast-components.php:203
 msgid "MailChimp signup failed:"
 msgstr "Mailchimp注册失败："
 
-#: languages/yoast-components.php:197
+#: languages/yoast-components.php:200
 msgid "Sign Up!"
 msgstr "注册！"
 
@@ -3337,31 +3267,31 @@ msgstr "注册！"
 msgid "Name"
 msgstr "名称"
 
-#: languages/wordpress-seojs.php:231 languages/yoast-seo-js.php:542
+#: languages/wordpress-seojs.php:248 languages/yoast-seo-js.php:546
 msgid "Please provide a meta description by editing the snippet below."
 msgstr "请通过下面的输入框输入元描述。"
 
-#: languages/yoast-components.php:173 languages/yoast-seo-js.php:500
+#: languages/yoast-seo-js.php:504 languages/yoast-components.php:176
 msgid "Edit snippet"
 msgstr "编辑片段"
 
-#: languages/yoast-seo-js.php:527
+#: languages/yoast-seo-js.php:531
 msgid "You can click on each element in the preview to jump to the Snippet Editor."
 msgstr "您可以点击预览中的每个元素，以跳转到Snippet 编辑器。"
 
-#: languages/yoast-components.php:188
+#: languages/yoast-components.php:191
 msgid "SEO title preview"
 msgstr "SEO标题预览"
 
-#: languages/yoast-components.php:191
+#: languages/yoast-components.php:194
 msgid "Meta description preview"
 msgstr "元描述预览"
 
-#: languages/yoast-components.php:120
+#: languages/yoast-components.php:117
 msgid "A problem occurred when saving the current step, {{link}}please file a bug report{{/link}} describing what step you are on and which changes you want to make (if any)."
 msgstr "保存当前步骤时出现问题，{{link}}请提交错误报告{{/ link}}，说明您正在执行的步骤以及您要进行的更改（如果有）。"
 
-#: languages/yoast-components.php:126
+#: languages/yoast-components.php:120
 #: admin/config-ui/class-configuration-page.php:142
 msgid "Close the Wizard"
 msgstr "关闭向导"
@@ -3406,9 +3336,8 @@ msgstr "作者归档设置"
 
 #. translators: %1$s expands to the image recommended width, %2$s to its
 #. height.
-#: admin/class-social-admin.php:49 admin/class-social-admin.php:52
-#: admin/taxonomy/class-taxonomy-social-fields.php:108
-#: admin/taxonomy/class-taxonomy-social-fields.php:115
+#: admin/taxonomy/class-taxonomy-social-fields.php:99
+#: admin/taxonomy/class-taxonomy-social-fields.php:106
 msgid "%1$s by %2$s"
 msgstr "%1$s由%2$s"
 
@@ -3429,7 +3358,7 @@ msgstr "顺便提一下，您知道我们还有一个%1$s高级版插件%2$s吗�
 msgid "(no title)"
 msgstr "（无标题）"
 
-#: languages/yoast-components.php:135
+#: languages/yoast-components.php:129
 msgid "%s installation wizard"
 msgstr "%s 安装向导"
 
@@ -3448,26 +3377,15 @@ msgid "%1$s will check weekly if your site is still indexable by search engines 
 msgstr "如果您的网站仍可被搜索引擎索引，%1$s 将每周检查一次, 而%2$s将在情况并非如此时通知您。"
 
 #: admin/pages/network.php:19 admin/pages/dashboard.php:48
-#: admin/views/tabs/network/features.php:19
 #: admin/views/tabs/dashboard/features.php:19
+#: admin/views/tabs/network/features.php:19
 msgid "Features"
 msgstr "特点"
 
-#: languages/yoast-components.php:160 languages/yoast-seo-js.php:503
-#: admin/metabox/class-metabox.php:143
+#: languages/yoast-seo-js.php:507 languages/yoast-components.php:163
+#: admin/metabox/class-metabox.php:140
 msgid "SEO title"
 msgstr "SEO标题"
-
-#. Translators: %1$s expands to Yoast SEO, %2$s expands to Yoast SEO Premium,
-#. %3$s opens the link, %4$s closes the link.
-#: admin/config-ui/fields/class-field-upsell-configuration-service.php:39
-msgid "While we strive to make setting up %1$s as easy as possible, we understand it can be daunting. If you’d rather have us set up %1$s for you (and get a copy of %2$s in the process), order our %3$s%1$s configuration service%4$s here!"
-msgstr "虽然我们努力使%1$s的设置尽可能简单，但我们了解这可能会令人生畏。如果您希望我们为您设置%1$s（并获取%2$s的副本），请在此处订购我们的%3$s%1$ss配置服务%4$s！"
-
-#. translators: %1$s expands to Yoast SEO.
-#: admin/config-ui/fields/class-field-upsell-configuration-service.php:33
-msgid "Welcome to the %1$s configuration wizard. In a few simple steps we'll help you configure your SEO settings to match your website's needs!"
-msgstr "欢迎使用%1$s配置向导。通过几个简单的步骤，我们将帮助您配置您的SEO设置，以满足您的站点的需要！"
 
 #: admin/config-ui/fields/class-field-site-name.php:21
 msgid "Google shows your website's name in the search results, if you want to change it, you can do that here."
@@ -3534,21 +3452,21 @@ msgstr "选择您的标题分隔符使用的符号。这将显示在您的文章
 msgid "The name of the person"
 msgstr "人名"
 
-#: languages/wordpress-seojs.php:41
+#: languages/wordpress-seojs.php:41 admin/metabox/class-metabox.php:151
+#: admin/metabox/class-metabox.php:156
 #: admin/config-ui/fields/class-field-choice-post-type.php:35
 #: admin/config-ui/fields/class-field-multiple-authors.php:24
 #: admin/views/tabs/metas/paper-content/media-content.php:20
-#: admin/class-yoast-form.php:717 admin/metabox/class-metabox.php:154
-#: admin/metabox/class-metabox.php:159
+#: admin/class-yoast-form.php:717
 msgid "No"
 msgstr "否"
 
-#: languages/wordpress-seojs.php:44
+#: languages/wordpress-seojs.php:44 admin/metabox/class-metabox.php:150
+#: admin/metabox/class-metabox.php:155
 #: admin/config-ui/fields/class-field-choice-post-type.php:34
 #: admin/config-ui/fields/class-field-multiple-authors.php:23
 #: admin/views/tabs/metas/paper-content/media-content.php:19
-#: admin/class-yoast-form.php:716 admin/metabox/class-metabox.php:153
-#: admin/metabox/class-metabox.php:158
+#: admin/class-yoast-form.php:716
 msgid "Yes"
 msgstr "是"
 
@@ -3710,8 +3628,8 @@ msgstr "高级版"
 msgid "Google Trends"
 msgstr "谷歌趋势"
 
-#: inc/class-wpseo-admin-bar-menu.php:199
 #: admin/views/partial-notifications-warnings.php:20
+#: inc/class-wpseo-admin-bar-menu.php:199
 msgid "Notifications"
 msgstr "通知"
 
@@ -3752,7 +3670,7 @@ msgid "Make primary"
 msgstr "设为主要"
 
 #. translators: %s: number of notifications
-#: inc/class-wpseo-admin-bar-menu.php:642 admin/menu/class-admin-menu.php:116
+#: admin/menu/class-admin-menu.php:116 inc/class-wpseo-admin-bar-menu.php:642
 msgid "%s notification"
 msgid_plural "%s notifications"
 msgstr[0] "%s个通知"
@@ -3770,21 +3688,22 @@ msgstr "从Meta数据库中删除可读性分析部分，并禁用所有与可�
 msgid "Readability analysis"
 msgstr "可读性分析"
 
-#: languages/yoast-seo-js.php:474 inc/class-wpseo-rank.php:140
-#: inc/class-wpseo-rank.php:163 inc/class-wpseo-rank.php:195
-#: admin/formatter/class-metabox-formatter.php:96
-#: admin/formatter/class-metabox-formatter.php:126
+#: languages/yoast-seo-js.php:478
+#: admin/formatter/class-metabox-formatter.php:103
+#: admin/formatter/class-metabox-formatter.php:133
 #: admin/statistics/class-statistics-service.php:217
+#: inc/class-wpseo-rank.php:140 inc/class-wpseo-rank.php:163
+#: inc/class-wpseo-rank.php:195
 msgid "Needs improvement"
 msgstr "需要改进"
 
+#: admin/formatter/class-metabox-formatter.php:59
 #: admin/metabox/class-metabox-section-readability.php:28
-#: admin/formatter/class-metabox-formatter.php:56
 msgid "Readability"
 msgstr "可读性"
 
 #: languages/yoast-components.php:14
-#: admin/formatter/class-metabox-formatter.php:176
+#: admin/formatter/class-metabox-formatter.php:183
 msgid "Improvements"
 msgstr "改进"
 
@@ -3801,25 +3720,25 @@ msgid "We have detected the following issues that affect the SEO of your site."
 msgstr "我们检测到以下影响您站点SEO的问题。"
 
 #: languages/yoast-components.php:26
+#: admin/formatter/class-metabox-formatter.php:182
 #: admin/views/partial-notifications-errors.php:20
-#: admin/formatter/class-metabox-formatter.php:175
 msgid "Problems"
 msgstr "问题"
 
-#: admin/formatter/class-metabox-formatter.php:146
+#: admin/formatter/class-metabox-formatter.php:153
 msgid "Analysis"
 msgstr "分析"
 
-#: inc/class-wpseo-rank.php:138 admin/formatter/class-metabox-formatter.php:89
-#: admin/formatter/class-metabox-formatter.php:119
+#: admin/formatter/class-metabox-formatter.php:96
+#: admin/formatter/class-metabox-formatter.php:126 inc/class-wpseo-rank.php:138
 msgid "Not available"
 msgstr "不可用"
 
-#: admin/class-meta-columns.php:248
+#: admin/class-meta-columns.php:240
 msgid "Filter by SEO Score"
 msgstr "按照SEO分数分类"
 
-#: admin/class-meta-columns.php:165
+#: admin/class-meta-columns.php:157
 msgid "Meta description not set."
 msgstr "还没设置元描述。"
 
@@ -3827,7 +3746,7 @@ msgstr "还没设置元描述。"
 msgid "Open"
 msgstr "打开"
 
-#: admin/pages/dashboard.php:39 admin/menu/class-admin-menu.php:37
+#: admin/menu/class-admin-menu.php:37 admin/pages/dashboard.php:39
 msgid "Dashboard"
 msgstr "仪表盘"
 
@@ -3933,15 +3852,15 @@ msgid "Show"
 msgstr "展示"
 
 #: admin/views/tabs/metas/paper-content/author-archive-settings.php:13
-#: admin/views/tabs/metas/paper-content/date-archives-settings.php:13
 #: admin/views/tabs/metas/paper-content/taxonomy-content.php:19
+#: admin/views/tabs/metas/paper-content/date-archives-settings.php:13
 #: admin/class-yoast-form.php:327
 msgid "Enabled"
 msgstr "激活"
 
 #: admin/views/tabs/metas/paper-content/author-archive-settings.php:14
-#: admin/views/tabs/metas/paper-content/date-archives-settings.php:14
 #: admin/views/tabs/metas/paper-content/taxonomy-content.php:19
+#: admin/views/tabs/metas/paper-content/date-archives-settings.php:14
 #: admin/class-yoast-form.php:327
 msgid "Disabled"
 msgstr "已禁用"
@@ -3955,27 +3874,12 @@ msgstr "分隔符定义了您的主题中的 %s 标签。"
 msgid "No index"
 msgstr "无索引"
 
-#. translators: %1$s expands to the social network name
-#: admin/taxonomy/class-taxonomy-social-fields.php:70
-msgid "If you want to use an image for sharing on %1$s, you can upload / choose an image or add the image URL here."
-msgstr "如果您想在%1$s上分享图像，您可以在这儿上传或者从URL中添加图像。"
-
-#. translators: %1$s expands to the social network name
-#: admin/taxonomy/class-taxonomy-social-fields.php:63
-msgid "If you don't want to use the meta description for sharing on %1$s but want another description there, write it here."
-msgstr "如果您不想使用%1$s共享的元数据描述，但希望另一个描述有，在这里写。"
-
-#. translators: %1$s expands to the social network name
-#: admin/taxonomy/class-taxonomy-social-fields.php:55
-msgid "If you don't want to use the title for sharing on %1$s but instead want another title there, write it here."
-msgstr "如果您不希望使用修改作为在%1$s的分享标题，请在下面的编辑框当中输入您期望的标题。"
-
 #: admin/ryte/class-ryte.php:113
 msgid "Once Weekly"
 msgstr "一次每周"
 
-#: admin/class-meta-columns.php:113
 #: admin/taxonomy/class-taxonomy-columns.php:68
+#: admin/class-meta-columns.php:109
 msgid "SEO score"
 msgstr "SEO分数"
 
@@ -3998,27 +3902,27 @@ msgid "The first true all-in-one SEO solution for WordPress, including on-page c
 msgstr "第一个真正意义上的 WordPress 全能SEO解决方案！包含了页面内容分析、XML站点地图和更多功能。"
 
 #. Plugin Name of the plugin
-#: languages/wordpress-seojs.php:234
+#: languages/wordpress-seojs.php:254
 #: admin/capabilities/class-capability-manager-integration.php:72
 msgid "Yoast SEO"
 msgstr "Yoast SEO"
 
-#: wp-seo-main.php:597
+#: wp-seo-main.php:596
 msgid "Activation failed:"
 msgstr "激活失败："
 
-#: wp-seo-main.php:587
+#: wp-seo-main.php:586
 msgid "The filter extension seem to be unavailable. Please ask your web host to enable it."
 msgstr "该过滤扩展功能看来是不可用的。请询问您的服务器提供商来启用它。"
 
 #. translators: %1$s expands to Yoast SEO, %2$s / %3$s: links to the
 #. installation manual in the Readme for the Yoast SEO code repository on
 #. GitHub
-#: wp-seo-main.php:563
+#: wp-seo-main.php:562
 msgid "The %1$s plugin installation is incomplete. Please refer to %2$sinstallation instructions%3$s."
 msgstr "%1$s没有正确安装，请参阅%2$s安装指南%3$s。"
 
-#: wp-seo-main.php:541
+#: wp-seo-main.php:540
 msgid "The Standard PHP Library (SPL) extension seem to be unavailable. Please ask your web host to enable it."
 msgstr "标准 PHP库(SPL) 扩展似乎不可用。请联系您的主机商启用。"
 
@@ -4146,11 +4050,12 @@ msgstr "归档于"
 msgid "Error 404: Page not found"
 msgstr "404错误：找不到页面"
 
-#: languages/yoast-seo-js.php:488 inc/class-wpseo-rank.php:142
-#: inc/class-wpseo-rank.php:173 inc/class-wpseo-rank.php:205
-#: admin/formatter/class-metabox-formatter.php:110
-#: admin/formatter/class-metabox-formatter.php:140
+#: languages/yoast-seo-js.php:492
+#: admin/formatter/class-metabox-formatter.php:117
+#: admin/formatter/class-metabox-formatter.php:147
 #: admin/statistics/class-statistics-service.php:227
+#: inc/class-wpseo-rank.php:142 inc/class-wpseo-rank.php:173
+#: inc/class-wpseo-rank.php:205
 msgid "Good"
 msgstr "优良"
 
@@ -4505,9 +4410,9 @@ msgstr "默认设置"
 msgid "Copy home meta description"
 msgstr "复制首页元描述"
 
-#: admin/views/tool-bulk-editor.php:111
-#: admin/views/tabs/metas/paper-content/rss-content.php:31
 #: admin/views/tabs/social/facebook.php:44
+#: admin/views/tabs/metas/paper-content/rss-content.php:31
+#: admin/views/tool-bulk-editor.php:111
 msgid "Description"
 msgstr "描述"
 
@@ -4676,8 +4581,8 @@ msgstr "日期归档"
 msgid "author archives"
 msgstr "作者归档"
 
-#: languages/wordpress-seojs.php:443 inc/class-wpseo-replace-vars.php:1248
-#: admin/views/tool-bulk-editor.php:109 admin/views/tabs/social/facebook.php:43
+#: languages/wordpress-seojs.php:460 admin/views/tabs/social/facebook.php:43
+#: admin/views/tool-bulk-editor.php:109 inc/class-wpseo-replace-vars.php:1248
 msgid "Title"
 msgstr "标题"
 
@@ -4731,24 +4636,24 @@ msgid "%1$s Extensions"
 msgstr "%1$s扩展"
 
 #. translators: %1$s expands to Yoast SEO
-#: admin/views/licenses.php:90 admin/class-plugin-availability.php:82
+#: admin/class-plugin-availability.php:82 admin/views/licenses.php:90
 msgid "Seamlessly integrate WooCommerce with %1$s and get extra features!"
 msgstr "无缝集成%1$s到WooCommerce插件并获得额外的功能！"
 
-#: admin/views/licenses.php:39 admin/class-plugin-availability.php:70
+#: admin/class-plugin-availability.php:70 admin/views/licenses.php:39
 msgid "Rank better locally and in Google Maps, without breaking a sweat!"
 msgstr "轻松提高本地和谷歌地图的排名！"
 
-#: admin/views/licenses.php:70 admin/class-plugin-availability.php:60
+#: admin/class-plugin-availability.php:60 admin/views/licenses.php:70
 msgid "Are you in Google News? Increase your traffic from Google News by optimizing for it!"
 msgstr "您在谷歌新闻？通过它优化增加谷歌新闻的流量！"
 
-#: admin/views/licenses.php:55 admin/class-plugin-availability.php:50
+#: admin/class-plugin-availability.php:50 admin/views/licenses.php:55
 msgid "Optimize your videos to show them off in search results and get more clicks!"
 msgstr "优化您的视频在搜索结果中的展示并赚取更多点击量！"
 
 #. translators: %1$s expands to Yoast SEO
-#: admin/views/licenses.php:27 admin/class-plugin-availability.php:38
+#: admin/class-plugin-availability.php:38 admin/views/licenses.php:27
 msgid "The premium version of %1$s with more features & support."
 msgstr "%1$s 高级版拥有更多功能及技术支持。"
 
@@ -4801,8 +4706,9 @@ msgstr "停用 %s"
 msgid "The %1$s plugin might cause issues when used in conjunction with %2$s."
 msgstr "%1$s插件在与%2$s结合使用时可能会导致问题。"
 
-#: admin/class-yoast-form.php:578 admin/metabox/class-metabox.php:626
+#: admin/metabox/class-metabox.php:620
 #: admin/taxonomy/class-taxonomy-fields-presenter.php:123
+#: admin/class-yoast-form.php:578
 msgid "Upload Image"
 msgstr "上传图像"
 
@@ -4831,19 +4737,19 @@ msgstr "Pinterest"
 msgid "Archives"
 msgstr "归档"
 
-#: languages/yoast-components.php:194
+#: languages/yoast-components.php:197
 msgid "Email"
 msgstr "电子信箱"
 
-#: languages/yoast-components.php:129
+#: languages/yoast-components.php:123
 msgid "Previous"
 msgstr "上页"
 
-#: languages/yoast-components.php:132
+#: languages/yoast-components.php:126
 msgid "Next"
 msgstr "下页"
 
-#: languages/wordpress-seojs.php:127 languages/yoast-components.php:123
+#: languages/wordpress-seojs.php:127 languages/yoast-components.php:72
 #: admin/google_search_console/views/gsc-redirect-nopremium.php:27
 msgid "Close"
 msgstr "关闭"
@@ -4865,64 +4771,15 @@ msgstr "配置%1$s开放式图谱设置"
 msgid "Both %1$s and %2$s create Open Graph output, which might make Facebook, Twitter, LinkedIn and other social networks use the wrong texts and images when your pages are being shared."
 msgstr "%1$s 和 %2$s 都能创建OpenGraph 输出，可能导致您的页面共享到 Facebook, Twitter, LinkedIn和其它社交网络时使用错误的文本和图像。"
 
-#. translators: %s expands to the name of a social network.
-#. translators: %s expands to the social network name
-#: admin/class-social-admin.php:66
-#: admin/taxonomy/class-taxonomy-social-fields.php:68
-msgid "%s Image"
-msgstr "%s图像"
-
-#. translators: %s expands to the name of a social network.
-#. translators: %s expands to the social network name
-#: admin/class-social-admin.php:62
-#: admin/taxonomy/class-taxonomy-social-fields.php:61
-msgid "%s Description"
-msgstr "%s 描述"
-
-#. translators: %s expands to the name of a social network.
-#. translators: %s expands to the social network name
-#: admin/class-social-admin.php:58
-#: admin/taxonomy/class-taxonomy-social-fields.php:53
-msgid "%s Title"
-msgstr "%s 标题"
-
-#: admin/pages/social.php:20 admin/class-social-admin.php:43
-#: admin/class-social-admin.php:102 admin/class-social-admin.php:174
-#: admin/taxonomy/class-taxonomy-metabox.php:171
-#: admin/taxonomy/class-taxonomy-social-fields.php:122
+#: admin/pages/social.php:20
+#: admin/taxonomy/class-taxonomy-social-fields.php:113
 msgid "Twitter"
 msgstr "Twitter"
 
-#: admin/pages/social.php:19 admin/class-social-admin.php:42
-#: admin/class-social-admin.php:94 admin/class-social-admin.php:171
-#: admin/taxonomy/class-taxonomy-metabox.php:170
-#: admin/taxonomy/class-taxonomy-social-fields.php:121
+#: admin/pages/social.php:19
+#: admin/taxonomy/class-taxonomy-social-fields.php:112
 msgid "Facebook"
 msgstr "Facebook"
-
-#. translators: %1$s expands to the social network, %2$s to the recommended
-#. image size.
-#. translators: %1$s expands to the social network name, %2$s expands to the
-#. image size
-#: admin/class-social-admin.php:39
-#: admin/taxonomy/class-taxonomy-social-fields.php:72
-msgid "The recommended image size for %1$s is %2$s pixels."
-msgstr "%1$s的建议图像大小为%2$s像素。"
-
-#. translators: %s expands to the social network's name.
-#: admin/class-social-admin.php:36
-msgid "If you want to override the image used on %s for this post, upload / choose an image here."
-msgstr "如果要覆盖此日志在%s上使用的图像，请在此处上传/选择图像。"
-
-#. translators: %s expands to the social network's name.
-#: admin/class-social-admin.php:33
-msgid "If you don't want to use the meta description for sharing the post on %s but want another description there, write it here."
-msgstr "如果您不想在分享到 %s 时使用这个元描述，您可以在这里写上另一个。"
-
-#. translators: %s expands to the social network's name.
-#: admin/class-social-admin.php:30
-msgid "If you don't want to use the post title for sharing the post on %s but instead want another title there, write it here."
-msgstr "如果您不想使用这个文章标题来在%s分享这篇文章，而是想要使用另一个标题，那么写在这里。"
 
 #: languages/yoast-seo-js.php:33
 msgid "very difficult"
@@ -4944,11 +4801,12 @@ msgstr "尽量缩短句子以提高可读性"
 msgid "fairly difficult"
 msgstr "还算困难"
 
-#: languages/yoast-seo-js.php:481 inc/class-wpseo-rank.php:141
-#: inc/class-wpseo-rank.php:168 inc/class-wpseo-rank.php:200
-#: admin/formatter/class-metabox-formatter.php:103
-#: admin/formatter/class-metabox-formatter.php:133
+#: languages/yoast-seo-js.php:485
+#: admin/formatter/class-metabox-formatter.php:110
+#: admin/formatter/class-metabox-formatter.php:140
 #: admin/statistics/class-statistics-service.php:222
+#: inc/class-wpseo-rank.php:141 inc/class-wpseo-rank.php:168
+#: inc/class-wpseo-rank.php:200
 msgid "OK"
 msgstr "好"
 
@@ -4964,60 +4822,61 @@ msgstr "容易"
 msgid "very easy"
 msgstr "非常容易"
 
-#: admin/class-meta-columns.php:121
+#: admin/class-meta-columns.php:117
 msgid "Meta Desc."
 msgstr "元描述"
 
-#: admin/class-meta-columns.php:251
+#: admin/class-meta-columns.php:243
 msgid "All SEO Scores"
 msgstr "全部SEO分数"
 
-#: admin/metabox/class-metabox.php:877
+#: admin/metabox/class-metabox.php:886
 msgid "SEO issue: The featured image should be at least 200 by 200 pixels to be picked up by Facebook and other social media sites."
 msgstr "SEO问题：特色图像应该至少是200 x 200像素，由Facebook和其他社交媒体站点提取。"
 
-#: admin/metabox/class-metabox.php:277 admin/taxonomy/class-taxonomy.php:291
+#: admin/metabox/class-metabox.php:853 admin/taxonomy/class-taxonomy.php:160
+#: admin/taxonomy/class-taxonomy.php:293
 msgid "(no parent)"
 msgstr "(没有父级)"
 
-#: admin/class-meta-columns.php:653
+#: admin/class-meta-columns.php:645
 msgid "Post is set to noindex."
 msgstr "文章被设置为不索引."
 
-#: admin/metabox/class-metabox.php:180
+#: admin/metabox/class-metabox.php:177
 msgid "The URL that this page should redirect to."
 msgstr "URL重定向的目标页面。"
 
-#: admin/metabox/class-metabox.php:179
+#: admin/metabox/class-metabox.php:176
 msgid "301 Redirect"
 msgstr "301 转址"
 
 #. translators: 1: link open tag; 2: link close tag.
-#: admin/metabox/class-metabox.php:174
+#: admin/metabox/class-metabox.php:171
 msgid "The canonical URL that this page should point to. Leave empty to default to permalink. %1$sCross domain canonical%2$s supported too."
 msgstr "此网页应指向的规范网址，留空，默认为固定链接。%1$s跨域名规范%2$s也支持。"
 
-#: languages/wordpress-seojs.php:32 admin/metabox/class-metabox.php:170
+#: languages/wordpress-seojs.php:32 admin/metabox/class-metabox.php:167
 msgid "Canonical URL"
 msgstr "规范链接"
 
-#: admin/metabox/class-metabox.php:168
+#: admin/metabox/class-metabox.php:165
 msgid "Title to use for this page in breadcrumb paths"
 msgstr "此页在包屑路径中的标题"
 
-#: languages/wordpress-seojs.php:26 admin/metabox/class-metabox.php:167
+#: languages/wordpress-seojs.php:26 admin/metabox/class-metabox.php:164
 msgid "Breadcrumbs Title"
 msgstr "面包屑的标题"
 
-#: languages/wordpress-seojs.php:20 admin/metabox/class-metabox.php:165
+#: languages/wordpress-seojs.php:20 admin/metabox/class-metabox.php:162
 msgid "No Snippet"
 msgstr "没有摘要"
 
-#: languages/wordpress-seojs.php:17 admin/metabox/class-metabox.php:164
+#: languages/wordpress-seojs.php:17 admin/metabox/class-metabox.php:161
 msgid "No Archive"
 msgstr "没有归档"
 
-#: languages/wordpress-seojs.php:14 admin/metabox/class-metabox.php:163
+#: languages/wordpress-seojs.php:14 admin/metabox/class-metabox.php:160
 msgid "No Image Index"
 msgstr "没有图像索引"
 
@@ -5027,20 +4886,20 @@ msgstr "没有图像索引"
 msgid "None"
 msgstr "无"
 
-#: languages/wordpress-seojs.php:11 admin/metabox/class-metabox.php:161
+#: languages/wordpress-seojs.php:11 admin/metabox/class-metabox.php:158
 msgid "Meta robots advanced"
 msgstr "高级Meta Robots"
 
-#: admin/metabox/class-metabox.php:149
+#: admin/metabox/class-metabox.php:146
 msgid "Warning: even though you can set the meta robots setting here, the entire site is set to noindex in the sitewide privacy settings, so these settings won't have an effect."
 msgstr "警告：虽然您可以在此设置元数据爬虫的选项，但是由于整个站点的隐私设定为不索引，因此本设置不会有效果。"
 
-#: languages/yoast-components.php:164 languages/yoast-seo-js.php:509
-#: admin/metabox/class-metabox.php:144
+#: languages/yoast-seo-js.php:513 languages/yoast-components.php:167
+#: admin/metabox/class-metabox.php:141
 msgid "Meta description"
 msgstr "元描述"
 
-#: admin/class-meta-columns.php:120
+#: admin/class-meta-columns.php:116
 msgid "SEO Title"
 msgstr "SEO标题"
 
@@ -5085,8 +4944,8 @@ msgstr "面包屑分隔符："
 msgid "%s Breadcrumbs"
 msgstr "%s面包屑导航"
 
-#: admin/metabox/class-metabox.php:889 admin/class-config.php:110
-#: admin/taxonomy/class-taxonomy.php:183
+#: admin/metabox/class-metabox.php:874 admin/class-config.php:111
+#: admin/taxonomy/class-taxonomy.php:180
 msgid "Use Image"
 msgstr "使用图像"
 
@@ -5166,7 +5025,7 @@ msgstr "Facebook个人资料网址"
 msgid "Twitter username (without @)"
 msgstr "Twitter用户名（不包含@）"
 
-#: languages/wordpress-seojs.php:282 admin/class-admin.php:242
+#: languages/wordpress-seojs.php:299 admin/class-admin.php:242
 msgid "FAQ"
 msgstr "常见问题"
 
@@ -5174,7 +5033,7 @@ msgstr "常见问题"
 msgid "Premium Support"
 msgstr "高级支持"
 
-#: languages/wordpress-seojs.php:356 admin/class-admin.php:228
+#: languages/wordpress-seojs.php:373 admin/class-admin.php:228
 msgid "Settings"
 msgstr "设置"
 
@@ -5190,9 +5049,9 @@ msgstr "文章"
 msgid "Edit Files"
 msgstr "编辑文件"
 
-#: admin/pages/network.php:18 admin/pages/metas.php:18
 #: admin/menu/class-admin-menu.php:85
-#: admin/menu/class-network-admin-menu.php:56
+#: admin/menu/class-network-admin-menu.php:56 admin/pages/metas.php:18
+#: admin/pages/network.php:18
 msgid "General"
 msgstr "常规"
 
@@ -5216,17 +5075,17 @@ msgstr "高级"
 msgid "XML sitemaps"
 msgstr "XML 站点地图"
 
-#: admin/class-social-admin.php:108 admin/menu/class-admin-menu.php:92
-#: admin/taxonomy/class-taxonomy-metabox.php:175
+#: admin/menu/class-admin-menu.php:92 admin/metabox/class-metabox.php:360
+#: admin/taxonomy/class-taxonomy-metabox.php:193
 msgid "Social"
 msgstr "社交"
 
-#: inc/class-wpseo-admin-bar-menu.php:473 inc/health-check.php:173
 #: src/presenters/meta-description-presenter.php:41
 #: admin/menu/class-admin-menu.php:38
 #: admin/menu/class-network-admin-menu.php:35
-#: admin/metabox/class-metabox.php:385
-#: admin/taxonomy/class-taxonomy-metabox.php:127
+#: admin/metabox/class-metabox.php:379
+#: admin/taxonomy/class-taxonomy-metabox.php:132 inc/health-check.php:173
+#: inc/class-wpseo-admin-bar-menu.php:473
 msgid "SEO"
 msgstr "SEO"
 
@@ -5236,7 +5095,7 @@ msgstr "SEO"
 msgid "%1$s detected you are using version %2$s of %3$s, please update to the latest version to prevent compatibility issues."
 msgstr "%1$s 检测到您正在使用 %2$s 版的%3$s, 请更新到最新版本，以防止出现兼容性问题。"
 
-#: inc/health-check-default-tagline.php:63 admin/class-admin-init.php:542
+#: admin/class-admin-init.php:542 inc/health-check-default-tagline.php:63
 msgid "Just another WordPress site"
 msgstr "又一个WordPress站点"
 

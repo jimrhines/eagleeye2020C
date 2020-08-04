@@ -5,7 +5,7 @@ Tags: translate, translation, multilingual, automatic translation, bilingual, fr
 Requires at least: 3.1.0
 Tested up to: 5.4.2
 Requires PHP: 5.6.20
-Stable tag: 1.7.8
+Stable tag: 1.7.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -138,6 +138,16 @@ For more information please check out our [documentation](https://translatepress
 
 
 == Changelog ==
+= 1.7.9 =
+* Fix for various 404 page results
+* Fixed flag spacing in RTL languages
+* Added "Full Language Names No HTML" option to language menu
+* Added possibility to change date format by language
+* Oxygen plugin stylesheet loading time improvement
+* Compatibility with Brizy's editor
+* Added filter to allow https adjustments
+* Improved searching on certain pages
+
 = 1.7.8 =
 * Added possibility to exclude hreflang from an original URL
 * Fixed translating json inside json. It ensures compatibility with Brizy

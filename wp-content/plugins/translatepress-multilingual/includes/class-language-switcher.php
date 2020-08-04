@@ -426,21 +426,28 @@ class TRP_Language_Switcher{
                 }
                 $language_names = $this->trp_languages->get_language_names( array( $language_code ) );
                 $language_name = $language_names[$language_code];
+	            $items[$key]->url = $this->url_converter->get_url_for_language( $language_code );
 
+	            // Output of simple text only menu, for compatibility with certain themes/plugins
+                if ($menu_settings["no_html"] ){
+	                $items[$key]->classes[] = '';
+	                $items[$key]->title =  $language_name;
+                } else {
+	                $items[$key]->classes[] = 'trp-language-switcher-container';
+	                $items[$key]->title = '<span data-no-translation>';
+	                if ( $menu_settings['flags'] ) {
+		                $items[$key]->title .= $this->add_flag( $language_code, $language_name );
+	                }
+	                if ( $menu_settings['short_names'] ) {
+		                $items[$key]->title .= '<span class="trp-ls-language-name">' . strtoupper( $this->url_converter->get_url_slug( $language_code, false ) ) . '</span>';
+	                }
+	                if ( $menu_settings['full_names'] ) {
+		                $items[$key]->title .= '<span class="trp-ls-language-name">' . $language_name . '</span>';
+	                }
+	                $items[$key]->title .= '</span>';
 
-                $items[$key]->url = $this->url_converter->get_url_for_language( $language_code );
-                $items[$key]->classes[] = 'trp-language-switcher-container';
-                $items[$key]->title = '<span data-no-translation>';
-                if ( $menu_settings['flags'] ) {
-                    $items[$key]->title .= $this->add_flag( $language_code, $language_name );
                 }
-                if ( $menu_settings['short_names'] ) {
-                    $items[$key]->title .= '<span class="trp-ls-language-name">' . strtoupper( $this->url_converter->get_url_slug( $language_code, false ) ) . '</span>';
-                }
-                if ( $menu_settings['full_names'] ) {
-                    $items[$key]->title .= '<span class="trp-ls-language-name">' . $language_name . '</span>';
-                }
-                $items[$key]->title .= '</span>';
+
 
                 $items[$key]->title = apply_filters( 'trp_menu_language_switcher', $items[$key]->title, $language_name, $language_code, $menu_settings );
             }

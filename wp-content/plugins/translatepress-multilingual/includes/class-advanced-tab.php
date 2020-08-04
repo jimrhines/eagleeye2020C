@@ -77,6 +77,14 @@ class TRP_Advanced_Tab {
                         $settings[ $registered_setting['name'] ] = sanitize_text_field($submitted_settings[ $registered_setting['name'] ]);
                         break;
                     }
+					case 'input_array': {
+						foreach ( $registered_setting['rows'] as $row_label => $row_name ) {
+                            if (isset($submitted_settings[$registered_setting['name']][$row_label])) {
+                                    $settings[$registered_setting['name']][$row_label] = sanitize_text_field($submitted_settings[$registered_setting['name']][$row_label]);
+                            }
+                        }
+						break;
+					}
                     case 'number': {
                         $settings[ $registered_setting['name'] ] = sanitize_text_field(intval($submitted_settings[ $registered_setting['name'] ] ) );
                         break;
@@ -147,6 +155,7 @@ class TRP_Advanced_Tab {
         include_once(TRP_PLUGIN_DIR . 'includes/advanced-settings/disable-dynamic-translation.php');
         include_once(TRP_PLUGIN_DIR . 'includes/advanced-settings/enable-auto-translate-slug.php');
         include_once(TRP_PLUGIN_DIR . 'includes/advanced-settings/enable-numerals-translation.php');
+        include_once(TRP_PLUGIN_DIR . 'includes/advanced-settings/custom-date-format.php');
         include_once(TRP_PLUGIN_DIR . 'includes/advanced-settings/exclude-dynamic-selectors.php');
         include_once(TRP_PLUGIN_DIR . 'includes/advanced-settings/exclude-gettext-strings.php');
         include_once(TRP_PLUGIN_DIR . 'includes/advanced-settings/exclude-selectors.php');
@@ -207,6 +216,9 @@ class TRP_Advanced_Tab {
                 case 'number':
                     echo $this->input_setting( $setting, 'number' );
                     break;
+				case 'input_array':
+					echo $this->input_array_setting( $setting );
+					break;
                 case 'select':
                     echo $this->select_setting( $setting );
                     break;
@@ -307,6 +319,39 @@ class TRP_Advanced_Tab {
                 </td>
             </tr>";
         return apply_filters('trp_advanced_setting_input', $html );
+    }
+
+	/**
+	 * Return HTML of an array type setting
+	 *
+	 * @param $setting
+	 * @param string $type
+	 *
+	 * @return 'string'
+	 */
+	public function input_array_setting ($setting, $type = 'text'){
+	    $adv_option = $this->settings['trp_advanced_settings'];
+	    $default = ( isset( $setting['default'] )) ? $setting['default'] : '';
+
+	    $html = "
+             <tr>
+                <th scope='row'>" . $setting['label'] .  "</th>
+                <td>
+                <table class='form-table' style='width:10rem;margin-left:-2rem;margin-top:-1rem'>";
+	            foreach ($setting['rows'] as $row_label=>$row_name ){
+                    $value = ( isset( $adv_option[ $setting['name'] ][$row_label] ) ) ? $adv_option[ $setting['name'] ][$row_label]  : $default;
+
+                    $html.= "
+			    <tr>
+			        <td><label for='{$setting['name']}-{$row_label}'> {$row_name} </label></td><td><input type='{$type}' id='{$setting['name']}-{$row_label}' name='trp_advanced_settings[{$setting['name']}][{$row_label}]' value='{$value}'>
+			        </td>
+			    </tr>";
+	            }
+	    $html.="</table>
+<p class='description'>{$setting['description']}</p>
+                </td>
+            </tr>";
+	    return apply_filters('trp_advanced_setting_input_array', $html );
     }
 
     /**

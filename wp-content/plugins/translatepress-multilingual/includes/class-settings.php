@@ -23,11 +23,12 @@ class TRP_Settings{
      */
     public function get_language_switcher_options(){
         $ls_options = apply_filters( 'trp_language_switcher_output', array(
-            'full-names'        => array( 'full_names'  => true, 'short_names'  => false, 'flags' => false, 'label' => __( 'Full Language Names', 'translatepress-multilingual' ) ),
-            'short-names'       => array( 'full_names'  => false, 'short_names'  => true, 'flags' => false, 'label' => __( 'Short Language Names', 'translatepress-multilingual' ) ),
-            'flags-full-names'  => array( 'full_names'  => true, 'short_names'  => false, 'flags' => true, 'label' => __( 'Flags with Full Language Names', 'translatepress-multilingual' ) ),
-            'flags-short-names' => array( 'full_names'  => false, 'short_names'  => true, 'flags' => true, 'label' => __( 'Flags with Short Language Names', 'translatepress-multilingual' ) ),
-            'only-flags'        => array( 'full_names'  => false, 'short_names'  => false, 'flags' => true, 'label' => __( 'Only Flags', 'translatepress-multilingual' ) ),
+            'full-names'         => array( 'full_names'  => true, 'short_names'  => false, 'flags' => false, 'no_html' => false, 'label' => __( 'Full Language Names', 'translatepress-multilingual' ) ),
+            'short-names'        => array( 'full_names'  => false, 'short_names'  => true, 'flags' => false, 'no_html' => false, 'label' => __( 'Short Language Names', 'translatepress-multilingual' ) ),
+            'flags-full-names'   => array( 'full_names'  => true, 'short_names'  => false, 'flags' => true, 'no_html' => false, 'label' => __( 'Flags with Full Language Names', 'translatepress-multilingual' ) ),
+            'flags-short-names'  => array( 'full_names'  => false, 'short_names'  => true, 'flags' => true, 'no_html' => false, 'label' => __( 'Flags with Short Language Names', 'translatepress-multilingual' ) ),
+            'only-flags'         => array( 'full_names'  => false, 'short_names'  => false, 'flags' => true, 'no_html' => false, 'label' => __( 'Only Flags', 'translatepress-multilingual' ) ),
+	        'full-names-no-html' => array( 'full_names'  => false, 'short_names'  => false, 'flags' => false, 'no_html' => true, 'label' => __( 'Full Language Names No HTML', 'translatepress-multilingual' ) )
         ) );
         return $ls_options;
     }
@@ -40,10 +41,15 @@ class TRP_Settings{
      */
     public function output_language_switcher_select( $ls_type, $ls_setting ){
         $ls_options = $this->get_language_switcher_options();
+        // Use the full names no HTML option only for the menu - for extra compatibility with certain themes and menus
+	    if ($ls_type !== 'menu-options'){
+	    	unset($ls_options['full-names-no-html']);
+	    }
         $output = '<select id="' . esc_attr( $ls_type ) . '" name="trp_settings[' . esc_attr( $ls_type ) .']" class="trp-select trp-ls-select-option">';
         foreach( $ls_options as $key => $ls_option ){
             $selected = ( $ls_setting == $key ) ? 'selected' : '';
             $output .= '<option value="' . esc_attr( $key ) . '" ' . esc_attr( $selected ) . ' >' . esc_html( $ls_option['label'] ). '</option>';
+
         }
         $output .= '</select>';
 

@@ -115,6 +115,10 @@ body.admin-bar #trp-floater-ls.trp-top-left{
     padding: 0;
 }
 
+.trp-flag-image:dir(rtl) {
+    margin-left: 5px;
+}
+
 #trp-floater-ls a {
     text-decoration: none;
 }

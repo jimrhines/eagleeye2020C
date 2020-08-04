@@ -57,7 +57,7 @@ class TRP_Translate_Press{
         define( 'TRP_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
         define( 'TRP_PLUGIN_BASE', plugin_basename( __DIR__ . '/index.php' ) );
         define( 'TRP_PLUGIN_SLUG', 'translatepress-multilingual' );
-        define( 'TRP_PLUGIN_VERSION', '1.7.8' );
+        define( 'TRP_PLUGIN_VERSION', '1.7.9' );
 
 	    wp_cache_add_non_persistent_groups(array('trp'));
 
@@ -298,6 +298,7 @@ class TRP_Translate_Press{
 
         $this->loader->add_action( 'trp_translation_manager_footer', $this->translation_manager, 'enqueue_scripts_and_styles' );
         $this->loader->add_filter( 'template_include', $this->translation_manager, 'translation_editor', 99999 );
+        $this->loader->add_filter( 'option_date_format', $this->translation_manager, 'filter_the_date' );
         $this->loader->add_action( 'wp_enqueue_scripts', $this->translation_manager, 'enqueue_preview_scripts_and_styles' );
         $this->loader->add_action( 'admin_bar_menu', $this->translation_manager, 'add_shortcut_to_translation_editor', 90, 1 );
         $this->loader->add_action( 'admin_head', $this->translation_manager, 'add_styling_to_admin_bar_button', 10 );
@@ -358,7 +359,8 @@ class TRP_Translate_Press{
          */
         $this->loader->add_filter( "option_rewrite_rules", $this->url_converter, 'woocommerce_filter_permalinks_on_other_languages' );
         $this->loader->add_filter( "option_woocommerce_permalinks", $this->url_converter, 'woocommerce_filter_permalink_option' );
-        $this->loader->add_filter( "pre_update_option_woocommerce_permalinks", $this->url_converter, 'woocommerce_handle_permalink_option_on_frontend', 10, 2 );
+        $this->loader->add_filter( "pre_update_option_woocommerce_permalinks", $this->url_converter, 'prevent_permalink_update_on_other_languages', 10, 2 );
+        $this->loader->add_filter( "pre_update_option_rewrite_rules", $this->url_converter, 'prevent_permalink_update_on_other_languages', 10, 2 );
 
         /* add to the body class the current language */
         $this->loader->add_filter( "body_class", $this->translation_manager, 'add_language_to_body_class' );

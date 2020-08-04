@@ -407,6 +407,9 @@ class TRP_Query{
      * @return array|object|null
      */
     public function original_strings_sync( $language_code, $new_strings ){
+        if ( count($new_strings ) === 0 ){
+            return array();
+        }
         if ( $this->settings['default-language'] != $language_code ) {
 
             $originals_table = $this->get_table_name_for_original_strings();
@@ -617,14 +620,14 @@ class TRP_Query{
 	 *
 	 * @param array $update_strings                 Array of strings to update
 	 * @param string $language_code                 Language code
-	 * @param array $columns_to_update              Array with the name of columns to update id, original, translated, status, block_type
+	 * @param array $columns_to_update              Array with the name of columns to update id, original, translated, status, block_type, original_id
 	 */
-	public function update_strings( $update_strings, $language_code, $columns_to_update = array('id','original', 'translated', 'status', 'block_type') ) {
+	public function update_strings( $update_strings, $language_code, $columns_to_update = array('id','original', 'translated', 'status', 'block_type', 'original_id') ) {
 		if ( count( $update_strings ) == 0 ) {
 			return;
 		}
 
-		$placeholder_array_mapping = array( 'id'=>'%d', 'original'=>'%s', 'translated' => '%s', 'status' => '%d', 'block_type'=>'%d' );
+		$placeholder_array_mapping = array( 'id'=>'%d', 'original'=>'%s', 'translated' => '%s', 'status' => '%d', 'block_type'=>'%d', 'original_id'=>'%d' );
 		$columns_query_part = '';
 		foreach ( $columns_to_update as $column ) {
 			$columns_query_part .= $column . ',';

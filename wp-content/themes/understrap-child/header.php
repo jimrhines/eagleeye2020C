@@ -165,7 +165,10 @@ $container = get_theme_mod( 'understrap_container_type' );
 							<a class="nav-link" href="<?php echo get_permalink(485); ?>">About Us</a>
 						</li>
 					</ul>
-					<div class="mr-4">
+					<div class="mt-2 mr-2 mb-4 my-lg-0">
+						<a class="btn btn-primary" href="<?php echo get_permalink(13); ?>" role="button">Get a Quote &gt;</a>
+					</div>
+					<div class="mr-2">
 						<?php wp_nav_menu(
 							array(
 								'theme_location'  => 'primary',

@@ -160,6 +160,8 @@ class TRP_Machine_Translator {
             $placeholders = $this->get_placeholders(count($trp_exclude_words_from_automatic_translation));
             $shortcode_tags_to_execute = apply_filters( 'trp_do_these_shortcodes_before_automatic_translation', array('trp_language') );
 
+            $strings = array_unique($strings);
+            $original_strings = $strings;
             foreach ($strings as $key => $string) {
                 /* html_entity_decode is needed before replacing the character "#" from the list because characters like &#8220; (8220 utf8)
                  * will get an extra space after '&' which will break the character, rendering it like this: & #8220;
@@ -175,13 +177,13 @@ class TRP_Machine_Translator {
                 $machine_strings = $this->translate_array($strings, $target_language_code, $source_language_code);
             }
 
-
+            $machine_strings_return_array = array();
             if (!empty($machine_strings)) {
                 foreach ($machine_strings as $key => $machine_string) {
-                    $machine_strings[$key] = str_ireplace( $placeholders, $trp_exclude_words_from_automatic_translation, $machine_string );
+                    $machine_strings_return_array[$original_strings[$key]] = str_ireplace( $placeholders, $trp_exclude_words_from_automatic_translation, $machine_string );
                 }
             }
-            return $machine_strings;
+            return $machine_strings_return_array;
         }else {
             return array();
         }

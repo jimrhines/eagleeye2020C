@@ -102,7 +102,6 @@ class TRP_Ajax{
 
 
         $this->connection = mysqli_connect( $credentials['db_host'], $credentials['db_user'], $credentials['db_password'], $credentials['db_name'] );
-        mysqli_set_charset ( $this->connection , $credentials['db_charset'] );
 
         // Check connection
         if ( mysqli_connect_errno() ) {
@@ -110,6 +109,7 @@ class TRP_Ajax{
             return false;
         }
 
+        mysqli_set_charset ( $this->connection , $credentials['db_charset'] );
         if ( preg_match_all( '/\$table_prefix\s*=\s*[\'"](.*?)[\'"]/', $content, $results ) ) {
             $this->table_prefix = end( $results[1] );
         }else{

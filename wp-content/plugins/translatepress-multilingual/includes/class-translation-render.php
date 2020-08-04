@@ -548,6 +548,11 @@ class TRP_Translation_Render{
                     }
                 }
                 else{
+                    /* Setting this attribute using setAttribute function actually changes the $html object.
+                    Important for not detecting this gettext as a regular string in the next lines using find()  */
+                    $row->setAttribute($no_translate_attribute, '');
+
+                    /* Changes made to outertext take place only after saving the html object to a string */
                     $row->outertext = '<trp-wrap class="trp-wrap" data-no-translation';
                     if (isset($_REQUEST['trp-edit-translation']) && $_REQUEST['trp-edit-translation'] == 'preview') {
                         $row->outertext .= ' data-trpgettextoriginal="'. $original_gettext_translation_id .'"';
@@ -1265,52 +1270,43 @@ class TRP_Translation_Render{
             }
         }
 
+        $untranslated_list = $this->trp_query->get_untranslated_strings( $new_strings, $language_code );
+        $update_strings = array();
 
         // machine translate new strings
         if ( $machine_translation_available ) {
             $machine_strings = $this->machine_translator->translate( $machine_translatable_strings, $language_code, $this->settings['default-language'] );
+            $unique_original_strings_with_machine_translations = array_keys($machine_strings);
+            $original_inserts = $this->trp_query->original_strings_sync( $language_code, $unique_original_strings_with_machine_translations );
+
+            // insert unique machine translations into db. Only for strings newly discovered
+            foreach ( $unique_original_strings_with_machine_translations as $string ) {
+                $id = ( isset( $untranslated_list[$string] ) ) ? $untranslated_list[$string]->id : NULL;
+                array_push( $update_strings, array(
+                    'id'          => $id,
+                    'original_id' => $original_inserts[ $string ]->id,
+                    'original'    => trp_sanitize_string( $string ),
+                    'translated'  => trp_sanitize_string( $machine_strings[ $string ] ),
+                    'status'      => $this->trp_query->get_constant_machine_translated() ) );
+            }
         }else{
             $machine_strings = false;
         }
 
         // update existing strings without translation if we have one now. also, do not insert duplicates for existing untranslated strings in db
-        $untranslated_list = $this->trp_query->get_untranslated_strings( $new_strings, $language_code );
-        $update_strings = array();
         foreach( $new_strings as $i => $string ){
-            if ( isset( $untranslated_list[$string] ) ){
-                //string exists as not translated, thus need to be updated if we have translation
-                if ( isset( $machine_strings[$i] ) ) {
-                    // we have a translation
-                    array_push ( $update_strings, array(
-                        'id' => $untranslated_list[$string]->id,
-                        'original' => trp_sanitize_string($untranslated_list[$string]->original),
-                        'translated' => trp_sanitize_string($machine_strings[$i]),
-                        'status' => $this->trp_query->get_constant_machine_translated() ) );
-                    $translated_strings[$i] = $machine_strings[$i];
-                }
+
+            if ( !isset($translated_strings[$i]) && isset( $machine_strings[$string] ) ) {
+                $translated_strings[$i] = $machine_strings[$string];
+            }
+
+            if ( isset( $untranslated_list[$string] ) || isset( $machine_strings[$string] ) ){
                 unset( $new_strings[$i] );
             }
         }
 
-        // insert remaining machine translations into db
-        if ( $machine_strings !== false ) {
-            foreach ($machine_strings as $i => $string) {
-                if ( isset( $translated_strings[$i] ) ){
-                    continue;
-                }else {
-                    $translated_strings[$i] = $machine_strings[$i];
-                    array_push ( $update_strings, array(
-                        'id' => NULL,
-                        'original' => $new_strings[$i],
-                        'translated' => trp_sanitize_string($machine_strings[$i]),
-                        'status' => $this->trp_query->get_constant_machine_translated() ) );
-                    unset($new_strings[$i]);
-                }
-            }
-        }
-
         $this->trp_query->insert_strings( $new_strings, $language_code, $block_type );
-        $this->trp_query->update_strings( $update_strings, $language_code, array( 'id','original', 'translated', 'status' ) );
+        $this->trp_query->update_strings( $update_strings, $language_code, array( 'id','original', 'translated', 'status', 'original_id' ) );
 
         return $translated_strings;
     }

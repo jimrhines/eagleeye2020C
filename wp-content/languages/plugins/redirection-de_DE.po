@@ -2,14 +2,22 @@
 # This file is distributed under the same license as the Plugins - Redirection - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-05-24 17:18:15+0000\n"
+"PO-Revision-Date: 2020-07-30 15:03:53+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: GlotPress/3.0.0-alpha\n"
+"X-Generator: GlotPress/3.0.0-alpha.2\n"
 "Language: de\n"
 "Project-Id-Version: Plugins - Redirection - Stable (latest release)\n"
+
+#: redirection-strings.php:669
+msgid "Add Header"
+msgstr "Header hinzufügen"
+
+#: redirection-strings.php:246
+msgid "Continue"
+msgstr "Fortsetzen"
 
 #: redirection-strings.php:683
 msgid "Value"
@@ -51,6 +59,15 @@ msgstr "Position"
 msgid "Custom Header"
 msgstr "Individuelle Header"
 
+#: redirection-strings.php:78 redirection-strings.php:306
+#: redirection-strings.php:665
+msgid "Site"
+msgstr "Website"
+
+#: redirection-strings.php:666
+msgid "Redirect"
+msgstr "Weiterleitung"
+
 #: redirection-strings.php:570
 msgid "Ignore Query"
 msgstr "Abfrage ignorieren"
@@ -87,6 +104,72 @@ msgstr "Letzter Zugriff"
 msgid "HTTP Status Code"
 msgstr "HTTP-Statuscode"
 
+#: redirection-strings.php:548
+msgid "Plain"
+msgstr "Einfach"
+
+#: redirection-strings.php:528
+msgid "Source"
+msgstr "Herkunft"
+
+#: redirection-strings.php:519
+msgid "Code"
+msgstr "Code"
+
+#: redirection-strings.php:518 redirection-strings.php:539
+#: redirection-strings.php:550
+msgid "Action Type"
+msgstr "Art des Vorgangs"
+
+#: redirection-strings.php:377 redirection-strings.php:418
+msgid "Search IP"
+msgstr "IP suchen"
+
+#: redirection-strings.php:378 redirection-strings.php:557
+msgid "Search target URL"
+msgstr "Ziel-URL suchen"
+
+#: redirection-strings.php:374 redirection-strings.php:415
+#: redirection-strings.php:556
+msgid "Search URL"
+msgstr "URL suchen"
+
+#: redirection-strings.php:635
+msgid "Language"
+msgstr "Sprache"
+
+#: redirection-strings.php:100 matches/language.php:9
+msgid "URL and language"
+msgstr "URL und Sprache"
+
+#: redirection-strings.php:252
+msgid "Automatic Install"
+msgstr "Automatische Installation"
+
+#: redirection-strings.php:13 redirection-strings.php:251
+msgid "Manual Install"
+msgstr "Manuelle Installation"
+
+#: redirection-strings.php:574
+msgid "Database version"
+msgstr "Datenbankversion"
+
+#: redirection-strings.php:250
+msgid "I need support!"
+msgstr "Ich brauche Support!"
+
+#: redirection-strings.php:173
+msgid "Check Again"
+msgstr "Erneut prüfen"
+
+#: redirection-strings.php:166
+msgid "Unavailable"
+msgstr "Nicht verfügbar"
+
+#: redirection-strings.php:160
+msgid "Hide"
+msgstr "Verstecken"
+
 #: redirection-strings.php:358
 msgid "Export 404"
 msgstr "Exportiere 404"
@@ -106,6 +189,10 @@ msgstr "Ignoriere die Parameter und übergibt sie an das Ziel"
 #: redirection-strings.php:128
 msgid "Ignore all parameters"
 msgstr "Alle Parameter ignorieren"
+
+#: redirection-strings.php:126
+msgid "Ignore Case"
+msgstr "Fall ignorieren"
 
 #. translators: 1: URL to plugin page, 2: current version, 3: target version
 #: redirection-admin.php:82
@@ -519,10 +606,6 @@ msgstr "Wenn du einen Bug mitteilen möchtest, lies bitte zunächst unseren {{re
 #: redirection-strings.php:582
 msgid "If you want to submit information that you don't want in a public repository then send it directly via {{email}}email{{/email}} - include as much information as you can!"
 msgstr "Wenn du nicht möchtest, dass deine Nachricht öffentlich sichtbar ist, dann sende sie bitte per {{email}}E-Mail{{/email}} - sende so viele Informationen, wie möglich."
-
-#. Plugin URI of the plugin
-msgid "https://redirection.me/"
-msgstr "https://redirection.me/"
 
 #: redirection-strings.php:467
 msgid "An hour"
@@ -1307,14 +1390,6 @@ msgstr "Einzigartiges Token, das RSS-Klienten Zugang zum Umleitung-Log-Feed gew�
 #: redirection-strings.php:80
 msgid "404s"
 msgstr "404s"
-
-#. Author of the plugin
-msgid "John Godley"
-msgstr "John Godley"
-
-#. Description of the plugin
-msgid "Manage all your 301 redirects and monitor 404 errors"
-msgstr "Verwalte alle 301-Umleitungen und 404-Fehler."
 
 #: database/schema/latest.php:144
 msgid "Modified Posts"

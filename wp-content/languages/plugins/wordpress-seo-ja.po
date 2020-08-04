@@ -2,49 +2,104 @@
 # This file is distributed under the same license as the Plugins - Yoast SEO - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-04-30 14:37:51+0000\n"
+"PO-Revision-Date: 2020-07-27 04:41:53+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: GlotPress/2.4.0-alpha\n"
+"X-Generator: GlotPress/3.0.0-alpha.2\n"
 "Language: ja_JP\n"
 "Project-Id-Version: Plugins - Yoast SEO - Stable (latest release)\n"
 
-#: src/presenters/admin/indexation-warning-presenter.php:37
-msgid "Yoast indexation status"
-msgstr "Yoast インデックスのステータス"
+#: languages/wordpress-seojs.php:231
+msgid "%s preview"
+msgstr "%s プレビュー"
 
-#: src/integrations/admin/indexation-integration.php:167
+#. translators: %1$s expands to Yoast.
+#: src/integrations/blocks/block-categories.php:49
+msgid "%1$s Internal Linking Blocks"
+msgstr "%1$s 内部リンクブロック"
+
+#: languages/wordpress-seojs.php:290
+msgid "Open in new tab"
+msgstr "新しいタブで開く"
+
+#: languages/wordpress-seojs.php:278
+msgid "Link inserted."
+msgstr "リンクを挿入しました。"
+
+#: languages/wordpress-seojs.php:275
+msgid "Link edited."
+msgstr "リンクを編集しました。"
+
+#: languages/wordpress-seojs.php:272
+msgid "Warning: the link has been inserted but may have errors. Please test it."
+msgstr "警告: リンクは挿入されましたが、エラーがあるかもしれません。テストしてください。"
+
+#: languages/wordpress-seojs.php:269
+msgid "Link"
+msgstr "リンク"
+
+#: languages/wordpress-seojs.php:266
+msgid "Unlink"
+msgstr "リンクを解除"
+
+#: languages/wordpress-seojs.php:263
+msgid "Link removed."
+msgstr "リンクを削除しました。"
+
+#: languages/wordpress-seojs.php:107
+msgid "No focus keyword was entered"
+msgstr "フォーカスキーワードが入力されていません"
+
+#: languages/wordpress-seojs.php:86
+msgid "Improve your post with Yoast SEO"
+msgstr "Yoast SEO で投稿を改善"
+
+#: languages/wordpress-seojs.php:82
+msgid "SEO analysis:"
+msgstr "SEO 分析:"
+
+#. translators: %1$s: Yoast SEO
+#: admin/class-yoast-columns.php:32
+msgid "%1$s adds several columns to this page."
+msgstr "%1$s はこのページに複数のカラムを追加します。"
+
+#: src/presenters/admin/indexation-list-item-presenter.php:40
+msgid "SEO Data"
+msgstr "SEO データ"
+
+#. translators: 1: Expands to Yoast.
+#: src/presenters/admin/indexation-warning-presenter.php:102
+#: src/presenters/admin/indexation-warning-presenter.php:131
+msgid "%1$s indexing status"
+msgstr "%1$s インデックスのステータス"
+
+#: src/integrations/admin/indexation-integration.php:197
 msgid "Optimization failed, please try again later."
 msgstr "最適化に失敗しました。しばらくしてからもう一度お試しください。"
 
-#: src/integrations/admin/indexation-integration.php:166
+#: src/integrations/admin/indexation-integration.php:196
 msgid "Optimization completed."
 msgstr "最適化が完了しました。"
 
-#: src/integrations/admin/indexation-integration.php:165
+#: src/integrations/admin/indexation-integration.php:195
 msgid "Optimization in progress..."
 msgstr "最適化中..."
 
-#: src/integrations/admin/indexation-integration.php:161
+#: src/integrations/admin/indexation-integration.php:191
 msgid "Good job! You've sped up your site."
 msgstr "サイトの高速化を完了しました。"
 
-#: src/presenters/admin/indexation-list-item-presenter.php:52
-msgid "Speed up your site"
-msgstr "サイトを高速化"
-
-#: src/presenters/admin/indexation-list-item-presenter.php:42
+#: src/presenters/admin/indexation-list-item-presenter.php:64
 msgid "Great, your site has been optimized!"
 msgstr "サイトの最適化を完了しました。"
 
-#: src/presenters/admin/indexation-list-item-presenter.php:39
-#: src/presenters/admin/indexation-list-item-presenter.php:51
+#: src/presenters/admin/indexation-list-item-presenter.php:73
 msgid "Speeding up your site"
 msgstr "サイトの高速化"
 
-#: inc/class-wpseo-replace-vars.php:1225
+#: inc/class-wpseo-replace-vars.php:1263
 msgid "Term hierarchy"
 msgstr "ターム階層"
 
@@ -80,68 +135,47 @@ msgstr "サイトが %1$s に接続できません"
 
 #. translators: %1$s: Opening tag of the link to the Yoast Ryte website, %2$s:
 #. Expands to 'Ryte', %3$s: Link closing tag.
-#: inc/health-check-ryte.php:224
+#: inc/health-check-ryte.php:246
 msgid "%1$sGo to %2$s to analyze your entire site%3$s"
 msgstr "%1$s%2$s へ移動してサイト全体を分析%3$s"
 
-#. translators: %1$s: Expands to 'Ryte', %2$s: Expands to 'Yoast SEO'.
-#: inc/health-check-ryte.php:209
-msgid ""
-"%1$s offers a free indexability check for %2$s users, and it shows\n"
-"\t\t\tthat your site can be found by search engines."
-msgstr ""
-"%1$s は %2$s ユーザーに無料のインデックサビリティのチェックを提供します\n"
-"\t\t\tこれは検索エンジンに対してサイトが表示されることを示します。"
-
-#: inc/health-check-ryte.php:203
+#: inc/health-check-ryte.php:226
 msgid "Your site can be found by search engines"
 msgstr "サイトは検索エンジンが見つけることができる状態です"
 
-#. translators: %1$s: Expands to 'Ryte', %2$s: Expands to 'Yoast SEO', %3$s:
-#. Opening tag to the Yoast knowledge base, %4$s: Link closing tag.
-#: inc/health-check-ryte.php:185
-msgid ""
-"%1$s offers a free indexability check for %2$s users and right now it has trouble determining\n"
-"\t\t\twhether search engines can find your site. This could have several (legitimate) reasons and is not a problem\n"
-"\t\t\tin itself. If this is a live site, %3$sit is recommended that you figure out why the %1$s check failed.%4$s"
-msgstr ""
-"%1$s は %2$s ユーザーに無料のインデクサビリティチェックを提供します。これで検索エンジンからサイトが見えない場合の\n"
-"\t\t\t原因を特定できます。この問題にはいくつかの妥当な理由が考えられ自身に原因が\n"
-"\t\t\tない場合もあります。本番サイトであれば、%3$sなぜ %1$s チェックが失敗したのか原因を特定することを推奨します。%4$s"
-
 #. translators: %1$s: Expands to 'Ryte'.
-#: inc/health-check-ryte.php:177
+#: inc/health-check-ryte.php:179
 msgid "%1$s cannot determine whether your site can be found by search engines"
 msgstr "%1$s はサイトが検索エンジンから検索可能かどうか決定できません。"
 
 #. translators: %1$s: Opening tag of the link to the Yoast knowledge base,
 #. %2$s: Link closing tag.
-#: inc/health-check-ryte.php:160
+#: inc/health-check-ryte.php:162
 msgid "%1$sRead more about troubleshooting search engine visibility.%2$s"
 msgstr "%1$s検索エンジンの視認性のトラブルシューティングについて参照ください。%2$s"
 
 #. translators: %1$s: Expands to 'Ryte', %2$s: Expands to 'Yoast SEO'.
-#: inc/health-check-ryte.php:153
+#: inc/health-check-ryte.php:155
 msgid "%1$s offers a free indexability check for %2$s users and it has determined that your site cannot be found by search engines. If this site is live or about to become live, this should be fixed."
 msgstr "%1$s は %2$s ユーザーに無料のインデクサビリティチェックを提供します。チェックの結果、サイトが検索エンジンから見えていません。サイトが本番の場合、または近い将来本番にする予定があれば、問題を修正してください。"
 
-#: inc/health-check-ryte.php:147
+#: inc/health-check-ryte.php:149
 msgid "Your site cannot be found by search engines"
 msgstr "サイトが検索エンジンから見えていません。"
 
 #. translators: %1$s: Opening tag of the link to the Yoast knowledge base,
 #. %2$s: Link closing tag.
-#: inc/health-check-ryte.php:132
+#: inc/health-check-ryte.php:134
 msgid "If this is a live site, %1$sit is recommended that you figure out why the check failed.%2$s"
 msgstr "これが本番サイトであれば、%1$sなぜチェックが失敗したのか原因を特定することを推奨します。%2$s"
 
 #. translators: 1: The Ryte response raw error code, if any. 2: The error
 #. message. 3: The WordPress error code, if any.
-#: inc/health-check-ryte.php:123
+#: inc/health-check-ryte.php:125
 msgid "Error details: %1$s %2$s %3$s"
 msgstr "エラー詳細: %1$s %2$s %3$s"
 
-#: inc/health-check-ryte.php:109
+#: inc/health-check-ryte.php:111
 msgid "An error occurred while checking whether your site can be found by search engines"
 msgstr "検索エンジンからサイトが見えるかどうかのチェック中にエラーが発生しました。"
 
@@ -203,7 +237,7 @@ msgstr "コメントを複数ページに分割"
 msgid "Comments are displayed on a single page"
 msgstr "個別ページにコメントが表示されます"
 
-#: src/helpers/post-helper.php:87
+#: src/helpers/post-helper.php:88
 msgid "No title"
 msgstr "タイトルなし"
 
@@ -224,33 +258,34 @@ msgstr "%1$sディスカッション設定ページへ移動%2$s"
 msgid "Date in Google Preview"
 msgstr "Google プレビューの日付"
 
-#: languages/yoast-components.php:147
+#: languages/yoast-components.php:159
 msgid "Mobile result"
 msgstr "モバイルの結果"
 
-#: languages/yoast-components.php:144
+#: languages/yoast-components.php:156
 msgid "Preview as:"
 msgstr "プレビュー:"
 
-#: languages/yoast-components.php:141
+#: languages/yoast-components.php:153
 msgid "Desktop result"
 msgstr "デスクトップの結果"
 
-#: languages/wordpress-seojs.php:33 languages/yoast-seo-js.php:515
+#: languages/wordpress-seojs.php:123 languages/yoast-seo-js.php:519
 msgid "Google preview"
 msgstr "Google プレビュー"
 
-#: languages/wordpress-seojs.php:153
+#: languages/wordpress-seojs.php:251
 msgid "When you click OK we will open our HelpScout beacon where you can find answers to your questions. This beacon will load our support data and also potentially set cookies."
 msgstr "「OK」をクリックすると HelpScout ビーコンを開きます。そこで質問に対する答えを検索できます。ビーコンはサポートデータをロードし、クッキーを設定する場合があります。"
 
-#: admin/metabox/class-metabox.php:163
+#: admin/metabox/class-metabox.php:159
 msgid "If you want to apply advanced <code>meta</code> robots settings for this page, please define them in the following field."
 msgstr "このページに高度な <code>meta</code> ロボット設定を適用したい場合は、以下の欄で定義してください。"
 
-#. translators: 1: link to Firefox website; 2: link to Chrome website; 3: link
-#. to Edge website; 4: link close tag.
-#: admin/metabox/class-metabox.php:127 admin/taxonomy/class-taxonomy.php:103
+#. translators: 1: Link start tag to the Firefox website, 2: Link start tag to
+#. the Chrome website, 3: Link start tag to the Edge website, 4: Link closing
+#. tag.
+#: admin/metabox/class-metabox.php:123 admin/taxonomy/class-taxonomy.php:102
 msgid "The browser you are currently using is unfortunately rather dated. Since we strive to give you the best experience possible, we no longer support this browser. Instead, please use %1$sFirefox%4$s, %2$sChrome%4$s or %3$sMicrosoft Edge%4$s."
 msgstr "現在使用しているブラウザは、残念ながらかなり古くなっています。可能な限り最高のエクスペリエンスを提供するよう努めているため、このブラウザはサポートしていません。代わりに、%1$sFirefox%4$s、%2$sChrome%4$s、または%3$sMicrosoft Edge%4$s をお使いください。"
 
@@ -299,7 +334,7 @@ msgstr "%1$s 設定:"
 msgid "Import settings from another %1$s installation by pasting them here and clicking \"%2$s\"."
 msgstr "ここに貼り付けて「%2$s」をクリックし、別の %1$s インストールから設定をインポートします。"
 
-#: languages/wordpress-seojs.php:166
+#: languages/wordpress-seojs.php:306
 msgid "Schema"
 msgstr "スキーマ"
 
@@ -410,22 +445,22 @@ msgstr "入力した Facebook App ID は存在しません。%s"
 msgid "Baidu verification codes can only contain letters, numbers, hyphens, and underscores. %s"
 msgstr "Baidu 確認コードには、半角英字、半角数字、ハイフン、アンダースコアのみが含まれます。%s"
 
-#: admin/views/partial-alerts-template.php:45
+#: admin/views/partial-notifications-template.php:45
 msgid "Show this item."
 msgstr "この項目を表示する。"
 
-#: admin/views/partial-alerts-template.php:38
+#: admin/views/partial-notifications-template.php:38
 msgid "Hide this item."
 msgstr "この項目を非表示にする。"
 
 #. translators: %d expands the amount of hidden problems.
-#: admin/views/partial-alerts-errors.php:25
+#: admin/views/partial-notifications-errors.php:25
 msgid "You have %d hidden problem:"
 msgid_plural "You have %d hidden problems:"
 msgstr[0] "%d件の非表示の問題があります。"
 
 #. translators: %d expands the amount of hidden notifications.
-#: admin/views/partial-alerts-warnings.php:25
+#: admin/views/partial-notifications-warnings.php:25
 msgid "You have %d hidden notification:"
 msgid_plural "You have %d hidden notifications:"
 msgstr[0] "%d件の非表示通知があります。"
@@ -459,7 +494,7 @@ msgstr[0] "このフォームには%1$s件のエラーが含まれています�
 msgid "Activate %s for your site on MyYoast"
 msgstr "MyYoast でサイト上での %s を有効化"
 
-#: languages/yoast-components.php:72
+#: languages/yoast-components.php:75
 msgid "%d occurrences"
 msgstr "%d回"
 
@@ -467,33 +502,33 @@ msgstr "%d回"
 msgid "Show blog page in breadcrumbs"
 msgstr "ブログページをパンくずリストで表示"
 
-#: languages/yoast-components.php:93
+#: languages/yoast-components.php:96
 msgid "We could not find any relevant articles on your website that you could link to from your post."
 msgstr "投稿からリンクできる関連記事をサイト内に見つけることができませんでした。"
 
 #. translators: %1$s expands to the opening anchor tag, %2$s to the closing
 #. anchor tag, %3$s to the SEO score.
-#: admin/formatter/class-metabox-formatter.php:116
 #: admin/formatter/class-metabox-formatter.php:123
 #: admin/formatter/class-metabox-formatter.php:130
 #: admin/formatter/class-metabox-formatter.php:137
+#: admin/formatter/class-metabox-formatter.php:144
 msgid "%1$sSEO%2$s: %3$s"
 msgstr "%1$sSEO%2$s: %3$s"
 
-#: languages/yoast-seo-js.php:469
+#: languages/yoast-seo-js.php:473
 msgid "Has feedback"
 msgstr "フィードバックあり"
 
-#: languages/yoast-seo-js.php:463
+#: languages/yoast-seo-js.php:467
 msgid "Content optimization:"
 msgstr "コンテンツ最適化:"
 
 #. translators: %1$s expands to the opening anchor tag, %2$s to the closing
 #. anchor tag, %3$s to the readability score.
-#: admin/formatter/class-metabox-formatter.php:86
 #: admin/formatter/class-metabox-formatter.php:93
 #: admin/formatter/class-metabox-formatter.php:100
 #: admin/formatter/class-metabox-formatter.php:107
+#: admin/formatter/class-metabox-formatter.php:114
 msgid "%1$sReadability%2$s: %3$s"
 msgstr "%1$s可読性%2$s: %3$s"
 
@@ -514,7 +549,7 @@ msgid "Person logo / avatar"
 msgstr "個人ロゴ / アバター"
 
 #. translators: %s: expends to Yoast SEO
-#: admin/class-admin.php:320
+#: admin/class-admin.php:318
 msgid "%s video tutorial"
 msgstr "%s 動画チュートリアル"
 
@@ -533,10 +568,6 @@ msgstr "フォーカスキーフレーズなし"
 msgid "SEO: %s"
 msgstr "SEO: %s"
 
-#: admin/notifiers/class-post-type-archive-notification-handler.php:76
-msgid "Remove this message"
-msgstr "メッセージを非表示"
-
 #. Translators: %1$s: expands to opening anchor tag, %2$s expands to closing
 #. anchor tag.
 #: admin/google_search_console/views/gsc-display.php:43
@@ -549,15 +580,15 @@ msgstr "現在のクロールエラーを表示するには、%1$sGoogle Search 
 msgid "Google has discontinued its Crawl Errors API. Therefore, any possible crawl errors you might have cannot be displayed here anymore. %1$sRead our statement on this for further information%2$s."
 msgstr "Google は Crawl Errors API を廃止したため、発生した可能性があるクロールエラーはここで表示できなくなります。%1$s詳細については告知をご覧ください。%2$s"
 
-#: languages/wordpress-seojs.php:29
+#: languages/wordpress-seojs.php:95
 msgid "Get the %s plugin now"
 msgstr "%s プラグインを今すぐ入手"
 
-#: languages/wordpress-seojs.php:23
+#: languages/wordpress-seojs.php:89
 msgid "Serving local customers?"
 msgstr "地域のお客様にサービスを提供していますか ?"
 
-#: languages/wordpress-seojs.php:26
+#: languages/wordpress-seojs.php:92
 msgid "Truly optimize your site for a local audience with our %s plugin! Optimized address details, opening hours, store locator and pickup option!"
 msgstr "%s プラグインを使ってあなたのサイトを地元のお客様のために最適化しましょう。住所の詳細、営業時間、店舗検索、ピックアップオプション。"
 
@@ -637,51 +668,51 @@ msgstr "個人"
 msgid "You have previously set your site to represent a person. We’ve improved our functionality around Schema and the Knowledge Graph, so you should go in and %1$scomplete those settings%2$s."
 msgstr "前回あなたのサイトは個人で設定しました。その後私たちは、構造とナレッジグラフに関する機能を向上させたため、%2$sの設定を%1$sで完了させてください。"
 
-#: admin/class-admin.php:287
+#: admin/class-admin.php:285
 msgid "(if one exists)"
 msgstr "(存在する場合)"
 
-#: admin/class-admin.php:287
+#: admin/class-admin.php:285
 msgid "Wikipedia page about you"
 msgstr "あなたについての Wikipedia ページ"
 
-#: admin/class-admin.php:286
+#: admin/class-admin.php:284
 msgid "YouTube profile URL"
 msgstr "YouTube プロフィール URL"
 
-#: admin/class-admin.php:284
+#: admin/class-admin.php:282
 msgid "Tumblr profile URL"
 msgstr "Tumblr プロフィール URL"
 
-#: admin/class-admin.php:283
+#: admin/class-admin.php:281
 msgid "SoundCloud profile URL"
 msgstr "SoundCloud プロフィール URL"
 
-#: admin/class-admin.php:281
+#: admin/class-admin.php:279
 msgid "MySpace profile URL"
 msgstr "MySpace プロフィール URL"
 
-#: src/generators/schema/article.php:130
+#: src/generators/schema/article.php:135
 msgid "Uncategorized"
 msgstr "未分類"
 
-#: languages/wordpress-seojs.php:67
+#: languages/wordpress-seojs.php:145
 msgid "You have selected the user %1$s as the person this site represents. Their user profile information will now be used in search results. %2$sUpdate their profile to make sure the information is correct.%3$s"
 msgstr "このサイトの代表者としてユーザー%1$sを選択しました。ユーザープロファイル情報は検索結果に使用されます。%2$s情報が正しいことを確認するためにプロファイルを更新してください。%3$s"
 
-#: languages/wordpress-seojs.php:64
+#: languages/wordpress-seojs.php:142
 msgid "Error: Please select a user below to make your site's meta data complete."
 msgstr "エラー: サイトのメタデータを完成させるには、以下でのユーザーを選択してください。"
 
-#: languages/wordpress-seojs.php:61
+#: languages/wordpress-seojs.php:139
 msgid "Name:"
 msgstr "名前:"
 
-#: languages/wordpress-seojs.php:58
+#: languages/wordpress-seojs.php:136
 msgid "You can edit the details shown in meta data, like the social profiles, the name and the description of this user on their %1$s profile page."
 msgstr "メタデーター内のソーシャルプロフィール、名前、その他ユーザーの詳細なデータを %1$s プロファイルページで編集できます。"
 
-#: languages/wordpress-seojs.php:52
+#: languages/wordpress-seojs.php:130
 msgid "Select a user..."
 msgstr "ユーザーを選択してください"
 
@@ -694,15 +725,15 @@ msgstr "SEOスコア: %s"
 msgid "If a Wikipedia page for you or your organization exists, add it too."
 msgstr "組織の Wikipedia ページがある場合は、そちらも追加してください。"
 
-#: admin/class-admin.php:282
+#: admin/class-admin.php:280
 msgid "Pinterest profile URL"
 msgstr "Pinterest プロフィール URL"
 
-#: admin/class-admin.php:280
+#: admin/class-admin.php:278
 msgid "LinkedIn profile URL"
 msgstr "LinkedInプロフィール URL"
 
-#: admin/class-admin.php:279
+#: admin/class-admin.php:277
 msgid "Instagram profile URL"
 msgstr "Instagram プロフィール URL"
 
@@ -715,18 +746,10 @@ msgstr "Wikipedia URL"
 msgid "No JSON object was returned."
 msgstr "JSON オブジェクトは返されませんでした。"
 
-#: languages/yoast-components.php:117
-msgid "The image you selected is too small for Facebook"
-msgstr "Facebook 用に選択した画像が小さすぎます"
-
 #. translators: %1$s resolves to Keyword research training
 #: admin/config-ui/components/class-component-suggestions.php:57
 msgid "Keyword research is essential in any SEO strategy. You decide the search terms you want to be found for, and figure out what words your audience uses to find you. Great keyword research tells you what content you need to start ranking for the terms you want to rank for. Make sure your efforts go into the keywords you actually have a chance at ranking for! The %1$s walks you through this process, step by step."
 msgstr "キーワードリサーチは、どの SEO 戦略においても不可欠です。見つけてもらいたい検索ワードを決め、読者がサイトを見つけるために使うワードを把握します。優れたキーワードリサーチは、上位に掲載されたいと思っているキーワードに対して、どのようなコンテンツが必要かを教えてくれます。実際に上位掲載できるチャンスがあるキーワードに向けて努力をしましょう。%1$s は、このプロセスを一歩ずつ説明しています。"
-
-#: languages/yoast-components.php:114
-msgid "The given image url cannot be loaded"
-msgstr "この画像の URL を読み込めません"
 
 #: admin/config-ui/components/class-component-suggestions.php:54
 msgid "Find out what words your audience uses to find you"
@@ -740,11 +763,11 @@ msgstr "内部リンクを受信しました"
 msgid "Outgoing internal links"
 msgstr "内部リンクの発信"
 
-#: languages/wordpress-seojs.php:206
+#: languages/wordpress-seojs.php:346
 msgid "New step added"
 msgstr "新しいステップを追加しました"
 
-#: languages/wordpress-seojs.php:169
+#: languages/wordpress-seojs.php:309
 msgid "New question added"
 msgstr "新しい質問を追加しました"
 
@@ -755,36 +778,24 @@ msgstr "新しい質問を追加しました"
 msgid "%1$sFlesch Reading Ease%2$s: The copy scores %3$s in the test, which is considered %4$s to read. %5$s"
 msgstr "%1$sFlesch Reading Ease%2$s: テスト結果: コピースコア %3$s、読みやすさ %4$s %5$s"
 
-#: admin/class-meta-columns.php:82
+#: admin/class-meta-columns.php:120
 msgid "Keyphrase"
 msgstr "キーフレーズ"
 
 #. translators: %1$s expands to the link to the article, %2$s closes the link
 #. to the article
-#: admin/views/tabs/metas/paper-content/media-content.php:41
+#: admin/views/tabs/metas/paper-content/media-content.php:44
 msgid "Please carefully consider the implications and %1$sread this post%2$s if you want more information about the impact of showing media in search results."
 msgstr "包含については注意して検討してください。検索結果にメディアを表示するインパクトの詳細については、%1$sこの投稿を参照してください%2$s。"
 
-#: admin/views/tabs/metas/paper-content/media-content.php:38
+#: admin/views/tabs/metas/paper-content/media-content.php:37
 msgid "By enabling this option, attachment URLs become visible to both your visitors and Google. To add value to your website, they should contain useful information, or they might have a negative impact on your ranking."
 msgstr "有効にすると、添付ファイル URL をビジターと Google 両方に表示します。サイトの価値を高めるには有益な情報を含むべきです。でなければランキングにネガティブな影響を与えるでしょう。"
 
-#. translators: %1$s: Yoast SEO.
-#: admin/links/class-link-table-accessible-notifier.php:51
+#. translators: 1: Yoast SEO.
+#: inc/health-check-links-table-not-accessible.php:48
 msgid "For this feature to work, %1$s needs to create a table in your database. We were unable to create this table automatically."
 msgstr "%1$s はこの機能を使用するためにデータベースでのテーブル作成が必要です。自動でテーブルを作成することができませんでした。"
-
-#. translators: %1$s: link to knowledge base article about solving table issue.
-#. %2$s: is anchor closing.
-#: admin/links/class-link-table-accessible-notifier.php:56
-msgid "Please read the following %1$sknowledge base article%2$s to find out how to resolve this problem."
-msgstr "以下の%1$sナレッジベース記事%2$sをお読みいただき、問題の解決方法をお探しください。"
-
-#. translators: %1$s: Yoast SEO. %2$s: Version number of Yoast SEO. %3$s:
-#. strong opening tag, %4$s: strong closing tag
-#: admin/links/class-link-table-accessible-notifier.php:43
-msgid "The %3$sText link counter%4$s feature (introduced in %1$s %2$s) is currently disabled."
-msgstr "%3$sテキストリンクカウンター%4$s機能 (%1$s %2$s から提供) は現在停止中です。"
 
 #. translators: 1: link to yoast.com post about internal linking suggestion. 2:
 #. is anchor closing.
@@ -803,20 +814,6 @@ msgstr "以下のボタンを押すだけで、全文確認します。"
 #: admin/links/class-link-notifier.php:94
 msgid "To make sure all the links in your texts are counted, we need to analyze all your texts."
 msgstr "文中のすべてのリンクがカウントされるよう、すべての文章を解析する必要があります。"
-
-#: deprecated/class-recalibration-beta.php:97
-msgid "Simply switch the toggle to \"on\" and you'll be able to use the recalibrated analysis. At the same time, we'll add you to our specific mailing list. We'll only email you about your experiences with this recalibration!"
-msgstr "トグルを「オン」に切り替えるだけで、再調整された分析結果を使用できるようになります。同時に、特定のメーリングリストにあなたを追加します。この再調整に関するあなたの経験についてあなたに電子メールを送るだけです!"
-
-#. translators: 1: link opening tag, 2: link closing tag, 3: strong opening
-#. tag, 4: strong closing tag
-#: deprecated/class-recalibration-beta.php:71
-msgid "We have %1$srecalibrated our analysis%2$s. With the new analysis, we will get even closer to how Google sees your website. It would be %3$sawesome%4$s if you would like to %3$sbeta test this feature%4$s for us!"
-msgstr "%1$s解析を再調整しました%2$s。この新しい解析の結果、Google からの Web サイトの見え方により近づいたと考えています。%3$sこの機能のベータテスト%4$s に参加いただけると%3$s大変たすかります%4$s。 "
-
-#: deprecated/class-recalibration-beta.php:67
-msgid "Get an even better analysis"
-msgstr "改善された解析を入手"
 
 #. translators: %1$s expands to the requested url
 #: admin/exceptions/class-file-size-exception.php:40
@@ -889,7 +886,7 @@ msgid "%1$sKeyphrase in subheading%3$s: %2$sUse more keyphrases or synonyms in y
 msgstr "%1$s副見出しのキーフレーズ%3$s: %2$s上位レベルの副見出しではもっとキーフレーズや類義語を使用してください%3$s !"
 
 #. translators: %1$s expands to the method name. %2$s expands to the class name
-#: src/exceptions/missing-method.php:27
+#: src/exceptions/missing-method.php:29
 msgid "Method %1$s() does not exist in class %2$s"
 msgstr "メソッド %1$s() がクラス%2$sに存在しません"
 
@@ -970,97 +967,73 @@ msgid "Not showing the date archives in the search results technically means tho
 msgstr "検索結果に日付アーカイブが表示されないことは技術的には %1$s robots meta があることを意味します。%2$s検索結果設定の詳細についての情報%3$s"
 
 #. translators: %s expands to Yoast SEO Premium
-#: admin/views/sidebar.php:24 admin/views/sidebar.php:152
-#: admin/class-premium-upsell-admin-block.php:84
+#: admin/class-premium-upsell-admin-block.php:84 admin/views/sidebar.php:24
+#: admin/views/sidebar.php:152
 msgid "Upgrade to %s"
 msgstr "%s にアップグレード"
 
-#: admin/class-admin-init.php:511
+#: admin/class-admin-init.php:404
 msgid "Learn about why permalinks are important for SEO."
 msgstr "パーマリンクがなぜ SEO において重要なのか学びましょう。"
 
 #. translators: %1$s and %2$s expand to <em> items to emphasize the word in the
 #. middle.
-#: admin/class-admin-init.php:505
+#: admin/class-admin-init.php:398
 msgid "Changing your permalinks settings can seriously impact your search engine visibility. It should almost %1$s never %2$s be done on a live website."
 msgstr "パーマリンク設定の変更は検索エンジンからの見え方に対して重大な影響を与えます。本番の Web サイトでは%1$s決して%2$s実行しないでください。"
 
-#: admin/class-admin-init.php:502
+#: admin/class-admin-init.php:395
 msgid "WARNING:"
 msgstr "警告: "
 
 #. Translators: %1$s and $3$s expand to the admin search page for the keyword,
 #. %2$d expands to the number of times this keyword has been used before, %4$s
 #. and %5$s expand to links to yoast.com, %6$s expands to the anchor end tag
-#: languages/yoast-seo-js.php:460
+#: languages/yoast-seo-js.php:464
 msgid "%4$sPreviously used keyphrase%6$s: You've used this keyphrase %1$s%2$d times before%3$s. %5$sDo not use your keyphrase more than once%6$s."
 msgstr "%4$s以前使用されたキーフレーズ%6$s: %3$s 以前にこのキーフレーズ %1$s は %2$d 回使われています。%5$s複数回、キーフレーズを使用しないでください%6$s。"
 
 #. Translators: %1$s and %2$s expand to an admin link where the keyword is
 #. already used. %3$s and %4$s expand to links on yoast.com, %4$s expands to
 #. the anchor end tag.
-#: languages/yoast-seo-js.php:454
+#: languages/yoast-seo-js.php:458
 msgid "%3$sPreviously used keyphrase%5$s: You've used this keyphrase %1$sonce before%2$s. %4$sDo not use your keyphrase more than once%5$s."
 msgstr "%3$s以前使用されたキーフレーズ%5$s: %2$s 以前にこのキーフレーズ %1$s は1回使われています。%4$s複数回、キーフレーズを使用しないでください%5$s。"
 
-#: languages/yoast-seo-js.php:449
+#: languages/yoast-seo-js.php:453
 msgid "%1$sPreviously used keyphrase%2$s: You've not used this keyphrase before, very good."
 msgstr "%1$s以前使用されたキーフレーズ%2$s: このキーフレーズは過去に使用されていません。"
 
 #. Translators: %1$s and %2$s open links to an articles about stopwords, %3$s
 #. closes the links
-#: languages/yoast-seo-js.php:441
+#: languages/yoast-seo-js.php:445
 msgid "%1$sSlug stopwords%3$s: The slug for this page contains a stop word. %2$sRemove it%3$s!"
 msgid_plural "%1$sSlug stopwords%3$s: The slug for this page contains stop words. %2$sRemove them%3$s!"
 msgstr[0] "%1$sスラッグのストップワード%3$s: このページのスラッグにはストップワードが含まれています。%2$s削除してください%3$s !"
 
 #. Translators:  %1$s and %2$s expand to links on yoast.com, %3$s expands to
 #. the anchor end tag
-#: languages/yoast-seo-js.php:437
+#: languages/yoast-seo-js.php:441
 msgid "%1$sSlug too long%3$s: the slug for this page is a bit long. %2$sShorten it%3$s!"
 msgstr "%1$sスラッグが長すぎる%3$s: このページのスラッグは少し長すぎます。%2$s短くしてください%3$s !"
 
 #. Translators:  %1$s expands to a link on yoast.com, %2$s expands to the
 #. anchor end tag
-#: languages/yoast-seo-js.php:433
+#: languages/yoast-seo-js.php:437
 msgid "%1$sKeyphrase in slug%2$s: More than half of your keyphrase appears in the slug. That's great!"
 msgstr "%1$sスラッグ中のキーフレーズ%2$s: 半分以上のキーフレーズがスラッグ中にあります。すばらしい !"
 
 #. Translators:  %1$s and %2$s expand to links on yoast.com, %3$s expands to
 #. the anchor end tag
-#: languages/yoast-seo-js.php:429
+#: languages/yoast-seo-js.php:433
 msgid "%1$sKeyphrase in slug%3$s: (Part of) your keyphrase does not appear in the slug. %2$sChange that%3$s!"
 msgstr "%1$sスラッグ中のキーフレーズ%3$s: キーフレーズ (の一部) がスラッグ中にありません。%2$s変更しましょう%3$s !"
 
 #. Translators:  %1$s expands to a link on yoast.com, %2$s expands to the
 #. anchor end tag
-#: languages/yoast-seo-js.php:424
+#: languages/yoast-seo-js.php:428
 msgid "%1$sKeyphrase in slug%2$s: Great work!"
 msgstr "%1$sスラッグ中のキーフレーズ%2$s: いいですね !"
-
-#. Translators: %1$s and %2$s expand to a link on yoast.com, %3$s expands to
-#. the anchor end tag, %4$s expands to the keyword of the article.
-#: languages/yoast-seo-js.php:420
-msgid "%1$sKeyphrase in title%3$s: Not all the words from your keyphrase \"%4$s\" appear in the SEO title. %2$sTry to use the exact match of your keyphrase in the SEO title%3$s."
-msgstr "%1$sタイトル内のキーフレーズ%3$s: キーフレーズ「%4$s」のすべての語が SEO タイトルに表示されません。%2$sSEO タイトル内にキーフレーズの完全一致を書くようお試しください%3$s。"
-
-#. Translators: %1$s and %2$s expand to a link on yoast.com, %3$s expands to
-#. the anchor end tag.
-#: languages/yoast-seo-js.php:415
-msgid "%1$sKeyphrase in title%3$s: Does not contain the exact match. %2$sTry to write the exact match of your keyphrase in the SEO title%3$s."
-msgstr "%1$sタイトル内のキーフレーズ%3$s: キーフレーズの完全一致がありません。%2$sSEO タイトル内にキーフレーズの完全一致を書くようお試しください%3$s。"
-
-#. Translators: %1$s and %2$s expand to a link on yoast.com, %3$s expands to
-#. the anchor end tag.
-#: languages/yoast-seo-js.php:409
-msgid "%1$sKeyphrase in title%3$s: The exact match of the keyphrase appears in the SEO title, but not at the beginning. %2$sTry to move it to the beginning%3$s."
-msgstr "%1$sタイトル内のキーフレーズ%3$s: SEO タイトル内にキーフレーズの完全一致がありますが、冒頭ではありません。%2$s冒頭への移動を試してください%3$s。"
-
-#. Translators: %1$s expands to a link on yoast.com, %2$s expands to the anchor
-#. end tag.
-#: languages/yoast-seo-js.php:404
-msgid "%1$sKeyphrase in title%2$s: The exact match of the keyphrase appears at the beginning of the SEO title. Good job!"
-msgstr "%1$sタイトル内のキーフレーズ%2$s: SEO タイトルの冒頭がキーフレーズと完全一致しました。いいですね !"
 
 #. Translators: %1$s and %2$s expand to links on yoast.com, %3$s expands to the
 #. anchor end tag
@@ -1414,23 +1387,23 @@ msgstr "いいですね。"
 msgid "%1$sFlesch Reading Ease%2$s: The copy scores %3$s in the test, which is considered %4$s to read. %5$s%6$s%7$s"
 msgstr "%1$sFlesch Reading Ease%2$s: テスト結果: コピースコア %3$s、読みやすさ %4$s %5$s%6$s%7$s"
 
-#: languages/wordpress-seojs.php:74
+#: languages/wordpress-seojs.php:152
 msgid "Focus keyphrase"
 msgstr "フォーカスキーフレーズ"
 
-#: languages/wordpress-seojs.php:70
+#: languages/wordpress-seojs.php:148
 msgid "Help on choosing the perfect focus keyphrase"
 msgstr "完璧なフォーカスキーフレーズを選ぶには"
 
-#: languages/wordpress-seojs.php:92
+#: languages/wordpress-seojs.php:173
 msgid "Would you like to add a related keyphrase?"
 msgstr "類似キーフレーズを追加しますか ?"
 
-#: languages/wordpress-seojs.php:8
+#: languages/wordpress-seojs.php:62
 msgid "Go %s!"
 msgstr "%sへ移動"
 
-#: languages/wordpress-seojs.php:5
+#: languages/wordpress-seojs.php:59
 msgid "Did you know %s also analyzes the different word forms of your keyphrase, like plurals and past tenses?"
 msgstr "%s はまた、複数形や過去形などキーフレーズの異なる語形を解析するとご存知ですか ?"
 
@@ -1494,7 +1467,7 @@ msgstr "コントロールを許可"
 msgid "This tab allows you to selectively disable %s features for all sites in the network. By default all features are enabled, which allows site admins to choose for themselves if they want to toggle a feature on or off for their site. When you disable a feature here, site admins will not be able to use that feature at all."
 msgstr "このタブからネットワーク内のすべてのサイトで、選択した %s の機能を無効化できます。デフォルトではすべての機能が有効で、サイト管理者は自分のサイトの機能の有効、無効を切り替えられます。このタブで機能を無効化すると、サイト管理者は完全にその機能を使用できなくなります。"
 
-#: languages/wordpress-seojs.php:113 admin/views/sidebar.php:29
+#: languages/wordpress-seojs.php:194 admin/views/sidebar.php:29
 msgid "Rank better with synonyms & related keyphrases"
 msgstr "同義語と関連キーフレーズでのランク向上"
 
@@ -1511,15 +1484,15 @@ msgstr "%sは必須の機能切り替え引数です。"
 msgid "Synonyms & related keyphrases"
 msgstr "同義語と関連キーフレーズ"
 
-#: languages/wordpress-seojs.php:95
+#: languages/wordpress-seojs.php:176
 msgid "Add related keyphrase"
 msgstr "関連キーフレーズを追加"
 
-#: admin/formatter/class-metabox-formatter.php:58
+#: admin/formatter/class-metabox-formatter.php:61
 msgid "Remove keyphrase"
 msgstr "キーフレーズを削除"
 
-#: admin/formatter/class-metabox-formatter.php:57
+#: admin/formatter/class-metabox-formatter.php:60
 msgid "Keyphrase:"
 msgstr "キーフレーズ:"
 
@@ -1536,7 +1509,7 @@ msgstr "%1$s動画"
 msgid "This feature has been disabled by the network admin."
 msgstr "この機能はネットワーク管理者によって無効化されています。"
 
-#: admin/class-meta-columns.php:138 admin/class-meta-columns.php:622
+#: admin/class-meta-columns.php:170 admin/class-meta-columns.php:654
 msgid "Focus keyphrase not set."
 msgstr "フォーカスキーフレーズが設定されていません。"
 
@@ -1544,34 +1517,38 @@ msgstr "フォーカスキーフレーズが設定されていません。"
 msgid "Multiple keyphrases"
 msgstr "複数のキーフレーズ"
 
-#: admin/class-yoast-form.php:585 admin/metabox/class-metabox.php:643
+#: admin/metabox/class-metabox.php:625
 #: admin/taxonomy/class-taxonomy-fields-presenter.php:129
+#: admin/class-yoast-form.php:585
 msgid "Clear Image"
 msgstr "画像をクリア"
 
 #. translators: %s expands to 'Yoast SEO Premium'.
 #. translators: %s expands to Yoast SEO Premium
-#: languages/wordpress-seojs.php:89 admin/class-add-keyword-modal.php:38
-#: admin/views/sidebar.php:46 admin/class-keyword-synonyms-modal.php:38
-#: admin/class-premium-popup.php:81
-#: admin/formatter/class-metabox-formatter.php:213
-#: admin/watchers/class-slug-change-watcher.php:223
-#: admin/class-multiple-keywords-modal.php:38
+#: languages/wordpress-seojs.php:170 admin/class-multiple-keywords-modal.php:38
+#: admin/formatter/class-metabox-formatter.php:220
+#: admin/class-keyword-synonyms-modal.php:38
 #: admin/class-premium-upsell-admin-block.php:67
+#: admin/class-premium-popup.php:81 admin/class-add-keyword-modal.php:38
+#: admin/watchers/class-slug-change-watcher.php:223 admin/views/sidebar.php:46
 msgid "Get %s"
 msgstr "%s を入手"
 
-#: languages/wordpress-seojs.php:245
+#: languages/wordpress-seojs.php:385
 msgid "Optional. Customize how you want to describe the duration of the instruction"
 msgstr "任意。説明の長さの表示をカスタマイズしましょう。"
 
-#: languages/wordpress-seojs.php:242
+#: languages/wordpress-seojs.php:382
 msgid "Describe the duration of the instruction:"
 msgstr "説明の長さを記述します:"
 
-#: languages/wordpress-seojs.php:81
+#: languages/wordpress-seojs.php:162
 msgid "Learn more about the readability analysis"
 msgstr "可読性分析の詳細"
+
+#: languages/wordpress-seojs.php:78
+msgid "Readability analysis:"
+msgstr "可読性分析:"
 
 #: inc/class-wpseo-admin-bar-menu.php:662
 msgid "There is a new notification."
@@ -1588,124 +1565,124 @@ msgstr "コロン"
 msgid "Both %1$s and %2$s manage the SEO of your site. Running two SEO plugins at the same time is detrimental."
 msgstr "%1$s と %2$s がサイト SEO を重複管理しています。2つの SEO プラグインの同時稼働は問題を引き起こします。"
 
-#: languages/yoast-components.php:84
+#: languages/yoast-components.php:87
 msgid "This is a list of related content to which you could link in your post. {{a}}Read our article about site structure{{/a}} to learn more about how internal linking can help improve your SEO."
 msgstr "以下は投稿からリンク可能な関連するコンテンツのリストです。内部リンクがどのように SEO を向上するかについては{{a}}サイト構造に関する私たちの記事を一読ください{{/a}}。"
 
-#: languages/wordpress-seojs.php:293
+#: languages/wordpress-seojs.php:433
 msgid "%s, %s and %s"
 msgstr "%sと%s、%s"
 
-#: languages/wordpress-seojs.php:289
+#: languages/wordpress-seojs.php:429
 msgid "%s and %s"
 msgstr "%s, %s"
 
-#: languages/wordpress-seojs.php:285
+#: languages/wordpress-seojs.php:425
 msgid "%d minute"
 msgid_plural "%d minutes"
 msgstr[0] "%d分"
 
-#: languages/wordpress-seojs.php:281
+#: languages/wordpress-seojs.php:421
 msgid "%d hour"
 msgid_plural "%d hours"
 msgstr[0] "%d時間"
 
-#: languages/wordpress-seojs.php:277
+#: languages/wordpress-seojs.php:417
 msgid "%d day"
 msgid_plural "%d days"
 msgstr[0] "%d日"
 
-#: languages/wordpress-seojs.php:270
+#: languages/wordpress-seojs.php:410
 msgid "Enter a step title"
 msgstr "ステップのタイトルを入力"
 
-#: languages/wordpress-seojs.php:239
+#: languages/wordpress-seojs.php:379
 msgid "Optional. This can give you better control over the styling of the steps."
 msgstr "任意。ステップのスタイリングがより制御しやすくなります。"
 
-#: languages/wordpress-seojs.php:236
+#: languages/wordpress-seojs.php:376
 msgid "CSS class(es) to apply to the steps"
 msgstr "ステップに適用する CSS クラス"
 
-#: languages/wordpress-seojs.php:227
+#: languages/wordpress-seojs.php:367
 msgid "minutes"
 msgstr "分"
 
-#: languages/wordpress-seojs.php:224
+#: languages/wordpress-seojs.php:364
 msgid "hours"
 msgstr "時間"
 
-#: languages/wordpress-seojs.php:221
+#: languages/wordpress-seojs.php:361
 msgid "days"
 msgstr "日"
 
-#: languages/wordpress-seojs.php:197
+#: languages/wordpress-seojs.php:337
 msgid "Create a How-to guide in an SEO-friendly way. You can only use one How-to block per post."
 msgstr "SEO フレンドリーな方法でハウツーガイドを作成しましょう。ハウツーブロックは投稿ごとにひとつのみ使用できます。"
 
-#: languages/wordpress-seojs.php:156
+#: languages/wordpress-seojs.php:296
 msgid "List your Frequently Asked Questions in an SEO-friendly way. You can only use one FAQ block per post."
 msgstr "よくある質問と回答を SEO フレンドリーな方法でリスト化します。"
 
-#: languages/wordpress-seojs.php:39
+#: languages/wordpress-seojs.php:113
 msgid "Copy error"
 msgstr "エラー文をコピー"
 
-#: languages/wordpress-seojs.php:36
+#: languages/wordpress-seojs.php:110
 msgid "An error occurred loading the %s primary taxonomy picker."
 msgstr "%s メインタクソノミー選択ツールの読み込み中にエラーが発生しました。"
 
 #. translators: %1$s expands to Yoast.
-#: inc/class-structured-data-blocks.php:73
+#: src/integrations/blocks/block-categories.php:41
 msgid "%1$s Structured Data Blocks"
 msgstr "%1$s 構造化データブロック"
 
-#: languages/wordpress-seojs.php:255
+#: languages/wordpress-seojs.php:395
 msgid "Time needed:"
 msgstr "所要時間:"
 
-#: languages/wordpress-seojs.php:184
+#: languages/wordpress-seojs.php:324
 msgid "Move question down"
 msgstr "質問を下へ移動"
 
-#: languages/wordpress-seojs.php:181
+#: languages/wordpress-seojs.php:321
 msgid "Move question up"
 msgstr "質問を上へ移動"
 
-#: languages/wordpress-seojs.php:178
+#: languages/wordpress-seojs.php:318
 msgid "Insert question"
 msgstr "質問の挿入"
 
-#: languages/wordpress-seojs.php:175
+#: languages/wordpress-seojs.php:315
 msgid "Delete question"
 msgstr "質問を削除"
 
-#: languages/wordpress-seojs.php:190
+#: languages/wordpress-seojs.php:330
 msgid "Enter the answer to the question"
 msgstr "質問の答えを入力してください"
 
-#: languages/wordpress-seojs.php:187
+#: languages/wordpress-seojs.php:327
 msgid "Enter a question"
 msgstr "質問を入力"
 
-#: languages/wordpress-seojs.php:172
+#: languages/wordpress-seojs.php:312
 msgid "Add question"
 msgstr "質問を追加"
 
-#: languages/wordpress-seojs.php:162
+#: languages/wordpress-seojs.php:302
 msgid "Frequently Asked Questions"
 msgstr "よくあるご質問"
 
 #. translators: %s expands to a 'Yoast SEO Premium' text linked to the
 #. yoast.com website.
-#: languages/wordpress-seojs.php:147 admin/class-add-keyword-modal.php:26
+#: languages/wordpress-seojs.php:228 admin/class-multiple-keywords-modal.php:26
+#: admin/formatter/class-metabox-formatter.php:208
 #: admin/class-keyword-synonyms-modal.php:26
-#: admin/formatter/class-metabox-formatter.php:201
-#: admin/class-multiple-keywords-modal.php:26
+#: admin/class-add-keyword-modal.php:26
 msgid "Great news: you can, with %s!"
 msgstr "朗報: %s で可能です !"
 
-#: languages/wordpress-seojs.php:42
+#: languages/wordpress-seojs.php:116
 msgid "Select the primary %s"
 msgstr "メイン%sを選択"
 
@@ -1717,94 +1694,87 @@ msgstr "この URL へのリンクをチェックする"
 msgid "Keyword research training"
 msgstr "キーワードリサーチトレーニング"
 
-#. translators: %1$s is the archive template link start tag, %2$s is the link
-#. closing tag, %3$s is a comma separated string with content types.
-#: admin/notifiers/class-post-type-archive-notification-handler.php:65
-msgid "Please check the %1$sarchive template%2$s for the following content type: %3$s."
-msgid_plural "Please check the %1$sarchive templates%2$s for the following content types: %3$s."
-msgstr[0] "以下のコンテンツタイプの%1$sアーカイブテンプレート%2$sを確認してください: %3$s"
-
-#: languages/yoast-components.php:111
+#: languages/yoast-components.php:114
 msgid "Are you trying to use multiple keyphrases? You should add them separately below."
 msgstr "複数のキーフレーズを使用したいですか ? 以下に個別に追加してください。"
 
-#: languages/wordpress-seojs.php:20 languages/yoast-components.php:108
+#: languages/wordpress-seojs.php:74 languages/yoast-components.php:111
 msgid "Mark as cornerstone content"
 msgstr "コーナーストーンコンテンツとしてマーク"
 
-#: languages/wordpress-seojs.php:267
+#: languages/wordpress-seojs.php:407
 msgid "Move step down"
 msgstr "ステップを下へ移動"
 
-#: languages/wordpress-seojs.php:264
+#: languages/wordpress-seojs.php:404
 msgid "Move step up"
 msgstr "ステップを上へ移動"
 
-#: languages/wordpress-seojs.php:261
+#: languages/wordpress-seojs.php:401
 msgid "Insert step"
 msgstr "ステップを挿入"
 
-#: languages/wordpress-seojs.php:258
+#: languages/wordpress-seojs.php:398
 msgid "Delete step"
 msgstr "ステップを削除"
 
-#: languages/wordpress-seojs.php:194
+#: languages/wordpress-seojs.php:334
 msgid "Add image"
 msgstr "画像を追加"
 
-#: languages/wordpress-seojs.php:273
+#: languages/wordpress-seojs.php:413
 msgid "Enter a step description"
 msgstr "ステップの説明を入力"
 
-#: languages/wordpress-seojs.php:251
+#: languages/wordpress-seojs.php:391
 msgid "Enter a description"
 msgstr "ディスクリプションを入力"
 
-#: languages/wordpress-seojs.php:248
+#: languages/wordpress-seojs.php:388
 msgid "Unordered list"
 msgstr "箇条書きリスト"
 
-#: languages/wordpress-seojs.php:215
+#: languages/wordpress-seojs.php:355
 msgid "Showing step items as an ordered list."
 msgstr "ステップ項目を順序付きリストとして表示します。"
 
-#: languages/wordpress-seojs.php:212
+#: languages/wordpress-seojs.php:352
 msgid "Showing step items as an unordered list"
 msgstr "ステップ項目を箇条書きリストとして表示します。"
 
-#: languages/wordpress-seojs.php:209
+#: languages/wordpress-seojs.php:349
 msgid "Add step"
 msgstr "ステップを追加"
 
-#: languages/wordpress-seojs.php:230
+#: languages/wordpress-seojs.php:370
 msgid "Delete total time"
 msgstr "合計時間を削除"
 
-#: languages/wordpress-seojs.php:218
+#: languages/wordpress-seojs.php:358
 msgid "Add total time"
 msgstr "合計時間を追加"
 
-#: languages/wordpress-seojs.php:203
+#: languages/wordpress-seojs.php:343
 msgid "How to"
 msgstr "ハウツー"
 
-#: languages/wordpress-seojs.php:200
+#: languages/wordpress-seojs.php:340
 msgid "How-to"
 msgstr "ハウツー"
 
-#: languages/wordpress-seojs.php:78
+#: languages/wordpress-seojs.php:159
 msgid "Analysis results"
 msgstr "解析結果"
 
-#: languages/wordpress-seojs.php:98
+#: languages/wordpress-seojs.php:179
 msgid "Enter a focus keyphrase to calculate the SEO score"
 msgstr "SEO スコアを計算するには、フォーカスするキーフレーズを入力します"
 
-#: languages/wordpress-seojs.php:17
+#: languages/wordpress-seojs.php:71
 msgid "Learn more about Cornerstone Content."
 msgstr "コーナーストーンコンテンツについて詳しく知る"
 
-#: languages/wordpress-seojs.php:14
+#: languages/wordpress-seojs.php:68
 msgid "Cornerstone content should be the most important and extensive articles on your site."
 msgstr "コーナーストーンコンテンツは、サイト上もっとも重要かつ広がりのある記事にしてください。"
 
@@ -1851,39 +1821,39 @@ msgstr "削除済み"
 msgid "Would you like to add another keyphrase?"
 msgstr "別のキーフレーズを追加しますか ?"
 
-#: languages/yoast-components.php:207
+#: languages/yoast-components.php:210
 msgid "image preview"
 msgstr "画像のプレビュー"
 
-#: languages/yoast-components.php:99
+#: languages/yoast-components.php:102
 msgid "Copied!"
 msgstr "コピーしました。"
 
-#: languages/yoast-components.php:102
+#: languages/yoast-components.php:105
 msgid "Not supported!"
 msgstr "サポート対象外です。"
 
-#: languages/yoast-components.php:105
+#: languages/yoast-components.php:108
 msgid "Read {{a}}our article about site structure{{/a}} to learn more about how internal linking can help improve your SEO."
 msgstr "{{a}}サイト構造についての記事{{/a}}を読み、内部リンクが SEO を改善するしくみを学びましょう。"
 
-#: languages/yoast-components.php:96
+#: languages/yoast-components.php:99
 msgid "Once you add a bit more copy, we'll give you a list of related content here to which you could link in your post."
 msgstr "文字をもう少し追加すると、記事内からリンクが可能な関連コンテンツがここにリスト表示されます。"
 
-#: languages/yoast-components.php:87
+#: languages/yoast-components.php:90
 msgid "Consider linking to these {{a}}cornerstone articles:{{/a}}"
 msgstr "以下の{{a}}コーナーストーン記事{{/a}}へのリンクを検討してください:"
 
-#: languages/yoast-components.php:90
+#: languages/yoast-components.php:93
 msgid "Consider linking to these articles:"
 msgstr "これらの記事へのリンクを検討してください:"
 
-#: languages/yoast-components.php:78
+#: languages/yoast-components.php:81
 msgid "Copy link"
 msgstr "リンクをコピー"
 
-#: languages/yoast-components.php:81
+#: languages/yoast-components.php:84
 msgid "Copy link to suggested article: %s"
 msgstr "提案記事へのリンクをコピー: %s"
 
@@ -1899,13 +1869,9 @@ msgstr "次の単語と単語の組み合わせは、コンテンツの中で最
 msgid "Prominent words"
 msgstr "有名な言葉"
 
-#: inc/class-wpseo-replace-vars.php:1214
+#: inc/class-wpseo-replace-vars.php:1252
 msgid "The site's tagline"
 msgstr "サイトのタグライン"
-
-#: admin/notifiers/class-post-type-archive-notification-handler.php:58
-msgid "We've recently improved the functionality of the Search Appearance settings. Unfortunately, we've discovered that for some edge-cases, saving the settings for specific post type archives might have gone wrong."
-msgstr "最近、「検索での見え方」設定を改善しました。稀なケースで、特定の投稿タイプアーカイブの設定の保存がうまくいかない場合があることが確認されています。"
 
 #. translators: %1$s expands to the missing field name.
 #: admin/menu/class-replacevar-editor.php:115
@@ -1916,16 +1882,16 @@ msgstr "未入力の必須フィールドがあります。%1$sフィールド�
 msgid "Optimize your shop's SEO and sell more products!"
 msgstr "店舗を SEO 最適化して、商品をもっと販売しましょう !"
 
-#: languages/wordpress-seojs.php:104
+#: languages/wordpress-seojs.php:185
 msgid "Add synonyms"
 msgstr "同義語の追加"
 
-#: languages/wordpress-seojs.php:107 admin/class-keyword-synonyms-modal.php:23
+#: languages/wordpress-seojs.php:188 admin/class-keyword-synonyms-modal.php:23
 msgid "Would you like to add keyphrase synonyms?"
 msgstr "類似キーフレーズを追加しますか ?"
 
+#: admin/formatter/class-metabox-formatter.php:205
 #: admin/class-add-keyword-modal.php:23
-#: admin/formatter/class-metabox-formatter.php:198
 msgid "Would you like to add more than one keyphrase?"
 msgstr "複数のキーフレーズを追加しますか ?"
 
@@ -1939,7 +1905,7 @@ msgstr "%1$sショップページ%2$sで、このカスタムタイプの SEO �
 msgid "You haven't set a Shop page in your WooCommerce settings. Please do this first."
 msgstr "WooCommerce 設定のショップページが未設定です。先に設定してください。"
 
-#: languages/wordpress-seojs.php:296
+#: languages/wordpress-seojs.php:436
 msgid "Current year"
 msgstr "今年"
 
@@ -1947,139 +1913,135 @@ msgstr "今年"
 msgid "Something went wrong. Please reload the page."
 msgstr "何かおかしいようです。ページをリロードしてください。"
 
-#: languages/yoast-components.php:185
+#: languages/yoast-components.php:188
 msgid "Url preview"
 msgstr "URL のプレビュー:"
 
-#: languages/yoast-components.php:182
+#: languages/yoast-components.php:185
 msgid "Please provide a meta description by editing the snippet below. If you don’t, Google will try to find a relevant part of your post to show in the search results."
 msgstr "以下のスニペットを編集して、メタディスクリプションを設定してください。設定しない場合、Google の検索結果で投稿の関連部分が表示されます。"
 
-#: languages/yoast-components.php:150
-msgid "Insert snippet variable"
-msgstr "スニペット変数の挿入"
-
-#: languages/wordpress-seojs.php:311 inc/class-wpseo-replace-vars.php:1214
+#: languages/wordpress-seojs.php:451 inc/class-wpseo-replace-vars.php:1252
 msgid "Tagline"
 msgstr "キャッチフレーズ"
 
-#: languages/wordpress-seojs.php:305
+#: languages/wordpress-seojs.php:445
 msgid "Page"
 msgstr "固定ページ"
 
-#: languages/wordpress-seojs.php:45 languages/yoast-components.php:167
+#: languages/wordpress-seojs.php:119 languages/yoast-components.php:170
 msgid "Modify your meta description by editing it right here"
 msgstr "メタディスクリプションの設定をここで編集して変更します"
 
-#: inc/class-wpseo-replace-vars.php:1253
+#: inc/class-wpseo-replace-vars.php:1291
 msgid "description (custom taxonomy)"
 msgstr "説明 (カスタム分類)"
 
-#: inc/class-wpseo-replace-vars.php:1252
+#: inc/class-wpseo-replace-vars.php:1290
 msgid "(custom taxonomy)"
 msgstr "(カスタム分類)"
 
-#: inc/class-wpseo-replace-vars.php:1251
+#: inc/class-wpseo-replace-vars.php:1289
 msgid "(custom field)"
 msgstr "(カスタムフィールド)"
 
-#: inc/class-wpseo-replace-vars.php:1250
+#: inc/class-wpseo-replace-vars.php:1288
 msgid "Term404"
 msgstr "404のターム"
 
-#: inc/class-wpseo-replace-vars.php:1248
+#: inc/class-wpseo-replace-vars.php:1286
 msgid "Caption"
 msgstr "キャプション"
 
-#: inc/class-wpseo-replace-vars.php:1247
+#: inc/class-wpseo-replace-vars.php:1285
 msgid "Pagenumber"
 msgstr "ページ番号"
 
-#: inc/class-wpseo-replace-vars.php:1246
+#: inc/class-wpseo-replace-vars.php:1284
 msgid "Pagetotal"
 msgstr "ページ合計"
 
-#: inc/class-wpseo-replace-vars.php:1245
+#: inc/class-wpseo-replace-vars.php:1283
 msgid "Page number"
 msgstr "ページ数"
 
-#: inc/class-wpseo-replace-vars.php:1244
+#: inc/class-wpseo-replace-vars.php:1282
 msgid "User description"
 msgstr "ユーザー説明"
 
-#: languages/wordpress-seojs.php:302 inc/class-wpseo-replace-vars.php:1242
+#: languages/wordpress-seojs.php:442 inc/class-wpseo-replace-vars.php:1280
 msgid "ID"
 msgstr "ID"
 
-#: inc/class-wpseo-replace-vars.php:1241
+#: inc/class-wpseo-replace-vars.php:1279
 msgid "Modified"
-msgstr "変更済み"
+msgstr "最終編集"
 
-#: inc/class-wpseo-replace-vars.php:1240
+#: inc/class-wpseo-replace-vars.php:1278
 msgid "Post type (plural)"
 msgstr "投稿タイプ (複数系)"
 
-#: inc/class-wpseo-replace-vars.php:1239
+#: inc/class-wpseo-replace-vars.php:1277
 msgid "Post type (singular)"
 msgstr "投稿タイプ (単数形)"
 
-#: languages/wordpress-seojs.php:332 inc/class-wpseo-replace-vars.php:1226
+#: languages/wordpress-seojs.php:472 inc/class-wpseo-replace-vars.php:1264
 msgid "Separator"
 msgstr "区切り"
 
-#: languages/wordpress-seojs.php:308 inc/class-wpseo-replace-vars.php:1224
+#: languages/wordpress-seojs.php:448 inc/class-wpseo-replace-vars.php:1262
 msgid "Search phrase"
 msgstr "検索フレーズ"
 
-#: inc/class-wpseo-replace-vars.php:1223
+#: inc/class-wpseo-replace-vars.php:1261
 msgid "Term title"
 msgstr "ターム名"
 
-#: languages/wordpress-seojs.php:344 inc/class-wpseo-replace-vars.php:1222
+#: languages/wordpress-seojs.php:484 inc/class-wpseo-replace-vars.php:1260
 msgid "Term description"
 msgstr "ターム説明"
 
-#: languages/wordpress-seojs.php:341 inc/class-wpseo-replace-vars.php:1221
+#: languages/wordpress-seojs.php:481 inc/class-wpseo-replace-vars.php:1259
 msgid "Tag description"
 msgstr "タグ説明"
 
-#: languages/wordpress-seojs.php:338 inc/class-wpseo-replace-vars.php:1220
+#: languages/wordpress-seojs.php:478 inc/class-wpseo-replace-vars.php:1258
 msgid "Category description"
 msgstr "カテゴリーの説明"
 
-#: languages/wordpress-seojs.php:329 inc/class-wpseo-replace-vars.php:1219
+#: languages/wordpress-seojs.php:469 inc/class-wpseo-replace-vars.php:1257
 msgid "Primary category"
 msgstr "メインカテゴリー"
 
-#: languages/wordpress-seojs.php:317 inc/class-wpseo-replace-vars.php:1218
+#: languages/wordpress-seojs.php:457 inc/class-wpseo-replace-vars.php:1256
 msgid "Category"
 msgstr "カテゴリー"
 
-#: inc/class-wpseo-replace-vars.php:1217
+#: inc/class-wpseo-replace-vars.php:1255
 msgid "Tag"
 msgstr "タグ"
 
-#: languages/wordpress-seojs.php:335 inc/class-wpseo-replace-vars.php:1216
+#: languages/wordpress-seojs.php:475 inc/class-wpseo-replace-vars.php:1254
 msgid "Excerpt only"
 msgstr "抜粋のみ"
 
-#: languages/wordpress-seojs.php:326 inc/class-wpseo-replace-vars.php:1215
+#: languages/wordpress-seojs.php:466 inc/class-wpseo-replace-vars.php:1253
 msgid "Excerpt"
 msgstr "抜粋"
 
-#: languages/wordpress-seojs.php:314 inc/class-wpseo-replace-vars.php:1213
+#: languages/wordpress-seojs.php:454 inc/class-wpseo-replace-vars.php:1251
 msgid "Site title"
 msgstr "サイトタイトル"
 
-#: inc/class-wpseo-replace-vars.php:1212
+#: inc/class-wpseo-replace-vars.php:1250
 msgid "Archive title"
 msgstr "アーカイブタイトル"
 
-#: languages/wordpress-seojs.php:323 inc/class-wpseo-replace-vars.php:1211
+#: languages/wordpress-seojs.php:463 inc/class-wpseo-replace-vars.php:1249
 msgid "Parent title"
 msgstr "親タイトル"
 
-#: languages/wordpress-seojs.php:299 inc/class-wpseo-replace-vars.php:1209
+#: languages/wordpress-seojs.php:439 inc/class-wpseo-replace-vars.php:1247
 msgid "Date"
 msgstr "日付"
 
@@ -2130,16 +2092,7 @@ msgstr "このページの設定で任意の種類のコンテンツに対する
 
 #: languages/yoast-components.php:63
 msgid "Dismiss this notice"
-msgstr "通知を非表示"
-
-#: languages/yoast-components.php:156
-msgid "No results"
-msgstr "結果なし"
-
-#: languages/yoast-components.php:153
-msgid "%d result found, use up and down arrow keys to navigate"
-msgid_plural "%d results found, use up and down arrow keys to navigate"
-msgstr[0] "%d件見つかりました、上下の矢印キーを使用して移動します。"
+msgstr "この通知を非表示"
 
 #: languages/yoast-components.php:57
 msgid "Your site language is set to %s. If this is not correct, contact your site administrator."
@@ -2157,7 +2110,7 @@ msgid "If you know what this means and you do not want to see this message anymo
 msgstr "これを理解していてメッセージもう見たくない場合、%1$s非表示%2$sにできます。"
 
 #. translators: %1$s expands to the requested indexable type
-#: admin/services/class-indexable.php:92
+#: admin/services/class-indexable.php:91
 msgid "Unknown type %1$s"
 msgstr "不明なタイプ %1$s"
 
@@ -2176,7 +2129,7 @@ msgid "Baidu verification code"
 msgstr "Baidu の確認コード"
 
 #. translators: %s is replaced with Yoast SEO.
-#: admin/import/plugins/class-abstract-plugin-importer.php:254
+#: admin/import/plugins/class-abstract-plugin-importer.php:256
 msgid "The %s importer functionality uses temporary database tables. It seems your WordPress install does not have the capability to do this, please consult your hosting provider."
 msgstr "%s インポートツール機能は一時データベーステーブルを使用します。インストールされた WordPress にはこれを行う権限がないようです。ホスティングサービスにご相談ください。"
 
@@ -2197,7 +2150,7 @@ msgstr "コンテンツタイプで絞り込み"
 msgid "Show All Content Types"
 msgstr "すべてのコンテンツタイプを表示する"
 
-#: inc/class-wpseo-replace-vars.php:1212
+#: inc/class-wpseo-replace-vars.php:1250
 msgid "Replaced with the normal title for an archive generated by WordPress"
 msgstr "WordPress が生成する通常のアーカイブタイトルを置き換えます。"
 
@@ -2287,8 +2240,8 @@ msgstr "%s のデータを正常にインポートしました。"
 msgid "%s data not found."
 msgstr "%s のデータが見つかりません。"
 
-#: languages/wordpress-seojs.php:129 admin/views/sidebar.php:38
-#: admin/class-premium-upsell-admin-block.php:58
+#: languages/wordpress-seojs.php:210
+#: admin/class-premium-upsell-admin-block.php:58 admin/views/sidebar.php:38
 msgid "24/7 email support"
 msgstr "年中無休のメールサポート"
 
@@ -2381,8 +2334,8 @@ msgstr "WordPress へメディア (画像や動画など) をアップロード�
 msgid "Learn more about the Media and attachment URLs setting"
 msgstr "メディアと添付ファイル URL 設定の詳細"
 
-#: admin/views/tabs/metas/paper-content/general/title-separator.php:12
 #: admin/views/tabs/social/facebook.php:35
+#: admin/views/tabs/metas/paper-content/general/title-separator.php:12
 msgid "Learn more about the title separator setting"
 msgstr "タイトル区切り設定の詳細"
 
@@ -2477,14 +2430,13 @@ msgstr "以下のボックスを使用して、別のウェブマスターツー
 msgid "Learn more about the Webmaster Tools verification"
 msgstr "ウェブマスターツール検証の詳細"
 
-#: languages/yoast-components.php:66 deprecated/class-recalibration-beta.php:61
-#: admin/views/tabs/dashboard/features.php:52
+#: languages/yoast-components.php:66 admin/views/tabs/dashboard/features.php:52
 msgid "On"
 msgstr "オン"
 
 #. translators: %s expands to a feature's name
-#: admin/views/tabs/network/features.php:45
 #: admin/views/tabs/dashboard/features.php:45
+#: admin/views/tabs/network/features.php:45
 msgid "Help on: %s"
 msgstr "%s のヘルプ"
 
@@ -2493,9 +2445,8 @@ msgstr "%s のヘルプ"
 msgid "%1$s comes with a lot of features. You can enable / disable some of them below. Clicking the question mark gives more information about the feature."
 msgstr "%1$s にはたくさんの機能があります。以下から有効化および停止が可能です。はてなマークををクリックすると、その機能の詳細情報を表示します。"
 
-#: languages/yoast-components.php:69 deprecated/class-recalibration-beta.php:62
+#: languages/yoast-components.php:69 admin/views/tabs/dashboard/features.php:53
 #: admin/views/class-yoast-feature-toggles.php:142
-#: admin/views/tabs/dashboard/features.php:53
 msgid "Off"
 msgstr "オフ"
 
@@ -2544,11 +2495,9 @@ msgstr "%1$sアーカイブが技術的な理由で検索結果に表示され�
 msgid "Not showing %1$s in the search results technically means those will have a %2$s robots meta and will be excluded from XML sitemaps. %3$sMore info on the search results settings%4$s."
 msgstr "%1$sが技術的な理由で検索結果に表示されない場合、ロボットメタに%2$sが含まれていて、XML サイトマップから除外されています。%3$s検索結果設定についての追加情報%4$s。"
 
-#. translators: %1$s expands to the taxonomy name %2$s expands to the current
-#. taxonomy index value
-#: admin/taxonomy/class-taxonomy-settings-fields.php:72
-msgid "%2$s (current default for %1$s)"
-msgstr "%2$s (%1$sのデフォルト)"
+#: languages/wordpress-seojs.php:47
+msgid "%s (current default for %s)"
+msgstr "%s (%s の現在のデフォルト)"
 
 #: admin/pages/metas.php:20
 msgid "Media"
@@ -2559,19 +2508,17 @@ msgid "Content Types"
 msgstr "コンテンツタイプ"
 
 #. translators: %1$s expands to the post type name.
-#: admin/metabox/class-metabox.php:158
+#: admin/metabox/class-metabox.php:154
 msgid "Should search engines follow links on this %1$s?"
 msgstr "検索エンジンにこの%1$sのリンクをたどらせますか ?"
 
 #. translators: %1$s expands to Yes or No,  %2$s expands to the post type name.
-#: admin/metabox/class-metabox.php:153
+#: admin/metabox/class-metabox.php:149
 msgid "Default for %2$s, currently: %1$s"
 msgstr "%2$sのデフォルト: %1$s"
 
 #. translators: %s expands to the post type name.
-#. translators: %s = taxonomy name.
-#: admin/metabox/class-metabox.php:148
-#: admin/taxonomy/class-taxonomy-settings-fields.php:40
+#: languages/wordpress-seojs.php:53 admin/metabox/class-metabox.php:144
 msgid "Allow search engines to show this %s in search results?"
 msgstr "検索エンジンに、この%sの検索結果への表示を許可しますか ?"
 
@@ -2609,7 +2556,7 @@ msgstr "%1$s の XML サイトマップを切り替える"
 msgid "Enable this feature if you want Twitter to display a preview with images and a text excerpt when a link to your site is shared."
 msgstr "サイトを Twitter でシェアする際、画像と抜粋テキストつきのプレビューを表示するには、この機能を有効化してください。"
 
-#: languages/wordpress-seojs.php:101
+#: languages/wordpress-seojs.php:182
 #: admin/views/class-yoast-feature-toggles.php:72
 msgid "SEO analysis"
 msgstr "SEO 解析"
@@ -2619,7 +2566,7 @@ msgid "The text link counter helps you improve your site structure."
 msgstr "テキストリンクカウンターは、サイト構造の改善を手助けします。"
 
 #: languages/yoast-components.php:20
-#: admin/formatter/class-metabox-formatter.php:178
+#: admin/formatter/class-metabox-formatter.php:185
 msgid "Good results"
 msgstr "良い結果"
 
@@ -2674,18 +2621,9 @@ msgstr " %s のより詳しい仕組みはこちら。"
 msgid "Enable this feature if you want Facebook and other social media to display a preview with images and a text excerpt when a link to your site is shared."
 msgstr "サイトを Facebook などのソーシャルメディアでシェアする際、画像と抜粋テキストつきのプレビューを表示するには、この機能を有効化してください。"
 
-#. translators: %s expands to Yoast SEO Premium.
-#: admin/class-social-admin.php:191
+#: languages/wordpress-seojs.php:234
 msgid "Find out why you should upgrade to %s"
 msgstr "%s にアップグレードすべき理由"
-
-#. Author URI of the plugin
-msgid "https://yoa.st/1uk"
-msgstr "https://yoa.st/1uk"
-
-#. Plugin URI of the plugin
-msgid "https://yoa.st/1uj"
-msgstr "https://yoa.st/1uj"
 
 #. translators: %1$s resolves to Yoast.com
 #: admin/class-yoast-dashboard-widget.php:123
@@ -2693,11 +2631,11 @@ msgid "Latest blog posts on %1$s"
 msgstr "%1$s の最新ブログ"
 
 #: languages/yoast-components.php:8
-#: admin/formatter/class-metabox-formatter.php:182
+#: admin/formatter/class-metabox-formatter.php:189
 msgid "Remove highlight from the text"
 msgstr "テキストからハイライトを削除"
 
-#: admin/formatter/class-metabox-formatter.php:179
+#: admin/formatter/class-metabox-formatter.php:186
 msgid "Your site language is set to {language}."
 msgstr "サイト言語が {language} に設定されています。"
 
@@ -2711,7 +2649,7 @@ msgstr "%1$s %2$s設定ウィザード%3$sを使用してすぐに始めまし�
 msgid "First-time SEO configuration"
 msgstr "初回 SEO 設定"
 
-#: admin/formatter/class-metabox-formatter.php:180
+#: admin/formatter/class-metabox-formatter.php:187
 msgid "Your site language is set to {language}. If this is not correct, contact your site administrator."
 msgstr "サイト言語は {language} に設定されています。異なる場合、サイト管理者に連絡して下さい。"
 
@@ -2720,22 +2658,22 @@ msgid "Your site language is set to %s. "
 msgstr "あなたのサイト言語は%sに設定されています。"
 
 #: languages/yoast-components.php:11
-#: admin/formatter/class-metabox-formatter.php:181
+#: admin/formatter/class-metabox-formatter.php:188
 msgid "Highlight this result in the text"
 msgstr "この結果をテキストで強調表示"
 
 #: languages/yoast-components.php:17
-#: admin/formatter/class-metabox-formatter.php:177
+#: admin/formatter/class-metabox-formatter.php:184
 msgid "Considerations"
 msgstr "検討事項"
 
 #: languages/yoast-components.php:23
-#: admin/formatter/class-metabox-formatter.php:174
+#: admin/formatter/class-metabox-formatter.php:181
 msgid "Errors"
 msgstr "エラー"
 
 #: languages/yoast-components.php:60
-#: admin/formatter/class-metabox-formatter.php:173
+#: admin/formatter/class-metabox-formatter.php:180
 msgid "Change language"
 msgstr "言語変更"
 
@@ -2806,22 +2744,16 @@ msgstr "設定ウィザード"
 msgid "You've done it!"
 msgstr "完了しました"
 
-#. translators: %1$s expands to Yoast SEO, %2$s expands to Advanced Custom
-#. Fields
-#: admin/class-plugin-availability.php:101
-msgid "Seamlessly integrate %2$s with %1$s for the content analysis!"
-msgstr "%2$s と%1$s をシームレスに連携し、コンテンツを分析します。"
-
 #. translators: %1$s expands to Yoast SEO, %2$s expands to the plugin version,
 #. %3$s expands to the plugin name
-#: admin/class-admin-init.php:176
+#: admin/class-admin-init.php:118
 msgid "%1$s and %2$s can work together a lot better by adding a helper plugin. Please install %3$s to make your life better."
 msgstr "%1$s と %2$s は、補助プラグインを追加するとより高度な連携が可能となります。%3$s をインストールして、より良い暮らしを送りましょう。"
 
 #. translators: %s expands to the extension title
 #: admin/views/licenses.php:165 admin/views/licenses.php:271
 msgid "Manage your %s subscription on MyYoast"
-msgstr "My Yoast で「%s」の定期購入を管理"
+msgstr "MyYoast で「%s」の定期購入を管理"
 
 #. translators: %1$s expands to the posttype label, %2$s expands anchor to blog
 #. post about cornerstone content, %3$s expands to </a>
@@ -2829,14 +2761,14 @@ msgstr "My Yoast で「%s」の定期購入を管理"
 msgid "Mark the most important %1$s as 'cornerstone content' to improve your site structure. %2$sLearn more about cornerstone content%3$s."
 msgstr "最も重要な%1$sを「コーナーストーンコンテンツ」としてマークして、サイト構造を改善しましょう。%2$sコーナーストーンコンテンツの詳細はこちら%3$s。"
 
-#: languages/yoast-components.php:75 admin/class-add-keyword-modal.php:42
-#: admin/views/licenses.php:111 admin/class-keyword-synonyms-modal.php:42
-#: admin/class-admin-utils.php:78 admin/class-premium-popup.php:82
-#: admin/formatter/class-metabox-formatter.php:184
-#: admin/formatter/class-metabox-formatter.php:217
-#: admin/watchers/class-slug-change-watcher.php:224
-#: admin/class-multiple-keywords-modal.php:42
+#: languages/yoast-components.php:78 admin/class-multiple-keywords-modal.php:42
+#: admin/formatter/class-metabox-formatter.php:191
+#: admin/formatter/class-metabox-formatter.php:224
+#: admin/class-admin-utils.php:78 admin/class-keyword-synonyms-modal.php:42
 #: admin/class-premium-upsell-admin-block.php:68
+#: admin/class-premium-popup.php:82 admin/class-add-keyword-modal.php:42
+#: admin/watchers/class-slug-change-watcher.php:224
+#: admin/views/licenses.php:111
 msgid "(Opens in a new browser tab)"
 msgstr "(新しいブラウザータブで開く)"
 
@@ -2895,7 +2827,7 @@ msgstr "%1$s はどんなサイトですか ?"
 msgid "If you choose no, your author archives will be deactivated to prevent  duplicate content issues."
 msgstr "いいえを選択すると、投稿者アーカイブを停止し、コンテンツが重複する問題を防ぎます。"
 
-#: deprecated/admin/config-ui/fields/class-field-google-search-console-intro.php:38
+#: deprecated/admin/config-ui/fields/class-field-google-search-console-intro.php:37
 msgid "Note: we don't store your data in any way and don't have full access to your account. Your privacy is safe with us."
 msgstr ""
 "注: 個人データは一切保存しませんし、アカウントへフルアクセスするものではありません。\n"
@@ -2903,7 +2835,7 @@ msgstr ""
 
 #. translators: %1$s is the plugin name. %2$s is a link start tag to a Yoast
 #. help page, %3$s is the link closing tag.
-#: deprecated/admin/config-ui/fields/class-field-google-search-console-intro.php:32
+#: deprecated/admin/config-ui/fields/class-field-google-search-console-intro.php:31
 msgid "%1$s integrates with Google Search Console, a must-have tool for site owners. It provides you with information about the health of your site. Don't have a Google account or is your site not activated yet? Find out %2$show to connect Google Search Console to your site%3$s."
 msgstr "%1$s は、サイト所有者にとっての必須ツール Google サーチコンソールと連携します。サイトの健全性についての情報の取得が可能です。Google アカウントを持っていない、または有効化していない場合、%2$sサイトを Google サーチコンソールに接続する方法%3$sをご確認ください。"
 
@@ -2950,11 +2882,11 @@ msgstr "有効化済み"
 msgid "%1$s recommendations for you"
 msgstr "%1$s によるおすすめ"
 
-#: admin/class-meta-columns.php:237
+#: admin/class-meta-columns.php:269
 msgid "All Readability Scores"
 msgstr "合計可読性スコア"
 
-#: admin/class-meta-columns.php:234
+#: admin/class-meta-columns.php:266
 msgid "Filter by Readability Score"
 msgstr "可読性スコアで絞り込む"
 
@@ -2968,12 +2900,6 @@ msgstr "更新やサポートの対象外です。問題を解決するには、
 #: admin/class-remote-request.php:95
 msgid "Request method %1$s is not valid."
 msgstr "リクエストメソッド %1$s は無効です。"
-
-#. translators: %1$s expands to the social network's name, %2$s to Yoast SEO
-#. Premium.
-#: admin/class-social-admin.php:184
-msgid "Do you want to preview what it will look like if people share this post on %1$s? You can, with %2$s."
-msgstr "%1$s でこの投稿をシェアしたときの見た目のプレビューは、%2$s で可能です。"
 
 #: admin/links/class-link-reindex-dashboard.php:174
 msgid "Good job! All the links in your texts have been counted."
@@ -3009,8 +2935,8 @@ msgstr "すべてのテキストがすでにカウントされているため、
 msgid "Count links in your texts"
 msgstr "テキストのリンク数をカウント"
 
-#: admin/views/class-yoast-feature-toggles.php:96
 #: admin/links/class-link-reindex-dashboard.php:65
+#: admin/views/class-yoast-feature-toggles.php:96
 msgid "Text link counter"
 msgstr "テキストリンクカウンター"
 
@@ -3022,35 +2948,29 @@ msgstr "この投稿にリンクしている内部リンク数。詳細はヘル
 msgid "Number of outgoing internal links in this post. See \"Yoast Columns\" text in the help tab for more info."
 msgstr "この投稿内の内部リンク数。詳細はヘルプタブの「Yoast Columns」テキストを参照してください。"
 
-#. translators: %1$s: Yoast SEO, %2$s: Link to article about content analysis,
-#. %3$s: Anchor closing, %4$s: Link to article about text links, %5$s: Emphasis
-#. open tag, %6$s: Emphasis close tag
-#: admin/class-yoast-columns.php:32
-msgid "%1$s adds several columns to this page. We've written an article about %2$show to use the SEO score and Readability score%3$s. The links columns show the number of articles on this site linking %5$sto%6$s this article and the number of URLs linked %5$sfrom%6$s this article. Learn more about %4$show to use these features to improve your internal linking%3$s, which greatly enhances your SEO."
-msgstr "%1$s はこのページにカラムをいくつか追加します。%2$sSEO スコアと可読性スコアの使い方を示す%3$s記事を書きました。リンク欄には、この記事%5$sに対して%6$sリンクしているこのサイトの記事の数と、この記事%5$sから%6$sリンクしている URL の数が表示されます。これらの機能を使用して%4$s内部リンクを改善し、SEOを大幅に向上させるための方法%3$sの詳細をご覧ください。"
-
 #. translators: %s expands to Yoast
-#: admin/class-yoast-columns.php:28
+#: admin/class-yoast-columns.php:60
 msgid "%s Columns"
 msgstr "%sカラム"
 
-#: admin/class-meta-columns.php:75 admin/taxonomy/class-taxonomy-columns.php:72
+#: admin/taxonomy/class-taxonomy-columns.php:72
+#: admin/class-meta-columns.php:113
 msgid "Readability score"
 msgstr "可読性スコア"
 
 #. translators: %s expands to 'Yoast SEO Premium'.
-#: languages/wordpress-seojs.php:137 admin/class-add-keyword-modal.php:32
+#: languages/wordpress-seojs.php:218 admin/class-multiple-keywords-modal.php:32
+#: admin/formatter/class-metabox-formatter.php:214
 #: admin/class-keyword-synonyms-modal.php:32
-#: admin/formatter/class-metabox-formatter.php:207
-#: admin/class-multiple-keywords-modal.php:32
+#: admin/class-add-keyword-modal.php:32
 msgid "Other benefits of %s for you:"
 msgstr "%s のその他の利点:"
 
-#: languages/yoast-components.php:179 languages/yoast-seo-js.php:536
+#: languages/yoast-seo-js.php:540 languages/yoast-components.php:182
 msgid "Scroll to see the preview content."
 msgstr "コンテンツのプレビューを見るにはスクロールしてください。"
 
-#: languages/wordpress-seojs.php:11
+#: languages/wordpress-seojs.php:65
 #: admin/filters/class-cornerstone-filter.php:87
 #: admin/views/class-yoast-feature-toggles.php:88
 msgid "Cornerstone content"
@@ -3089,12 +3009,12 @@ msgstr "まだこのウィザードを完了していないことを検出しま
 msgid "The configuration wizard helps you to easily configure your site to have the optimal SEO settings."
 msgstr "設定ウィザードを使用すると、最適な SEO 設定になるようサイトを簡単にセットアップできます。"
 
-#: languages/wordpress-seojs.php:121
+#: languages/wordpress-seojs.php:202
 #: admin/class-premium-upsell-admin-block.php:56
 msgid "Superfast internal linking suggestions"
 msgstr "すばやい内部リンクの提案"
 
-#: languages/wordpress-seojs.php:110
+#: languages/wordpress-seojs.php:191
 msgid "Great news: you can, with %1$s!"
 msgstr "朗報: %1$s で可能です !"
 
@@ -3102,10 +3022,10 @@ msgstr "朗報: %1$s で可能です !"
 msgid "Save changes"
 msgstr "変更を保存"
 
-#: languages/wordpress-seojs.php:141 admin/class-add-keyword-modal.php:41
+#: languages/wordpress-seojs.php:222 admin/class-multiple-keywords-modal.php:41
+#: admin/formatter/class-metabox-formatter.php:223
 #: admin/class-keyword-synonyms-modal.php:41 admin/class-premium-popup.php:88
-#: admin/formatter/class-metabox-formatter.php:216
-#: admin/class-multiple-keywords-modal.php:41
+#: admin/class-add-keyword-modal.php:41
 msgid "1 year free support and updates included!"
 msgstr "1年間の無料更新とアップグレードを含みます。"
 
@@ -3116,16 +3036,16 @@ msgstr "1年間の無料更新とアップグレードを含みます。"
 msgid "The plugin %2$s changes your site's output and in doing that differentiates between search engines and normal users, a process that's called cloaking. We highly recommend that you disable it."
 msgstr "%2$s プラグインは、検索エンジンと通常のユーザーを区別してサイトの出力を変更する「クローキング」と呼ばれる処理を行います。無効にすることを強くおすすめします。"
 
-#: languages/wordpress-seojs.php:125
+#: languages/wordpress-seojs.php:206
 msgid "%1$sSocial media preview%2$s: Facebook & Twitter"
 msgstr "%1$sソーシャルメディアのプレビュー%2$s: Facebook & Twitter"
 
-#: languages/wordpress-seojs.php:117
+#: languages/wordpress-seojs.php:198
 msgid "%1$sNo more dead links%2$s: easy redirect manager"
 msgstr "%1$sデッドリンクとは無縁に%2$s: かんたんリダイレクト管理"
 
-#: languages/wordpress-seojs.php:133 admin/views/sidebar.php:39
-#: admin/class-premium-upsell-admin-block.php:59
+#: languages/wordpress-seojs.php:214
+#: admin/class-premium-upsell-admin-block.php:59 admin/views/sidebar.php:39
 msgid "No ads!"
 msgstr "広告なし !"
 
@@ -3157,18 +3077,12 @@ msgstr "変数"
 msgid "Available variables"
 msgstr "利用可能な変数"
 
-#. translators: %1$s will be a link to a review explanation page. Text between
-#. %2$s and %3$s will be a link to an SEO copywriting course page.
-#: admin/config-ui/fields/class-field-upsell-site-review.php:33
-msgid "If you want more help creating awesome content, check out our %2$sSEO copywriting course%3$s. Do you want to know all about the features of the plugin, consider doing our %1$s!"
-msgstr "すばらしいコンテンツを作成するため、さらに助けが必要な場合は %2$sSEO コピーライティングコース%3$sをご覧ください。プラグインの機能をすべて知るには、%1$s をご検討ください。"
-
-#: admin/class-admin.php:321
+#: admin/class-admin.php:319
 msgid "Scroll to see the table content."
 msgstr "テーブルの内容を表示するにはスクロールしてください。"
 
 #. Translators: %1$s expands to the name of the assessment.
-#: languages/yoast-seo-js.php:446
+#: languages/yoast-seo-js.php:450
 msgid "An error occurred in the '%1$s' assessment"
 msgstr "%1$s評価の際にエラーが発生しました"
 
@@ -3210,11 +3124,11 @@ msgstr[0] "メタディスクリプションに%2$s%3$s単語以上%4$s含まれ
 msgid "The meta description contains no sentences %1$sover %2$s words%3$s."
 msgstr "メタディスクリプションに%1$s%2$s語以上の文%3$sが含まれていません。"
 
-#: languages/yoast-components.php:138
+#: languages/yoast-components.php:132
 msgid "Step %1$d: %2$s"
 msgstr "手順%1$d: %2$s"
 
-#: admin/views/partial-alerts-warnings.php:22
+#: admin/views/partial-notifications-warnings.php:22
 msgid "No new notifications."
 msgstr "新しい通知はありません。"
 
@@ -3231,60 +3145,60 @@ msgstr "保存"
 msgid "%1$s, Author at %2$s"
 msgstr "%1$s (%2$s の投稿者)"
 
-#: languages/yoast-seo-js.php:533
+#: languages/yoast-seo-js.php:537
 msgid "Mobile preview"
 msgstr "モバイルプレビュー"
 
-#: languages/yoast-seo-js.php:530
+#: languages/yoast-seo-js.php:534
 msgid "Desktop preview"
 msgstr "デスクトッププレビュー"
 
-#: languages/yoast-seo-js.php:539
+#: languages/yoast-seo-js.php:543
 msgid "Please provide an SEO title by editing the snippet below."
 msgstr "SEO で重要な Title タグは、以下のスニペットから編集できます。"
 
-#: languages/yoast-seo-js.php:524
+#: languages/yoast-seo-js.php:528
 msgid "Meta description preview:"
 msgstr "メタディスクリプションのプレビュー:"
 
-#: languages/yoast-seo-js.php:521
+#: languages/yoast-seo-js.php:525
 msgid "Slug preview:"
 msgstr "スラッグをプレビュー:"
 
-#: languages/yoast-seo-js.php:518
+#: languages/yoast-seo-js.php:522
 msgid "SEO title preview:"
 msgstr "SEO タイトルのプレビュー:"
 
-#: languages/yoast-components.php:170 languages/yoast-seo-js.php:512
+#: languages/yoast-seo-js.php:516 languages/yoast-components.php:173
 msgid "Close snippet editor"
 msgstr "スニペットエディターを閉じる"
 
-#: languages/yoast-components.php:176 languages/yoast-seo-js.php:506
+#: languages/yoast-seo-js.php:510 languages/yoast-components.php:179
 msgid "Slug"
 msgstr "スラッグ"
 
-#: languages/yoast-seo-js.php:497
+#: languages/yoast-seo-js.php:501
 msgid "Remove marks in the text"
 msgstr "文章からマークを除去する"
 
-#: languages/yoast-seo-js.php:494
+#: languages/yoast-seo-js.php:498
 msgid "Mark this result in the text"
 msgstr "この結果をテキストにマークする"
 
-#: languages/yoast-components.php:5 languages/yoast-seo-js.php:491
-#: admin/formatter/class-metabox-formatter.php:183
+#: languages/yoast-seo-js.php:495 languages/yoast-components.php:5
+#: admin/formatter/class-metabox-formatter.php:190
 msgid "Marks are disabled in current view"
 msgstr "現在のビューでマークが無効になっています"
 
-#: languages/yoast-seo-js.php:485
+#: languages/yoast-seo-js.php:489
 msgid "Good SEO score"
 msgstr "非常に良い SEO スコアです"
 
-#: languages/yoast-seo-js.php:478
+#: languages/yoast-seo-js.php:482
 msgid "OK SEO score"
 msgstr "SEO スコアは OK です"
 
-#: languages/yoast-seo-js.php:466
+#: languages/yoast-seo-js.php:470
 msgid "Feedback"
 msgstr "フィードバック"
 
@@ -3292,58 +3206,58 @@ msgstr "フィードバック"
 msgid "ok"
 msgstr "ok"
 
-#: languages/yoast-components.php:204
+#: languages/yoast-components.php:207
 msgid "Choose an image"
-msgstr "画像を選択する"
+msgstr "画像を選択"
 
-#: languages/yoast-components.php:210
+#: languages/yoast-components.php:213
 msgid "Remove the image"
 msgstr "画像を削除する"
 
-#: languages/yoast-components.php:200
+#: languages/yoast-components.php:203
 msgid "MailChimp signup failed:"
 msgstr "MailChimp の登録に失敗しました:"
 
-#: languages/yoast-components.php:197
+#: languages/yoast-components.php:200
 msgid "Sign Up!"
-msgstr "登録"
+msgstr "登録しましょう !"
 
-#: inc/class-wpseo-replace-vars.php:1243
+#: inc/class-wpseo-replace-vars.php:1281
 msgid "Name"
 msgstr "名前"
 
-#: languages/wordpress-seojs.php:150 languages/yoast-seo-js.php:542
+#: languages/wordpress-seojs.php:248 languages/yoast-seo-js.php:546
 msgid "Please provide a meta description by editing the snippet below."
 msgstr "以下のスニペットを編集し、メタディスクリプションを入力してください。"
 
-#: languages/yoast-components.php:173 languages/yoast-seo-js.php:500
+#: languages/yoast-seo-js.php:504 languages/yoast-components.php:176
 msgid "Edit snippet"
 msgstr "スニペットを編集"
 
-#: languages/yoast-seo-js.php:527
+#: languages/yoast-seo-js.php:531
 msgid "You can click on each element in the preview to jump to the Snippet Editor."
 msgstr "プレビューで各要素をクリックすると、スニペットエディターにジャンプできます。"
 
-#: languages/yoast-components.php:188
+#: languages/yoast-components.php:191
 msgid "SEO title preview"
 msgstr "SEO タイトルのプレビュー:"
 
-#: languages/yoast-components.php:191
+#: languages/yoast-components.php:194
 msgid "Meta description preview"
 msgstr "メタディスクリプションのプレビュー: "
 
-#: languages/yoast-components.php:120
+#: languages/yoast-components.php:117
 msgid "A problem occurred when saving the current step, {{link}}please file a bug report{{/link}} describing what step you are on and which changes you want to make (if any)."
 msgstr "現在のステップを保存する際に問題が発生しました。どのステップにいたのかと、何を変更したいのか (もしあれば) を添えて、{{link}}バグ報告を提出してください{{/link}}。"
 
-#: languages/yoast-components.php:126
+#: languages/yoast-components.php:120
 #: admin/config-ui/class-configuration-page.php:142
 msgid "Close the Wizard"
 msgstr "ウィザードを閉じる"
 
 #: admin/views/tool-import-export.php:88
 msgid "Export settings"
-msgstr "設定のエクスポート"
+msgstr "エクスポート設定"
 
 #. translators: %1$s expands to Yoast SEO.
 #: admin/config-ui/fields/class-field-success-message.php:30
@@ -3381,16 +3295,15 @@ msgstr "投稿者アーカイブ設定"
 
 #. translators: %1$s expands to the image recommended width, %2$s to its
 #. height.
-#: admin/class-social-admin.php:49 admin/class-social-admin.php:52
-#: admin/taxonomy/class-taxonomy-social-fields.php:108
-#: admin/taxonomy/class-taxonomy-social-fields.php:115
+#: admin/taxonomy/class-taxonomy-social-fields.php:99
+#: admin/taxonomy/class-taxonomy-social-fields.php:106
 msgid "%1$s by %2$s"
 msgstr "%1$s x %2$s"
 
 #. translators: %1$s: '%%term_title%%' variable used in titles and meta's
 #. template that's not compatible with the given template, %2$s: expands to
 #. 'HelpScout beacon'
-#: admin/class-admin.php:314
+#: admin/class-admin.php:312
 msgid "Warning: the variable %1$s cannot be used in this template. See the %2$s for more info."
 msgstr "警告: 変数 %1$s はこのテンプレートでは利用できません。詳細は%2$sをご覧ください。"
 
@@ -3404,7 +3317,7 @@ msgstr "%1$sプレミアムプラグイン%2$sについてご存知でしたか 
 msgid "(no title)"
 msgstr "(タイトルなし)"
 
-#: languages/yoast-components.php:135
+#: languages/yoast-components.php:129
 msgid "%s installation wizard"
 msgstr "%s インストールウィザード"
 
@@ -3423,26 +3336,15 @@ msgid "%1$s will check weekly if your site is still indexable by search engines 
 msgstr "%1$s は、サイトが検索エンジンでまだインデックス可能かどうかを毎週チェックし、そうでない場合は %2$s が通知します。"
 
 #: admin/pages/network.php:19 admin/pages/dashboard.php:48
-#: admin/views/tabs/network/features.php:19
 #: admin/views/tabs/dashboard/features.php:19
+#: admin/views/tabs/network/features.php:19
 msgid "Features"
 msgstr "機能"
 
-#: languages/yoast-components.php:160 languages/yoast-seo-js.php:503
-#: admin/metabox/class-metabox.php:143
+#: languages/yoast-seo-js.php:507 languages/yoast-components.php:163
+#: admin/metabox/class-metabox.php:140
 msgid "SEO title"
 msgstr "SEO タイトル"
-
-#. Translators: %1$s expands to Yoast SEO, %2$s expands to Yoast SEO Premium,
-#. %3$s opens the link, %4$s closes the link.
-#: admin/config-ui/fields/class-field-upsell-configuration-service.php:39
-msgid "While we strive to make setting up %1$s as easy as possible, we understand it can be daunting. If you’d rather have us set up %1$s for you (and get a copy of %2$s in the process), order our %3$s%1$s configuration service%4$s here!"
-msgstr "%1$s のセットアップをできるだけ簡単にするよう努めていますが、限界があります。私たちによる %1$s の代理設定をご希望でしたら、%3$s%1$s 初期設定サービス%4$sをご利用ください ! %2$s もついてきます。"
-
-#. translators: %1$s expands to Yoast SEO.
-#: admin/config-ui/fields/class-field-upsell-configuration-service.php:33
-msgid "Welcome to the %1$s configuration wizard. In a few simple steps we'll help you configure your SEO settings to match your website's needs!"
-msgstr "%1$s 設定ウィザードへようこそ。数個の簡単なステップで、サイトで必要な SEO 設定をお手伝いします。"
 
 #: admin/config-ui/fields/class-field-site-name.php:21
 msgid "Google shows your website's name in the search results, if you want to change it, you can do that here."
@@ -3505,25 +3407,25 @@ msgstr "ダッシュ"
 msgid "Choose the symbol to use as your title separator. This will display, for instance, between your post title and site name. Symbols are shown in the size they'll appear in the search results."
 msgstr "タイトル区切りに使用する記号を選択してください。たとえば、投稿のタイトルとサイト名の間に表示されます。記号は検索結果に表示されるサイズで表示されます。"
 
-#: languages/wordpress-seojs.php:55
+#: languages/wordpress-seojs.php:133
 msgid "The name of the person"
 msgstr "人物の名前"
 
+#: languages/wordpress-seojs.php:41 admin/metabox/class-metabox.php:151
+#: admin/metabox/class-metabox.php:156
 #: admin/config-ui/fields/class-field-choice-post-type.php:35
 #: admin/config-ui/fields/class-field-multiple-authors.php:24
 #: admin/views/tabs/metas/paper-content/media-content.php:20
-#: admin/class-yoast-form.php:717 admin/metabox/class-metabox.php:155
-#: admin/metabox/class-metabox.php:160
-#: admin/taxonomy/class-taxonomy-settings-fields.php:74
+#: admin/class-yoast-form.php:717
 msgid "No"
 msgstr "いいえ"
 
+#: languages/wordpress-seojs.php:44 admin/metabox/class-metabox.php:150
+#: admin/metabox/class-metabox.php:155
 #: admin/config-ui/fields/class-field-choice-post-type.php:34
 #: admin/config-ui/fields/class-field-multiple-authors.php:23
 #: admin/views/tabs/metas/paper-content/media-content.php:19
-#: admin/class-yoast-form.php:716 admin/metabox/class-metabox.php:154
-#: admin/metabox/class-metabox.php:159
-#: admin/taxonomy/class-taxonomy-settings-fields.php:73
+#: admin/class-yoast-form.php:716
 msgid "Yes"
 msgstr "はい"
 
@@ -3537,7 +3439,7 @@ msgstr "WordPress は、ライブラリ内の各メディアの URL を自動的
 
 #: admin/config-ui/class-configuration-structure.php:88
 msgid "Success!"
-msgstr "成功しました。"
+msgstr "成功しました !"
 
 #: admin/config-ui/class-configuration-structure.php:86
 msgid "Title settings"
@@ -3685,8 +3587,8 @@ msgstr "プレミアム"
 msgid "Google Trends"
 msgstr "Google トレンド"
 
+#: admin/views/partial-notifications-warnings.php:20
 #: inc/class-wpseo-admin-bar-menu.php:199
-#: admin/views/partial-alerts-warnings.php:20
 msgid "Notifications"
 msgstr "通知"
 
@@ -3727,7 +3629,7 @@ msgid "Make primary"
 msgstr "メインにする"
 
 #. translators: %s: number of notifications
-#: inc/class-wpseo-admin-bar-menu.php:642 admin/menu/class-admin-menu.php:116
+#: admin/menu/class-admin-menu.php:116 inc/class-wpseo-admin-bar-menu.php:642
 msgid "%s notification"
 msgid_plural "%s notifications"
 msgstr[0] "%s件の通知"
@@ -3740,26 +3642,27 @@ msgstr "可読性解析を停止"
 msgid "Removes the readability analysis section from the metabox and disables all readability-related suggestions."
 msgstr "メタボックスに可読性タブを表示しないようにし、読みやすさに関連する提案機能をすべて無効化します。"
 
-#: languages/wordpress-seojs.php:84
+#: languages/wordpress-seojs.php:165
 #: admin/views/class-yoast-feature-toggles.php:80
 msgid "Readability analysis"
 msgstr "可読性解析"
 
-#: languages/yoast-seo-js.php:474 inc/class-wpseo-rank.php:140
-#: inc/class-wpseo-rank.php:163 inc/class-wpseo-rank.php:195
-#: admin/formatter/class-metabox-formatter.php:96
-#: admin/formatter/class-metabox-formatter.php:126
+#: languages/yoast-seo-js.php:478
+#: admin/formatter/class-metabox-formatter.php:103
+#: admin/formatter/class-metabox-formatter.php:133
 #: admin/statistics/class-statistics-service.php:217
+#: inc/class-wpseo-rank.php:140 inc/class-wpseo-rank.php:163
+#: inc/class-wpseo-rank.php:195
 msgid "Needs improvement"
 msgstr "改善が必要"
 
+#: admin/formatter/class-metabox-formatter.php:59
 #: admin/metabox/class-metabox-section-readability.php:28
-#: admin/formatter/class-metabox-formatter.php:56
 msgid "Readability"
 msgstr "可読性"
 
 #: languages/yoast-components.php:14
-#: admin/formatter/class-metabox-formatter.php:176
+#: admin/formatter/class-metabox-formatter.php:183
 msgid "Improvements"
 msgstr "改善"
 
@@ -3767,41 +3670,42 @@ msgstr "改善"
 msgid "Dismiss this item."
 msgstr "この項目を非表示にします。"
 
-#: admin/views/partial-alerts-errors.php:22
+#: admin/views/partial-notifications-errors.php:22
 msgid "Good job! We could detect no serious SEO problems."
 msgstr "SEO の深刻な問題は検出できませんでした。"
 
-#: admin/views/partial-alerts-errors.php:21
+#: admin/views/partial-notifications-errors.php:21
 msgid "We have detected the following issues that affect the SEO of your site."
 msgstr "サイトの SEO に影響を与える次の問題を検出しました。"
 
-#: languages/yoast-components.php:26 admin/views/partial-alerts-errors.php:20
-#: admin/formatter/class-metabox-formatter.php:175
+#: languages/yoast-components.php:26
+#: admin/formatter/class-metabox-formatter.php:182
+#: admin/views/partial-notifications-errors.php:20
 msgid "Problems"
 msgstr "問題点"
 
-#: admin/formatter/class-metabox-formatter.php:146
+#: admin/formatter/class-metabox-formatter.php:153
 msgid "Analysis"
 msgstr "解析"
 
-#: inc/class-wpseo-rank.php:138 admin/formatter/class-metabox-formatter.php:89
-#: admin/formatter/class-metabox-formatter.php:119
+#: admin/formatter/class-metabox-formatter.php:96
+#: admin/formatter/class-metabox-formatter.php:126 inc/class-wpseo-rank.php:138
 msgid "Not available"
 msgstr "利用できません"
 
-#: admin/class-meta-columns.php:208
+#: admin/class-meta-columns.php:240
 msgid "Filter by SEO Score"
 msgstr "SEO スコアで絞り込む"
 
-#: admin/class-meta-columns.php:125
+#: admin/class-meta-columns.php:157
 msgid "Meta description not set."
 msgstr "メタディスクリプションが設定されていません。"
 
-#: languages/wordpress-seojs.php:144
+#: languages/wordpress-seojs.php:225
 msgid "Open"
 msgstr "開く"
 
-#: admin/pages/dashboard.php:39 admin/menu/class-admin-menu.php:37
+#: admin/menu/class-admin-menu.php:37 admin/pages/dashboard.php:39
 msgid "Dashboard"
 msgstr "ダッシュボード"
 
@@ -3811,7 +3715,7 @@ msgstr "ダッシュボード"
 msgid "You can fix this on the %1$sPermalink settings page%2$s."
 msgstr "これは%1$sパーマリンク設定ページ%2$sで修正できます。"
 
-#: inc/class-wpseo-replace-vars.php:1219
+#: inc/class-wpseo-replace-vars.php:1257
 msgid "Replaced with the primary category of the post/page"
 msgstr "投稿 / 固定ページのメインカテゴリーに置き換えました"
 
@@ -3907,21 +3811,21 @@ msgid "Show"
 msgstr "表示"
 
 #: admin/views/tabs/metas/paper-content/author-archive-settings.php:13
-#: admin/views/tabs/metas/paper-content/date-archives-settings.php:13
 #: admin/views/tabs/metas/paper-content/taxonomy-content.php:19
+#: admin/views/tabs/metas/paper-content/date-archives-settings.php:13
 #: admin/class-yoast-form.php:327
 msgid "Enabled"
 msgstr "有効"
 
 #: admin/views/tabs/metas/paper-content/author-archive-settings.php:14
-#: admin/views/tabs/metas/paper-content/date-archives-settings.php:14
 #: admin/views/tabs/metas/paper-content/taxonomy-content.php:19
+#: admin/views/tabs/metas/paper-content/date-archives-settings.php:14
 #: admin/class-yoast-form.php:327
 msgid "Disabled"
 msgstr "無効"
 
 #. translators: %s: wp_title() function.
-#: inc/class-wpseo-replace-vars.php:1201
+#: inc/class-wpseo-replace-vars.php:1239
 msgid "The separator defined in your theme's %s tag."
 msgstr "セパレータはテーマの %s タグで定義されています。"
 
@@ -3929,26 +3833,12 @@ msgstr "セパレータはテーマの %s タグで定義されています。"
 msgid "No index"
 msgstr "インデックスされていません"
 
-#. translators: %1$s expands to the social network name
-#: admin/taxonomy/class-taxonomy-social-fields.php:70
-msgid "If you want to use an image for sharing on %1$s, you can upload / choose an image or add the image URL here."
-msgstr "%1$s での共有に画像を使いたい場合は、ここで画像をアップロード / 選択するか、画像の URL を追加してください。"
-
-#. translators: %1$s expands to the social network name
-#: admin/taxonomy/class-taxonomy-social-fields.php:63
-msgid "If you don't want to use the meta description for sharing on %1$s but want another description there, write it here."
-msgstr "%1$s で共有する際に実際のメタディスクリプションを使いたくない場合は、ここに代わりの文章を入力してください。"
-
-#. translators: %1$s expands to the social network name
-#: admin/taxonomy/class-taxonomy-social-fields.php:55
-msgid "If you don't want to use the title for sharing on %1$s but instead want another title there, write it here."
-msgstr "%1$s で共有する際に実際のタイトルを使いたくない場合は、ここに代わりのタイトルを入力してください。"
-
 #: admin/ryte/class-ryte.php:113
 msgid "Once Weekly"
 msgstr "週1回"
 
-#: admin/class-meta-columns.php:71 admin/taxonomy/class-taxonomy-columns.php:68
+#: admin/taxonomy/class-taxonomy-columns.php:68
+#: admin/class-meta-columns.php:109
 msgid "SEO score"
 msgstr "SEO スコア"
 
@@ -3962,41 +3852,28 @@ msgstr "フォーカスキーフレーズを使用して、コンテンツ全体
 msgid "%1$s of %2$s done."
 msgstr "%1$s / %2$s 完了。"
 
-#. translators: 1: is a link to 'admin_url /
-#. admin.php?page=wpseo_tools&recalculate=1' 2: closing link tag
-#: admin/class-admin-init.php:216
-msgid "We've updated our SEO score algorithm. %1$sRecalculate the SEO scores%2$s for all posts and pages."
-msgstr "SEO スコアのアルゴリズムを更新しました。%1$s ここをクリックして、すべての投稿と固定ページの SEO スコアを再計算します。%2$s"
-
-#. Author of the plugin
-msgid "Team Yoast"
-msgstr "チーム Yoast"
-
-#. Description of the plugin
-msgid "The first true all-in-one SEO solution for WordPress, including on-page content analysis, XML sitemaps and much more."
-msgstr "WordPress のオールインワン型 SEO ソリューションを提供します。ページコンテンツの解析や XML サイトマップなど様々な機能があります。"
-
 #. Plugin Name of the plugin
+#: languages/wordpress-seojs.php:254
 #: admin/capabilities/class-capability-manager-integration.php:72
 msgid "Yoast SEO"
 msgstr "Yoast SEO"
 
-#: wp-seo-main.php:597
+#: wp-seo-main.php:596
 msgid "Activation failed:"
 msgstr "有効化に失敗しました："
 
-#: wp-seo-main.php:587
+#: wp-seo-main.php:586
 msgid "The filter extension seem to be unavailable. Please ask your web host to enable it."
 msgstr "フィルタ拡張機能が使用できません。ホスティング会社に有効化するよう問い合わせてください。"
 
 #. translators: %1$s expands to Yoast SEO, %2$s / %3$s: links to the
 #. installation manual in the Readme for the Yoast SEO code repository on
 #. GitHub
-#: wp-seo-main.php:563
+#: wp-seo-main.php:562
 msgid "The %1$s plugin installation is incomplete. Please refer to %2$sinstallation instructions%3$s."
 msgstr "%1$s プラグインのインストールが不完全です。%2$sインストール手順%3$sに従ってください。"
 
-#: wp-seo-main.php:541
+#: wp-seo-main.php:540
 msgid "The Standard PHP Library (SPL) extension seem to be unavailable. Please ask your web host to enable it."
 msgstr "Standard PHP Library (SPL) 拡張機能が利用できないようです。ホスティング会社に有効にするよう問い合わせてください。"
 
@@ -4062,7 +3939,7 @@ msgid "You searched for %s"
 msgstr "検索結果: %s"
 
 #. translators: %s expands to a twitter user name.
-#: inc/options/class-wpseo-option-social.php:198
+#: inc/options/class-wpseo-option-social.php:197
 msgid "%s does not seem to be a valid Twitter Username. Please correct."
 msgstr "%s は有効な Twitter ユーザー名ではないようです。修正してください。"
 
@@ -4124,130 +4001,131 @@ msgstr "アーカイブ: "
 msgid "Error 404: Page not found"
 msgstr "エラー 404: ページが見つかりません。"
 
-#: languages/yoast-seo-js.php:488 inc/class-wpseo-rank.php:142
-#: inc/class-wpseo-rank.php:173 inc/class-wpseo-rank.php:205
-#: admin/formatter/class-metabox-formatter.php:110
-#: admin/formatter/class-metabox-formatter.php:140
+#: languages/yoast-seo-js.php:492
+#: admin/formatter/class-metabox-formatter.php:117
+#: admin/formatter/class-metabox-formatter.php:147
 #: admin/statistics/class-statistics-service.php:227
+#: inc/class-wpseo-rank.php:142 inc/class-wpseo-rank.php:173
+#: inc/class-wpseo-rank.php:205
 msgid "Good"
-msgstr "良い"
+msgstr "良好"
 
-#: inc/class-wpseo-replace-vars.php:1253
+#: inc/class-wpseo-replace-vars.php:1291
 msgid "Replaced with a custom taxonomies description"
 msgstr "カスタムタクソノミー説明文に置き換えられます"
 
-#: inc/class-wpseo-replace-vars.php:1252
+#: inc/class-wpseo-replace-vars.php:1290
 msgid "Replaced with a posts custom taxonomies, comma separated."
 msgstr "カンマで区切られた投稿のカスタムタクソノミーに置き換えられます"
 
-#: inc/class-wpseo-replace-vars.php:1251
+#: inc/class-wpseo-replace-vars.php:1289
 msgid "Replaced with a posts custom field value"
 msgstr "現在の投稿カスタムフィールド値に置き換えられます"
 
-#: inc/class-wpseo-replace-vars.php:1250
+#: inc/class-wpseo-replace-vars.php:1288
 msgid "Replaced with the slug which caused the 404"
 msgstr "404の原因になるスラッグに置き換えられます"
 
-#: inc/class-wpseo-replace-vars.php:1249
+#: inc/class-wpseo-replace-vars.php:1287
 msgid "Replaced with the posts focus keyphrase"
 msgstr "投稿のフォーカスキーワードに置き換えられます"
 
-#: inc/class-wpseo-replace-vars.php:1248
+#: inc/class-wpseo-replace-vars.php:1286
 msgid "Attachment caption"
 msgstr "添付ファイルのキャプション"
 
-#: inc/class-wpseo-replace-vars.php:1247
+#: inc/class-wpseo-replace-vars.php:1285
 msgid "Replaced with the current page number"
 msgstr "現在のページナンバーに置き換えられます"
 
-#: inc/class-wpseo-replace-vars.php:1246
+#: inc/class-wpseo-replace-vars.php:1284
 msgid "Replaced with the current page total"
 msgstr "現在のページ数合計に置き換えられます"
 
-#: inc/class-wpseo-replace-vars.php:1245
+#: inc/class-wpseo-replace-vars.php:1283
 msgid "Replaced with the current page number with context (i.e. page 2 of 4)"
 msgstr "現在のページ数に置き換えられます (例: ページ 2/4)"
 
-#: inc/class-wpseo-replace-vars.php:1244
+#: inc/class-wpseo-replace-vars.php:1282
 msgid "Replaced with the post/page author's 'Biographical Info'"
 msgstr "投稿やページの投稿者のプロフィールに置き換えられます"
 
-#: inc/class-wpseo-replace-vars.php:1243
+#: inc/class-wpseo-replace-vars.php:1281
 msgid "Replaced with the post/page author's 'nicename'"
 msgstr "投稿 / ページの投稿者のニックネームに置き換えられます"
 
-#: inc/class-wpseo-replace-vars.php:1242
+#: inc/class-wpseo-replace-vars.php:1280
 msgid "Replaced with the post/page ID"
 msgstr "投稿 / ページの ID に置き換えられます"
 
-#: inc/class-wpseo-replace-vars.php:1241
+#: inc/class-wpseo-replace-vars.php:1279
 msgid "Replaced with the post/page modified time"
 msgstr "投稿/ページの更新時刻に置き換えられます"
 
-#: inc/class-wpseo-replace-vars.php:1240
+#: inc/class-wpseo-replace-vars.php:1278
 msgid "Replaced with the content type plural label"
 msgstr "コンテンツタイプの複数形ラベルで置き換えられます"
 
-#: inc/class-wpseo-replace-vars.php:1239
+#: inc/class-wpseo-replace-vars.php:1277
 msgid "Replaced with the content type single label"
 msgstr "コンテンツタイプの単数形ラベルで置き換えられます"
 
-#: inc/class-wpseo-replace-vars.php:1224
+#: inc/class-wpseo-replace-vars.php:1262
 msgid "Replaced with the current search phrase"
 msgstr "現在の検索語に置き換えられます"
 
-#: inc/class-wpseo-replace-vars.php:1223
+#: inc/class-wpseo-replace-vars.php:1261
 msgid "Replaced with the term name"
 msgstr "ターム名に置き換えられます"
 
-#: inc/class-wpseo-replace-vars.php:1222
+#: inc/class-wpseo-replace-vars.php:1260
 msgid "Replaced with the term description"
 msgstr "ターム説明文に置き換えられます"
 
-#: inc/class-wpseo-replace-vars.php:1221
+#: inc/class-wpseo-replace-vars.php:1259
 msgid "Replaced with the tag description"
 msgstr "タグ説明文に置き換えられます"
 
-#: inc/class-wpseo-replace-vars.php:1220
+#: inc/class-wpseo-replace-vars.php:1258
 msgid "Replaced with the category description"
 msgstr "カテゴリー説明文に置き換えられます"
 
-#: inc/class-wpseo-replace-vars.php:1218
+#: inc/class-wpseo-replace-vars.php:1256
 msgid "Replaced with the post categories (comma separated)"
 msgstr "投稿のカテゴリー (カンマで区切り) に置き換えられます"
 
-#: inc/class-wpseo-replace-vars.php:1217
+#: inc/class-wpseo-replace-vars.php:1255
 msgid "Replaced with the current tag/tags"
 msgstr "現在のタグに置き換えられます"
 
-#: inc/class-wpseo-replace-vars.php:1216
+#: inc/class-wpseo-replace-vars.php:1254
 msgid "Replaced with the post/page excerpt (without auto-generation)"
 msgstr "投稿/ページの抜粋 (自動生成しません) に置き換えられます"
 
-#: inc/class-wpseo-replace-vars.php:1215
+#: inc/class-wpseo-replace-vars.php:1253
 msgid "Replaced with the post/page excerpt (or auto-generated if it does not exist)"
 msgstr "投稿/ページの抜粋 (存在しない場合は自動生成されます) に置き換えられます"
 
-#: inc/class-wpseo-replace-vars.php:1213
+#: inc/class-wpseo-replace-vars.php:1251
 msgid "The site's name"
 msgstr "サイト名"
 
-#: inc/class-wpseo-replace-vars.php:1211
+#: inc/class-wpseo-replace-vars.php:1249
 msgid "Replaced with the title of the parent page of the current page"
 msgstr "現在のページの親ページのタイトルに置き換えられます"
 
-#: inc/class-wpseo-replace-vars.php:1210
+#: inc/class-wpseo-replace-vars.php:1248
 msgid "Replaced with the title of the post/page"
 msgstr "投稿/ページのタイトルに置き換えられます"
 
-#: inc/class-wpseo-replace-vars.php:1209
+#: inc/class-wpseo-replace-vars.php:1247
 msgid "Replaced with the date of the post/page"
 msgstr "投稿や固定ページの日時に置き換えられます"
 
 #. translators: 1: current page number, 2: total number of pages.
-#: inc/class-wpseo-replace-vars.php:946
+#: inc/class-wpseo-replace-vars.php:983
 msgid "Page %1$d of %2$d"
-msgstr "ページ %1$d / %2$d"
+msgstr "%1$dページ目 (%2$dページ中)"
 
 #: inc/class-wpseo-replace-vars.php:136
 msgid "You cannot overrule a WPSEO standard variable replacement by registering a variable with the same name. Use the \"wpseo_replacements\" filter instead to adjust the replacement value."
@@ -4302,7 +4180,7 @@ msgstr "%1$s の設定をエクスポートする"
 #: admin/views/tabs/tool/wpseo-import.php:25
 #: admin/views/tabs/tool/wpseo-import.php:45
 msgid "Import settings"
-msgstr "設定のインポート"
+msgstr "インポート設定"
 
 #: admin/views/tool-import-export.php:91
 #: admin/views/tabs/tool/import-seo.php:18
@@ -4421,7 +4299,7 @@ msgstr "以下は公開済み投稿の SEO スコアです。今すぐ投稿の�
 msgid "Credits"
 msgstr "クレジット"
 
-#: admin/pages/tools.php:73
+#: admin/pages/tools.php:72
 msgid "&laquo; Back to Tools page"
 msgstr "&laquo; ツールページに戻る"
 
@@ -4483,16 +4361,16 @@ msgstr "デフォルト設定"
 msgid "Copy home meta description"
 msgstr "ホームのメタディスクリプションを複製"
 
-#: admin/views/tool-bulk-editor.php:111
-#: admin/views/tabs/metas/paper-content/rss-content.php:31
 #: admin/views/tabs/social/facebook.php:44
+#: admin/views/tabs/metas/paper-content/rss-content.php:31
+#: admin/views/tool-bulk-editor.php:111
 msgid "Description"
 msgstr "説明"
 
 #: admin/views/tabs/social/facebook.php:42
 #: admin/views/tabs/social/facebook.php:74
 msgid "Image URL"
-msgstr "画像 URL"
+msgstr "画像の URL"
 
 #: admin/views/tabs/social/facebook.php:36
 msgid "These are the title, description and image used in the Open Graph meta tags on the front page of your site."
@@ -4539,7 +4417,7 @@ msgstr "Twitter ユーザー名"
 #: admin/config-ui/fields/class-field-profile-url-facebook.php:19
 #: admin/views/tabs/social/accounts.php:29
 msgid "Facebook Page URL"
-msgstr "Facebook ページの URL"
+msgstr "Facebook ページ URL"
 
 #: admin/pages/social.php:18
 msgid "Accounts"
@@ -4654,17 +4532,10 @@ msgstr "日付アーカイブ"
 msgid "author archives"
 msgstr "投稿者アーカイブ"
 
-#: languages/wordpress-seojs.php:320 inc/class-wpseo-replace-vars.php:1210
-#: admin/views/tool-bulk-editor.php:109 admin/views/tabs/social/facebook.php:43
+#: languages/wordpress-seojs.php:460 admin/views/tabs/social/facebook.php:43
+#: admin/views/tool-bulk-editor.php:109 inc/class-wpseo-replace-vars.php:1248
 msgid "Title"
 msgstr "タイトル"
-
-#. translators: %1$s expands to Yoast SEO
-#: admin/views/tabs/metas/paper-content/post_type/post-type.php:32
-#: admin/views/tabs/metas/paper-content/taxonomy-content.php:52
-#: admin/views/class-view-utils.php:97
-msgid "%1$s Meta Box"
-msgstr "%1$s メタボックス"
 
 #: admin/class-yoast-form.php:748
 msgid "Hide"
@@ -4716,24 +4587,24 @@ msgid "%1$s Extensions"
 msgstr "%1$s 拡張機能"
 
 #. translators: %1$s expands to Yoast SEO
-#: admin/views/licenses.php:90 admin/class-plugin-availability.php:82
+#: admin/class-plugin-availability.php:82 admin/views/licenses.php:90
 msgid "Seamlessly integrate WooCommerce with %1$s and get extra features!"
 msgstr "WooCommerce を %1$s とシームレスに統合したり追加機能を使えるようにしたりします!"
 
-#: admin/views/licenses.php:39 admin/class-plugin-availability.php:70
+#: admin/class-plugin-availability.php:70 admin/views/licenses.php:39
 msgid "Rank better locally and in Google Maps, without breaking a sweat!"
 msgstr "Google マップのランキングで上位になりましょう!"
 
-#: admin/views/licenses.php:70 admin/class-plugin-availability.php:60
+#: admin/class-plugin-availability.php:60 admin/views/licenses.php:70
 msgid "Are you in Google News? Increase your traffic from Google News by optimizing for it!"
 msgstr "Google ニュースに表示されてますか? 最適化してGoogle ニュースからのトラフィックを増やしましょう!"
 
-#: admin/views/licenses.php:55 admin/class-plugin-availability.php:50
+#: admin/class-plugin-availability.php:50 admin/views/licenses.php:55
 msgid "Optimize your videos to show them off in search results and get more clicks!"
 msgstr "動画を最適化して検索結果に表示させ、もっとクリックされるようにします!"
 
 #. translators: %1$s expands to Yoast SEO
-#: admin/views/licenses.php:27 admin/class-plugin-availability.php:38
+#: admin/class-plugin-availability.php:38 admin/views/licenses.php:27
 msgid "The premium version of %1$s with more features & support."
 msgstr "追加機能とサポートが得られるプレミアム版の %1$s です。"
 
@@ -4786,8 +4657,9 @@ msgstr "%s を無効化"
 msgid "The %1$s plugin might cause issues when used in conjunction with %2$s."
 msgstr "%1$s プラグインを %2$s と併用すると問題が起きる可能性があります。"
 
-#: admin/class-yoast-form.php:578 admin/metabox/class-metabox.php:638
+#: admin/metabox/class-metabox.php:620
 #: admin/taxonomy/class-taxonomy-fields-presenter.php:123
+#: admin/class-yoast-form.php:578
 msgid "Upload Image"
 msgstr "画像をアップロード"
 
@@ -4800,17 +4672,9 @@ msgstr "広告を無くしたいですか ?"
 msgid "%s Posts Overview"
 msgstr "%s 投稿の概要"
 
-#: admin/taxonomy/class-taxonomy-settings-fields.php:47
-msgid "The Breadcrumbs Title is used in the breadcrumbs where this taxonomy appears."
-msgstr "パンくずリストのタイトルは、このタクソノミーが表示されるぱんくずリストで使用されます。"
-
 #: admin/views/tabs/metas/paper-content/post-type-content.php:63
 msgid "Breadcrumbs title"
 msgstr "パンくずリストのタイトル"
-
-#: admin/taxonomy/class-taxonomy-settings-fields.php:54
-msgid "The canonical link is shown on the archive page for this term."
-msgstr "カノニカルリンクは、この語句のアーカイブページに表示されています。"
 
 #: admin/views/tabs/social/facebook.php:30
 msgid "Facebook App ID"
@@ -4824,19 +4688,19 @@ msgstr "Pinterest"
 msgid "Archives"
 msgstr "アーカイブ"
 
-#: languages/yoast-components.php:194
+#: languages/yoast-components.php:197
 msgid "Email"
 msgstr "メール"
 
-#: languages/yoast-components.php:129
+#: languages/yoast-components.php:123
 msgid "Previous"
-msgstr "前へ"
+msgstr "前"
 
-#: languages/yoast-components.php:132
+#: languages/yoast-components.php:126
 msgid "Next"
-msgstr "次へ"
+msgstr "次"
 
-#: languages/wordpress-seojs.php:49 languages/yoast-components.php:123
+#: languages/wordpress-seojs.php:127 languages/yoast-components.php:72
 #: admin/google_search_console/views/gsc-redirect-nopremium.php:27
 msgid "Close"
 msgstr "閉じる"
@@ -4858,64 +4722,15 @@ msgstr "%1$s のオープングラフを設定する"
 msgid "Both %1$s and %2$s create Open Graph output, which might make Facebook, Twitter, LinkedIn and other social networks use the wrong texts and images when your pages are being shared."
 msgstr "%1$s と %2$s の両方が Open Graph 出力を作成しています。これにより、Facebook、Twitter、LinkedIn その他のソーシャルネットワークが、ページの共有時に間違ったテキストや画像を使用する可能性があります。"
 
-#. translators: %s expands to the name of a social network.
-#. translators: %s expands to the social network name
-#: admin/class-social-admin.php:66
-#: admin/taxonomy/class-taxonomy-social-fields.php:68
-msgid "%s Image"
-msgstr "%s 用の画像"
-
-#. translators: %s expands to the name of a social network.
-#. translators: %s expands to the social network name
-#: admin/class-social-admin.php:62
-#: admin/taxonomy/class-taxonomy-social-fields.php:61
-msgid "%s Description"
-msgstr "%s 用ディスクリプション"
-
-#. translators: %s expands to the name of a social network.
-#. translators: %s expands to the social network name
-#: admin/class-social-admin.php:58
-#: admin/taxonomy/class-taxonomy-social-fields.php:53
-msgid "%s Title"
-msgstr "%s 用タイトル"
-
-#: admin/pages/social.php:20 admin/class-social-admin.php:43
-#: admin/class-social-admin.php:102 admin/class-social-admin.php:174
-#: admin/taxonomy/class-taxonomy-metabox.php:182
-#: admin/taxonomy/class-taxonomy-social-fields.php:122
+#: admin/pages/social.php:20
+#: admin/taxonomy/class-taxonomy-social-fields.php:113
 msgid "Twitter"
 msgstr "Twitter"
 
-#: admin/pages/social.php:19 admin/class-social-admin.php:42
-#: admin/class-social-admin.php:94 admin/class-social-admin.php:171
-#: admin/taxonomy/class-taxonomy-metabox.php:181
-#: admin/taxonomy/class-taxonomy-social-fields.php:121
+#: admin/pages/social.php:19
+#: admin/taxonomy/class-taxonomy-social-fields.php:112
 msgid "Facebook"
 msgstr "Facebook"
-
-#. translators: %1$s expands to the social network, %2$s to the recommended
-#. image size.
-#. translators: %1$s expands to the social network name, %2$s expands to the
-#. image size
-#: admin/class-social-admin.php:39
-#: admin/taxonomy/class-taxonomy-social-fields.php:72
-msgid "The recommended image size for %1$s is %2$s pixels."
-msgstr "%1$s の推奨画像サイズは %2$spx です。"
-
-#. translators: %s expands to the social network's name.
-#: admin/class-social-admin.php:36
-msgid "If you want to override the image used on %s for this post, upload / choose an image here."
-msgstr "投稿の %s 用画像を上書きするには、画像をアップロードまたは選択してください。"
-
-#. translators: %s expands to the social network's name.
-#: admin/class-social-admin.php:33
-msgid "If you don't want to use the meta description for sharing the post on %s but want another description there, write it here."
-msgstr "%s で共有する際に実際のメタディスクリプションを使いたくない場合は、ここに代わりの文章を入力してください。"
-
-#. translators: %s expands to the social network's name.
-#: admin/class-social-admin.php:30
-msgid "If you don't want to use the post title for sharing the post on %s but instead want another title there, write it here."
-msgstr "%s で共有する際に実際のタイトルを使いたくない場合は、ここに代わりのタイトルを入力してください。"
 
 #: languages/yoast-seo-js.php:33
 msgid "very difficult"
@@ -4937,11 +4752,12 @@ msgstr "可読性を向上させるために、文章を短くしてみてくだ
 msgid "fairly difficult"
 msgstr "かなり難しい"
 
-#: languages/yoast-seo-js.php:481 inc/class-wpseo-rank.php:141
-#: inc/class-wpseo-rank.php:168 inc/class-wpseo-rank.php:200
-#: admin/formatter/class-metabox-formatter.php:103
-#: admin/formatter/class-metabox-formatter.php:133
+#: languages/yoast-seo-js.php:485
+#: admin/formatter/class-metabox-formatter.php:110
+#: admin/formatter/class-metabox-formatter.php:140
 #: admin/statistics/class-statistics-service.php:222
+#: inc/class-wpseo-rank.php:141 inc/class-wpseo-rank.php:168
+#: inc/class-wpseo-rank.php:200
 msgid "OK"
 msgstr "OK"
 
@@ -4957,62 +4773,61 @@ msgstr "易しい"
 msgid "very easy"
 msgstr "非常に易しい"
 
-#: admin/class-meta-columns.php:79
+#: admin/class-meta-columns.php:117
 msgid "Meta Desc."
 msgstr "メタディスクリプション。"
 
-#: admin/class-meta-columns.php:211
+#: admin/class-meta-columns.php:243
 msgid "All SEO Scores"
 msgstr "すべての SEO スコア"
 
-#: admin/metabox/class-metabox.php:889
+#: admin/metabox/class-metabox.php:886
 msgid "SEO issue: The featured image should be at least 200 by 200 pixels to be picked up by Facebook and other social media sites."
 msgstr "SEO の問題: Facebook などのソーシャルメディアサイトで使われるようにするには、画像サイズを200x200ピクセル以上にするべきです。"
 
-#: admin/metabox/class-metabox.php:278 admin/taxonomy/class-taxonomy.php:291
+#: admin/metabox/class-metabox.php:853 admin/taxonomy/class-taxonomy.php:160
+#: admin/taxonomy/class-taxonomy.php:293
 msgid "(no parent)"
 msgstr "(親なし)"
 
-#: admin/class-meta-columns.php:613
+#: admin/class-meta-columns.php:645
 msgid "Post is set to noindex."
 msgstr "投稿は noindex に設定されています。"
 
-#: admin/metabox/class-metabox.php:181
+#: admin/metabox/class-metabox.php:177
 msgid "The URL that this page should redirect to."
 msgstr "このページのリダイレクト先URLです。"
 
-#: admin/metabox/class-metabox.php:180
+#: admin/metabox/class-metabox.php:176
 msgid "301 Redirect"
 msgstr "301リダイレクト"
 
 #. translators: 1: link open tag; 2: link close tag.
-#: admin/metabox/class-metabox.php:175
+#: admin/metabox/class-metabox.php:171
 msgid "The canonical URL that this page should point to. Leave empty to default to permalink. %1$sCross domain canonical%2$s supported too."
 msgstr "このページを示すカノニカル URL です。空欄にするとデフォルトでパーマリンクになります。%1$sクロスドメインカノニカル%2$sにも対応しています。"
 
-#: admin/metabox/class-metabox.php:171
-#: admin/taxonomy/class-taxonomy-settings-fields.php:53
+#: languages/wordpress-seojs.php:32 admin/metabox/class-metabox.php:167
 msgid "Canonical URL"
 msgstr "カノニカル URL"
 
-#: admin/metabox/class-metabox.php:169
+#: admin/metabox/class-metabox.php:165
 msgid "Title to use for this page in breadcrumb paths"
 msgstr "パンくずリストのパスにこのページに使用するためのタイトル"
 
-#: admin/metabox/class-metabox.php:168
-#: admin/taxonomy/class-taxonomy-settings-fields.php:46
+#: languages/wordpress-seojs.php:26 admin/metabox/class-metabox.php:164
 msgid "Breadcrumbs Title"
 msgstr "パンくずリストのタイトル"
 
-#: admin/metabox/class-metabox.php:166
+#: languages/wordpress-seojs.php:20 admin/metabox/class-metabox.php:162
 msgid "No Snippet"
 msgstr "スニペットなし"
 
-#: admin/metabox/class-metabox.php:165
+#: languages/wordpress-seojs.php:17 admin/metabox/class-metabox.php:161
 msgid "No Archive"
 msgstr "アーカイブなし"
 
-#: admin/metabox/class-metabox.php:164
+#: languages/wordpress-seojs.php:14 admin/metabox/class-metabox.php:160
 msgid "No Image Index"
 msgstr "画像インデックスなし"
 
@@ -5022,24 +4837,24 @@ msgstr "画像インデックスなし"
 msgid "None"
 msgstr "なし"
 
-#: admin/metabox/class-metabox.php:162
+#: languages/wordpress-seojs.php:11 admin/metabox/class-metabox.php:158
 msgid "Meta robots advanced"
 msgstr "追加 robots メタ"
 
-#: admin/metabox/class-metabox.php:150
+#: admin/metabox/class-metabox.php:146
 msgid "Warning: even though you can set the meta robots setting here, the entire site is set to noindex in the sitewide privacy settings, so these settings won't have an effect."
 msgstr "警告: メタロボット設定を設定できますが、サイト全体のプライバシー設定で noindex が設定されているため、設定は効果がありません。"
 
-#: languages/yoast-components.php:164 languages/yoast-seo-js.php:509
-#: admin/metabox/class-metabox.php:145
+#: languages/yoast-seo-js.php:513 languages/yoast-components.php:167
+#: admin/metabox/class-metabox.php:141
 msgid "Meta description"
 msgstr "メタディスクリプション"
 
-#: admin/class-meta-columns.php:78
+#: admin/class-meta-columns.php:116
 msgid "SEO Title"
 msgstr "SEOタイトル"
 
-#: inc/class-wpseo-replace-vars.php:1249
+#: inc/class-wpseo-replace-vars.php:1287
 msgid "Focus keyword"
 msgstr "フォーカスキーワード"
 
@@ -5080,8 +4895,8 @@ msgstr "パンくずリストの区切り文字: "
 msgid "%s Breadcrumbs"
 msgstr "%s パンくずリスト"
 
-#: admin/metabox/class-metabox.php:901 admin/class-config.php:110
-#: admin/taxonomy/class-taxonomy.php:183
+#: admin/metabox/class-metabox.php:874 admin/class-config.php:111
+#: admin/taxonomy/class-taxonomy.php:180
 msgid "Use Image"
 msgstr "画像を使用する"
 
@@ -5112,7 +4927,7 @@ msgstr "表示"
 #. translators: %s: post title
 #: admin/class-bulk-editor-list-table.php:827
 msgid "View &#8220;%s&#8221;"
-msgstr "表示 &#8220;%s&#8221;"
+msgstr "&#8220;%s&#8221; を表示"
 
 #: admin/class-bulk-editor-list-table.php:818
 msgid "Preview"
@@ -5129,7 +4944,7 @@ msgstr "編集"
 
 #: admin/class-bulk-editor-list-table.php:417
 msgid "Filter"
-msgstr "絞り込み検索"
+msgstr "絞り込み"
 
 #. translators: %s expands to the number of trashed posts in localized format.
 #: admin/class-bulk-editor-list-table.php:339
@@ -5153,33 +4968,27 @@ msgstr "新しい Yoast メタディスクリプション"
 msgid "Existing Yoast Meta Description"
 msgstr "既存の Yoast メタディスクリプション"
 
-#: admin/class-admin.php:278
+#: admin/class-admin.php:276
 msgid "Facebook profile URL"
 msgstr "Facebook プロフィール URL"
 
-#: admin/class-admin.php:285
+#: admin/class-admin.php:283
 msgid "Twitter username (without @)"
 msgstr "Twitter ユーザー名 (@は不要)"
 
-#: languages/wordpress-seojs.php:159 admin/class-admin.php:242
+#: languages/wordpress-seojs.php:299 admin/class-admin.php:242
 msgid "FAQ"
-msgstr "よくあるご質問"
+msgstr "FAQ"
 
 #: admin/class-admin.php:238
 msgid "Premium Support"
 msgstr "プレミアムサポート"
 
-#: languages/wordpress-seojs.php:233 admin/class-admin.php:228
+#: languages/wordpress-seojs.php:373 admin/class-admin.php:228
 msgid "Settings"
 msgstr "設定"
 
-#. translators: %1$s resolves to the opening tag of the link to the reading
-#. settings, %1$s resolves to the closing tag for the link
-#: admin/class-admin-init.php:115
-msgid "You must %1$sgo to your Reading Settings%2$s and uncheck the box for Search Engine Visibility."
-msgstr "表示設定 %2$s に移動 %1$s して、「検索エンジンでの表示」のチェックボックスのチェックを外してください。"
-
-#: admin/class-admin-init.php:112
+#: admin/class-admin-init.php:444
 msgid "Huge SEO Issue: You're blocking access to robots."
 msgstr "深刻な SEO の問題：ロボットのアクセスをブロックしています。"
 
@@ -5191,9 +5000,9 @@ msgstr "投稿"
 msgid "Edit Files"
 msgstr "ファイルの編集"
 
-#: admin/pages/network.php:18 admin/pages/metas.php:18
 #: admin/menu/class-admin-menu.php:85
-#: admin/menu/class-network-admin-menu.php:56
+#: admin/menu/class-network-admin-menu.php:56 admin/pages/metas.php:18
+#: admin/pages/network.php:18
 msgid "General"
 msgstr "一般"
 
@@ -5209,26 +5018,25 @@ msgstr "Search Console"
 msgid "Tools"
 msgstr "ツール"
 
-#: admin/metabox/class-metabox.php:395
-#: admin/taxonomy/class-taxonomy-metabox.php:139
+#: languages/wordpress-seojs.php:38
 msgid "Advanced"
-msgstr "上級者向け"
+msgstr "高度な設定"
 
 #: admin/views/class-yoast-feature-toggles.php:104
 msgid "XML sitemaps"
 msgstr "XML サイトマップ"
 
-#: admin/class-social-admin.php:108 admin/menu/class-admin-menu.php:92
-#: admin/taxonomy/class-taxonomy-metabox.php:186
+#: admin/menu/class-admin-menu.php:92 admin/metabox/class-metabox.php:360
+#: admin/taxonomy/class-taxonomy-metabox.php:193
 msgid "Social"
 msgstr "ソーシャル"
 
-#: inc/class-wpseo-admin-bar-menu.php:473 inc/health-check.php:173
 #: src/presenters/meta-description-presenter.php:41
 #: admin/menu/class-admin-menu.php:38
 #: admin/menu/class-network-admin-menu.php:35
-#: admin/metabox/class-metabox.php:386
-#: admin/taxonomy/class-taxonomy-metabox.php:127
+#: admin/metabox/class-metabox.php:379
+#: admin/taxonomy/class-taxonomy-metabox.php:132 inc/health-check.php:173
+#: inc/class-wpseo-admin-bar-menu.php:473
 msgid "SEO"
 msgstr "SEO"
 
@@ -5238,29 +5046,29 @@ msgstr "SEO"
 msgid "%1$s detected you are using version %2$s of %3$s, please update to the latest version to prevent compatibility issues."
 msgstr "%1$s が %3$s のバージョン %2$s を利用していることを検出しました。互換性の問題を防ぐため、最新版に更新してください。"
 
-#: inc/health-check-default-tagline.php:63 admin/class-admin-init.php:602
+#: admin/class-admin-init.php:542 inc/health-check-default-tagline.php:63
 msgid "Just another WordPress site"
 msgstr "Just another WordPress site"
 
-#: admin/ajax.php:178
+#: admin/ajax.php:194
 msgid "You have used HTML in your value which is not allowed."
 msgstr "許可されていないHTMLを使用しています。"
 
 #. translators: %s expands to the name of a post type (plural).
-#: admin/ajax.php:168
+#: admin/ajax.php:185
 msgid "You can't edit %s that aren't yours."
 msgstr "%sは自分のものではないため編集できません。"
 
 #. translators: %s expands to post type name.
-#: admin/ajax.php:156
+#: admin/ajax.php:173
 msgid "You can't edit %s."
 msgstr "%sは編集できません。"
 
 #. translators: %s expands to post type.
-#: admin/ajax.php:144
+#: admin/ajax.php:161
 msgid "Post has an invalid Content Type: %s."
 msgstr "投稿に無効なコンテンツタイプがあります: %s。"
 
-#: admin/ajax.php:133
+#: admin/ajax.php:150
 msgid "Post doesn't exist."
 msgstr "投稿がありません。"

@@ -73,6 +73,7 @@
 <?php __("Flags with Full Language Names", "translatepress-multilingual"); ?>
 <?php __("Flags with Short Language Names", "translatepress-multilingual"); ?>
 <?php __("Only Flags", "translatepress-multilingual"); ?>
+<?php __("Full Language Names No HTML", "translatepress-multilingual"); ?>
 <?php __("Bottom Right", "translatepress-multilingual"); ?>
 <?php __("Bottom Left", "translatepress-multilingual"); ?>
 <?php __("Top Right", "translatepress-multilingual"); ?>
@@ -297,6 +298,8 @@
 <?php __("WooCommerce Slugs", "translatepress-multilingual"); ?>
 <?php __("WooCommerce Slug", "translatepress-multilingual"); ?>
 <?php __("Search WooCommerce Slugs", "translatepress-multilingual"); ?>
+<?php __("Date format", "translatepress-multilingual"); ?>
+<?php __("Customize the date formatting per each translated language.<br/>Leave empty for default WP setting or see more information <a href=\"https://wordpress.org/support/article/formatting-date-and-time/\" title=\"Formatting Date and Time\" target=\"_blank\">here</a>", "translatepress-multilingual"); ?>
 <?php __("Disable dynamic translation", "translatepress-multilingual"); ?>
 <?php __("It disables detection of strings displayed dynamically using JavaScript. <br/>Strings loaded via a server side AJAX call will still be translated.", "translatepress-multilingual"); ?>
 <?php __("Exclude translated links from sitemap", "translatepress-multilingual"); ?>

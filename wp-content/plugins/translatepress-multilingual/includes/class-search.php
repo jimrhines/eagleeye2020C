@@ -71,7 +71,7 @@ class TRP_Search extends WP_Query{
 
                 $search_result_ids = array();
                 $trp_search_query = '';
-                $dictionary_name = $this->trp_query->get_table_name( $TRP_LANGUAGE );
+                $dictionary_name = $this->trp_query->get_table_name( apply_filters( 'trp_change_search_dictionary_language', $TRP_LANGUAGE, $this, $query ) );
                 $meta_table_name =  $this->trp_query->get_table_name_for_original_meta();
 
                 if( $search_terms_count === 1 ){

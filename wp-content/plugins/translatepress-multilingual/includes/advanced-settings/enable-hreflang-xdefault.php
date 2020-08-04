@@ -13,12 +13,6 @@ function trp_register_enable_hreflang_xdefault( $settings_array ){
 }
 
 function trp_get_lang_for_xdefault(){
-    $trp_obj = TRP_Translate_Press::get_trp_instance();
-    $settings_obj = $trp_obj->get_component('settings');
-    $lang_obj = $trp_obj->get_component( 'languages' );
-
-    $published_lang = $settings_obj->get_setting('publish-languages');
-    $published_lang_labels = $lang_obj->get_language_names( $published_lang );
-
+    $published_lang_labels = trp_get_languages();
     return array_merge(['disabled' => 'Disabled'], $published_lang_labels);
 }

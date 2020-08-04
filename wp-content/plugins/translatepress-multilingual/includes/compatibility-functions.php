@@ -689,3 +689,35 @@ function trp_opengraph_url( $url ) {
 
 	return $url;
 }
+
+/**
+ * Compatibility with Oxygen plugin
+ *
+ * Improves stylesheet loading time by disabling gettext and regular text detection for pages loaded with xlink=css
+ */
+add_action( 'trp_before_running_hooks', 'trp_oxygen_remove_gettext_hooks', 10, 1 );
+function trp_oxygen_remove_gettext_hooks( $trp_loader ) {
+    if ( isset( $_REQUEST['xlink'] ) && $_REQUEST['xlink'] === 'css' ) {
+        $trp                 = TRP_Translate_Press::get_trp_instance();
+        $translation_manager = $trp->get_component( 'translation_manager' );
+        $translation_render = $trp->get_component( 'translation_render' );
+        $trp_loader->remove_hook( 'init', 'create_gettext_translated_global', $translation_manager );
+        $trp_loader->remove_hook( 'init', 'initialize_gettext_processing', $translation_manager );
+        $trp_loader->remove_hook( 'shutdown', 'machine_translate_gettext', $translation_manager );
+        $trp_loader->remove_hook( 'init', 'start_output_buffer', $translation_render );
+        $trp_loader->remove_hook( 'the_title', 'wrap_with_post_id', $translation_render );
+        $trp_loader->remove_hook( 'the_content', 'wrap_with_post_id', $translation_render );
+    }
+}
+
+/**
+ * Compatibility with Brizy editor
+ */
+add_filter( 'trp_enable_dynamic_translation', 'trp_brizy_disable_dynamic_translation' );
+function trp_brizy_disable_dynamic_translation( $enable ){
+    if ( isset( $_REQUEST['brizy-edit-iframe'] ) ){
+        return false;
+    }
+    return $enable;
+}
+

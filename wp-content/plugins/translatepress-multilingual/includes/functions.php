@@ -518,3 +518,26 @@ function trp_do_these_shortcodes( $content, $tags_allowed ){
 
     return $return_content;
 }
+
+/**
+ * Obtains a list of TP languages. Can be without the default one
+ * in which case use the parameter nodefault set to 'nodefault'
+ *
+ * @param string $nodefault param used to return published languages without default one
+ * @return mixed array with key/value pairs of published language codes and names
+ *
+ */
+function trp_get_languages($nodefault=null)
+{
+    $trp_obj = TRP_Translate_Press::get_trp_instance();
+    $settings_obj = $trp_obj->get_component('settings');
+    $lang_obj = $trp_obj->get_component('languages');
+
+    $default_lang_labels = $settings_obj->get_setting('default-language');
+    $published_lang = $settings_obj->get_setting('publish-languages');
+    $published_lang_labels = $lang_obj->get_language_names($published_lang);
+    if (isset($nodefault) && $nodefault === 'nodefault'){
+        unset ($published_lang_labels[$default_lang_labels]);
+    }
+    return ($published_lang_labels);
+}

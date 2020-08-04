@@ -493,13 +493,14 @@ class TRP_Url_Converter {
         if( empty($this->absolute_home) ){
             $this->absolute_home = get_option("siteurl");
         }
-
-	    // always return absolute_home based on the http or https version of the current page request. This means no more redirects.
-	    if (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') {
-		    $this->absolute_home = str_replace( 'http://', 'https://', $this->absolute_home );
-	    } else {
-		    $this->absolute_home = str_replace( 'https://', 'http://', $this->absolute_home );
-	    }
+        if ( apply_filters('trp_adjust_absolute_home_https_based_on_server_variable', true) ) {
+            // always return absolute_home based on the http or https version of the current page request. This means no more redirects.
+            if ( !empty( $_SERVER['HTTPS'] ) && $_SERVER['HTTPS'] != 'off' ) {
+                $this->absolute_home = str_replace( 'http://', 'https://', $this->absolute_home );
+            } else {
+                $this->absolute_home = str_replace( 'https://', 'http://', $this->absolute_home );
+            }
+        }
 
 	    wp_cache_set( 'get_abs_home', $this->absolute_home, 'trp' );
 
@@ -673,12 +674,19 @@ class TRP_Url_Converter {
         return $value;
     }
 
-    /* don't update the woocommerce_permalink option on the frontend if we are not on the default language */
-    function woocommerce_handle_permalink_option_on_frontend($value, $old_value){
+    /**
+     * Prevent the rewrite_rules option to change when we are not on the default language so we don't get translated data in the database
+     * Basically update_option for rewrite_rules does nothing
+     * @param $value
+     * @param $old_value
+     * @return mixed
+     */
+    function prevent_permalink_update_on_other_languages( $value, $old_value ){
         global $TRP_LANGUAGE;
-        if( isset($TRP_LANGUAGE) && $TRP_LANGUAGE != $this->settings['default-language'] ){
+        if( isset($TRP_LANGUAGE) && $TRP_LANGUAGE != $this->settings['default-language'] ) {
             $value = $old_value;
         }
+
         return $value;
     }
 
