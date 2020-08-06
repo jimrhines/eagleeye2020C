@@ -166,7 +166,11 @@ $container = get_theme_mod( 'understrap_container_type' );
 						</li>
 					</ul>
 					<div class="mt-2 mr-2 mb-4 my-lg-0">
-						<a class="btn btn-primary" href="<?php echo get_permalink(13); ?>" role="button">Get a Quote &gt;</a>
+						<?php if(is_page_template('page-product.php')) :?>
+							<a class="btn btn-primary" href="<?php echo esc_url( home_url( '/' ) ); ?>request-a-quote/?product-name=<?php the_field('product_model_number'); ?>" role="button">Get a Quote &gt;</a>
+						<?php else: ?>
+							<a class="btn btn-primary" href="<?php echo get_permalink(13); ?>" role="button">Get a Quote &gt;</a>
+						<?php endif; ?>
 					</div>
 					<div class="mr-2">
 						<?php wp_nav_menu(

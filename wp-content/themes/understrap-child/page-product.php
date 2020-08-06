@@ -118,9 +118,11 @@ $container = get_theme_mod( 'understrap_container_type' );
 				<li class="nav-item">
 					<a class="nav-link active" id="specifications-tab" data-toggle="tab" href="#specifications" role="tab" aria-controls="specifications" aria-selected="true">Specifications</a>
 				</li>
-				<li class="nav-item">
-					<a class="nav-link" id="support-downloads-tab" data-toggle="tab" href="#support-downloads" role="tab" aria-controls="support-downloads" aria-selected="false">Downloads</a>
-				</li>
+				<?php if( have_rows('product_downloads_catalogs') || have_rows('product_downloads_manuals') || have_rows('product_downloads_drawings') ): ?>
+					<li class="nav-item">
+						<a class="nav-link" id="support-downloads-tab" data-toggle="tab" href="#support-downloads" role="tab" aria-controls="support-downloads" aria-selected="false">Downloads</a>
+					</li>
+				<?php endif; ?>
 				<li class="nav-item">
 					<a class="nav-link" id="support-faqs-tab" data-toggle="tab" href="#support-faqs" role="tab" aria-controls="support-faqs" aria-selected="false">FAQs</a>
 				</li>
@@ -146,80 +148,82 @@ $container = get_theme_mod( 'understrap_container_type' );
 						<div class="col-md-2">&#160;</div>
 					</div>
 				</div>
-				<div id="support-downloads" class="tab-pane fade col" role="tabpanel" aria-labelledby="support-downloads-tab">
-					<h3 class="sr-only">Downloads</h3>
-					<div class="container-fluid">
-						<div class="row">
-							<div class="product-downloads col-md-4">
-								<?php if( have_rows('product_downloads_catalogs') ): ?>
-									<h4>Product Literature</h4>
-									<ul>
-										<?php while( have_rows('product_downloads_catalogs') ): the_row(); 
-											// vars
-											$file = get_sub_field('file');
-											?>
+				<?php if( have_rows('product_downloads_catalogs') || have_rows('product_downloads_manuals') || have_rows('product_downloads_drawings') ): ?>
+					<div id="support-downloads" class="tab-pane fade col" role="tabpanel" aria-labelledby="support-downloads-tab">
+						<h3 class="sr-only">Downloads</h3>
+						<div class="container-fluid">
+							<div class="row">
+								<div class="product-downloads col-md-4">
+									<?php if( have_rows('product_downloads_catalogs') ): ?>
+										<h4>Product Literature</h4>
+										<ul>
+											<?php while( have_rows('product_downloads_catalogs') ): the_row(); 
+												// vars
+												$file = get_sub_field('file');
+												?>
 
-											<li>
-												<?php if( $file ): ?>
-													<a href="<?php echo $file['url']; ?>">
-												<?php endif; ?>
+												<li>
+													<?php if( $file ): ?>
+														<a href="<?php echo $file['url']; ?>">
+													<?php endif; ?>
 
-													<?php echo $file['title']; ?>
+														<?php echo $file['title']; ?>
 
-												<?php if( $file ): ?>
-													</a>
-												<?php endif; ?>
+													<?php if( $file ): ?>
+														</a>
+													<?php endif; ?>
 
-											</li>
-										<?php endwhile; ?>
-									</ul>
-								<?php endif; ?>
-							</div>
-							<div class="product-downloads col-md-4">
-								<?php if( have_rows('product_downloads_manuals') ): ?>
-									<h4>Support Documents</h4>
-									<ul>
-										<?php while( have_rows('product_downloads_manuals') ): the_row(); 
-											// vars
-											$file = get_sub_field('file');
-											?>
+												</li>
+											<?php endwhile; ?>
+										</ul>
+									<?php endif; ?>
+								</div>
+								<div class="product-downloads col-md-4">
+									<?php if( have_rows('product_downloads_manuals') ): ?>
+										<h4>Support Documents</h4>
+										<ul>
+											<?php while( have_rows('product_downloads_manuals') ): the_row(); 
+												// vars
+												$file = get_sub_field('file');
+												?>
 
-											<li>
-												<?php if( $file ): ?>
-													<a href="<?php echo $file['url']; ?>">
-												<?php endif; ?>
+												<li>
+													<?php if( $file ): ?>
+														<a href="<?php echo $file['url']; ?>">
+													<?php endif; ?>
 
-													<?php echo $file['title']; ?>
+														<?php echo $file['title']; ?>
 
-												<?php if( $file ): ?>
-													</a>
-												<?php endif; ?>
+													<?php if( $file ): ?>
+														</a>
+													<?php endif; ?>
 
-											</li>
-										<?php endwhile; ?>
-									</ul>
-								<?php endif; ?>
-							</div>
-							<div class="product-downloads col-md-4">
-								<?php if( have_rows('product_downloads_drawings') ): ?>
-									<h4>Technical Information</h4>
-									<ul>
-										<?php while( have_rows('product_downloads_drawings') ): the_row(); 
-											// vars
-											$file = get_sub_field('file');
-											?>
-											<li>
-												<?php if( $file ): ?>
-													<a href="<?php echo $file['url']; ?>"><?php echo $file['title']; ?></a>
-												<?php endif; ?>
-											</li>
-										<?php endwhile; ?>
-									</ul>
-								<?php endif; ?>
+												</li>
+											<?php endwhile; ?>
+										</ul>
+									<?php endif; ?>
+								</div>
+								<div class="product-downloads col-md-4">
+									<?php if( have_rows('product_downloads_drawings') ): ?>
+										<h4>Technical Information</h4>
+										<ul>
+											<?php while( have_rows('product_downloads_drawings') ): the_row(); 
+												// vars
+												$file = get_sub_field('file');
+												?>
+												<li>
+													<?php if( $file ): ?>
+														<a href="<?php echo $file['url']; ?>"><?php echo $file['title']; ?></a>
+													<?php endif; ?>
+												</li>
+											<?php endwhile; ?>
+										</ul>
+									<?php endif; ?>
+								</div>
 							</div>
 						</div>
 					</div>
-				</div>
+				<?php endif; ?>
 				<div id="support-faqs" class="tab-pane fade col" role="tabpanel" aria-labelledby="support-faqs-tab">		
 					<h3 class="sr-only">FAQs</h3>
 					<?php the_field('product_faqs'); ?>
@@ -251,7 +255,6 @@ $container = get_theme_mod( 'understrap_container_type' );
 						</div>
 					</div>
 				<?php endif; ?>
-
 			</div>
 		</div>
 	</div>
