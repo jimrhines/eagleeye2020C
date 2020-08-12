@@ -123,9 +123,12 @@ $container = get_theme_mod( 'understrap_container_type' );
 						<a class="nav-link" id="support-downloads-tab" data-toggle="tab" href="#support-downloads" role="tab" aria-controls="support-downloads" aria-selected="false">Downloads</a>
 					</li>
 				<?php endif; ?>
-				<li class="nav-item">
-					<a class="nav-link" id="support-faqs-tab" data-toggle="tab" href="#support-faqs" role="tab" aria-controls="support-faqs" aria-selected="false">FAQs</a>
-				</li>
+				<?php $product_faqs = get_field('product_faqs');
+				if( $product_faqs ): ?>
+					<li class="nav-item">
+						<a class="nav-link" id="support-faqs-tab" data-toggle="tab" href="#support-faqs" role="tab" aria-controls="support-faqs" aria-selected="false">FAQs</a>
+					</li>
+				<?php endif; ?>
 				<?php $relevant_trainings = get_field('relevant_trainings');
 					if( $relevant_trainings ): ?>
 						<li class="nav-item">
@@ -224,10 +227,12 @@ $container = get_theme_mod( 'understrap_container_type' );
 						</div>
 					</div>
 				<?php endif; ?>
-				<div id="support-faqs" class="tab-pane fade col" role="tabpanel" aria-labelledby="support-faqs-tab">		
-					<h3 class="sr-only">FAQs</h3>
-					<?php the_field('product_faqs'); ?>
-				</div>
+				<?php if( $product_faqs ): ?>
+					<div id="support-faqs" class="tab-pane fade col" role="tabpanel" aria-labelledby="support-faqs-tab">		
+						<h3 class="sr-only">FAQs</h3>
+						<?php the_field('product_faqs'); ?>
+					</div>
+				<?php endif; ?>
 				<?php if( $relevant_trainings ): ?>
 					<div id="training" class="tab-pane fade col" role="tabpanel" aria-labelledby="training-tab">
 						<h3 class="sr-only">Product Training</h3>
