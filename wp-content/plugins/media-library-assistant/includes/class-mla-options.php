@@ -1606,7 +1606,7 @@ class MLAOptions {
 						'meta_name' => substr( $setting_value['exif_value'], 9 ),
 						'keep_existing' => $setting_value['keep_existing'],
 						'format' => 'native',
-						'option' => 'array' );
+						'option' => $setting_value['option'] );
 
 					$exif_value =  MLAOptions::mla_get_data_source( $post->ID, $data_source_category, $data_value, $attachment_metadata );
 					if ( ' ' == $exif_value ) {
@@ -1635,9 +1635,7 @@ class MLAOptions {
 					}
 				}
 
-				/*
-				 * Parse out individual terms
-				 */
+				// Parse out individual terms
 				if ( ! empty( $setting_value['delimiters'] ) ) {
 					$text = $setting_value['delimiters'];
 					$delimiters = array();
@@ -1695,13 +1693,9 @@ class MLAOptions {
 					}
 				}
 
-				/*
-				 * Hierarchical taxonomies require term_id, flat require term names
-				 */
+				// Hierarchical taxonomies require term_id, flat require term names
 				if ( $hierarchical ) {
-					/*
-					 * Convert text to term_id
-					 */
+					// Convert text to term_id
 					$new_terms = array();
 					foreach ( $new_text as $new_term ) {
 						if ( 0 < $new_term = MLAOptions::_get_term_id( $new_term, $tax_parent, $setting_key, $post_terms ) ) {
@@ -1713,9 +1707,7 @@ class MLAOptions {
 				}
 
 				if ( 'replace' == $tax_action ) {
-					/*
-					 * If the new terms match the term cache, we can skip the update
-					 */
+					// If the new terms match the term cache, we can skip the update
 					foreach ( $new_terms as $new_term ) {
 						if ( isset( $current_terms[ $new_term ] ) ) {
 							unset( $current_terms[ $new_term ] );
@@ -1727,9 +1719,7 @@ class MLAOptions {
 
 					$do_update = ! empty( $current_terms );
 				} else {
-					/*
-					 * We are adding terms; remove existing terms
-					 */
+					// We are adding terms; remove existing terms
 					foreach ( $new_terms as $index => $new_term ) {
 						if ( isset( $current_terms[ esc_attr( $new_term ) ] ) ) {
 							unset( $new_terms[ $index ] );
@@ -1753,9 +1743,7 @@ class MLAOptions {
 		if ( ( $update_all || ( 'iptc_exif_custom_mapping' == $category ) ) && !empty( $settings['custom'] ) ) {
 			$custom_updates = array();
 			foreach ( $settings['custom'] as $setting_key => $setting_value ) {
-				/*
-				 * Convert checkbox value(s)
-				 */
+				// Convert checkbox value(s)
 				$setting_value['no_null'] = isset( $setting_value['no_null'] );
 
 				$setting_name = $setting_value['name'];

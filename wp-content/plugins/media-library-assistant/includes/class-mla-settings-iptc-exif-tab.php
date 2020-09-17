@@ -49,9 +49,7 @@ class MLASettings_IPTCEXIF {
 		$use_spinner_class = version_compare( get_bloginfo( 'version' ), '4.2', '>=' );
 		$suffix = defined('SCRIPT_DEBUG') && SCRIPT_DEBUG ? '' : '.min';
 
-		/*
-		 * Initialize variables for mapping scripts
-		 */
+		// Initialize variables for mapping scripts
 		$script_variables = array(
 			'error' => __( 'Error while making the changes.', 'media-library-assistant' ),
 			'ntdeltitle' => __( 'Remove From Bulk Edit', 'media-library-assistant' ),
@@ -84,9 +82,7 @@ class MLASettings_IPTCEXIF {
 		wp_localize_script( MLASettings::JAVASCRIPT_INLINE_MAPPING_IPTC_EXIF_SLUG,
 			MLASettings::JAVASCRIPT_INLINE_MAPPING_OBJECT, $script_variables );
 
-		/*
-		 * Initialize variables for inline edit scripts
-		 */
+		// Initialize variables for inline edit scripts
 		$script_variables = array(
 			'error' => __( 'Error while making the changes.', 'media-library-assistant' ),
 			'ntdeltitle' => __( 'Remove From Bulk Edit', 'media-library-assistant' ),
@@ -95,7 +91,7 @@ class MLASettings_IPTCEXIF {
 			'useSpinnerClass' => $use_spinner_class,
 			'ajax_nonce' => wp_create_nonce( MLACore::MLA_ADMIN_NONCE_ACTION, MLACore::MLA_ADMIN_NONCE_NAME ),
 			'tab' => 'iptc_exif',
-			'fields' => array( 'type', 'name', 'rule_name', 'type', 'iptc_value', 'exif_value', 'iptc_first', 'keep_existing', 'active', 'delimiters', 'parent_options', 'parent', 'format', 'option' ),
+			'fields' => array( 'type', 'name', 'rule_name', 'type', 'iptc_value', 'exif_value', 'iptc_first', 'keep_existing', 'active', 'delimiters', 'parent_options', 'parent', 'format', 'tax_option', 'option' ),
 			'checkboxes' => array( 'no_null' ),
 			'ajax_action' => MLASettings::JAVASCRIPT_INLINE_EDIT_IPTC_EXIF_SLUG,
 		);
@@ -331,7 +327,7 @@ class MLASettings_IPTCEXIF {
 			'iptc_first' => $mla_iptc_exif_rule['iptc_first'],
 			'keep_existing' => $mla_iptc_exif_rule['keep_existing'],
 			'format' => $mla_iptc_exif_rule['format'],
-			'option' => $mla_iptc_exif_rule['option'],
+			'option' => $mla_iptc_exif_rule['tax_option'],
 			'no_null' => $mla_iptc_exif_rule['no_null'],
 			'delimiters' => $mla_iptc_exif_rule['delimiters'],
 			'parent' => !empty( $mla_iptc_exif_rule['parent'] ) && ( '0' !== $mla_iptc_exif_rule['parent'] ) ? absint( $mla_iptc_exif_rule['parent'] ) : 0,
@@ -404,7 +400,15 @@ class MLASettings_IPTCEXIF {
 		}
 
 		if ( '-1' !== $_REQUEST['option'] ) {
-			$rule['option'] = $_REQUEST['option'];
+			// Only custom and taxonomy types use this value
+			if ( 'custom' === $rule['type'] ) {
+				$rule['option'] = $_REQUEST['option'];
+			} elseif ( 'taxonomy' === $rule['type'] ) {
+				// Taxonomy rules have limited options; array or text
+				if ( ( 'array' === $rule['option'] ) || ( 'text' === $rule['option'] ) ) {
+					$rule['option'] = $_REQUEST['option'];
+				}
+			}
 		}
 
 		if ( '-1' !== $_REQUEST['no_null'] ) {
@@ -549,6 +553,14 @@ class MLASettings_IPTCEXIF {
 				} else {
 					$page_values['hierarchical'] = '0';
 				}
+
+				switch( $item['option'] ) {
+					case 'text':
+						$page_values['text_option'] = 'selected="selected"';
+						break;
+					default:
+						$page_values['array_option'] = 'selected="selected"';
+				} // option
 				break;
 			case 'custom':
 				$page_values['Edit Rule'] .= __( 'Custom field mapping', 'media-library-assistant' );
@@ -1017,7 +1029,13 @@ class MLASettings_IPTCEXIF {
 		$rule['delimiters'] = !empty( $_REQUEST['delimiters'] ) ? $_REQUEST['delimiters'] : '';
 		$rule['parent'] = !empty( $_REQUEST['parent'] ) ? absint( $_REQUEST['parent'] ) : 0;
 		$rule['format'] = $_REQUEST['format'];
-		$rule['option'] = $_REQUEST['option'];
+
+		if ( 'taxonomy' === $rule['type'] ) {
+			$rule['option'] = $_REQUEST['tax_option'];
+		} else {
+			$rule['option'] = $_REQUEST['option'];
+		}
+
 		$rule['no_null'] = isset( $_REQUEST['no_null'] ) && '1' === $_REQUEST['no_null'];
 		$rule['active'] = '1' === $_REQUEST['active'];
 		$rule['changed'] = true;
@@ -1472,6 +1490,7 @@ class MLA_IPTC_EXIF_List_Table extends WP_List_Table {
 		}
 
 		$inline_data .= '	<div class="format">' . esc_attr( $item->format ) . "</div>\r\n";
+		$inline_data .= '	<div class="tax_option">' . esc_attr( $item->option ) . "</div>\r\n";
 		$inline_data .= '	<div class="option">' . esc_attr( $item->option ) . "</div>\r\n";
 		$inline_data .= '	<div class="no_null">' . esc_attr( $item->no_null ) . "</div>\r\n";
 		$inline_data .= "</div>\r\n";
@@ -2073,7 +2092,7 @@ class MLA_IPTC_EXIF_Query {
 				'name' => $value->labels->name,
 				'hierarchical' => $value->hierarchical,
 				'format' => 'native',
-				'option' => 'text',
+				'option' => 'array',
 				'no_null' => false,
 				'read_only' => false,
 				'changed' => false,
@@ -2090,6 +2109,7 @@ class MLA_IPTC_EXIF_Query {
 					'iptc_first' => $existing_values['iptc_first'],
 					'keep_existing' => $existing_values['keep_existing'],
 					'delimiters' => $existing_values['delimiters'],
+					'option' => isset( $existing_values['option'] ) ? $existing_values['option'] : 'array',
 					'parent' => $existing_values['parent'],
 					'active' => isset( $existing_values['active'] ) ? $existing_values['active'] : true,
 				) );
@@ -2116,7 +2136,7 @@ class MLA_IPTC_EXIF_Query {
 			$value['key'] = $key;
 			$value['rule_name'] = $value['name'];
 			$value['format'] = 'native';
-			$value['option'] = 'text';
+			$value['option'] = 'array';
 			$value['no_null'] = false;
 			$value['read_only'] = false;
 			$value['changed'] = false;
@@ -2224,6 +2244,7 @@ class MLA_IPTC_EXIF_Query {
 					$new_value['hierarchical'] = $current_value['hierarchical'];
 					$new_value['parent'] = $current_value['parent'];
 					$new_value['delimiters'] = $current_value['delimiters'];
+					$new_value['option'] = $current_value['option'];
 					break;
 				case 'custom':
 					$new_value['format'] = $current_value['format'];

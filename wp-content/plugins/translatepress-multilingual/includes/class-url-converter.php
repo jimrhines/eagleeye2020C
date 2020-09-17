@@ -196,6 +196,7 @@ class TRP_Url_Converter {
 	    }
 
         $hash = hash( 'md4', (string)$language . (string)$url . (string)$trp_link_is_processed . (string)$TRP_LANGUAGE );
+        // set $new_url to false when debugging and developing new features
         $new_url = wp_cache_get('get_url_for_language_' . $hash, 'trp');
         if ( $new_url !== false ){
             return $new_url;
@@ -277,10 +278,20 @@ class TRP_Url_Converter {
             if ( $post_id ) { trp_bulk_debug($debug, array('url' => $url, 'found post id' => $post_id, 'for default language' => $TRP_LANGUAGE)); }
 
             if ( $post_id == 0 ) {
-                // try again but with the default language home_url
+                /* try again but this time switch to default language home_url
+	            *  becasue url_to_postid() uses the global language setting to accurately retrieve a post ID
+                */
                 $TRP_LANGUAGE = $this->settings['default-language'];
-                $post_id = url_to_postid( $url );
-                wp_cache_set( 'possible_post_id_' . hash('md4', $url ), $post_id, 'trp' );
+
+                /* In order to accurately find the posst ID the passed URL to url_to_postid() needs to be accurate
+	            * if the option add subdir to default language is on we need to add that to the URL
+                */
+                $possible_url = $url;
+				if (isset ($this->settings['add-subdirectory-to-default-language']) && $this->settings['add-subdirectory-to-default-language'] === 'yes'){
+					$possible_url = $this->add_language_to_home_url($url, $url_obj->getPath(), $url_obj->getScheme(), get_current_blog_id() );
+				}
+                $post_id = url_to_postid( $possible_url );
+                wp_cache_set( 'possible_post_id_' . hash('md4', $possible_url ), $post_id, 'trp' );
                 if($post_id){ trp_bulk_debug($debug, array('url' => $url, 'found post id' => $post_id, 'for default language' => $TRP_LANGUAGE)); }
                 $TRP_LANGUAGE = $trp_language_copy;
             }
@@ -293,9 +304,7 @@ class TRP_Url_Converter {
              * has extra arguments compared to it's permalink.
              * We need the permalink based on the language IN THE URL, not the one passed to this function,
              * as that represents the language to be translated into.
-             */
-
-            /*
+             *
              * WE ARE NOT USING \TranslatePress\Uri
              * due to URL's having extra path elements after the permalink slug. Using the class would strip those end points.
              *
@@ -328,9 +337,13 @@ class TRP_Url_Converter {
                     $new_url = $url;
 
                 $TRP_LANGUAGE = $trp_language_copy;
-        }else if( is_home() ) {
+        }else if( is_home() && ( strpos($_SERVER['REQUEST_URI'], 'sitemap') === false && strpos($_SERVER['REQUEST_URI'], '.xml') === false ) ) {//for some reason in yoast sitemap is_home() is true ..so we need to check if we are not in the sitemap itself
             $TRP_LANGUAGE = $language;
-            $new_url = get_post_type_archive_link( 'post' );
+            if ( empty($url_obj->getQuery()) ) {
+	            $new_url = get_post_type_archive_link( 'post' );
+            } else {
+	            $new_url = rtrim(get_post_type_archive_link( 'post' ), '/') . '/?' . $url_obj->getQuery();
+            }
             $TRP_LANGUAGE = $trp_language_copy;
         }else {
             // we're just adding the new language to the url

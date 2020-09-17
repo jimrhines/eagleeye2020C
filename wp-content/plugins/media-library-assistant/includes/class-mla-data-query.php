@@ -1936,6 +1936,11 @@ class MLAQuery {
 			}
 		}
 
+		// Support Plugin Name: Featured Image from URL, "Media Library" option setting
+	    if ( function_exists('fifu_is_off') && fifu_is_off('fifu_media_library')) {
+			$where_clause .= sprintf( ' AND %1$s.post_author <> 77777', $wpdb->posts );
+		}
+
 		if ( isset( self::$query_parameters['debug'] ) ) {
 			$debug_array['where_clause'] = $where_clause;
 

@@ -129,6 +129,7 @@ class MLA {
 		add_action( 'admin_enqueue_scripts', 'MLA::mla_admin_enqueue_scripts_action' );
 		add_action( 'admin_menu', 'MLA::mla_admin_menu_action' );
 		add_filter( 'set-screen-option', 'MLA::mla_set_screen_option_filter', 10, 3 ); // $status, $option, $value
+		add_filter( 'set_screen_option_' . MLA_OPTION_PREFIX . 'entries_per_page', 'MLA::mla_set_screen_option_filter', 10, 3 );
 		add_filter( 'screen_options_show_screen', 'MLA::mla_screen_options_show_screen_filter', 10, 2 ); // $show_screen, $this
 	}
 
@@ -754,7 +755,8 @@ class MLA {
 		MLACore::mla_debug_add( __LINE__ . " MLA::mla_set_screen_option_filter( {$option} ) wp_filter = " . MLACore::mla_decode_wp_filter('set-screen-option'), MLACore::MLA_DEBUG_CATEGORY_ANY );
 
 		if ( ( MLA_OPTION_PREFIX . 'entries_per_page' ) == $option ) {
-			return $value;
+		MLACore::mla_debug_add( __LINE__ . " MLA::mla_set_screen_option_filter( {$option} ) return value = " . var_export( $value, true ), MLACore::MLA_DEBUG_CATEGORY_ANY );
+			return absint( $value );
 		}
 
 		return $status;
@@ -812,42 +814,57 @@ class MLA {
 	 * @return	void	echos file contents and calls exit();
 	 */
 	private static function _process_mla_download_file( $request, $test_path ) {
-		$message = '';
-		if ( isset( $request['mla_download_file'] ) && isset( $request['mla_download_type'] ) ) {
-			if( ini_get( 'zlib.output_compression' ) ) { 
-				ini_set( 'zlib.output_compression', 'Off' );
-			}
-
-			$file_name = stripslashes( $request['mla_download_file'] );
-			$match_name = str_replace( '\\', '/', $file_name );
-
-			if ( $test_path ) {
-				$upload_dir = wp_upload_dir();
-				$allowed_path = str_replace( '\\', '/', $upload_dir['basedir'] );
-			}
-
-			if ( $test_path && ( 0 !== strpos( $match_name, $allowed_path ) ) ) {
-				$message = __( 'ERROR', 'media-library-assistant' ) . ': ' . __( 'download path out of bounds.', 'media-library-assistant' );
-			} elseif ( false !== strpos( $match_name, '..' ) ) {
-				$message = __( 'ERROR', 'media-library-assistant' ) . ': ' . __( 'download path invalid.', 'media-library-assistant' );
-			}
+		if ( isset( $request['mla_error'] ) ) {
+			$message = $request['mla_error'];
 		} else {
-			$message = __( 'ERROR', 'media-library-assistant' ) . ': ' . __( 'download argument(s) not set.', 'media-library-assistant' );
-		}
+			$message = '';
+		
+			if ( isset( $request['mla_download_file'] ) && isset( $request['mla_download_type'] ) ) {
+				if( ini_get( 'zlib.output_compression' ) ) { 
+					ini_set( 'zlib.output_compression', 'Off' );
+				}
+	
+				$file_name = stripslashes( $request['mla_download_file'] );
+				$match_name = str_replace( '\\', '/', $file_name );
+	
+				if ( $test_path ) {
+					$upload_dir = wp_upload_dir();
+					$allowed_path = str_replace( '\\', '/', $upload_dir['basedir'] );
+				}
+	
+				if ( $test_path && ( 0 !== strpos( $match_name, $allowed_path ) ) ) {
+					$message = __( 'ERROR', 'media-library-assistant' ) . ': ' . __( 'download path out of bounds.', 'media-library-assistant' );
+				} elseif ( false !== strpos( $match_name, '..' ) ) {
+					$message = __( 'ERROR', 'media-library-assistant' ) . ': ' . __( 'download path invalid.', 'media-library-assistant' );
+				}
+			} else {
+				$message = __( 'ERROR', 'media-library-assistant' ) . ': ' . __( 'download argument(s) not set.', 'media-library-assistant' );
+			}
+		} // no error message
 
 		if ( empty( $message ) ) {
+			if ( file_exists( $file_name ) ) {
+				$filemtime = filemtime ( $file_name );
+				$filesize = filesize( $file_name );
+			} else {
+				$filemtime = time();
+				$filesize = 0;
+			}
+			
 			header('Pragma: public'); 	// required
 			header('Expires: 0');		// no cache
 			header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
-			header('Last-Modified: '.gmdate ( 'D, d M Y H:i:s', filemtime ( $file_name ) ).' GMT');
+			header('Last-Modified: '.gmdate ( 'D, d M Y H:i:s', $filemtime ).' GMT');
 			header('Cache-Control: private',false);
 			header('Content-Type: '.$request['mla_download_type']);
 			header('Content-Disposition: attachment; filename="'.basename( $file_name ).'"');
 			header('Content-Transfer-Encoding: binary');
-			header('Content-Length: '.filesize( $file_name ));	// provide file size
+			header('Content-Length: '.$filesize);	// provide file size
 			header('Connection: close');
 
-			readfile( $file_name );
+			if ( 0 < $filesize ) {
+				readfile( $file_name );
+			}
 
 			if ( isset( $request['mla_download_disposition'] ) && 'delete' == $request['mla_download_disposition'] ) {
 				@unlink( $file_name );
@@ -1020,8 +1037,9 @@ class MLA {
 		}
 
 		/*
-		 * image_alt requires a separate key because some attachment types
-		 * should not get a value, e.g., text or PDF documents
+		 * image_alt requires a separate key because some attachment types should
+		 * not get a value, e.g., text or PDF documents. OBSOLETE as of v2.84 -
+		 * allow all application/ MIME types; see class-mla-data.php
 		 */
 		if ( isset( $request['image_alt'] ) ) {
 			$test_value = self::_process_bulk_value( $post_id, $request['image_alt'] );

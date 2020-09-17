@@ -542,6 +542,29 @@ function trp_woo_fondy_payment_gateway_exclude_gettext_strings($translation, $te
     return $translation;
 }
 
+/**
+ * Compatibility with Woocommerce Product Filters plugin
+ * They stop the buffering at priority -150 and that leaves #trpst style tags before we get to remove them
+ *
+ * The caveat to removing or adding a foreign filter is that it can be done via
+ * a) static class call or b) through an object instance
+ *
+ * In this case we obtained access to global objects set by the WCPF plugin
+ * and their public methods.
+ */
+
+add_action( 'init', 'trp_woo_product_filters', 10 );
+
+function trp_woo_product_filters(){
+	if( isset( $GLOBALS['wcpf_plugin'] ) && class_exists( 'WooCommerce_Product_Filter_Plugin\Filters' ) ){
+		$wcpf_plugin = $GLOBALS['wcpf_plugin'];
+		$component_register = $wcpf_plugin->get_component_register();
+		$filters = $component_register->get('Filters');
+		$hook_manager = $filters->get_hook_manager();
+		$hook_manager->remove_action( 'shutdown', 'end_of_buffering', -150 );
+		$hook_manager->add_action( 'shutdown', 'end_of_buffering', 100 );
+	}
+}
 
 /**
  * Compatibility with Elementor Popups Links
@@ -711,6 +734,38 @@ function trp_oxygen_remove_gettext_hooks( $trp_loader ) {
 }
 
 /**
+ * Compatibility with Oxygen plugin for search
+ * Basically they use shortcodes to output content so we wrap the shortcode output for certain shortcodes
+ */
+if( function_exists('ct_is_show_builder') ) {
+    add_filter('do_shortcode_tag', 'tp_oxygen_search_compatibility', 10, 4);
+    function tp_oxygen_search_compatibility($output, $tag, $attr, $m){
+        if( $tag === 'ct_headline' || $tag === 'ct_text_block' || $tag === 'oxygen' ) {
+            global $post, $TRP_LANGUAGE;
+
+            if (empty($post->ID))
+                return $output;
+
+            //we try to wrap only the actual content of the post
+            if (!is_main_query())
+                return $output;
+
+            $trp = TRP_Translate_Press::get_trp_instance();
+            $trp_settings = $trp->get_component( 'settings' );
+            $settings = $trp_settings->get_settings();
+
+            if ($TRP_LANGUAGE !== $settings['default-language']) {
+                if (is_singular() && !empty($post->ID)) {
+                    $output = "<trp-post-container data-trp-post-id='" . $post->ID . "'>" . $output . "</trp-post-container>";//changed " to ' to not break cases when the filter is applied inside an html attribute (title for example)
+                }
+            }
+        }
+
+        return $output;
+    }
+}
+
+/**
  * Compatibility with Brizy editor
  */
 add_filter( 'trp_enable_dynamic_translation', 'trp_brizy_disable_dynamic_translation' );
@@ -721,3 +776,51 @@ function trp_brizy_disable_dynamic_translation( $enable ){
     return $enable;
 }
 
+/**
+ * Compatibility with Advanced WooCommerce Search 1/2
+ * Returns post ids where searched key matches translated version of post.
+ */
+
+add_filter( 'aws_search_results_products_ids', 'trp_aws_search_results_products_ids', 10, 2 );
+function trp_aws_search_results_products_ids(  $posts_ids, $s ){
+    global $TRP_LANGUAGE;
+    $trp = TRP_Translate_Press::get_trp_instance();
+    $trp_settings = $trp->get_component( 'settings' );
+    $settings = $trp_settings->get_settings();
+
+    if ( $TRP_LANGUAGE !== $settings['default-language'] ) {
+        $trp_search = $trp->get_component( 'search' );
+        $search_result_ids = $trp_search->get_post_ids_containing_search_term($s, null);
+
+        if (!empty ( $search_result_ids) ) {
+            return $search_result_ids;
+        }
+    }
+
+    return $posts_ids;
+}
+
+/**
+ * Compatibility with Advanced WooCommerce Search 2/2
+ * Solves issue with caching results in a different language
+ */
+add_filter( 'wpml_current_language', 'trp_aws_current_language' );
+function trp_aws_current_language( $lang ) {
+    if ( class_exists( 'AWS_Main' ) ) {
+        global $TRP_LANGUAGE;
+        $lang = $TRP_LANGUAGE;
+    }
+    return $lang;
+}
+/**
+ * Compatibility with thrive Arhitect plugin which does a "nice" little trick with remove_all_filters( 'template_include' ); so we need to stop that or else it will not load our translation editor
+ */
+if( function_exists('architect_init') ) {
+    add_filter('tcb_allow_landing_page_edit', 'trp_thrive_arhitect_compatibility');
+    function trp_thrive_arhitect_compatibility($bool)    {
+        if (isset($_REQUEST['trp-edit-translation']))
+            $bool = false;
+
+        return $bool;
+    }
+}

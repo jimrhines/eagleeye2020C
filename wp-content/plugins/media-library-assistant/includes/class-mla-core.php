@@ -21,7 +21,7 @@ class MLACore {
 	 *
 	 * @var	string
 	 */
-	const CURRENT_MLA_VERSION = '2.83';
+	const CURRENT_MLA_VERSION = '2.84';
 
 	/**
 	 * Slug for registering and enqueueing plugin style sheets (moved from class-mla-main.php)
@@ -121,6 +121,15 @@ class MLACore {
 	 * @var	integer
 	 */
 	const MLA_DEBUG_CATEGORY_MIME_TYPE = 0x00000080;
+
+	/**
+	 * Constant to log Media Manager "query_attachments" activity
+	 *
+	 * @since 2.84
+	 *
+	 * @var	integer
+	 */
+	const MLA_DEBUG_CATEGORY_MMMW = 0x00000100;
 
 	/**
 	 * Slug for adding plugin submenu
@@ -599,6 +608,14 @@ class MLACore {
 					MLACore::$mla_debug_level = $mla_reporting | 1;
 					if ( class_exists( 'MLA' ) && ! ( isset( $_REQUEST['action'] ) && $_REQUEST['action'] === 'heartbeat' ) ) {
 						MLACore::mla_debug_add( __LINE__ . sprintf( ' MLACore::mla_plugins_loaded_action() MLA %s (%s) mla_debug_level 0x%X', MLACore::CURRENT_MLA_VERSION, MLA::MLA_DEVELOPMENT_VERSION, MLACore::$mla_debug_level, true ), MLACore::MLA_DEBUG_CATEGORY_ANY );
+
+						if ( ( MLACore::$mla_debug_level & MLACore::MLA_DEBUG_CATEGORY_METADATA ) && isset( $_SERVER['REQUEST_URI'] ) ) {
+							$is_wplr_sync = false !== strpos( $_SERVER['REQUEST_URI'], '/?wplr-sync-api' );
+							MLACore::mla_debug_add( __LINE__ . " MLACore::mla_plugins_loaded_action( {$is_wplr_sync} ) \$_SERVER[REQUEST_URI] = " . var_export( $_SERVER['REQUEST_URI'], true ), MLACore::MLA_DEBUG_CATEGORY_METADATA );
+							if ( $is_wplr_sync && isset( $_POST['action'] ) ) {
+								MLACore::mla_debug_add( __LINE__ . " MLACore::mla_plugins_loaded_action wplr action = " . var_export( $_POST['action'], true ), MLACore::MLA_DEBUG_CATEGORY_METADATA );
+							}
+						}
 					}
 				} else {
 					MLACore::$mla_debug_level = 0;
@@ -1741,9 +1758,7 @@ class MLACore {
 		require_once( MLA_PLUGIN_PATH . 'includes/class-mla-admin-columns-support-deprecated.php' );
 		MLACore::$admin_columns_storage_model = new CPAC_Deprecated_Storage_Model_MLA();
 
-		/*
-		 * Put MLA before/after WP Media Library so is_columns_screen() will work
-		 */
+		// Put MLA before/after WP Media Library so is_columns_screen() will work
 		$new_models = array();
 		foreach ( $storage_models as $key => $model ) {
 			if ( 'wp-media' == $key ) {
@@ -1759,9 +1774,7 @@ class MLACore {
 			}
 		}
 
-		/*
-		 * If we didn't find wp-media, add our entry to the end
-		 */
+		// If we didn't find wp-media, add our entry to the end
 		if ( count( $storage_models ) == count( $new_models ) ) {
 			$new_models[ $storage_model->key ] = MLACore::$admin_columns_storage_model;
 		}
@@ -1804,7 +1817,13 @@ class MLACore {
 				AC\ListScreenTypes::instance()->register_list_screen( new ACP_Addon_MLA_ListScreen );
 			}
 		} else {
-			AC()->register_list_screen( new AC_Addon_MLA_ListScreen );
+			$legacy_version = version_compare( AC()->get_version(), '4.1.0', '<' );
+
+			if ( $legacy_version ) {
+				AC()->register_list_screen( new AC_Addon_MLA_ListScreen );
+			} else {
+				AC\ListScreenTypes::instance()->register_list_screen( new AC_Addon_MLA_ListScreen );
+			}
 		}
 	}
 } // Class MLACore

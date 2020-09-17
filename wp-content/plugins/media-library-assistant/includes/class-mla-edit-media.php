@@ -519,9 +519,12 @@ class MLAEdit {
 		if ( ( true == $options['is_upload'] ) && ! empty( $_REQUEST['mlaAddNewBulkEditFormString'] ) ) {
 			/*
 			 * Clean up the inputs, which have everything from the enclosing <form>.
+			 * Double slashes in the URL-encoded string must be doubled again to survive the
+			 * stripslashes() call in MLA::mla_process_bulk_action().
 			 * wp_parse_args converts plus signs to spaces, which we must avoid.
 			 */
-			$args = wp_parse_args( stripslashes( str_replace( '%2B', 'urlencodedmlaplussign', $_REQUEST['mlaAddNewBulkEditFormString'] ) ) );
+			$args = stripslashes( str_replace( '%5C%5C', '%5C%5C%5C%5C', $_REQUEST['mlaAddNewBulkEditFormString'] ) );
+			$args = wp_parse_args( str_replace( '%2B', 'urlencodedmlaplussign', $args ) );
 			foreach ( $args as $key => $arg ) {
 				if ( is_string( $arg ) && 0 === strpos( $arg, 'template:' ) ) {
 					$args[ $key ] = str_replace( 'urlencodedmlaplussign', '+', $arg );
@@ -553,9 +556,7 @@ class MLAEdit {
 				unset ( $args['post_category'] );
 			}
 
-			/*
-			 * Pass the ID
-			 */
+			// Pass the ID
 			$args['cb_attachment'] = array( $post_id );
 			$item_content = MLA::mla_process_bulk_action( 'edit', $args );
 		}

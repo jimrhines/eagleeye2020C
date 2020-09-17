@@ -22,6 +22,13 @@ class MLAMime {
 	 * @return	void
 	 */
 	public static function initialize() {
+		// $real_mime was added recently
+		if ( version_compare( get_bloginfo('version'), '5.0.99', '>' ) ) {
+			$filter_args = 5;
+		} else {
+			$filter_args = 4;
+		}
+
 		self::_localize_default_upload_columns();
 		self::_localize_default_upload_optional_columns();
 		self::_localize_default_view_columns();
@@ -32,7 +39,7 @@ class MLAMime {
 		self::$mla_debug_active = ( MLACore::$mla_debug_level & 1 ) && ( MLACore::$mla_debug_level & MLACore::MLA_DEBUG_CATEGORY_MIME_TYPE );
 		if ( self::$mla_debug_active ) {
 			add_filter( 'sanitize_mime_type', 'MLAMime::mla_sanitize_mime_type_filter', 0x7FFFFFFF, 2 );
-			add_filter( 'wp_check_filetype_and_ext', 'MLAMime::mla_wp_check_filetype_and_ext_filter', 0x7FFFFFFF, 4 );
+			add_filter( 'wp_check_filetype_and_ext', 'MLAMime::mla_wp_check_filetype_and_ext_filter', 0x7FFFFFFF, $filter_args );
 		}
 
 		// Handle WP 4.6.2, 4.7.x SVG bug
@@ -44,6 +51,11 @@ class MLAMime {
 			}
 
 			add_filter( 'upload_mimes', 'MLAMime::mla_upload_mimes_filter', 0x7FFFFFFF, 2 );
+
+			// Make sure mla_wp_check_filetype_and_ext_filter() is acive if requested
+			if ( ( false === self::$mla_debug_active ) && ( 'checked' == MLACore::mla_get_option( MLACoreOptions::MLA_FORCE_MLA_MIME_TYPE ) ) ) {
+				add_filter( 'wp_check_filetype_and_ext', 'MLAMime::mla_wp_check_filetype_and_ext_filter', 0x7FFFFFFF, $filter_args );
+			}
 		}
 
 		if ( 'checked' == MLACore::mla_get_option( MLACoreOptions::MLA_ENABLE_POST_MIME_TYPES ) ) {
@@ -219,16 +231,28 @@ class MLAMime {
 	 * @param	string	Full path to the image
 	 * @param	string	The filename of the image
 	 * @param	array	Optional array of MIME types
+	 * @param	mixed	Since WP 5.1.0, the actual mime type or false if the type cannot be determined.
 	 *
 	 * @return	array	Updated array( ext, type, proper_filename (string or false) )
 	 */
-	public static function mla_wp_check_filetype_and_ext_filter( $validate, $file, $filename, $mimes ) {
+	public static function mla_wp_check_filetype_and_ext_filter( $validate, $file, $filename, $mimes, $real_mime = NULL ) {
 		if ( self::$mla_debug_active ) {
 			MLACore::mla_debug_add( __LINE__ . " MLAMime::mla_wp_check_filetype_and_ext_filter( $file, $filename ) validate = " . var_export( $validate, true ), MLACore::MLA_DEBUG_CATEGORY_MIME_TYPE );
-			MLACore::mla_debug_add( __LINE__ . " MLAMime::mla_wp_check_filetype_and_ext_filter mimes = " . var_export( $mimes, true ), MLACore::MLA_DEBUG_CATEGORY_MIME_TYPE );
+			if ( NULL !== $real_mime ) {
+				MLACore::mla_debug_add( __LINE__ . " MLAMime::mla_wp_check_filetype_and_ext_filter( {$real_mime} ) mimes = " . var_export( $mimes, true ), MLACore::MLA_DEBUG_CATEGORY_MIME_TYPE );
+			} else {
+				MLACore::mla_debug_add( __LINE__ . " MLAMime::mla_wp_check_filetype_and_ext_filter mimes = " . var_export( $mimes, true ), MLACore::MLA_DEBUG_CATEGORY_MIME_TYPE );
+			}
 			MLACore::mla_debug_add( __LINE__ . " MLAMime::mla_wp_check_filetype_and_ext_filter wp_filter = " . MLACore::mla_decode_wp_filter('wp_check_filetype_and_ext'), MLACore::MLA_DEBUG_CATEGORY_MIME_TYPE );
 		}
 
+		// Override security checks in /wp_includes/functions.php function wp_check_filetype_and_ext()
+		if ( 'checked' == MLACore::mla_get_option( MLACoreOptions::MLA_FORCE_MLA_MIME_TYPE ) ) {
+			$filetype =  wp_check_filetype( $filename, $mimes );
+			$validate['ext'] = $filetype['ext'];
+			$validate['type'] = $filetype['type'];
+		}
+		
 		return $validate;
 	} // mla_wp_check_filetype_and_ext_filter
 

@@ -1,15 +1,15 @@
 ﻿=== TranslatePress - Translate Multilingual sites ===
-Contributors: cozmoslabs, razvan.mo, madalin.ungureanu, cristophor
+Contributors: cozmoslabs, razvan.mo, madalin.ungureanu, sareiodata, cristophor
 Donate link: https://www.translatepress.com/
 Tags: translate, translation, multilingual, automatic translation, bilingual, front-end translation, google translate, language
 Requires at least: 3.1.0
-Tested up to: 5.4.2
+Tested up to: 5.5
 Requires PHP: 5.6.20
-Stable tag: 1.7.9
+Stable tag: 1.8.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Easily translate your entire site directly from the front-end and go multilingual, with full support for WooCommerce, complex themes and site builders. Integrates with Google Translate.
+Translate your entire site directly from the front-end and go multilingual, with full support for WooCommerce and page builders + Google Translate integration.
  
 == Description ==
 
@@ -57,8 +57,8 @@ TranslatePress - Multilingual has a range of [premium Add-ons](https://translate
 
 **Pro Add-ons** (available in the [premium versions](https://translatepress.com/pricing/?utm_source=wp.org&utm_medium=tp-description-page&utm_campaign=TPFree) only)
 
-* [Extra Languages](https://translatepress.com/docs/addons/seo-pack/?utm_source=wp.org&utm_medium=tp-description-page&utm_campaign=TPFree) - allows you to add an unlimited number of translation languages, with the possibility to publish languages later after you complete the translation
-* [SEO Pack](https://translatepress.com/docs/addons/multiple-languages/?utm_source=wp.org&utm_medium=tp-description-page&utm_campaign=TPFree) - allows you to translate meta information (like page title, description, url slug, image alt tag, Twitter and Facebook Social Graph tags & more) for boosting your multilingual SEO and increase traffic
+* [Extra Languages](https://translatepress.com/docs/addons/multiple-languages/?utm_source=wp.org&utm_medium=tp-description-page&utm_campaign=TPFree) - allows you to add an unlimited number of translation languages, with the possibility to publish languages later after you complete the translation
+* [SEO Pack](https://translatepress.com/docs/addons/seo-pack/?utm_source=wp.org&utm_medium=tp-description-page&utm_campaign=TPFree) - lets you translate meta information (like page title, description, url slug, image alt tag, Twitter and Facebook Social Graph tags & more) for boosting your multilingual SEO and increase traffic. Works with all popular SEO plugins.
 * [Translator Accounts](https://translatepress.com/docs/addons/translator-accounts/?utm_source=wp.org&utm_medium=tp-description-page&utm_campaign=TPFree) - create or allow existing users to translate the site without admin rights
 * [Browse as User Role](https://translatepress.com/docs/addons/browse-as-role/?utm_source=wp.org&utm_medium=tp-description-page&utm_campaign=TPFree) - view and translate content that is visible only to a particular user role
 * [Navigation Based on Language](https://translatepress.com/docs/addons/navigate-based-language/?utm_source=wp.org&utm_medium=tp-description-page&utm_campaign=TPFree) - configure and display different menu items for different languages
@@ -117,7 +117,7 @@ After installing the plugin, select your secondary language and click "Translate
 
 TranslatePress will have little impact on your site speed. For more details see [Top WordPress Translation Plugins Compared Based on Page Load Time](https://translatepress.com/top-wordpress-translation-plugins-compared-based-on-page-load-time/?utm_source=wp.org&utm_medium=tp-description-page&utm_campaign=TPFree)
 
-= Does it work with WooCommerce? =
+= Can you translate your WooCommerce store? =
 
 Yes, TranslatePress works out of the box with WooCommerce. You can use to build a [multilingual WooCommerce store](https://translatepress.com/translate-woocommerce-products-translatepress/?utm_source=wp.org&utm_medium=tp-description-page&utm_campaign=TPFree).
 
@@ -138,6 +138,18 @@ For more information please check out our [documentation](https://translatepress
 
 
 == Changelog ==
+= 1.8.1 =
+* Fixed a problem with sitemap categories not being displayed correctly in Yoast SEO
+* Changed a redirect status from 302 to 301 in certain cases
+* Added support for Advanced WooCommerce Search
+
+= 1.8.0 =
+* Fixed a compatibility issue with Thrive Architect plugin
+* Fix compatibility with Woo Product Filter plugin
+* Added compatibility with Oxygen Builder for search
+* Fixed canonical links that were generated incorrectly in some cases
+* Fix issue with hreflang incorrectly being detected due to clearing the ?trp parameter from the url when processing it
+
 = 1.7.9 =
 * Fix for various 404 page results
 * Fixed flag spacing in RTL languages

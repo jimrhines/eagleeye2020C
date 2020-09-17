@@ -34,7 +34,7 @@ class MLA_Ajax {
 	public static function initialize() {
 		if ( ! ( isset( $_REQUEST['action'] ) && $_REQUEST['action'] === 'heartbeat' ) ) {
 			$ajax_only = var_export( self::$ajax_only, true );
-			MLACore::mla_debug_add( __LINE__ . " MLA_Ajax::initialize( {$ajax_only} ) \$_REQUEST = " . var_export( $_REQUEST, true ), MLACore::MLA_DEBUG_CATEGORY_AJAX );
+			MLACore::mla_debug_add( __LINE__ . " MLA_Ajax::initialize( {$ajax_only} ) \$_REQUEST = " . var_export( $_REQUEST, true ), ( MLACore::MLA_DEBUG_CATEGORY_AJAX || MLACore::MLA_DEBUG_CATEGORY_MMMW ) );
 		}
 		
 		// If there's no action variable, we have nothing more to do
@@ -49,6 +49,105 @@ class MLA_Ajax {
 		} else {
 			add_action( 'admin_init', 'MLA_Ajax::mla_admin_init_action' );
 		}
+
+		if ( 'query-attachments' ==  $_REQUEST['action'] ) {
+			if ( ( MLACore::$mla_debug_level & 1 ) && ( MLACore::$mla_debug_level & MLACore::MLA_DEBUG_CATEGORY_MMMW ) ) {
+				add_filter( 'posts_clauses', 'MLA_Ajax::mla_mmmw_query_posts_clauses_filter', 0x7FFFFFFF, 1 );
+				add_filter( 'posts_clauses_request', 'MLA_Ajax::mla_mmmw_query_posts_clauses_request_filter', 0x7FFFFFFF, 1 );
+				add_filter( 'posts_request', 'MLA_Ajax::mla_mmmw_query_posts_request_filter', 0x7FFFFFFF, 1 );
+				add_filter( 'posts_results', 'MLA_Ajax::mla_mmmw_query_posts_results_filter', 0x7FFFFFFF, 2 );
+				add_filter( 'the_posts', 'MLA_Ajax::mla_mmmw_query_the_posts_filter', 0x7FFFFFFF, 2 );
+				MLACore::mla_debug_mode( 'log' );
+			} // debug
+		} // query_attachments
+	}
+
+	/**
+	 * Filters all clauses for shortcode queries, pre caching plugins
+	 * 
+	 * This is for debug purposes only.
+	 * Defined as public because it's a filter.
+	 *
+	 * @since 2.84
+	 *
+	 * @param	array	query clauses before modification
+	 */
+	public static function mla_mmmw_query_posts_clauses_filter( $pieces ) {
+		/* translators: 1: DEBUG tag 2: SQL clauses */
+		MLACore::mla_debug_add( sprintf( _x( '%1$s: mla_mmmw_query_posts_clauses_filter = "%2$s".', 'error_log', 'media-library-assistant' ), __( 'DEBUG', 'media-library-assistant' ), var_export( $pieces, true ) ) );
+
+		return $pieces;
+	}
+
+	/**
+	 * Filters all clauses for shortcode queries, post caching plugins
+	 * 
+	 * This is for debug purposes only.
+	 * Defined as public because it's a filter.
+	 *
+	 * @since 2.84
+	 *
+	 * @param	array	query clauses before modification
+	 */
+	public static function mla_mmmw_query_posts_clauses_request_filter( $pieces ) {
+		/* translators: 1: DEBUG tag 2: SQL clauses */
+		MLACore::mla_debug_add( sprintf( _x( '%1$s: mla_mmmw_query_posts_clauses_request_filter = "%2$s".', 'error_log', 'media-library-assistant' ), __( 'DEBUG', 'media-library-assistant' ), var_export( $pieces, true ) ) );
+
+		return $pieces;
+	}
+
+	/**
+	 * Filters the completed SQL query before sending
+	 * 
+	 * This is for debug purposes only.
+	 * Defined as public because it's a filter.
+	 *
+	 * @since 2.84
+	 *
+	 * @param	array	SQL query before sending
+	 */
+	public static function mla_mmmw_query_posts_request_filter( $request ) {
+		/* translators: 1: DEBUG tag 2: SQL clauses */
+		MLACore::mla_debug_add( sprintf( _x( '%1$s: mla_mmmw_query_posts_request_filter = "%2$s".', 'error_log', 'media-library-assistant' ), __( 'DEBUG', 'media-library-assistant' ), var_export( $request, true ) ) );
+
+		return $request;
+	}
+
+	/**
+	 * Filters the raw post results array, prior to status checks.
+	 * 
+	 * This is for debug purposes only.
+	 * Defined as public because it's a filter.
+	 *
+	 * @since 2.84
+	 *
+	 * @param WP_Post[] $posts Array of post objects.
+	 * @param WP_Query  $wp_query  The WP_Query instance (passed by reference).
+	 */
+	public static function mla_mmmw_query_posts_results_filter( $posts, $wp_query ) {
+		/* translators: 1: DEBUG tag 2: SQL clauses */
+		MLACore::mla_debug_add( sprintf( _x( '%1$s: mla_mmmw_query_posts_results_filter post_count = "%2$d", found_posts = "%3$d" count = %4$d.', 'error_log', 'media-library-assistant' ), __( 'DEBUG', 'media-library-assistant' ), $wp_query->post_count, $wp_query->found_posts, count( $posts ) ) );
+
+		return $posts;
+	}
+
+	/**
+	 * Filters the array of retrieved posts after they've been fetched and
+	 * internally processed.
+	 * 
+	 * This is for debug purposes only.
+	 * Defined as public because it's a filter.
+	 *
+	 * @since 2.84
+	 *
+	 * @param WP_Post[] $posts Array of post objects.
+	 * @param WP_Query  $wp_query  The WP_Query instance (passed by reference).
+	 */
+	public static function mla_mmmw_query_the_posts_filter( $posts, $wp_query ) {
+		/* translators: 1: DEBUG tag 2: SQL clauses */
+		MLACore::mla_debug_add( sprintf( _x( '%1$s: mla_mmmw_query_the_posts_filter post_count = "%2$d", found_posts = "%3$d" count = %4$d.', 'error_log', 'media-library-assistant' ), __( 'DEBUG', 'media-library-assistant' ), $wp_query->post_count, $wp_query->found_posts, count( $posts ) ) );
+
+		return $posts;
 	}
 
 	/**

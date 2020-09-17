@@ -124,23 +124,30 @@ class MLASettings {
 		} elseif ( isset( $_REQUEST['page'] ) && is_string( $_REQUEST['page'] ) && ( 'mla-settings-menu-' == substr( $_REQUEST['page'], 0, 18 ) ) ) {
 			// Settings/Media Library Assistant current tab
 			switch( substr( $_REQUEST['page'], 18 ) ) {
-				case 'upload':
-					require_once( MLA_PLUGIN_PATH . 'includes/class-mla-settings-upload-tab.php' );
-					break;
 				case 'view':
 					require_once( MLA_PLUGIN_PATH . 'includes/class-mla-settings-view-tab.php' );
+					add_filter( 'set_screen_option_mla_views_per_page', 'MLASettings::mla_set_screen_option_filter', 10, 3 );
+					break;
+				case 'upload':
+					require_once( MLA_PLUGIN_PATH . 'includes/class-mla-settings-upload-tab.php' );
+					add_filter( 'set_screen_option_mla_uploads_per_page', 'MLASettings::mla_set_screen_option_filter', 10, 3 );
+					add_filter( 'set_screen_option_mla_types_per_page', 'MLASettings::mla_set_screen_option_filter', 10, 3 );
 					break;
 				case 'shortcodes':
 					require_once( MLA_PLUGIN_PATH . 'includes/class-mla-settings-shortcodes-tab.php' );
+					add_filter( 'set_screen_option_mla_shortcode_templates_per_page', 'MLASettings::mla_set_screen_option_filter', 10, 3 );
 					break;
 				case 'custom_field':
 					require_once( MLA_PLUGIN_PATH . 'includes/class-mla-settings-custom-fields-tab.php' );
+					add_filter( 'set_screen_option_mla_custom_field_rules_per_page', 'MLASettings::mla_set_screen_option_filter', 10, 3 );
 					break;
 				case 'iptc_exif':
 					require_once( MLA_PLUGIN_PATH . 'includes/class-mla-settings-iptc-exif-tab.php' );
+					add_filter( 'set_screen_option_mla_iptc_exif_rules_per_page', 'MLASettings::mla_set_screen_option_filter', 10, 3 );
 					break;
 				case 'documentation':
 					require_once( MLA_PLUGIN_PATH . 'includes/class-mla-settings-documentation-tab.php' );
+					add_filter( 'set_screen_option_mla_example_plugins_per_page', 'MLASettings::mla_set_screen_option_filter', 10, 3 );
 					break;
 			}
 		}

@@ -122,10 +122,45 @@ class MLA_List_Table extends WP_List_Table {
 	protected static $default_sortable_columns = array();
 
 	/**
+	 * Count number of attachments for the mime type(s)
+	 *
+	 * Modeled after wp_count_attachments in wp-includes/post.php,
+	 * but supports the Featured Image from URL plugin.
+	 *
+	 * @since 2.84
+	 *
+	 * @param	mixed (Optional) Array or comma-separated list of MIME patterns. Default ''
+	 *
+	 * @return	object	Attachment counts by mime type.
+	 */
+	protected static function _count_attachments( $mime_type = '' ) {
+		global $wpdb;
+		
+		// Support Plugin Name: Featured Image from URL, "Media Library" option setting
+	    if ( function_exists('fifu_is_off') && fifu_is_off('fifu_media_library')) {
+			$author = 'AND post_author <> 77777';
+		} else {
+			$author = '';
+		}
+
+		$and   = wp_post_mime_type_where( $mime_type );
+		$count = $wpdb->get_results( "SELECT post_mime_type, COUNT( * ) AS num_posts FROM $wpdb->posts WHERE post_type = 'attachment' AND post_status != 'trash' $and $author GROUP BY post_mime_type", ARRAY_A );
+		
+		$counts = array();
+		foreach ( (array) $count as $row ) {
+			$counts[ $row['post_mime_type'] ] = $row['num_posts'];
+		}
+		$counts['trash'] = $wpdb->get_var( "SELECT COUNT( * ) FROM $wpdb->posts WHERE post_type = 'attachment' AND post_status = 'trash' $and $author" );
+		
+		// Modify returned attachment counts by mime type.
+		return apply_filters( 'wp_count_attachments', (object) $counts, $mime_type );
+	}
+
+	/**
 	 * Get MIME types with one or more attachments for view preparation
 	 *
 	 * Modeled after get_available_post_mime_types in wp-admin/includes/post.php,
-	 * but uses the output of wp_count_attachments() as input.
+	 * but uses the output of self::_count_attachments() as input.
 	 *
 	 * @since 0.1
 	 *
@@ -544,7 +579,8 @@ class MLA_List_Table extends WP_List_Table {
 				 * Use "@" because embedded arrays throw PHP Warnings from implode.
 				 */
 				if ( is_array( $value ) ) {
-					$list[] = 'array( ' . @implode( ', ', $value ) . ' )'; // TODO PHP 7 error handling
+//					$list[] = var_export( $value, true ); // Verbose output!
+					$list[] = 'array( ' . @implode( ', ', $value ) . ' )';
 				} elseif ( $is_meta ) {
 					$list[] = $value;
 				} else {
@@ -821,8 +857,18 @@ class MLA_List_Table extends WP_List_Table {
 		}
 
 		$dimensions = array( $icon_width, $icon_height );
-		$thumb = wp_get_attachment_image( $item->ID, $dimensions, true, array( 'class' => 'mla_media_thumbnail' ) );
 
+		// For non-image types, check for a Featured Image	
+		if ( 0 === strpos( $item->post_mime_type, 'image' ) ) {
+			$thumb = '';
+		} else {
+			$thumb = get_the_post_thumbnail( $item->ID, $dimensions, array( 'class' => 'mla_media_thumbnail' ) );
+		}
+
+		if ( empty( $thumb ) ) {		
+			$thumb = wp_get_attachment_image( $item->ID, $dimensions, true, array( 'class' => 'mla_media_thumbnail' ) );
+		}
+		
 		if ( in_array( $item->post_mime_type, array( 'image/svg+xml' ) ) ) {
 			$thumb = preg_replace( '/width=\"[^\"]*\"/', sprintf( 'width="%1$d"', $dimensions[0] ), $thumb );
 			$thumb = preg_replace( '/height=\"[^\"]*\"/', sprintf( 'height="%1$d"', $dimensions[1] ), $thumb );
@@ -848,7 +894,9 @@ class MLA_List_Table extends WP_List_Table {
 		$inline_data .= '	<div class="post_excerpt">' . esc_attr( $item->post_excerpt ) . "</div>\r\n";
 		$inline_data .= '	<div class="post_content">' . esc_attr( $item->post_content ) . "</div>\r\n";
 
-		if ( !empty( $item->mla_wp_attachment_metadata ) ) {
+//		if ( !empty( $item->mla_wp_attachment_metadata ) ) {
+		if ( ( 'image/' === substr( $item->post_mime_type, 0, 6 ) )
+		    || ( 'application/' === substr( $item->post_mime_type, 0, 12 ) ) ) {
 			$inline_data .= '	<div class="image_alt">';
 
 			if ( isset( $item->mla_wp_attachment_image_alt ) ) {
@@ -1687,7 +1735,7 @@ class MLA_List_Table extends WP_List_Table {
 			}
 
 			$default_types = MLACore::mla_get_option( MLACoreOptions::MLA_POST_MIME_TYPES, true );
-			$posts_per_type = (array) wp_count_attachments();
+			$posts_per_type = (array) self::_count_attachments();
 			$post_mime_types = get_post_mime_types();
 			$avail_post_mime_types = self::_avail_mime_types( $posts_per_type );
 			$matches = wp_match_mime_types( array_keys( $post_mime_types ), array_keys( $posts_per_type ) );

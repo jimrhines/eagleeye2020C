@@ -86,16 +86,23 @@ class TRP_Language_Switcher{
 	 * Redirects to language stored in global $TRP_NEEDED_LANGUAGE
 	 */
 	public function redirect_to_correct_language(){
-	    if ( ( defined( 'DOING_AJAX' ) && DOING_AJAX  ) || is_customize_preview() ) {
+	  if ( ( defined( 'DOING_AJAX' ) && DOING_AJAX  ) || is_customize_preview() ) {
 			return;
 		}
+
 		global $TRP_NEEDED_LANGUAGE;
 		if ( ! $this->url_converter ){
 			$trp = TRP_Translate_Press::get_trp_instance();
 			$this->trp_languages = $trp->get_component( 'url_converter' );
 		}
-        $link_to_redirect = apply_filters( 'trp_link_to_redirect_to', $this->url_converter->get_url_for_language( $TRP_NEEDED_LANGUAGE, null, '' ), $TRP_NEEDED_LANGUAGE );
-		header( 'Location: ' . $link_to_redirect );
+
+		$link_to_redirect = apply_filters( 'trp_link_to_redirect_to', $this->url_converter->get_url_for_language( $TRP_NEEDED_LANGUAGE, null, '' ), $TRP_NEEDED_LANGUAGE );
+
+    if( isset( $this->settings['add-subdirectory-to-default-language'] ) && $this->settings['add-subdirectory-to-default-language'] === 'yes' && isset( $this->settings['default-language'] ) && $this->settings['default-language'] === $TRP_NEEDED_LANGUAGE  )
+			 wp_redirect( $link_to_redirect, 301 );
+    else
+       wp_redirect( $link_to_redirect );
+
 		exit;
     }
 

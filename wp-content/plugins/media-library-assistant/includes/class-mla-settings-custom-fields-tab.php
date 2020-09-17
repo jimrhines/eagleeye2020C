@@ -947,7 +947,7 @@ class MLASettings_CustomFields {
 		$rule['mla_column'] = isset( $_REQUEST['mla_column'] ) && '1' === $_REQUEST['mla_column'];
 		$rule['quick_edit'] = isset( $_REQUEST['quick_edit'] ) && '1' === $_REQUEST['quick_edit'];
 		$rule['bulk_edit'] = isset( $_REQUEST['bulk_edit'] ) && '1' === $_REQUEST['bulk_edit'];
-		$rule['active'] = '1' === $_REQUEST['status'];
+		$rule['active'] = '1' === $_REQUEST['active'];
 		$rule['changed'] = true;
 		$rule['deleted'] = false;
 		$rule = stripslashes_deep( $rule );
