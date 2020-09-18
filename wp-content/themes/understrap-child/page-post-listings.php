@@ -25,21 +25,21 @@ $container = get_theme_mod( 'understrap_container_type' );
 
 					<?php 
 					// the query
-					$wpb_all_query = new WP_Query(array('post_type'=>'post', 'post_status'=>'publish', 'posts_per_page'=>-1)); ?>
+					$wpb_all_query = new WP_Query(array('post_type'=>'post', 'post_status'=>'publish', 'posts_per_page'=>10)); ?>
 					 
 					<?php if ( $wpb_all_query->have_posts() ) : ?>
 					 
-					<ul class="list-unstyled">
-					    <!-- the loop -->
-					    <?php while ( $wpb_all_query->have_posts() ) : $wpb_all_query->the_post(); ?>
-					        <li class="mb-5">
-					        	<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-					        	<p><?php understrap_posted_on(); ?></p>
-					        	<p><?php the_excerpt(); ?></p>
-					        </li>
-					    <?php endwhile; ?>
-					    <!-- end of the loop -->
-					</ul>
+						<ul class="list-unstyled">
+						    <!-- the loop -->
+						    <?php while ( $wpb_all_query->have_posts() ) : $wpb_all_query->the_post(); ?>
+						        <li class="mb-5">
+						        	<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+						        	<p><?php understrap_posted_on(); ?></p>
+						        	<p><?php the_excerpt(); ?></p>
+						        </li>
+						    <?php endwhile; ?>
+						    <!-- end of the loop -->
+						</ul>
 					 
 					    <?php wp_reset_postdata(); ?>
 					 

@@ -36,7 +36,7 @@ class TRP_Url_Converter {
             return $url;
         }
 
-        if( is_customize_preview() || $this->is_admin_request()  || $this->is_sitemap_link( $path ) )
+        if( is_customize_preview() || $this->is_admin_request()  || $this->is_sitemap_path( $path ) )
             return $url;
 
         $url_slug = $this->get_url_slug( $TRP_LANGUAGE );
@@ -98,7 +98,7 @@ class TRP_Url_Converter {
      * @param $path the path that is passed inside home_url
      * @return bool
      */
-    public function is_sitemap_link( $path = '' ) {
+    public function is_sitemap_path( $path = '' ) {
         global $wp_current_filter;
 
         if( empty( $path ) || $path === '/' ){
@@ -225,7 +225,7 @@ class TRP_Url_Converter {
 
         // actual logic of the function
 
-        if ( $this->is_sitemap_link('') ){
+        if ( $this->is_sitemap_path('') ){
             trp_bulk_debug($debug, array('url' => $url, 'abort' => 'is file'));
             wp_cache_set('get_url_for_language_' . $hash, $url . $trp_link_is_processed, 'trp');
             return $url . $trp_link_is_processed; //abort for files

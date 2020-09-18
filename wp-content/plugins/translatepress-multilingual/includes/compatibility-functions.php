@@ -437,6 +437,28 @@ function trp_woo_translate_product_title_added_to_cart( ...$args ){
     }
     return $title;
 }
+
+/**
+ * Compatibility with WooCommerce "remove from cart" action
+ *
+ * In some cases (eg for Taiwanese) the product name and double quotes &ldquo &rdquo HTML entities
+ * were translated/parsed wrongly.
+ * We provide a fix by adding spaces between the quotes and product name
+ *
+ */
+
+if( class_exists( 'WooCommerce' ) ) {
+	add_filter( 'woocommerce_cart_item_removed_title', 'trp_woo_fix_product_remove_from_cart_notice', 10, 2 );
+
+	function trp_woo_fix_product_remove_from_cart_notice($message, $cart_item){
+		$product = wc_get_product( $cart_item['product_id'] );
+		if ($product){
+			$message =  sprintf( _x( '&ldquo; %s &rdquo;', 'Item name in quotes', 'woocommerce' ), $product->get_name() );
+		}
+		return $message;
+	}
+}
+
 /**
  * Compatibility with WooTour plugin
  *
@@ -822,5 +844,19 @@ if( function_exists('architect_init') ) {
             $bool = false;
 
         return $bool;
+    }
+}
+
+/**
+ * Compatibility with the RECON gateway for woocommerce. We must not send the "trp-form-language" hidden field in the post request to the gateway
+ */
+if( class_exists('WC_Gateway_RECON') ) {
+    add_filter('trp_form_inputs', 'trp_recon_gateway_compatibility', 10, 4);
+    function trp_recon_gateway_compatibility($input, $trp_language, $slug, $row)
+    {
+        if (isset($row->attr['name']) && $row->attr['name'] === 'checkout') {
+            $input = '';
+        }
+        return $input;
     }
 }

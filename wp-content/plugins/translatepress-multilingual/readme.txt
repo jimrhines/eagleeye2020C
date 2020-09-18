@@ -3,9 +3,9 @@ Contributors: cozmoslabs, razvan.mo, madalin.ungureanu, sareiodata, cristophor
 Donate link: https://www.translatepress.com/
 Tags: translate, translation, multilingual, automatic translation, bilingual, front-end translation, google translate, language
 Requires at least: 3.1.0
-Tested up to: 5.5
+Tested up to: 5.5.1
 Requires PHP: 5.6.20
-Stable tag: 1.8.1
+Stable tag: 1.8.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -138,6 +138,11 @@ For more information please check out our [documentation](https://translatepress
 
 
 == Changelog ==
+= 1.8.2 =
+* Added compatibility with RECON gateway for WooCommerce
+* Hooked changing locale to a higher priority. Fixes conflict with Divi theme
+* Fix WooCommerce remove from cart action for certain languages
+
 = 1.8.1 =
 * Fixed a problem with sitemap categories not being displayed correctly in Yoast SEO
 * Changed a redirect status from 302 to 301 in certain cases
