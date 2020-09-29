@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Plugins - Yoast SEO - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-09-02 12:26:30+0000\n"
+"PO-Revision-Date: 2020-09-17 14:46:09+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -10,6 +10,36 @@ msgstr ""
 "X-Generator: GlotPress/3.0.0-alpha.2\n"
 "Language: ja_JP\n"
 "Project-Id-Version: Plugins - Yoast SEO - Stable (latest release)\n"
+
+#: admin/views/licenses.php:88
+msgid "Make your products stand out in Google"
+msgstr "Google で商品を目立たせる"
+
+#: admin/views/licenses.php:69
+msgid "Everything you need for Google News"
+msgstr "Google News に必要なツールをすべてご用意"
+
+#: admin/views/licenses.php:54
+msgid "Start ranking better for your videos"
+msgstr "動画のランキングをアップ"
+
+#: admin/views/licenses.php:38
+msgid "Stop losing customers to other local businesses"
+msgstr "他のローカルビジネスにお客様を奪われないために"
+
+#. translators: %s expands to the plugin version.
+#: admin/class-admin-init.php:215
+msgid "Read all about version %s here"
+msgstr "バージョン%sについての詳細はこちらでご覧ください"
+
+#. translators: %1$s expands to Yoast SEO, %2$s expands to the plugin version.
+#: admin/class-admin-init.php:203
+msgid "New in %1$s %2$s: "
+msgstr "%1$s %2$sの新機能: "
+
+#: src/integrations/admin/link-count-tools-integration.php:128
+msgid "Calculation failed, please try again later."
+msgstr "計算に失敗しました。しばらくしてからもう一度お試しください。"
 
 #. translators: 1: Yoast SEO, 2: translated version of "Off"
 #: admin/views/class-yoast-feature-toggles.php:140
@@ -1402,6 +1432,31 @@ msgstr "%1$s画像の alt 属性%3$s: ページ内の画像に alt 属性があ�
 msgid "%1$sImage alt attributes%3$s: Images on this page have alt attributes, but you have not set your keyphrase. %2$sFix that%3$s!"
 msgstr "%1$s画像の alt 属性%3$s: ページ内の画像に alt 属性がありますが、キーフレーズが含まれていません。%2$s修正しましょう%3$s !"
 
+#. Translators: %1$s expands to a link on yoast.com, %2$s expands to the anchor
+#. end tag, %3$d expands to the number of subheadings containing the keyphrase.
+#: languages/yoast-seo-js.php:319
+msgid "%1$sKeyphrase in subheading%2$s: %3$s of your H2 and H3 subheadings reflects the topic of your copy. Good job!"
+msgid_plural "%1$sKeyphrase in subheading%2$s: %3$s of your H2 and H3 subheadings reflect the topic of your copy. Good job!"
+msgstr[0] "%1$s小見出し内キーフレーズ%2$s: H2 または H3 小見出しのうち%3$s個が文章のトピックを反映しています。いいですね !"
+
+#. Translators: %1$s expands to a link on yoast.com, %2$s expands to the anchor
+#. end tag, %3$d expands to the number of subheadings containing the keyphrase.
+#: languages/yoast-seo-js.php:314
+msgid "%1$sKeyphrase in subheading%2$s: Your H2 or H3 subheading reflects the topic of your copy. Good job!"
+msgstr "%1$s小見出し内キーフレーズ%2$s: H2 または H3 小見出しが文章のトピックを反映しています。いいですね !"
+
+#. Translators: %1$s and %2$s expand to a link on yoast.com, %3$s expands to
+#. the anchor end tag.
+#: languages/yoast-seo-js.php:309
+msgid "%1$sKeyphrase in subheading%3$s: More than 75%% of your H2 and H3 subheadings reflect the topic of your copy. That's too much. %2$sDon't over-optimize%3$s!"
+msgstr "%1$s小見出しのキーフレーズ%3$s: H2 または H3 小見出しの75%%以上が文章のトピックを反映していますが、これは多すぎます。%2$s最適化しすぎないでください%3$s。"
+
+#. Translators: %1$s and %2$s expand to a link on yoast.com, %3$s expands to
+#. the anchor end tag.
+#: languages/yoast-seo-js.php:305
+msgid "%1$sKeyphrase in subheading%3$s: %2$sUse more keyphrases or synonyms in your H2 and H3 subheadings%3$s!"
+msgstr "%1$s小見出しのキーフレーズ%3$s: %2$sH2 または H3 レベルの小見出しで、もっとキーフレーズまたは類義語を使用してください%3$s。"
+
 #. translators: %1$s expands to the method name. %2$s expands to the class name
 #: src/exceptions/missing-method.php:29
 msgid "Method %1$s() does not exist in class %2$s"
@@ -1822,7 +1877,7 @@ msgstr "%1$s小見出し分布%2$s: 小見出しは使用していませんが�
 #. expands to the link closing tag.
 #: languages/yoast-seo-js.php:118
 msgid "%1$sSubheading distribution%2$s: You are not using any subheadings, although your text is rather long. %3$sTry and add some subheadings%2$s."
-msgstr "%1$s副見出しの利用%2$s: テキストが比較的長いにも関わらず副見出しが使われていません。%3$sいくつかの副見出しを追加してください%2$s。"
+msgstr "%1$s小見出しの利用%2$s: テキストが比較的長いにも関わらず小見出しが使われていません。%3$s小見出しをいくつか追加してください%2$s。"
 
 #. Translators: %1$s and %5$s expand to a link on yoast.com, %3$d to the number
 #. of text sections not separated by subheadings, %4$d expands to the

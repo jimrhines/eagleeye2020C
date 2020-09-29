@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the WordPress - 5.5.x - Development - Administration package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-09-01 03:43:04+0000\n"
+"PO-Revision-Date: 2020-09-01 19:27:58+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -36,215 +36,215 @@ msgstr "Значение \"%1$s\" меньше чем \"%2$s\"."
 msgid "Environment type"
 msgstr "Тип окружения"
 
-#: wp-admin/about.php:129
+#: wp-admin/about.php:162
 msgid "Video: An image is added with an image block. In the block toolbar, an icon called \"Crop\" is selected, which changes the toolbar to show image resizing tools. First, zoom is used to zoom into the center of the image. Next, aspect ratio is clicked. This shows a dropdown of common aspect ratios. Square is chosen, and the image is moved within the new square outline. The crop is completed by clicking \"Apply.\""
 msgstr "Видео: С помощью блока \"Изображение\" добавлено изображение. В панели инструментов блока выбран значок \"Обрезать\", нажатие на него изменяет панель, теперь отображаются инструменты для изменения размера изображения. Сначала используется увеличение для увеличения центра изображения, затем инструмент \"Соотношение сторон\". Показывается выпадающий список часто используемых соотношений. Выбран квадрат, изображение перемещается в новые границы, обрезка завершается нажатием \"Применить\"."
 
-#: wp-admin/about.php:121
+#: wp-admin/about.php:154
 msgid "Video: In the editor, the block inserter shows two tabs, Blocks and Patterns. The Patterns tab is selected. There are different block layouts in this tab. After scrolling through options including buttons and columns, a pattern called \"Large header with a heading\" is chosen. This adds a cover block, which is customized with a photo and the name of the WordPress 5.5 jazz musician."
 msgstr "Видео: При вставке нового блока в редакторе показаны две вкладки - блоки и паттерны. Выбрана вкладка паттернов, на ней имеются различные макеты групп блоков. После прокрутки по списку, включающему кнопки и столбцы, выбран паттерн \"Большой заголовок\", он добавляет блок обложки с фотографией и именем джаз-музыканта выпуска WordPress 5.5."
 
-#: wp-admin/about.php:101
+#: wp-admin/about.php:134
 msgid "Video: Installed plugin screen, which shows a new column, Automatic Updates. In this column are buttons that say \"Enable auto-updates\". When clicked, the auto-updates feature is turned on for that plugin, and the button switches to say \"Disable auto-updates\"."
 msgstr "Видео: Экран установленных плагинов с новым столбцом \"Автоматические обновления\". В этом столбце имеются кнопки с подписью \"Включить автоматические обновления\". При нажатии на кнопку автоматические обновления будут включены для этого плагина, а кнопка изменится на \"Отключить автоматические обновления\". "
 
 #. translators: %s: 'register_meta' function name.
-#: wp-admin/about.php:241
+#: wp-admin/about.php:274
 msgid "The REST API now officially supports specifying default metadata values through %s."
 msgstr "REST API теперь официально поддерживает указание значений метаданных по умолчанию с помощью %s."
 
 #. translators: %s: 'register_taxonomy' function name.
-#: wp-admin/about.php:232
+#: wp-admin/about.php:265
 msgid "Default terms can now be specified for custom taxonomies in %s."
 msgstr "Термин по умолчанию может быть указан для пользовательских таксономий с помощью %s."
 
-#: wp-admin/about.php:227
+#: wp-admin/about.php:260
 msgid "Custom post types associated with the category taxonomy can now opt-in to supporting the default term."
 msgstr "Пользовательские типы данных ассоциированные с таксономией рубрик теперь опционально поддерживают термин по умолчанию."
 
-#: wp-admin/about.php:76
+#: wp-admin/about.php:109
 msgctxt "sitemap"
 msgid "Search"
 msgstr "Поиск"
 
-#: wp-admin/about.php:255
+#: wp-admin/about.php:288
 msgid "Check the Field Guide for more!"
 msgstr "Посмотрите руководство, чтобы узнать больше!"
 
-#: wp-admin/about.php:246
+#: wp-admin/about.php:279
 msgid "You will find updated versions of these bundled libraries: SimplePie, Twemoji, Masonry, imagesLoaded, getID3, Moment.js, and clipboard.js."
 msgstr "Обновленные версии встроенных библиотек: SimplePie, Twemoji, Masonry, imagesLoaded, getID3, Moment.js, и clipboard.js."
 
 #. translators: %s: 'wp_opcache_invalidate' function name.
-#: wp-admin/about.php:222
+#: wp-admin/about.php:255
 msgid "Sites that use PHP’s OPcache will see more reliable cache invalidation, thanks to the new %s function during updates (including to plugins and themes)."
 msgstr "Сайты использующие PHP OPcache могут использовать надежный механизм инвалидации кеша при обновлениях (в том числе для плагинов и тем) с помощью функции %s."
 
 #. translators: %s: 'redirect_guess_404_permalink' function name.
-#: wp-admin/about.php:213
+#: wp-admin/about.php:246
 msgid "Now get more fine-grained control of %s."
 msgstr "Более точный контроль над %s."
 
-#: wp-admin/about.php:208
+#: wp-admin/about.php:241
 msgid "The PHPMailer library just got a major update, going from version 5.2.27 to 6.1.6."
 msgstr "Значительное обновление библиотеки PHPMailer, с версии 5.2.27 до 6.1.6."
 
-#: wp-admin/about.php:206
+#: wp-admin/about.php:239
 msgid "More changes for developers"
 msgstr "Ещё больше изменений для разработчиков"
 
 #. translators: %1$s: 'get_header' function name, %2$s: 'get_template_part'
 #. function name, %3$s: '$args' variable name.
-#: wp-admin/about.php:194
+#: wp-admin/about.php:227
 msgid "The template loading functions (%1$s, %2$s, etc.) have a new %3$s argument. So now you can pass an entire array’s worth of data to those templates."
 msgstr "Функции загрузки шаблонов  (%1$s, %2$s, и др.) могут использовать новый аргумент %3$s. Теперь можно отправить в шаблон целый массив полезных данных."
 
-#: wp-admin/about.php:189
+#: wp-admin/about.php:222
 msgid "Passing data to template files"
 msgstr "Передача данных в шаблоны"
 
 #. translators: %s: 'wp_get_environment_type' function name.
-#: wp-admin/about.php:182
+#: wp-admin/about.php:215
 msgid "WordPress now has a standardized way to define a site’s environment type (staging, production, etc). Retrieve that type with %s and execute only the appropriate code."
 msgstr "WordPress теперь может использовать стандартный способ для определения окружения сайта (в разработке, рабочий, и др.). Используя получение типа через %s можно исполнять определённый код."
 
-#: wp-admin/about.php:177
+#: wp-admin/about.php:210
 msgid "Defining environments"
 msgstr "Определение окружения"
 
-#: wp-admin/about.php:171
+#: wp-admin/about.php:204
 msgid "The Dashicons library has received its final update in 5.5. It adds 39 block editor icons along with 26 others."
 msgstr "Финальное обновление Dashicons. C ним вы получите 39 новых значков для редактора блоков и 26 прочих."
 
-#: wp-admin/about.php:170
+#: wp-admin/about.php:203
 msgid "Dashicons"
 msgstr "Dashicons"
 
-#: wp-admin/about.php:167
+#: wp-admin/about.php:200
 msgid "The addition of block types endpoints means that JavaScript apps (like the block editor) can retrieve definitions for any blocks registered on the server."
 msgstr "Добавление оконечных точек REST API для типов блоков означает, что приложения JavaScript (как редактор блоков) могут получать определения для любых блоков зарегистрированных на сервере."
 
-#: wp-admin/about.php:166
+#: wp-admin/about.php:199
 msgid "Server-side registered blocks in the REST API"
 msgstr "Регистрация блоков на стороне сервера через REST API"
 
-#: wp-admin/about.php:163
+#: wp-admin/about.php:196
 msgid "5.5 also brings a big box of changes just for developers."
 msgstr "5.5 также несёт уйму новшеств для разработчиков."
 
-#: wp-admin/about.php:154
+#: wp-admin/about.php:187
 msgid "You can also move meta boxes with the keyboard, and edit images in WordPress with your assistive device, as it can read you the instructions in the image editor."
 msgstr "А также можно перемещать мета-блоки с помощью клавиатуры и редактировать изображения в WordPress с помощью вспомогательного устройства, так как оно может прочитать инструкции в редакторе изображений."
 
-#: wp-admin/about.php:153
+#: wp-admin/about.php:186
 msgid "Now you can copy links in media screens and modal dialogs with a button, instead of trying to highlight a line of text."
 msgstr "Теперь можно копировать ссылки на экранах медиа и в модальных диалогах с помощью кнопки, не нужно для этого выделять текст."
 
-#: wp-admin/about.php:152
-msgid "Every release adds improvements to the accessible publishing experience, and that remains true for WordPress 5.5. "
+#: wp-admin/about.php:185
+msgid "Every release adds improvements to the accessible publishing experience, and that remains true for WordPress 5.5."
 msgstr "Каждый выпуск WordPress продолжает улучшать возможности доступности, это справедливо и для WordPress 5.5."
 
-#: wp-admin/about.php:151
+#: wp-admin/about.php:184
 msgid "Accessibility"
 msgstr "Доступность"
 
-#: wp-admin/about.php:143
+#: wp-admin/about.php:176
 msgid "The highlights above are a tiny fraction of the new block editor features you’ve just installed. Open the block editor and enjoy!"
 msgstr "Отмеченные выше новшества в редакторе блоков это далеко не всё! Откройте редактор и получайте удовольствие!"
 
-#: wp-admin/about.php:142
+#: wp-admin/about.php:175
 msgid "And so much more."
 msgstr "И многое другое!"
 
-#: wp-admin/about.php:140
+#: wp-admin/about.php:173
 msgid "Now it’s easier than ever to find the block you need. The new block directory is built right into the block editor, so you can install new block types to your site without ever leaving the editor."
 msgstr "Теперь гораздо проще найти нужный вам блок. Новый каталог блоков поддерживается прямо в редакторе блоков, вы сможете установить новые типы блоков на сайт не покидая редактор."
 
-#: wp-admin/about.php:139
+#: wp-admin/about.php:172
 msgid "The New Block Directory"
 msgstr "Новый каталог блоков"
 
-#: wp-admin/about.php:135
+#: wp-admin/about.php:168
 msgid "You will also find block patterns in a wide variety of plugins and themes, with more added all the time. Pick any of them from a single place — just click and go!"
 msgstr "Вы также найдете паттерны блоков в достаточно многих плагинах и темах, их количество постоянно растёт. Выберите их из выпадающего списка, нажмите и используйте!"
 
-#: wp-admin/about.php:134
+#: wp-admin/about.php:167
 msgid "New block patterns make it simple and fun to create complex, beautiful layouts, using combinations of text and media that you can mix and match to fit your story."
 msgstr "Новые паттерны блоков позволяют быстро и весело создавать сложные и красивые макеты, используя сочетания текста и мультимедиа, которые вы можете смешивать и сочетать в соответствии с вашей историей."
 
-#: wp-admin/about.php:133
+#: wp-admin/about.php:166
 msgid "Block patterns"
 msgstr "Паттерны блоков"
 
-#: wp-admin/about.php:137
+#: wp-admin/about.php:170
 msgid "Crop, rotate, and zoom your photos right from the image block. If you spend a lot of time on images, this could save you hours!"
 msgstr "Поворот, обрезка, увеличение ваших фото прямо в блоке изображения. Если вы тратили много времени на это раньше, то теперь вы сэкономите уйму времени!"
 
-#: wp-admin/about.php:136
+#: wp-admin/about.php:169
 msgid "Inline image editing"
 msgstr "Встроенное редактирование изображений"
 
-#: wp-admin/about.php:111
+#: wp-admin/about.php:144
 msgid "Once again, the latest WordPress release packs a long list of exciting new features for the block editor. For example:"
 msgstr "И снова свежий выпуск WordPress открывает вам большой список захватывающих возможностей редактора блоков. К примеру:"
 
-#: wp-admin/about.php:110
+#: wp-admin/about.php:143
 msgid "Highlights from the block editor"
 msgstr "Значимые обновления редактора блоков"
 
-#: wp-admin/about.php:93
+#: wp-admin/about.php:126
 msgid "If updating plugins and themes manually is your thing, now that’s easier too — just upload a ZIP file."
 msgstr "Если вы привержены ручному обновлению плагинов и тем, то теперь это стало гораздо проще сделать, загрузив ZIP-архив."
 
-#: wp-admin/about.php:92
+#: wp-admin/about.php:125
 msgid "Update by uploading ZIP files"
 msgstr "Обновления через ZIP-архивы"
 
-#: wp-admin/about.php:91
+#: wp-admin/about.php:124
 msgid "You can also turn auto-updates on or off for each plugin or theme you have installed — all on the same screens you’ve always used."
 msgstr "Вы можете включить или отключить автоматические обновления индивидуально для каждого плагина или темы, на давно привычном экране управления установленными плагинами и темами."
 
-#: wp-admin/about.php:90
+#: wp-admin/about.php:123
 msgid "Now you can set plugins and themes to update automatically — or not! — in the WordPress admin. So you always know your site is running the latest code available."
 msgstr "Вы можете включить автоматические обновления для плагинов и тем (или отключить!) в консоли WordPress. Вы всегда сможете быть уверены в том, что используются свежие версии."
 
-#: wp-admin/about.php:89
+#: wp-admin/about.php:122
 msgid "Auto-updates for Plugins and Themes"
 msgstr "Автоматические обновления плагинов и тем"
 
-#: wp-admin/about.php:80
+#: wp-admin/about.php:113
 msgid "So more people will find your site sooner, giving you more time to engage, retain and convert them to subscribers, customers or whatever fits your definition of success."
 msgstr "Больше людей найдут ваш сайт ещё быстрее, просмотрят его лучше, останутся, станут вашими подписчиками, клиентами, или теми, кого вы считаете мерилом вашего успеха."
 
-#: wp-admin/about.php:79
+#: wp-admin/about.php:112
 msgid "Now, by default, WordPress 5.5 includes an XML sitemap that helps search engines discover your most important pages from the very minute you go live."
 msgstr "WordPress 5.5 включает в штатную поставку XML-карту сайта, которая поможет поисковым системам найти наиболее важные страницы сразу с момента их публикации."
 
-#: wp-admin/about.php:78
-msgid "WordPress sites work well with search engines. "
+#: wp-admin/about.php:111
+msgid "WordPress sites work well with search engines."
 msgstr "Поисковые системы любят сайты WordPress."
 
-#: wp-admin/about.php:77
+#: wp-admin/about.php:110
 msgid "Say hello to your new sitemap."
 msgstr "Поприветствуйте новые карты сайта."
 
-#: wp-admin/about.php:70
+#: wp-admin/about.php:103
 msgid "On mobile, lazy loading can also keep browsers from loading files meant for other devices. That can save your readers money on data — and help preserve battery life."
 msgstr "На мобильных устройствах отложенная загрузка поможет браузеру не загружать файлы, предназначенные для других устройств. Это сохранит вашим читателям трафик и заряд батареи устройства."
 
-#: wp-admin/about.php:69
-msgid "In WordPress 5.5, images wait to load until they’re just about to scroll into view. The technical term is ‘lazy loading.’"
+#: wp-admin/about.php:102
+msgid "In WordPress 5.5, images wait to load until they’re just about to scroll into view. The technical term is ‘lazy loading’."
 msgstr "В WordPress 5.5 изображения будут ожидать загрузки до тех пор, пока не попадут в область просмотра. Это принято называть 'отложенной загрузкой' (иногда также используют термин 'ленивая загрузка')."
 
-#: wp-admin/about.php:68
+#: wp-admin/about.php:101
 msgid "Images give your story a lot of impact, but they can sometimes make your site seem slow."
 msgstr "Изображения несомненно важны для иллюстрации ваших историй, но они также могут делать сайт медленнее."
 
-#: wp-admin/about.php:67
+#: wp-admin/about.php:100
 msgid "Posts and pages feel faster, thanks to lazy-loaded images."
 msgstr "Благодаря отложенной загрузке изображений, загрузка страниц и записей ощущается значительно быстрее."
 
-#: wp-admin/about.php:66
+#: wp-admin/about.php:99
 msgid "Speed"
 msgstr "Скорость"
 
@@ -1078,7 +1078,7 @@ msgid "Unable to write to %s file."
 msgstr "Невозможно записать в файл %s."
 
 #. translators: %s: WordPress 5.5 Field Guide link.
-#: wp-admin/about.php:260
+#: wp-admin/about.php:293
 msgid "There’s a lot more for developers to love in WordPress 5.5. To discover more and learn how to make these changes shine on your sites, themes, plugins and more, check the <a href=\"%s\">WordPress 5.5 Field Guide.</a>"
 msgstr "Гораздо больше вкусностей для разработчиков в WordPress 5.5. Узнать больше и научиться использовать эти изменения во всей красе на ваших сайтах, в темах, плагинах, и не только, вы сможете прочитав <a href=\"%s\">WordPress 5.5 Field Guide</a>."
 
@@ -2087,7 +2087,7 @@ msgstr "Неактивные плагины &mdash; лакомый кусоче�
 #: wp-admin/includes/class-wp-site-health.php:1497
 #: wp-admin/includes/class-wp-site-health.php:1560
 #: wp-admin/includes/class-wp-site-health.php:1679
-#: wp-admin/includes/class-wp-site-health.php:1749 wp-admin/about.php:88
+#: wp-admin/includes/class-wp-site-health.php:1749 wp-admin/about.php:121
 msgid "Security"
 msgstr "Безопасность"
 
@@ -3386,7 +3386,7 @@ msgstr "Установка невозможна"
 
 #. translators: %s: WordPress version.
 #: wp-admin/includes/update.php:300 wp-admin/install.php:238
-#: wp-admin/update-core.php:80 wp-admin/upgrade.php:80
+#: wp-admin/update-core.php:80 wp-admin/upgrade.php:80 wp-admin/about.php:86
 msgid "https://wordpress.org/support/wordpress-version/version-%s/"
 msgstr "https://wordpress.org/support/wordpress-version/version-%s/"
 
@@ -5904,7 +5904,7 @@ msgid "(Currently set to: %s)"
 msgstr "(Сейчас отображает меню «%s»)"
 
 #. translators: %s: WordPress version number.
-#: wp-admin/about.php:296
+#: wp-admin/about.php:329
 msgid "<strong>Version %s</strong> addressed one security issue."
 msgstr "В <strong>версии %s</strong> решена проблема с безопасностью."
 
@@ -5916,15 +5916,15 @@ msgstr "https://ru.gravatar.com/"
 msgid "Profile Picture"
 msgstr "Аватар"
 
-#: wp-admin/about.php:293
+#: wp-admin/about.php:66 wp-admin/about.php:326
 msgid "Maintenance and Security Releases"
 msgstr "Технические обновления безопасности"
 
-#: wp-admin/about.php:290
+#: wp-admin/about.php:323
 msgid "Security Releases"
 msgstr "Обновления безопасности"
 
-#: wp-admin/about.php:287
+#: wp-admin/about.php:320
 msgid "Maintenance Releases"
 msgstr "Технические обновления"
 
@@ -9476,7 +9476,7 @@ msgid "Show Toolbar when viewing site"
 msgstr "Показывать верхнюю панель при просмотре сайта"
 
 #. translators: 1: WordPress version number, 2: Plural number of bugs.
-#: wp-admin/about.php:301
+#: wp-admin/about.php:71 wp-admin/about.php:334
 msgid "<strong>Version %1$s</strong> addressed %2$s bug."
 msgid_plural "<strong>Version %1$s</strong> addressed %2$s bugs."
 msgstr[0] "В <strong>версии %1$s</strong> исправлена %2$s ошибка."
@@ -9485,21 +9485,22 @@ msgstr[2] "В <strong>версии %1$s</strong> исправлены %2$s ош�
 
 #. translators: 1: WordPress version number, 2: Plural number of bugs. More
 #. than one security issue.
-#: wp-admin/about.php:313
+#: wp-admin/about.php:346
 msgid "<strong>Version %1$s</strong> addressed some security issues and fixed %2$s bug."
 msgid_plural "<strong>Version %1$s</strong> addressed some security issues and fixed %2$s bugs."
 msgstr[0] "В <strong>версии %1$s</strong> решены несколько проблем с безопасностью и исправлена %2$s ошибка."
 msgstr[1] "В <strong>версии %1$s</strong> решены несколько проблем с безопасностью и исправлены %2$s ошибки."
 msgstr[2] "В <strong>версии %1$s</strong> решены несколько проблем с безопасностью и исправлены %2$s ошибок."
 
+#. translators: %s: HelpHub URL.
 #. translators: %s: Documentation URL.
-#: wp-admin/about.php:319
+#: wp-admin/about.php:83 wp-admin/about.php:352
 msgid "For more information, see <a href=\"%s\">the release notes</a>."
 msgstr "Дополнительную информацию можно найти в <a href=\"%s\">заметке о выпуске</a>."
 
 #. translators: 1: WordPress version number, 2: Plural number of bugs. Singular
 #. security issue.
-#: wp-admin/about.php:307
+#: wp-admin/about.php:340
 msgid "<strong>Version %1$s</strong> addressed a security issue and fixed %2$s bug."
 msgid_plural "<strong>Version %1$s</strong> addressed a security issue and fixed %2$s bugs."
 msgstr[0] "В <strong>версии %1$s</strong> решена проблема с безопасностью и исправлена %2$s ошибка."
@@ -9511,15 +9512,15 @@ msgid "Welcome to your WordPress Dashboard! This is the screen you will see when
 msgstr "Добро пожаловать в консоль WordPress! Этот экран вы будете видеть после авторизации. Он даёт доступ ко всем функциям управления сайтом. Можно получить помощь по каждому экрану, нажав на вкладку &laquo;Помощь&raquo; над заголовком экрана."
 
 #. translators: %s: WordPress version number.
-#: wp-admin/about.php:298
+#: wp-admin/about.php:331
 msgid "<strong>Version %s</strong> addressed some security issues."
 msgstr "В <strong>версии %s</strong> решены несколько проблем с безопасностью."
 
-#: wp-admin/about.php:286
+#: wp-admin/about.php:319
 msgid "Maintenance Release"
 msgstr "Техническое обновление"
 
-#: wp-admin/about.php:289
+#: wp-admin/about.php:322
 msgid "Security Release"
 msgstr "Обновление безопасности"
 
@@ -9528,7 +9529,7 @@ msgstr "Обновление безопасности"
 msgid "What&#8217;s New"
 msgstr "Что нового"
 
-#: wp-admin/about.php:292
+#: wp-admin/about.php:325
 msgid "Maintenance and Security Release"
 msgstr "Техническое обновление безопасности"
 
@@ -9541,7 +9542,7 @@ msgstr "На этом экране можно выбрать структуру 
 msgid "Welcome to WordPress %1$s. <a href=\"%2$s\">Learn more</a>."
 msgstr "Добро пожаловать в WordPress %1$s. <a href=\"%2$s\">Узнать больше</a>."
 
-#: wp-admin/about.php:273
+#: wp-admin/about.php:306
 msgid "Return to Updates"
 msgstr "Вернуться на страницу &laquo;Обновления&raquo;"
 
@@ -9817,11 +9818,11 @@ msgstr "Поскольку это сеть сайтов, можно добавл
 msgid "Welcome to WordPress %s."
 msgstr "Добро пожаловать в WordPress %s"
 
-#: wp-admin/about.php:273
+#: wp-admin/about.php:306
 msgid "Return to Dashboard &rarr; Updates"
 msgstr "Вернуться на страницу &laquo;Консоль&raquo; &rarr; &laquo;Обновления&raquo;"
 
-#: wp-admin/about.php:276
+#: wp-admin/about.php:309
 msgid "Go to Dashboard &rarr; Home"
 msgstr "Перейти на страницу &laquo;Консоль&raquo; &rarr; &laquo;Главная&raquo;"
 
@@ -9829,7 +9830,7 @@ msgstr "Перейти на страницу &laquo;Консоль&raquo; &rarr;
 msgid "WordPress is created by a worldwide team of passionate individuals."
 msgstr "WordPress развивается силами международной команды увлечённых энтузиастов."
 
-#: wp-admin/about.php:162
+#: wp-admin/about.php:195
 msgid "For developers"
 msgstr "Для разработчиков"
 
@@ -11693,7 +11694,7 @@ msgstr "Все"
 msgid "Please enter a valid menu name."
 msgstr "Пожалуйста, введите корректное название меню."
 
-#: wp-admin/about.php:276
+#: wp-admin/about.php:309
 msgid "Go to Dashboard"
 msgstr "Перейти на страницу &laquo;Консоль&raquo;"
 

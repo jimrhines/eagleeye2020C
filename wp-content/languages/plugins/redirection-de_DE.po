@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Plugins - Redirection - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-07-30 15:03:53+0000\n"
+"PO-Revision-Date: 2020-09-13 10:06:02+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -394,6 +394,10 @@ msgstr "Weiterleitungstester"
 msgid "Add New"
 msgstr "Neue hinzufügen"
 
+#: redirection-strings.php:644
+msgid "Enter role or capability value"
+msgstr "Gib die Rolle oder die Berechtigung ein"
+
 #: redirection-strings.php:96 matches/server.php:9
 msgid "URL and server"
 msgstr "URL und Server"
@@ -607,6 +611,10 @@ msgstr "Wenn du einen Bug mitteilen möchtest, lies bitte zunächst unseren {{re
 msgid "If you want to submit information that you don't want in a public repository then send it directly via {{email}}email{{/email}} - include as much information as you can!"
 msgstr "Wenn du nicht möchtest, dass deine Nachricht öffentlich sichtbar ist, dann sende sie bitte per {{email}}E-Mail{{/email}} - sende so viele Informationen, wie möglich."
 
+#. Plugin URI of the plugin
+msgid "https://redirection.me/"
+msgstr "https://redirection.me/"
+
 #: redirection-strings.php:467
 msgid "An hour"
 msgstr "Eine Stunde"
@@ -748,6 +756,10 @@ msgstr "404s löschen"
 msgid "Delete all matching \"%s\""
 msgstr "Alle ähnlich \"%s\" löschen"
 
+#: redirection-strings.php:28
+msgid "Your server has rejected the request for being too big. You will need to change it to continue."
+msgstr "Dein Server hat die Anforderung wegen der Größe abgelehnt. Du musst sie ändern, um fortzufahren."
+
 #: redirection-admin.php:455
 msgid "Loading, please wait..."
 msgstr "Lädt, bitte warte..."
@@ -763,6 +775,10 @@ msgstr "Dies kann durch ein anderes Plugin verursacht werden. Weitere Informatio
 #: redirection-strings.php:314
 msgid "Please clear your browser cache and reload this page."
 msgstr "Bitte lösche deinen Browser-Cache und lade diese Seite neu."
+
+#: redirection-strings.php:313
+msgid "Cached Redirection detected"
+msgstr "Zwischengespeicherte Umleitung erkannt"
 
 #: redirection-strings.php:38
 msgid "Email"
@@ -989,6 +1005,10 @@ msgstr "Unpassendes Ziel"
 #: redirection-strings.php:130
 msgid "When matched"
 msgstr "Wenn übereinstimmend"
+
+#: redirection-strings.php:568
+msgid "pass"
+msgstr "passieren"
 
 #: redirection-strings.php:47 redirection-strings.php:317
 msgid "Something went wrong 🙁"
@@ -1314,6 +1334,10 @@ msgstr "Module"
 msgid "Hits"
 msgstr "Treffer"
 
+#: redirection-strings.php:277 redirection-strings.php:562
+msgid "Filters"
+msgstr "Filter"
+
 #: redirection-strings.php:359 redirection-strings.php:368
 #: redirection-strings.php:394 redirection-strings.php:410
 msgid "Date"
@@ -1391,6 +1415,14 @@ msgstr "Einzigartiges Token, das RSS-Klienten Zugang zum Umleitung-Log-Feed gew�
 msgid "404s"
 msgstr "404s"
 
+#. Author of the plugin
+msgid "John Godley"
+msgstr "John Godley"
+
+#. Description of the plugin
+msgid "Manage all your 301 redirects and monitor 404 errors"
+msgstr "Verwalte alle 301-Umleitungen und 404-Fehler."
+
 #: database/schema/latest.php:144
 msgid "Modified Posts"
 msgstr "Geänderte Beiträge"
@@ -1429,3 +1461,7 @@ msgstr "Eine neue Weiterleitung hinzufügen"
 #: database/schema/latest.php:139
 msgid "Redirections"
 msgstr "Redirections"
+
+#: redirection-strings.php:547
+msgid "Regular Expression"
+msgstr "Regulärer Ausdruck"

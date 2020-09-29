@@ -59,7 +59,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 		<div class="d-none d-print-block">
 			<div class="d-flex flex-row">
 				<div class="col-4">
-					<img src="<?php echo esc_url( home_url( '/' ) ); ?>wp-content/themes/understrap-child/img/eeps-logo.svg" alt="Eagle Eye Power Solutions" />
+					<img src="<?php echo esc_url( home_url( '/' ) ); ?>wp-content/themes/understrap-child/img/eeps-logo.svg" alt="<?php bloginfo( 'name' ); ?>" />
 				</div>
 				<div class="col-8">
 					<?php the_field('corporate_phone_number', 'option'); ?>
@@ -73,7 +73,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 
 			<nav class="navbar navbar-expand-lg navbar-light">
 				<a class="navbar-brand" rel="home" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" itemprop="url">
-					<img src="<?php echo esc_url( home_url( '/' ) ); ?>wp-content/themes/understrap-child/img/eeps-logo.svg" alt="<?php bloginfo( 'name' ); ?>" />
+					<img src="/wp-content/themes/understrap-child/img/eeps-logo.svg" alt="<?php bloginfo( 'name' ); ?>" />
 				</a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerEEPS" aria-controls="navbarTogglerEEPS" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>

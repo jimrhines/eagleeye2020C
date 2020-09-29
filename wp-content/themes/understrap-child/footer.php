@@ -75,7 +75,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 							</ul>
 						</div>
 						<div id="eeps-iso" class="col-6 col-lg-12">
-							<img src="<?php echo esc_url( home_url( '/' ) ); ?>wp-content/uploads/2020/06/eagle-eye-power-solutions-iso-logo.png" alt="ISO 9001: 2008 Certified - Eagle Eye Power Solutions" />
+							<img src="/wp-content/uploads/2020/06/eagle-eye-power-solutions-iso-logo.png" alt="ISO 9001: 2008 Certified - Eagle Eye Power Solutions" />
 						</div>
 					</div>
 				</div>
