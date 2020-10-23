@@ -71,29 +71,37 @@ class TRP_Google_Translate_V2_Machine_Translator extends TRP_Machine_Translator 
             ));
 
             /* analyze the response */
-            if ( is_array( $response ) && ! is_wp_error( $response ) ) {
+            if ( is_array( $response ) && ! is_wp_error( $response ) && isset( $response['response'] ) &&
+                isset( $response['response']['code']) && $response['response']['code'] == 200 ) {
 
                 $this->machine_translator_logger->count_towards_quota( $new_strings_chunk );
 
-                /* decode it */
                 $translation_response = json_decode( $response['body'] );
-                if( !empty( $translation_response->error ) ){
-                    return array(); // return an empty array if we encountered an error. This means we don't store any translation in the DB
-                }
-                else{
+                if ( empty( $translation_response->error ) ) {
+
                     /* if we have strings build the translation strings array and make sure we keep the original keys from $new_string */
-                    $translations = $translation_response->data->translations;
-                    $i = 0;
-                    foreach( $new_strings_chunk as $key => $old_string ){
-                        if( !empty( $translations[$i]->translatedText ) ) {
-                            $translated_strings[$key] = $translations[$i]->translatedText;
+                    $translations = ( empty( $translation_response->data->translations ) ) ? array() : $translation_response->data->translations;
+                    $i            = 0;
+
+                    foreach ( $new_strings_chunk as $key => $old_string ) {
+
+                        if ( isset( $translations[ $i ] ) && !empty( $translations[ $i ]->translatedText ) ) {
+                            $translated_strings[ $key ] = $translations[ $i ]->translatedText;
+                        } else {
+                            /*  In some cases when API doesn't have a translation for a particular string,
+                            translation is returned empty instead of same string. Setting original string as translation
+                            prevents TP from keep trying to submit same string for translation endlessly.  */
+                            $translated_strings[ $key ] = $old_string;
                         }
+
                         $i++;
+
                     }
                 }
-            }
-            if( $this->machine_translator_logger->quota_exceeded() ){
-                break;
+
+                if( $this->machine_translator_logger->quota_exceeded() )
+                    break;
+
             }
         }
 

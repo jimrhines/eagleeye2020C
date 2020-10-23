@@ -5,7 +5,7 @@ Tags: translate, translation, multilingual, automatic translation, bilingual, fr
 Requires at least: 3.1.0
 Tested up to: 5.5.1
 Requires PHP: 5.6.20
-Stable tag: 1.8.2
+Stable tag: 1.8.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -138,6 +138,30 @@ For more information please check out our [documentation](https://translatepress
 
 
 == Changelog ==
+= 1.8.5 =
+* Improved SEO by making language switcher links crawlable
+* Fixed Internal links issue with Use a Subdirectory for the default language enabled
+* Added Elementor twitter button translation compatibility
+* Added Elementor blockquote tweet button translation compatibility
+* Added support for  PDF Embedder Premium Secure plugin
+* Fixed a compatibility issue with Thrive theme
+* Fixed a problem with Woocommerce order notes not being added on other languages
+* Fixed a PHP warning
+* Fixed issue where Oxigen repeater links were empty in the translated page
+
+= 1.8.4 =
+* Fixed Slug Translation in SEO Addon not being able to translate anything due to js error related to flags
+
+= 1.8.3 =
+* Added possibility to add custom languages
+* Fixed Woocommerce issues with cart on certain settings
+* Fixed some cases where translation blocks were not being created.
+* Deactivated languages will only be accessible by admin or translator
+* Compatibility with AddToAny Share buttons
+* Compatibility with Classified listing search in translated languages
+* Adjusted order of languages in floating language switcher according to position top or bottom
+* Fixed some issues with automatic translation usage
+
 = 1.8.2 =
 * Added compatibility with RECON gateway for WooCommerce
 * Hooked changing locale to a higher priority. Fixes conflict with Divi theme

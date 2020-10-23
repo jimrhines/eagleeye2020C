@@ -218,13 +218,17 @@ class TRP_Translation_Render{
 	 *
 	 * Problem especially for nbsp; which gets saved like that in DB. Then, in translation-render, the string arrives with nbsp; rendered to actual space character.
 	 * Used before inserting in db, and when trying to match on translation-render.
+     *
+     * wp_strip_all_tags was moved before html_entity_decode functions because quotes (& #039;) within text
+     * within html tag attributes would be decoded into a quote ' and made wp_strip_tags to cut more text based on the incorrect html.
+     * Example of html that broke before this change: <div title='Voir les détails de l&#039;analyse de sécurité'></div>
 	 *
 	 * @param $string
 	 *
 	 * @return string
 	 */
     public function trim_translation_block( $string ){
-	    return preg_replace('/\s+/', ' ', wp_strip_all_tags ( html_entity_decode( htmlspecialchars_decode( trp_full_trim( $string ), ENT_QUOTES ) ) ));
+	    return preg_replace('/\s+/', ' ',   html_entity_decode( htmlspecialchars_decode( wp_strip_all_tags(trp_full_trim( $string )), ENT_QUOTES ) ) ) ;
     }
 
     /**
@@ -856,7 +860,7 @@ class TRP_Translation_Render{
             	( $TRP_LANGUAGE != $this->settings['default-language'] || $this->settings['add-subdirectory-to-default-language'] == 'yes' ) &&
                 $this->settings['force-language-to-custom-links'] == 'yes' &&
 	            !$is_external_link &&
-                $this->url_converter->get_lang_from_url_string( $url ) == null &&
+                ( $this->url_converter->get_lang_from_url_string( $url ) == null || ( isset ($this->settings['add-subdirectory-to-default-language']) && $this->settings['add-subdirectory-to-default-language'] === 'yes' && $this->url_converter->get_lang_from_url_string( $url ) === $this->settings['default-language'] ) ) &&
 	            !$is_admin_link &&
                 strpos($url, '#TRPLINKPROCESSED') === false &&
 	            ( !$this->has_ancestor_attribute( $a_href, $no_translate_attribute ) || $this->has_ancestor_attribute($a_href, 'data-trp-gettext') ) // add language param to link if it's inside a gettext
@@ -1041,9 +1045,11 @@ class TRP_Translation_Render{
 		//check if it a html text and translate
 		$html_decoded_value = html_entity_decode( (string) $value );
 		if ( $html_decoded_value != strip_tags( $html_decoded_value ) ) {
-			$value = TranslatePress\str_get_html( $value, true, true, TRP_DEFAULT_TARGET_CHARSET, false, TRP_DEFAULT_BR_TEXT, TRP_DEFAULT_SPAN_TEXT );
-			$value = $this->handle_custom_links_and_forms($value);
-			$value = $value->save();
+			$html = TranslatePress\str_get_html( $value, true, true, TRP_DEFAULT_TARGET_CHARSET, false, TRP_DEFAULT_BR_TEXT, TRP_DEFAULT_SPAN_TEXT );
+			if( $html ) {
+                $html = $this->handle_custom_links_and_forms($html);
+                $value = $html->save();
+            }
 		}
 	}
 
@@ -1082,8 +1088,10 @@ class TRP_Translation_Render{
 			        } else {
 
 				        $html = TranslatePress\str_get_html( $json_array, true, true, TRP_DEFAULT_TARGET_CHARSET, false, TRP_DEFAULT_BR_TEXT, TRP_DEFAULT_SPAN_TEXT );
-				        $html = $this->handle_custom_links_and_forms($html);
-				        $json_array = $html->save();
+				        if( $html ) {
+                            $html = $this->handle_custom_links_and_forms($html);
+                            $json_array = $html->save();
+                        }
 			        }
 		        }
 
@@ -1091,8 +1099,10 @@ class TRP_Translation_Render{
 	        }
 
             $html = TranslatePress\str_get_html( $output, true, true, TRP_DEFAULT_TARGET_CHARSET, false, TRP_DEFAULT_BR_TEXT, TRP_DEFAULT_SPAN_TEXT );
-            $html = $this->handle_custom_links_and_forms($html);
-            $output = $html->save();
+            if( $html ) {
+                $html = $this->handle_custom_links_and_forms($html);
+                $output = $html->save();
+            }
         }
 
         return TRP_Translation_Manager::strip_gettext_tags($output);
@@ -1159,7 +1169,7 @@ class TRP_Translation_Render{
         $home_url = parse_url( $home_url );
 
         // Decide on target
-        if( !isset ($link_url['host'] ) || $link_url['host'] == $home_url['host'] ) {
+        if( !isset ($link_url['host'] ) || $link_url['host'] == $home_url['host'] || !isset ( $link_url['scheme'] ) ) {
             // Is an internal link
             return $url;
         } else {
@@ -1703,7 +1713,7 @@ class TRP_Translation_Render{
             return $content;
 
         //we try to wrap only the actual content of the post and not when the filters are executed in SEO plugins for example
-        if( !$wp_query->in_the_loop || !is_main_query() )
+        if( ( !$wp_query->in_the_loop || !is_main_query() ) && apply_filters('trp_wrap_with_post_id_overrule', true ) )
             return $content;
 
         //for the_tile filter we have an $id and we can compare it with the post we are on ..to avoid wrapping titles in menus for example

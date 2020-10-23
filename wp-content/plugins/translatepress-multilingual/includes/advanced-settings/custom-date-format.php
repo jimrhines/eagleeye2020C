@@ -5,7 +5,7 @@
  * Saves as a key-value pair
  *
  */
-add_filter( 'trp_register_advanced_settings', 'trp_register_language_date_format', 1105 );
+add_filter( 'trp_register_advanced_settings', 'trp_register_language_date_format', 1205 );
 function trp_register_language_date_format( $settings_array ){
 
 	$settings_array[] = array(

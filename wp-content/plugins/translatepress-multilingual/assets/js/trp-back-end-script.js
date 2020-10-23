@@ -161,33 +161,7 @@ jQuery( function() {
             var add_list_entry = table.querySelector( '.trp-add-list-entry' );
 
             // add event listener on ADD button
-            add_list_entry.querySelector('.trp-adst-button-add-new-item').addEventListener("click", function(){
-
-                var clone = add_list_entry.cloneNode(true)
-
-                // Show Add button, hide Remove button
-                clone.querySelector( '.trp-adst-button-add-new-item' ).style.display = 'none'
-                clone.querySelector( '.trp-adst-remove-element' ).style.display = 'block'
-
-                // Add row with new item in the html table
-                var itemInserted = add_list_entry.parentElement.insertBefore( clone, add_list_entry );
-
-                // Set name attributes
-                var dataNames = clone.querySelectorAll( '[data-name]' )
-                for( var i = 0 ; i < dataNames.length ; i++ ) {
-                    dataNames[i].setAttribute( 'name', dataNames[i].getAttribute('data-name') );
-                }
-
-                // Reset values of textareas with new items
-                var dataValues = add_list_entry.querySelectorAll( '[data-name]' )
-                for( var i = 0 ; i < dataValues.length ; i++ ) {
-                    dataValues[i].value = ''
-                }
-
-                // Add click listener on new row's Remove button
-                var removeButton = itemInserted.querySelector('.trp-adst-remove-element');
-                removeButton.addEventListener("click", _this.remove_item );
-            });
+            add_list_entry.querySelector('.trp-adst-button-add-new-item').addEventListener("click", _this.add_item );
 
             var removeButtons = table.querySelectorAll( '.trp-adst-remove-element' );
             for( var i = 0 ; i < removeButtons.length ; i++ ) {
@@ -201,9 +175,51 @@ jQuery( function() {
             }
         }
 
+        this.add_item = function () {
+            var add_list_entry = table.querySelector( '.trp-add-list-entry' );
+            var clone = add_list_entry.cloneNode(true)
+
+            // Remove the trp-add-list-entry class from the second element after it was cloned
+            add_list_entry.classList.remove('trp-add-list-entry');
+
+            // Show Add button, hide Remove button
+            add_list_entry.querySelector( '.trp-adst-button-add-new-item' ).style.display = 'none'
+            add_list_entry.querySelector( '.trp-adst-remove-element' ).style.display = 'block'
+
+            // Design change to add the cloned element at the bottom of list
+            // Done becasue the select box element cannot be cloned with its selected state
+            var itemInserted =  add_list_entry.parentNode.insertBefore(clone, add_list_entry.nextSibling);
+
+            // Set name attributes
+            var dataNames = add_list_entry.querySelectorAll( '[data-name]' )
+            for( var i = 0 ; i < dataNames.length ; i++ ) {
+                dataNames[i].setAttribute( 'name', dataNames[i].getAttribute('data-name') );
+            }
+
+            var removeButtons = table.querySelectorAll( '.trp-adst-remove-element' );
+            for( var i = 0 ; i < removeButtons.length ; i++ ) {
+                removeButtons[i].addEventListener("click", _this.remove_item)
+            }
+
+            // Reset values of textareas with new items
+            var dataValues = clone.querySelectorAll( '[data-name]' )
+            for( var i = 0 ; i < dataValues.length ; i++ ) {
+                dataValues[i].value = ''
+            }
+
+            //Restore checkbox(es) values after cloning and clearing; alternative than excluding from reset
+            var restoreCheckboxes = clone.querySelectorAll ( 'input[type=checkbox]' )
+            for( var i = 0 ; i < restoreCheckboxes.length ; i++ ) {
+                restoreCheckboxes[i].value = 'yes'
+            }
+
+            // Add click listener on new row's Add button
+            var addButton = itemInserted.querySelector('.trp-adst-button-add-new-item');
+            addButton.addEventListener("click", _this.add_item );
+        }
+
         _this.addEventHandlers( table )
     }
-
     var trpSettingsLanguages = new TRP_Settings_Language_Selector();
 
     jQuery('#trp-default-language').on("select2:selecting", function(e) {

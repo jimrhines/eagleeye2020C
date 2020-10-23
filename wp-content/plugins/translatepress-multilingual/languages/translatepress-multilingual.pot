@@ -97,7 +97,7 @@ msgstr ""
 msgid "Are you sure you want to remove this language?"
 msgstr ""
 
-#: ../tp-add-on-extra-languages/partials/language-selector-pro.php:43, includes/class-advanced-tab.php:468, includes/class-advanced-tab.php:478, partials/main-settings-language-selector.php:40
+#: ../tp-add-on-extra-languages/partials/language-selector-pro.php:43, includes/class-advanced-tab.php:483, includes/class-advanced-tab.php:494, includes/class-advanced-tab.php:582, includes/class-advanced-tab.php:613, partials/main-settings-language-selector.php:40
 msgid "Remove"
 msgstr ""
 
@@ -105,7 +105,7 @@ msgstr ""
 msgid "Choose..."
 msgstr ""
 
-#: ../tp-add-on-extra-languages/partials/language-selector-pro.php:58, includes/class-advanced-tab.php:478, partials/main-settings-language-selector.php:55
+#: ../tp-add-on-extra-languages/partials/language-selector-pro.php:58, includes/class-advanced-tab.php:494, includes/class-advanced-tab.php:613, partials/main-settings-language-selector.php:55
 msgid "Add"
 msgstr ""
 
@@ -117,15 +117,15 @@ msgstr ""
 msgid "Post Slug"
 msgstr ""
 
-#: ../tp-add-on-translator-accounts/includes/class-translator-accounts.php:119
+#: ../tp-add-on-translator-accounts/includes/class-translator-accounts.php:106
 msgid " TranslatePress Settings"
 msgstr ""
 
-#: ../tp-add-on-translator-accounts/includes/class-translator-accounts.php:123, ../tp-add-on-translator-accounts/includes/class-translator-accounts.php:124
+#: ../tp-add-on-translator-accounts/includes/class-translator-accounts.php:110, ../tp-add-on-translator-accounts/includes/class-translator-accounts.php:111
 msgid "Translator"
 msgstr ""
 
-#: ../tp-add-on-translator-accounts/includes/class-translator-accounts.php:128
+#: ../tp-add-on-translator-accounts/includes/class-translator-accounts.php:115
 msgid "Allow this user to translate the website."
 msgstr ""
 
@@ -133,12 +133,16 @@ msgstr ""
 msgid "Advanced"
 msgstr ""
 
-#: includes/class-advanced-tab.php:254, includes/class-error-manager.php:155, partials/machine-translation-settings-page.php:13, partials/machine-translation-settings-page.php:78, partials/machine-translation-settings-page.php:111, partials/main-settings-page.php:41, partials/main-settings-page.php:54, partials/main-settings-page.php:67
+#: includes/class-advanced-tab.php:286, includes/class-error-manager.php:155, partials/machine-translation-settings-page.php:13, partials/machine-translation-settings-page.php:78, partials/machine-translation-settings-page.php:111, partials/main-settings-page.php:41, partials/main-settings-page.php:54, partials/main-settings-page.php:67
 msgid "Yes"
 msgstr ""
 
-#: includes/class-advanced-tab.php:468, includes/class-advanced-tab.php:478
+#: includes/class-advanced-tab.php:483, includes/class-advanced-tab.php:494, includes/class-advanced-tab.php:582, includes/class-advanced-tab.php:613
 msgid "Are you sure you want to remove this item?"
+msgstr ""
+
+#: includes/class-advanced-tab.php:566, includes/class-advanced-tab.php:600
+msgid "Select..."
 msgstr ""
 
 #: includes/class-edd-sl-plugin-updater.php:700
@@ -353,7 +357,7 @@ msgstr ""
 msgid "General"
 msgstr ""
 
-#: includes/class-settings.php:490, includes/class-translation-manager.php:434
+#: includes/class-settings.php:490, includes/class-translation-manager.php:438
 msgid "Translate Site"
 msgstr ""
 
@@ -365,7 +369,7 @@ msgstr ""
 msgid "License"
 msgstr ""
 
-#: includes/class-settings.php:531, includes/class-translation-manager.php:466
+#: includes/class-settings.php:531, includes/class-translation-manager.php:470
 msgid "Settings"
 msgstr ""
 
@@ -645,15 +649,15 @@ msgstr ""
 msgid "String Translation"
 msgstr ""
 
-#: includes/class-translation-manager.php:447
+#: includes/class-translation-manager.php:451
 msgid "Translate Page"
 msgstr ""
 
-#: includes/class-translation-manager.php:1198
+#: includes/class-translation-manager.php:1203
 msgid "Security check"
 msgstr ""
 
-#: includes/class-translation-manager.php:1272
+#: includes/class-translation-manager.php:1277
 msgid "<strong>Warning:</strong> Some strings have possibly incorrectly encoded characters. This may result in breaking the queries, rendering the page untranslated in live mode. Consider revising the following strings or their method of outputting."
 msgstr ""
 
@@ -1207,6 +1211,38 @@ msgstr ""
 
 #: includes/advanced-settings/custom-date-format.php:17
 msgid "Customize the date formatting per each translated language.<br/>Leave empty for default WP setting or see more information <a href=\"https://wordpress.org/support/article/formatting-date-and-time/\" title=\"Formatting Date and Time\" target=\"_blank\">here</a>"
+msgstr ""
+
+#: includes/advanced-settings/custom-language.php:22
+msgid "Language name"
+msgstr ""
+
+#: includes/advanced-settings/custom-language.php:23
+msgid "Native name"
+msgstr ""
+
+#: includes/advanced-settings/custom-language.php:24
+msgid "ISO code"
+msgstr ""
+
+#: includes/advanced-settings/custom-language.php:25
+msgid "URL slug"
+msgstr ""
+
+#: includes/advanced-settings/custom-language.php:26
+msgid "Flag URL"
+msgstr ""
+
+#: includes/advanced-settings/custom-language.php:27
+msgid "Text RTL"
+msgstr ""
+
+#: includes/advanced-settings/custom-language.php:30, includes/advanced-settings/separators.php:49
+msgid "Custom language"
+msgstr ""
+
+#: includes/advanced-settings/custom-language.php:31
+msgid "Adds custom languages to TranslatePress.<br>Will be available under General settings, All Languages list.<br>For custom flag, first upload the image in media library then paste the URL.<br>Changing or deleting a custom language will impact translations and site URL's."
 msgstr ""
 
 #: includes/advanced-settings/disable-dynamic-translation.php:8

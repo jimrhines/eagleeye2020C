@@ -31,6 +31,7 @@
 <?php __("Advanced", "translatepress-multilingual"); ?>
 <?php __("Yes", "translatepress-multilingual"); ?>
 <?php __("Are you sure you want to remove this item?", "translatepress-multilingual"); ?>
+<?php __("Select...", "translatepress-multilingual"); ?>
 <?php __("Your license key expired on %s.", "translatepress-multilingual"); ?>
 <?php __("Your license key has been disabled.", "translatepress-multilingual"); ?>
 <?php __("Invalid license.", "translatepress-multilingual"); ?>
@@ -298,6 +299,14 @@
 <?php __("Search WooCommerce Slugs", "translatepress-multilingual"); ?>
 <?php __("Date format", "translatepress-multilingual"); ?>
 <?php __("Customize the date formatting per each translated language.<br/>Leave empty for default WP setting or see more information <a href=\"https://wordpress.org/support/article/formatting-date-and-time/\" title=\"Formatting Date and Time\" target=\"_blank\">here</a>", "translatepress-multilingual"); ?>
+<?php __("Language name", "translatepress-multilingual"); ?>
+<?php __("Native name", "translatepress-multilingual"); ?>
+<?php __("ISO code", "translatepress-multilingual"); ?>
+<?php __("URL slug", "translatepress-multilingual"); ?>
+<?php __("Flag URL", "translatepress-multilingual"); ?>
+<?php __("Text RTL", "translatepress-multilingual"); ?>
+<?php __("Custom language", "translatepress-multilingual"); ?>
+<?php __("Adds custom languages to TranslatePress.<br>Will be available under General settings, All Languages list.<br>For custom flag, first upload the image in media library then paste the URL.<br>Changing or deleting a custom language will impact translations and site URL's.", "translatepress-multilingual"); ?>
 <?php __("Disable dynamic translation", "translatepress-multilingual"); ?>
 <?php __("It disables detection of strings displayed dynamically using JavaScript. <br/>Strings loaded via a server side AJAX call will still be translated.", "translatepress-multilingual"); ?>
 <?php __("Exclude translated links from sitemap", "translatepress-multilingual"); ?>

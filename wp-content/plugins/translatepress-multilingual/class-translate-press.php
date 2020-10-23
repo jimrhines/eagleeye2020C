@@ -57,7 +57,7 @@ class TRP_Translate_Press{
         define( 'TRP_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
         define( 'TRP_PLUGIN_BASE', plugin_basename( __DIR__ . '/index.php' ) );
         define( 'TRP_PLUGIN_SLUG', 'translatepress-multilingual' );
-        define( 'TRP_PLUGIN_VERSION', '1.8.2' );
+        define( 'TRP_PLUGIN_VERSION', '1.8.5' );
 
 	    wp_cache_add_non_persistent_groups(array('trp'));
 
@@ -106,6 +106,7 @@ class TRP_Translate_Press{
         require_once TRP_PLUGIN_DIR . 'includes/external-functions.php';
         require_once TRP_PLUGIN_DIR . 'includes/compatibility-functions.php';
         require_once TRP_PLUGIN_DIR . 'includes/functions.php';
+        require_once TRP_PLUGIN_DIR . 'includes/custom-language.php';
         require_once TRP_PLUGIN_DIR . 'assets/lib/simplehtmldom/simple_html_dom.php';
         require_once TRP_PLUGIN_DIR . 'includes/shortcodes.php';
         require_once TRP_PLUGIN_DIR . 'includes/class-machine-translation-tab.php';

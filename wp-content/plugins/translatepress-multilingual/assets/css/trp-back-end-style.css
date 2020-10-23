@@ -169,6 +169,9 @@ table.trp-adst-list-option th{
 .trp-adst-list-option textarea{
     width: 250px;
 }
+.trp_narrow_input {
+    width: 135px;
+}
 .trp-adst-remove-element{
     color: #a00;
     cursor: pointer;

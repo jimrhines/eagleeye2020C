@@ -369,9 +369,12 @@ class TRP_Translation_Manager
         $string_groups = apply_filters('trp_string_group_order', array_values($this->string_groups()));
 
         $flags_path = array();
+        $flags_file_name = array();
         foreach ($this->settings['translation-languages'] as $language_code) {
             $default_path = TRP_PLUGIN_URL . 'assets/images/flags/';
             $flags_path[$language_code] = apply_filters('trp_flags_path', $default_path, $language_code);
+	        $default_flag_file_name = $language_code .'.png';
+	        $flags_file_name[$language_code] = apply_filters( 'trp_flag_file_name', $default_flag_file_name, $language_code );
         }
 
         $editors_navigation = $this->get_editors_navigation();
@@ -396,6 +399,7 @@ class TRP_Translation_Manager
             'merge_rules' => $this->get_merge_rules(),
             'paid_version' => trp_is_paid_version() ? 'true' : 'false',
             'flags_path' => $flags_path,
+            'flags_file_name' => $flags_file_name,
             'editors_navigation' => $editors_navigation,
             'help_panel_content' => $this->get_help_panel_content(),
             'user_meta' => $this->get_editor_user_meta(),
@@ -1154,8 +1158,9 @@ class TRP_Translation_Manager
      */
     static function strip_gettext_tags($string)
     {
-        if (is_string($string) && strpos($string, ' data-trpgettextoriginal=') !== false) {
+        if (is_string($string) && strpos($string, 'data-trpgettextoriginal=') !== false) {
             $string = preg_replace('/ data-trpgettextoriginal=\d+#!trpen#/', '', $string);
+            $string = preg_replace('/data-trpgettextoriginal=\d+#!trpen#/', '', $string);//sometimes it can be without space
             $string = str_replace('#!trpst#trp-gettext', '', $string);
             $string = str_replace('#!trpst#/trp-gettext', '', $string);
             $string = str_replace('#!trpst#\/trp-gettext', '', $string);

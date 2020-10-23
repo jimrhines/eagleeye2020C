@@ -89,7 +89,12 @@ class TRP_Advanced_Tab {
                         $settings[ $registered_setting['name'] ] = sanitize_text_field(intval($submitted_settings[ $registered_setting['name'] ] ) );
                         break;
                     }
-                    case 'list': {
+                    case 'list':
+					case 'mixed':
+						/*
+						We use the same parsing and saving mechanism for list and mixed advanced types.
+						*/
+                    	{
 						$settings[ $registered_setting['name'] ] = array();
 						foreach ( $registered_setting['columns'] as $column => $column_name ) {
 							$one_column = $column;
@@ -101,17 +106,36 @@ class TRP_Advanced_Tab {
                             }
 						}
 
-						// remove empty rows
+						 /* If the setting is a type "checkbox" we remove one empty value from the sub-array if it comes after a 'yes' value
+		                    In this case we properly save an empty value for an unchecked checkbox
+		                    and also control the display checked/unchecked on the frontend
+						 */
+	                    foreach ( $registered_setting['columns'] as $column => $column_name ) {
+	                        if (is_array($column_name) && $column_name ['type'] === 'checkbox'){
+			                    foreach ($settings[ $registered_setting['name'] ] [$column] as $submitted_key => $submitted_value) {
+					                    if ( $submitted_value === 'yes' ) {
+						                    unset ( $settings[ $registered_setting['name'] ] [ $column ] [ $submitted_key + 1 ] );
+					                    }
+				                    // Check for illegal values at checkbox side
+				                    if ( !$submitted_value === 'yes' || !$submitted_value === '' ) {
+					                    $settings[ $registered_setting['name'] ] [ $column ] [$submitted_key] = '';
+				                    }
+			                    }
+	                        }
+	                    }
+
+						// remove empty rows except checkboxes
 						foreach ( $settings[ $registered_setting['name'] ][ $one_column ] as $key => $value ) {
 							$is_empty = true;
 							foreach ( $registered_setting['columns'] as $column => $column_name ) {
-								if ( $settings[ $registered_setting['name'] ][$column][$key] != "" ) {
+								if ( $settings[ $registered_setting['name'] ][$column][$key] != "" || ( is_array($column_name) && $column_name ['type'] === 'checkbox') ) {
 									$is_empty = false;
 									break;
 								}
 							}
 							if ( $is_empty ){
 								foreach ( $registered_setting['columns'] as $column => $column_name ) {
+
 									unset( $settings[ $registered_setting['name'] ][$column][$key] );
 								}
 							}
@@ -135,7 +159,7 @@ class TRP_Advanced_Tab {
                 $settings[ $registered_setting['name'] ] = $prev_settings[$registered_setting['name']];
             }
 
-		} //endforeach
+		} //end foreach of parsing all the registered settings array
 		add_settings_error( 'trp_advanced_settings', 'settings_updated', __( 'Settings saved.' ), 'updated' );
 
 		return apply_filters( 'trp_extra_sanitize_advanced_settings', $settings, $submitted_settings );
@@ -144,19 +168,30 @@ class TRP_Advanced_Tab {
 	/*
 	 * Advanced page content
 	 */
-	public function advanced_page_content(){
-		require_once TRP_PLUGIN_DIR . 'partials/advanced-settings-page.php';
+
+	public function get_registered_advanced_settings(){
+		return apply_filters( 'trp_register_advanced_settings', array() );
 	}
 
 	/*
 	 * Require the custom codes from the specified folder
 	 */
+
+	public function advanced_page_content(){
+		require_once TRP_PLUGIN_DIR . 'partials/advanced-settings-page.php';
+	}
+
+	/*
+	 * Get array of registered options from custom code to display in Advanced Settings page
+	 */
+
 	public function include_custom_codes(){
         include_once(TRP_PLUGIN_DIR . 'includes/advanced-settings/disable-dynamic-translation.php');
         include_once(TRP_PLUGIN_DIR . 'includes/advanced-settings/enable-auto-translate-slug.php');
         include_once(TRP_PLUGIN_DIR . 'includes/advanced-settings/enable-numerals-translation.php');
         include_once(TRP_PLUGIN_DIR . 'includes/advanced-settings/custom-date-format.php');
-        include_once(TRP_PLUGIN_DIR . 'includes/advanced-settings/exclude-dynamic-selectors.php');
+		include_once(TRP_PLUGIN_DIR . 'includes/advanced-settings/custom-language.php');
+		include_once(TRP_PLUGIN_DIR . 'includes/advanced-settings/exclude-dynamic-selectors.php');
         include_once(TRP_PLUGIN_DIR . 'includes/advanced-settings/exclude-gettext-strings.php');
         include_once(TRP_PLUGIN_DIR . 'includes/advanced-settings/exclude-selectors.php');
         include_once(TRP_PLUGIN_DIR . 'includes/advanced-settings/fix-broken-html.php');
@@ -173,15 +208,9 @@ class TRP_Advanced_Tab {
 	}
 
 	/*
-	 * Get array of registered options from custom code to display in Advanced Settings page
-	 */
-	public function get_registered_advanced_settings(){
-		return apply_filters( 'trp_register_advanced_settings', array() );
-	}
-
-	/*
 	 * Hooked to trp_before_output_advanced_settings_options
 	 */
+
     function trp_advanced_settings_content_table(){
         $advanced_settings_array = $this->get_registered_advanced_settings();
         $html = '<p id="trp_advanced_tab_content_table">';
@@ -231,6 +260,9 @@ class TRP_Advanced_Tab {
 				case 'text':
                     echo $this->text_setting( $setting );
                     break;
+				case 'mixed':
+					echo $this->mixed_setting( $setting );
+					break;
 			}
 		}
 	}
@@ -270,18 +302,20 @@ class TRP_Advanced_Tab {
      */
     public function radio_setting( $setting ){
         $adv_option = $this->settings['trp_advanced_settings'];
-
+        $checked = '';
         $html = "
              <tr>
                 <th scope='row'>" . $setting['label'] . "</th>
                 <td class='trp-adst-radio'>";
 
         foreach($setting[ 'options' ] as $key => $option ){
-            $checked = ( isset( $adv_option[ $setting['name'] ] ) && $adv_option[ $setting['name'] ] === $option ) ? 'checked' : '';
+             if( isset( $adv_option[ $setting['default'] ] ) && $adv_option[ $setting['default'] ] === $option ) {
+					$checked = 'checked="checked"';
+	        }
             $setting_name  = $setting['name'];
             $label  = $setting[ 'labels' ][$key];
             $html .= "<label>
-	                    <input type='radio' id='$setting_name' name='trp_advanced_settings[$setting_name]' value='$option' $checked>
+	                    <input type='radio' id='$setting_name' name='trp_advanced_settings[$setting_name]' value='$option' $checked >
 	                    $label
 			          </label>";
         }
@@ -291,7 +325,7 @@ class TRP_Advanced_Tab {
                     </p>
                 </td>
             </tr>";
-        return apply_filters('trp_advanced_setting_checkbox', $html );
+        return apply_filters('trp_advanced_setting_radio', $html );
     }
 
     /**
@@ -409,25 +443,6 @@ class TRP_Advanced_Tab {
         $html .="<tr><td><h2>" . $setting['label'] . "<h2></td></tr>";
         return apply_filters('trp_advanced_setting_separator', $html );
     }
-    /**
-     * Return HTML of a text type setting
-     *
-     * @param $setting
-     *
-     * @return 'string'
-     */
-    public function text_setting( $setting ){
-        $html = "
-             <tr>
-                <th scope='row'>" . $setting['label'] . "</th>
-                <td>
-	                <p class='description'>
-                        " . $setting['description'] . "
-                    </p>
-                </td>
-            </tr>";
-        return apply_filters('trp_advanced_setting_text', $html );
-    }
 
 	/**
 	 * Return HTML of a checkbox type setting
@@ -474,8 +489,10 @@ class TRP_Advanced_Tab {
 		$html .= "<tr class='trp-add-list-entry trp-list-entry'>";
 		foreach( $setting['columns'] as $column => $column_name ) {
 			$html .= "<td><textarea id='new_entry_" . $setting['name'] . "_" . $column . "' data-name='trp_advanced_settings[" . $setting['name'] . "][" . $column . "][]' data-setting-name='" . $setting['name'] . "' data-column-name='" . $column . "'></textarea></td>";
+
 		}
 		$html .= "<td><input type='button' class='button-secondary trp-adst-button-add-new-item' value='" . __( 'Add', 'translatepress-multilingual' ) . "'><span class='trp-adst-remove-element' style='display: none;' data-confirm-message='" . __('Are you sure you want to remove this item?', 'translatepress-multilingual') . "'>" . __( 'Remove', 'translatepress-multilingual' ) . "</span></td>";
+		;
 		$html .= "</tr></table>";
 
 		$html .= "<p class='description'>
@@ -484,5 +501,124 @@ class TRP_Advanced_Tab {
                 </td>
             </tr>";
 		return apply_filters( 'trp_advanced_setting_list', $html );
+	}
+
+    /**
+     * Return HTML of a text type setting
+     *
+     * @param $setting
+     *
+     * @return 'string'
+     */
+    public function text_setting( $setting ){
+        $html = "
+             <tr>
+                <th scope='row'>" . $setting['label'] . "</th>
+                <td>
+	                <p class='description'>
+                        " . $setting['description'] . "
+                    </p>
+                </td>
+            </tr>";
+        return apply_filters('trp_advanced_setting_text', $html );
+    }
+
+	public function mixed_setting($setting){
+		$adv_option = $this->settings['trp_advanced_settings'];
+		$html = "
+             <tr>
+                <th scope='row'>" . $setting['label'] . "</th>
+                <td>
+	                <table class='trp-adst-list-option'>
+						<thead>
+							";
+		foreach( $setting['columns'] as $option_name => $option_details ){
+			$html .= '<th><strong>' . $option_details['label'] . '</strong></th>';
+		}
+
+		//"Remove" button
+		$html .= "<th></th>";
+
+		// list existing entries
+		$html .= "		</thead>";
+
+		$first_column = '';
+		foreach( $setting['columns'] as $column => $column_name ) {
+			$first_column = $column;
+			break;
+		}
+
+		if ( isset( $adv_option[ $setting['name'] ] ) && is_array( $adv_option[ $setting['name'] ] ) ) {
+			foreach ( $adv_option[ $setting['name'] ][ $first_column ] as $index => $value ) {
+
+				$html .= "<tr class='trp-list-entry'>";
+
+				foreach ( $setting['columns'] as $option_name => $option_details ) {
+					switch ( $option_details['type']) {
+						case 'text':
+							$html .= "<td><input class='trp_narrow_input' type='text' name='trp_advanced_settings[" . $setting['name'] . "][" . $option_name . "][]' value='" . htmlspecialchars($adv_option[ $setting['name'] ][ $option_name ][ $index ], ENT_QUOTES) . "' ></td>";
+							break;
+						case 'textarea':
+							$html .= "<td><textarea class='trp_narrow_input' name='trp_advanced_settings[" . $setting['name'] . "][" . $option_name . "][]'>" . htmlspecialchars($adv_option[ $setting['name'] ][ $option_name ][ $index ], ENT_QUOTES) . "</textarea></td>";
+							break;
+						case 'select':
+							$html .= "<td><select class='trp-select-advanced' name='trp_advanced_settings[" . $setting['name'] . "][" . $option_name . "][]'>";
+							$html .= "<option value=''>" . __( 'Select...', 'translatepress-multilingual' ) . "</option>";
+							foreach ( $option_details["values"] as $select_key => $select_value ) {
+								$selected = ($adv_option[ $setting['name'] ][ $option_name ][ $index ] === $select_value ) ? "selected='selected'" : '';
+								$html .= "<option value='". esc_attr($select_value). "'$selected>" . esc_attr($select_value) ."</option>";
+							}
+							$html .="</select></td>";
+							break;
+						case 'checkbox':
+							$datavalue = isset($adv_option[ $setting['name'] ][ $option_name ][ $index ]) ? htmlspecialchars($adv_option[ $setting['name'] ][ $option_name ][ $index ], ENT_QUOTES) : '';
+							$checked = ($datavalue === 'yes') ? "checked='checked'" : '';
+							$html .= "<td><input type='checkbox' class='trp-adv-chk' name='trp_advanced_settings[" . $setting['name'] . "][" . $option_name . "][]' id='new_entry_" . $setting['name'] . "_" . $option_name . "' data-name='trp_advanced_settings[" . $setting['name'] . "][" . $option_name . "][]' data-setting-name='" . $setting['name'] . "' data-column-name='" . $option_name . "' value='yes' ".$checked .">";
+							$html .= "<input type='hidden' name='trp_advanced_settings[" . $setting['name'] . "][" . $option_name . "][]' id='new_entry_" . $setting['name'] . "_" . $option_name . "' data-name='trp_advanced_settings[" . $setting['name'] . "][" . $option_name . "][]' data-setting-name='" . $setting['name'] . "' data-column-name='" . $option_name . "' value=''>";
+							$html .="</td>";
+							break;
+					}
+				}
+				$html .= "<td><span class='trp-adst-remove-element' data-confirm-message='" . __('Are you sure you want to remove this item?', 'translatepress-multilingual') . "'>" . __( 'Remove', 'translatepress-multilingual' ) . "</span></td>";
+				$html .= "</tr>";
+			}
+		}
+		// Add new entry to list; renders the last row which is initially empty.
+		$html .= "<tr class='trp-add-list-entry trp-list-entry'>";
+
+		foreach( $setting['columns'] as $option_name => $option_details ) {
+
+			switch ( $option_details['type']) {
+				case 'text':
+					$html .= "<td><input type='text' class='trp_narrow_input' id='new_entry_" . $setting['name'] . "_" . $option_name . "' data-name='trp_advanced_settings[" . $setting['name'] . "][" . $option_name . "][]' data-setting-name='" . $setting['name'] . "' data-column-name='" . $option_name . "'></input></td>";
+					break;
+				case 'textarea':
+					$html .= "<td class='trp_narrow_input'><textarea id='new_entry_" . $setting['name'] . "_" . $option_name . "' data-name='trp_advanced_settings[" . $setting['name'] . "][" . $option_name . "][]' data-setting-name='" . $setting['name'] . "' data-column-name='" . $option_name . "'></textarea></td>";
+					break;
+				case 'select':
+					$html .= "<td><select id='new_entry_" . $setting['name'] . "_" . $option_name . "' data-name='trp_advanced_settings[" . $setting['name'] . "][" . $option_name . "][]' data-setting-name='" . $setting['name'] . "' data-column-name='" . $option_name . "'>";
+					$html .= "<option value=''>" . __( 'Select...', 'translatepress-multilingual' ) . "</option>";
+					foreach ( $option_details["values"] as $select_key => $select_value ) {
+						$html .= "<option value='". esc_attr($select_value). "'>" . esc_attr($select_value) . "</option>";
+					}
+					$html .="</select></td>";
+					break;
+				case 'checkbox':
+					$html .= "<td><input type='checkbox' class='trp-adv-chk' id='new_entry_" . $setting['name'] . "_" . $option_name . "' data-name='trp_advanced_settings[" . $setting['name'] . "][" . $option_name . "][]' data-column-name='" . $option_name ."' value='yes'>";
+					$html .= "<input type='hidden' id='new_entry_" . $setting['name'] . "_" . $option_name . "' data-name='trp_advanced_settings[" . $setting['name'] . "][" . $option_name . "][]' data-column-name='" . $option_name ."' value=''>";
+					$html .="</td>";
+					break;
+			}
+		}
+		$html .= "<td><input type='button' class='button-secondary trp-adst-button-add-new-item' value='" . __( 'Add', 'translatepress-multilingual' ) . "'><span class='trp-adst-remove-element' style='display: none;' data-confirm-message='" . __('Are you sure you want to remove this item?', 'translatepress-multilingual') . "'>" . __( 'Remove', 'translatepress-multilingual' ) . "</span></td>";
+		$html .= "</tr></table>";
+		$html .= "<p class='description'>
+                        " . $setting['description'] . "
+                    </p>
+                </td>
+            </tr>";
+
+		return apply_filters( 'trp_advanced_setting_list', $html );
+
 	}
 }

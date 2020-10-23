@@ -40,3 +40,13 @@ function trp_register_miscellaneous_separator( $settings_array ){
     );
     return $settings_array;
 }
+
+add_filter( 'trp_register_advanced_settings', 'trp_register_custom_language_separator', 2000 );
+function trp_register_custom_language_separator( $settings_array ){
+	$settings_array[] = array(
+		'name'          => 'custom_language',
+		'type'          => 'separator',
+		'label'         => esc_html__( 'Custom language', 'translatepress-multilingual' )
+	);
+	return $settings_array;
+}

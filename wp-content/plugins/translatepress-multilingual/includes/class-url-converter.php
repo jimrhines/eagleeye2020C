@@ -287,7 +287,7 @@ class TRP_Url_Converter {
 	            * if the option add subdir to default language is on we need to add that to the URL
                 */
                 $possible_url = $url;
-				if (isset ($this->settings['add-subdirectory-to-default-language']) && $this->settings['add-subdirectory-to-default-language'] === 'yes'){
+				if (isset ($this->settings['add-subdirectory-to-default-language']) && $this->settings['add-subdirectory-to-default-language'] === 'yes' && $this->get_lang_from_url_string( $url ) == null ){
 					$possible_url = $this->add_language_to_home_url($url, $url_obj->getPath(), $url_obj->getScheme(), get_current_blog_id() );
 				}
                 $post_id = url_to_postid( $possible_url );
@@ -569,8 +569,11 @@ class TRP_Url_Converter {
             // the lang slug != actual lang. So we need to do array_search so we don't end up with en instead of en_US
             if( isset($this->settings['url-slugs']) && in_array($lang, $this->settings['url-slugs']) ){
                 $language = array_search($lang, $this->settings['url-slugs']);
-                wp_cache_set('url_language_' . hash('md4', $url), $language, 'trp');
-                return $language;
+                if ( in_array( $language, $this->settings['publish-languages'] ) ||
+                    ( in_array( $language, $this->settings['translation-languages'] ) && current_user_can(apply_filters( 'trp_translating_capability', 'manage_options' )) ) ) {
+                    wp_cache_set( 'url_language_' . hash( 'md4', $url ), $language, 'trp' );
+                    return $language;
+                }
             }
         }
         wp_cache_set('url_language_' . hash('md4', $url), null, 'trp');

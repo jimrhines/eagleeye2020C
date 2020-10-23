@@ -42,6 +42,7 @@ function trp_remove_hooks_to_disable_post_content_search_wraps( $trp_loader ){
         $trp                = TRP_Translate_Press::get_trp_instance();
         $translation_render = $trp->get_component( 'translation_render' );
         $trp_loader->remove_hook( 'the_content', 'wrap_with_post_id', $translation_render );
+	    remove_action( 'do_shortcode_tag', 'tp_oxygen_search_compatibility', 10, 4 );
     }
 }
 

@@ -215,8 +215,11 @@ function trp_woo_data_strip_trpst( $data ){
  */
 add_filter( 'trp_skip_selectors_from_dynamic_translation', 'trp_woo_skip_dynamic_translation' );
 function trp_woo_skip_dynamic_translation( $skip_selectors ){
-    $add_skip_selectors = array( '#select2-billing_country-results', '#select2-shipping_country-results' );
-    return array_merge( $skip_selectors, $add_skip_selectors );
+    if( class_exists( 'WooCommerce' ) ) {
+        $add_skip_selectors = array( '#select2-billing_country-results', '#select2-shipping_country-results' );
+        return array_merge( $skip_selectors, $add_skip_selectors );
+    }
+    return $skip_selectors;
 }
 
 
@@ -762,7 +765,8 @@ function trp_oxygen_remove_gettext_hooks( $trp_loader ) {
 if( function_exists('ct_is_show_builder') ) {
     add_filter('do_shortcode_tag', 'tp_oxygen_search_compatibility', 10, 4);
     function tp_oxygen_search_compatibility($output, $tag, $attr, $m){
-        if( $tag === 'ct_headline' || $tag === 'ct_text_block' || $tag === 'oxygen' ) {
+    	// we're skiping the oxygen $tag as that one represents a dynamic shortcode based on custom fields. At times it contains images, links, numbers. Rarely we see actual content.
+    	if( $tag === 'ct_headline' || $tag === 'ct_text_block' ) {
             global $post, $TRP_LANGUAGE;
 
             if (empty($post->ID))
@@ -837,14 +841,13 @@ function trp_aws_current_language( $lang ) {
 /**
  * Compatibility with thrive Arhitect plugin which does a "nice" little trick with remove_all_filters( 'template_include' ); so we need to stop that or else it will not load our translation editor
  */
-if( function_exists('architect_init') ) {
-    add_filter('tcb_allow_landing_page_edit', 'trp_thrive_arhitect_compatibility');
-    function trp_thrive_arhitect_compatibility($bool)    {
-        if (isset($_REQUEST['trp-edit-translation']))
-            $bool = false;
+add_filter('tcb_allow_landing_page_edit', 'trp_thrive_arhitect_compatibility');
+add_filter('tcb_is_editor_page', 'trp_thrive_arhitect_compatibility');//this is for Thrive theme
+function trp_thrive_arhitect_compatibility($bool)    {
+    if (isset($_REQUEST['trp-edit-translation']))
+        $bool = false;
 
-        return $bool;
-    }
+    return $bool;
 }
 
 /**
@@ -858,5 +861,174 @@ if( class_exists('WC_Gateway_RECON') ) {
             $input = '';
         }
         return $input;
+    }
+}
+
+
+/**
+ * Compatibility with Classified Listing plugin Search in secondary language
+ */
+// do not return inline autocomplete because when clicking the results, the input is filled with original title instead of translated
+add_filter( 'rtcl_inline_search_autocomplete_args', 'trp_rtcl_autocomplete_search_results', 10, 2 );
+function trp_rtcl_autocomplete_search_results( $args, $request ){
+    global $TRP_LANGUAGE;
+    $trp = TRP_Translate_Press::get_trp_instance();
+    $trp_settings = $trp->get_component( 'settings' );
+    $settings = $trp_settings->get_settings();
+
+    if ( $TRP_LANGUAGE !== $settings['default-language'] ) {
+        $args['post__in'] = array('1');
+        return $args;
+    }
+
+    return $args;
+}
+
+// Otherwise trp-post-container is not added
+add_action( 'wp_body_open', 'trp_overrule_main_query_condition', 10, 2 );
+function trp_overrule_main_query_condition(){
+    if ( class_exists('Rtcl') ) {
+        add_filter( 'trp_wrap_with_post_id_overrule', __return_false() );
+    }
+}
+
+// Otherwise trp-post-container is stripped
+add_filter( 'wp_kses_allowed_html', 'trp_prevent_kses_from_stripping_trp_post_container', 10, 2 );
+function trp_prevent_kses_from_stripping_trp_post_container( $allowedposttags, $context  ) {
+    if ( class_exists('Rtcl') && $context === 'post' ){
+        $allowedposttags['trp-post-container'] = array( 'data-trp-post-id' => true );
+    }
+    return $allowedposttags;
+}
+
+// Filter search results to show secondary language results
+add_action('rtcl_listing_query', 'trp_rtcl_search_results', 10, 2);
+function trp_rtcl_search_results ($q, $t){
+    if ( empty( $q->get('s')) ){
+        return;
+    }
+    global $TRP_LANGUAGE;
+    $trp = TRP_Translate_Press::get_trp_instance();
+    $trp_settings = $trp->get_component( 'settings' );
+    $settings = $trp_settings->get_settings();
+
+    if ( $TRP_LANGUAGE !== $settings['default-language'] ) {
+        $trp_search = $trp->get_component( 'search' );
+        $search_result_ids = $trp_search->get_post_ids_containing_search_term($q->get('s'), null);
+        $q->set('s', '');
+        if ( empty($search_result_ids)){
+            $search_result_ids = array(0);
+        }
+        $q->set('post__in', $search_result_ids );
+    }
+}
+
+/*
+ * Compatibility with AddToAny Share Buttons
+ *
+ * Skip detection by translate-dom-changes of the url change when hitting the share button
+ *
+ */
+add_filter( 'trp_skip_selectors_from_dynamic_translation', 'trp_add_to_any_skip_dynamic_translation' );
+function trp_add_to_any_skip_dynamic_translation( $skip_selectors ){
+    if( function_exists( 'A2A_SHARE_SAVE_init' ) ) {
+        $add_skip_selectors = array( '.addtoany_list' );
+        return array_merge( $skip_selectors, $add_skip_selectors );
+    }
+    return $skip_selectors;
+}
+
+/*
+ * Compatibility with PDF Embedder Premium Secure
+ *
+ * Skips link processing if ?pdfemb-serveurl is in the url
+ *
+ */
+// first we need to disable adding the language to home_url() because the plugin is using it to construct a url.
+add_filter( 'trp_home_url', 'trp_skip_home_url_processing_for_pdfemb_server_url', 10, 5 );
+function trp_skip_home_url_processing_for_pdfemb_server_url(  $new_url, $abs_home, $TRP_LANGUAGE, $path, $url ){
+	if( class_exists( 'core_pdf_embedder' ) ){
+		$callstack_functions = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS);
+
+		$list_of_functions =  array( 'modify_pdfurl' ) ;
+		if( !empty( $callstack_functions ) ) {
+			foreach ( $callstack_functions as $callstack_function ) {
+				if ( in_array( $callstack_function['function'], $list_of_functions ) ) {
+					$new_url = $url;
+					break;
+				}
+			}
+		}
+	}
+	return $new_url;
+}
+// and after that we need to make sure we're not adding the language when we process the url's in the page.
+add_filter( 'trp_skip_url_for_language', 'trp_skip_link_processing_for_pdfemb_server_url', 10, 2 );
+function trp_skip_link_processing_for_pdfemb_server_url( $skip, $url ){
+	if( strpos($url, '?pdfemb-serveurl') !== false ) {
+		$skip = true;
+	}
+	return $skip;
+}
+
+/**
+ * Add compatibility with blockquote tweet button in elementor
+ * if the quote has one parameter it will be automatically translated, if not then you need to use conditional language shortcodes
+ */
+add_filter( 'wp_parse_str', 'trp_elementor_blockquote_translate_tweet_button' );
+function trp_elementor_blockquote_translate_tweet_button( $array ){
+    if( array_key_exists( 'text', $array ) ){
+
+        if ( version_compare( PHP_VERSION, '5.4.0', '>=' ) ) {
+            $callstack_functions = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 15);//set a limit if it is supported to improve performance
+        }
+        else{
+            $callstack_functions = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS);
+        }
+
+        if( !empty( $callstack_functions ) ) {
+            foreach ($callstack_functions as $callstack_function) {
+                if ( $callstack_function['function'] === 'render_content' ) {
+                    //enable conditional language shortcode
+                    $array['text'] = do_shortcode( $array['text'] );
+
+                    //try to eliminate the author from the text before we try to translate it
+                    $tweet_link_text = $array['text'];
+                    $tweet_link_text = explode( ' — ', $tweet_link_text );
+                    if( count( $tweet_link_text ) > 1 ){
+                        $quote_author = array_pop( $tweet_link_text );
+                    }
+                    $tweet_link_text = implode( ' — ', $tweet_link_text );
+
+                    //try and translate the text
+                    $trp = TRP_Translate_Press::get_trp_instance();
+                    $translation_render = $trp->get_component( 'translation_render' );
+                    $array['text'] = $translation_render->translate_page($tweet_link_text);
+
+                    //add author if it was eliminated
+                    if(!empty($quote_author) )
+                        $array['text'] = $array['text'] . ' — ' . $quote_author;
+
+                    break;
+                }
+            }
+        }
+
+    }
+    return $array;
+}
+
+/**
+ * Add compatibility with Elementor so we allow conditional shortcodes in post excerpt
+ * this allows twitter button to have a translated text
+ */
+if( defined('ELEMENTOR_VERSION') ) {
+    add_filter('the_post', 'trp_elementor_translate_tweet_button_excerpt');
+    function trp_elementor_translate_tweet_button_excerpt($post){
+        if (!empty($post->post_excerpt)) {
+            $post->post_excerpt = do_shortcode($post->post_excerpt);
+        }
+
+        return $post;
     }
 }
