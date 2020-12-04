@@ -93,8 +93,12 @@ class TRP_Language_Switcher{
 		global $TRP_NEEDED_LANGUAGE;
 		if ( ! $this->url_converter ){
 			$trp = TRP_Translate_Press::get_trp_instance();
-			$this->trp_languages = $trp->get_component( 'url_converter' );
+			$this->url_converter = $trp->get_component( 'url_converter' );
 		}
+
+	  if ($this->url_converter->is_sitemap_path()){
+		  return;
+	  }
 
 		$link_to_redirect = apply_filters( 'trp_link_to_redirect_to', $this->url_converter->get_url_for_language( $TRP_NEEDED_LANGUAGE, null, '' ), $TRP_NEEDED_LANGUAGE );
 
@@ -241,6 +245,16 @@ class TRP_Language_Switcher{
             $floater_class .= ' trp-' . esc_attr($this->settings['floater-position']);
         }
 
+        if( $this->settings['floater-color'] ) {
+		        $floater_class .= ' trp-color-' . esc_attr($this->settings['floater-color']);
+	      } else {
+	          $floater_class .= ' trp-color-dark'; // default color. Good for backwards compatibility as well.
+        }
+
+        if( $this->settings['trp-ls-show-poweredby'] == 'yes' ) {
+            $floater_class .= ' trp-poweredby';
+        }
+
         $current_language = array();
         $other_languages = array();
 
@@ -274,6 +288,12 @@ class TRP_Language_Switcher{
             </div>
             <div id="trp-floater-ls-language-list" class="<?php echo esc_attr( $floater_flags_class );?>" <?php echo ( isset( $_GET['trp-edit-translation'] ) && $_GET['trp-edit-translation'] == 'preview' ) ? 'data-trp-unpreviewable="trp-unpreviewable"' : ''?>>
                 <?php
+                if( $this->settings['trp-ls-show-poweredby'] == 'yes' ){
+	                $powered_by = '<div id="trp-floater-poweredby">Powered by TranslatePress <a href="https://translatepress.com/?utm_source=language_switcher&utm_medium=clientsite&utm_campaign=TPLS" rel="nofollow" target="_blank" title="WordPress Translation Plugin">&raquo;</a></div>';
+                } else {
+	                $powered_by = '';
+                }
+
                 $disabled_language = '<a href="#" class="trp-floater-ls-disabled-language trp-ls-disabled-language" onclick="event.preventDefault()">';
                 $disabled_language .= ( $floater_settings['flags'] ? $this->add_flag( $current_language['code'], $current_language['name'] ) : '' ); // WPCS: ok.
                 $disabled_language .= esc_html( $current_language_label );
@@ -281,9 +301,16 @@ class TRP_Language_Switcher{
 
                 $floater_position = 'bottom';
                 if ( !empty( $this->settings['floater-position'] ) && strpos( $this->settings['floater-position'], 'top' ) !== false  ){
-                    echo $disabled_language;
+	                  echo $powered_by;
+	                  echo '<div class="trp-language-wrap">';
+	                  echo $disabled_language;
                     $floater_position = 'top';
                 }
+
+                if ( $floater_position == 'bottom' ){
+                    echo '<div class="trp-language-wrap">';
+	              }
+
                 foreach( $other_languages as $code => $name ) {
                     $language_label = '';
 
@@ -296,15 +323,24 @@ class TRP_Language_Switcher{
                     }
 
                     ?>
-                    <a href="<?php echo esc_url( $this->url_converter->get_url_for_language($code, false) ); ?>" <?php echo ( isset( $_GET['trp-edit-translation'] ) && $_GET['trp-edit-translation'] == 'preview' ) ? 'data-trp-unpreviewable="trp-unpreviewable"' : '' ?> title="<?php echo esc_attr( $name ); ?>">
-						<?php echo ( $floater_settings['flags'] ? $this->add_flag( $code, $name ) : '' ); // WPCS: ok.
-						echo esc_html( $language_label ); ?>
-					</a>
+                    <a href="<?php echo esc_url( $this->url_converter->get_url_for_language($code, false) ); ?>"
+                        <?php echo ( isset( $_GET['trp-edit-translation'] ) && $_GET['trp-edit-translation'] == 'preview' ) ? 'data-trp-unpreviewable="trp-unpreviewable"' : '' ?> title="<?php echo esc_attr( $name ); ?>">
+          						  <?php
+                          echo ( $floater_settings['flags'] ? $this->add_flag( $code, $name ) : '' ); // WPCS: ok.
+						              echo esc_html( $language_label );
+						            ?>
+					          </a>
                 <?php
                 }
 
+                if ( $floater_position == 'top' ){
+	                echo '</div>';
+                }
+
                 if ( $floater_position == 'bottom' ){
-                    echo $disabled_language;
+	                  echo $disabled_language;
+	                  echo '</div>';
+	                  echo $powered_by;
                 }
                 ?>
             </div>

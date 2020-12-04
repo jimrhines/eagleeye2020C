@@ -3,9 +3,9 @@ Contributors: cozmoslabs, razvan.mo, madalin.ungureanu, sareiodata, cristophor
 Donate link: https://www.translatepress.com/
 Tags: translate, translation, multilingual, automatic translation, bilingual, front-end translation, google translate, language
 Requires at least: 3.1.0
-Tested up to: 5.5.1
+Tested up to: 5.5.3
 Requires PHP: 5.6.20
-Stable tag: 1.8.5
+Stable tag: 1.8.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -138,6 +138,27 @@ For more information please check out our [documentation](https://translatepress
 
 
 == Changelog ==
+= 1.8.7 =
+* Added region independent languages in hreflang meta tags
+* Fixed JS error in Translation Editor for some type of anchor tags.
+* Compatibility with WooCommerce myPOS gateway. Improved PayPal IPN handling in WooCommerce.
+* Fixed issue with string in textarea being detected by our translation editor.
+* We now keep pagination when changing languages on the blog page.
+* Fixed a compatibility with xStore theme ajax search not appearing on other languages than english
+* Fixed an issue with Woocommerce links in language switcher
+* Compatibility with Woocommerce pdf Voucher plugin
+* Fixed an issue with archive pages pagination for terms with translated slugs
+* We now exclude some gettext strings from being translated that cause problems
+
+= 1.8.6 =
+* Added optional "Powered by TranslatePress" in the floater language switcher. Would help us out a lot if you would enable this option in the settings. Thank You!
+* Added a compatibility with Brizy Pro menu element
+* Add current-menu-item CSS class to menus on translation languages
+* Remove unused Delete command from String Translation
+* Added compatibility with woocommerce-ultimate-pdf-invoices plugin
+* Added compatibility with Uncode Theme menu on mobile
+* Fix the infinite redirect when using subfolder for default language with the default WP 5.5 sitemap.
+
 = 1.8.5 =
 * Improved SEO by making language switcher links crawlable
 * Fixed Internal links issue with Use a Subdirectory for the default language enabled

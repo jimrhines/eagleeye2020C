@@ -48,7 +48,7 @@ class TRP_Ajax{
      * @return array                    Sanitized array of strings.
      */
     protected function sanitize_strings( $posted_strings){
-    	$numerals_option = isset( $_POST['translate_numerals_opt'] ) ? $_POST['translate_numerals_opt'] : 'no';
+    	$numerals_option = isset( $_POST['translate_numerals_opt'] ) ? filter_var( $_POST['translate_numerals_opt'], FILTER_SANITIZE_STRING ) : 'no';
         $strings = json_decode( $posted_strings );
         if ( is_array( $strings ) ) {
             foreach ($strings as $key => $string) {

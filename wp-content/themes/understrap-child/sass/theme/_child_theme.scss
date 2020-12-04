@@ -1033,7 +1033,8 @@ img[src$=".svg"] {
 		width: auto;
 		margin: 0 0 1rem 0;
 
-		#email-address {
+		#email-address,
+		#full-name {
 			display: inline-block;
 			width: 100%;
 			margin: 0.5rem 0 0 0;
@@ -1042,6 +1043,10 @@ img[src$=".svg"] {
 				width: 300px;
 			}
 
+		}
+
+		#full-name {
+			margin: -1rem 0 0 0;
 		}
 
 		.wpcf7-not-valid-tip {

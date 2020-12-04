@@ -171,8 +171,7 @@ class TRP_String_Translation {
                 ),
             ),
             'actions'      => array(
-                'edit'   => __( 'Edit', 'translatepress-multilingual' ),
-                'delete' => __( 'Delete entry', 'translatepress-multilingual' )
+                'edit'   => __( 'Edit', 'translatepress-multilingual' )
             )
         );
         return apply_filters( 'trp_st_default_actions', $actions );

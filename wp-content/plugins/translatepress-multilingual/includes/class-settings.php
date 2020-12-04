@@ -57,10 +57,9 @@ class TRP_Settings{
     }
 
     /**
-     * Echo html for selecting language from all available language in settings.
+     * Echo html for selecting language selector position.
      *
-     * @param string $ls_type       shortcode_options | menu_options | floater_options
-     * @param string $ls_setting    The selected language switcher customization setting (get_language_switcher_options())
+     * @param string $ls_position    The selected language switcher position
      */
     public function output_language_switcher_floater_possition( $ls_position ){
         $ls_options = array(
@@ -80,6 +79,27 @@ class TRP_Settings{
 
         echo $output;
     }
+
+	/**
+	 * Echo html for selecting language selector color.
+	 *
+	 * @param string $ls_color    The selected language switcher color.
+	 */
+	public function output_language_switcher_floater_color( $ls_color ){
+		$ls_options = array(
+			'dark'  => array( 'label' => __( 'Dark', 'translatepress-multilingual' ) ),
+			'light'   => array( 'label' => __( 'Light', 'translatepress-multilingual' ) ),
+		);
+
+		$output = '<select id="floater-color" name="trp_settings[floater-color]" class="trp-select trp-ls-select-option">';
+		foreach( $ls_options as $key => $ls_option ){
+			$selected = ( $ls_color == $key ) ? 'selected' : '';
+			$output .= '<option value="' . esc_attr( $key ) . '" ' . esc_attr( $selected ) . ' >' . esc_html( $ls_option['label'] ). '</option>';
+		}
+		$output .= '</select>';
+
+		echo $output;
+	}
 
     /**
      * Returns settings_option.
@@ -239,6 +259,16 @@ class TRP_Settings{
             $settings['floater-position'] = 'bottom-right';
         }
 
+	    if ( ! isset( $settings['floater-color'] ) ){
+		    $settings['floater-color'] = 'dark';
+	    }
+
+	    if ( !empty( $settings['trp-ls-show-poweredby'] ) ){
+		    $settings['trp-ls-show-poweredby'] = sanitize_text_field( $settings['trp-ls-show-poweredby'] );
+	    }else{
+		    $settings['trp-ls-show-poweredby'] = 'no';
+	    }
+
         if ( ! isset( $settings['url-slugs'] ) ){
             $settings['url-slugs'] = $this->trp_languages->get_iso_codes( $settings['translation-languages'] );
         }
@@ -318,6 +348,8 @@ class TRP_Settings{
             'menu-options'                         => 'flags-full-names',
             'floater-options'                      => 'flags-full-names',
             'floater-position'                     => 'bottom-right',
+	        'floater-color'                        => 'dark',
+	        'trp-ls-show-poweredby'                => 'no',
             'url-slugs'                            => array( 'en_US' => 'en', '' ),
         );
 

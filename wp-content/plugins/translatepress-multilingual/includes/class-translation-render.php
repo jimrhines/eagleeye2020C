@@ -666,7 +666,7 @@ class TRP_Translation_Render{
                 else {
                     if ( $parent->tag == 'option' ) {
                         array_push( $nodes, array( 'node' => $row, 'type' => 'option' ) );
-                    } else {
+                    } elseif ( $parent->tag != 'textarea' ) {//explicitly exclude textarea strings
                         array_push( $nodes, array( 'node' => $row, 'type' => 'text' ) );
                     }
                 }
@@ -1066,7 +1066,7 @@ class TRP_Translation_Render{
      * @return mixed
      */
     public function render_default_language( $output ){
-        if ( $this->handle_custom_links_for_default_language() ) {
+        if ( $this->handle_custom_links_for_default_language() && !apply_filters( 'trp_stop_translating_page', false, $output ) ) {
 
 	        $json_array = json_decode( $output, true );
 	        /* If we have a json response we need to parse it and only translate the nodes that contain html

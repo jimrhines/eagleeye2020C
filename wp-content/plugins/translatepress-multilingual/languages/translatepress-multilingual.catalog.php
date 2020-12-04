@@ -82,6 +82,8 @@
 <?php __("Bottom Left", "translatepress-multilingual"); ?>
 <?php __("Top Right", "translatepress-multilingual"); ?>
 <?php __("Top Left", "translatepress-multilingual"); ?>
+<?php __("Dark", "translatepress-multilingual"); ?>
+<?php __("Light", "translatepress-multilingual"); ?>
 <?php __("Install & Activate", "translatepress-multilingual"); ?>
 <?php __("Current Language", "translatepress-multilingual"); ?>
 <?php __("General", "translatepress-multilingual"); ?>
@@ -259,6 +261,8 @@
 <?php __("Learn more in our documentation.", "translatepress-multilingual"); ?>
 <?php __("Floating language selection", "translatepress-multilingual"); ?>
 <?php __("Add a floating dropdown that follows the user on every page.", "translatepress-multilingual"); ?>
+<?php __("Show \"Powered by TranslatePress\"", "translatepress-multilingual"); ?>
+<?php __("Show the small \"Powered by TranslatePress\" label in the floater language switcher.", "translatepress-multilingual"); ?>
 <?php __("API Key from settings page:", "translatepress-multilingual"); ?>
 <?php __("HTTP Referrer:", "translatepress-multilingual"); ?>
 <?php __("Use this HTTP Referrer if the API lets you restrict key usage from its Dashboard.", "translatepress-multilingual"); ?>
@@ -359,7 +363,6 @@
 <?php __("Bulk Actions", "translatepress-multilingual"); ?>
 <?php __("Delete entries", "translatepress-multilingual"); ?>
 <?php __("Edit", "translatepress-multilingual"); ?>
-<?php __("Delete entry", "translatepress-multilingual"); ?>
 <?php __("Translation Status", "translatepress-multilingual"); ?>
 <?php __("Filter", "translatepress-multilingual"); ?>
 <?php __("Filter by language", "translatepress-multilingual"); ?>

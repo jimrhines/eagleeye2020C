@@ -49,7 +49,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 												//echo get_the_post_thumbnail( $p->ID );
 												$category_thumbnail = wp_get_attachment_image_src( get_post_thumbnail_id( $p->ID ), '' ) 
 												?>
-												<img src="<?php echo $category_thumbnail['0']; ?>" width="100%" alt="<?php echo get_the_title( $p->ID ); ?>" />
+												<img src="<?php echo $category_thumbnail['0']; ?>" width="300" height="349" alt="<?php echo get_the_title( $p->ID ); ?>" />
 											<?php } ?>
 											
 											<h2 class="h3"><?php echo get_the_title( $p->ID ); ?></h2>

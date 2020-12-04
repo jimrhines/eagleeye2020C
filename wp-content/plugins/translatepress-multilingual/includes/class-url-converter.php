@@ -141,11 +141,20 @@ class TRP_Url_Converter {
             $languages = $this->settings['translation-languages'];
         }
 
+        $region_independent_languages = array();
         foreach ( $languages as $language ) {
             // hreflang should have - instead of _ . For example: en-EN, not en_EN like the locale
             $hreflang = str_replace('_', '-', $language);
             $hreflang = apply_filters('trp_hreflang', $hreflang, $language);
             echo '<link rel="alternate" hreflang="' . esc_attr( $hreflang ). '" href="' . esc_url( $this->get_url_for_language( $language ) ) . '"/>' . "\n";
+
+            if ( strpos( $language, '_' ) !== false ){
+                $language_independent_hreflang = strtok($language, '_');
+                if( !empty( $language_independent_hreflang ) && !in_array( $language_independent_hreflang, $region_independent_languages ) ) {
+                    $region_independent_languages[] = $language_independent_hreflang;
+                    echo '<link rel="alternate" hreflang="' . esc_attr( $language_independent_hreflang ) . '" href="' . esc_url( $this->get_url_for_language( $language ) ) . '"/>' . "\n";
+                }
+            }
         }
 
         if( isset($this->settings['trp_advanced_settings']['enable_hreflang_xdefault']) && $this->settings['trp_advanced_settings']['enable_hreflang_xdefault'] != 'disabled' ){
@@ -328,11 +337,12 @@ class TRP_Url_Converter {
             trp_bulk_debug($debug, array('url' => $url, 'new url' => $new_url, 'found post id' => $post_id, 'url type' => 'based on permalink', 'for language' => $TRP_LANGUAGE));
             $TRP_LANGUAGE = $trp_language_copy;
 
-        }else if( isset( $trp_current_url_term_slug ) && isset($trp_current_url_taxonomy) && $url == get_term_link( $trp_current_url_term_slug, $trp_current_url_taxonomy) ) { // check here if it is a term link
-                $TRP_LANGUAGE = $language;
+        }else if( isset( $trp_current_url_term_slug ) && isset($trp_current_url_taxonomy) && strpos( $url, get_term_link( $trp_current_url_term_slug, $trp_current_url_taxonomy) ) === 0 ) { // check here if it is a term link
+            $current_term_link = get_term_link( $trp_current_url_term_slug, $trp_current_url_taxonomy);
+            $TRP_LANGUAGE = $language;
                 $check_term_link = get_term_link($trp_current_url_term_slug, $trp_current_url_taxonomy);
                 if (!is_wp_error($check_term_link))
-                    $new_url = $check_term_link;
+                    $new_url =  str_replace( $current_term_link, $check_term_link, $url );
                 else
                     $new_url = $url;
 
@@ -340,9 +350,9 @@ class TRP_Url_Converter {
         }else if( is_home() && ( strpos($_SERVER['REQUEST_URI'], 'sitemap') === false && strpos($_SERVER['REQUEST_URI'], '.xml') === false ) ) {//for some reason in yoast sitemap is_home() is true ..so we need to check if we are not in the sitemap itself
             $TRP_LANGUAGE = $language;
             if ( empty($url_obj->getQuery()) ) {
-	            $new_url = get_post_type_archive_link( 'post' );
+	            $new_url = $this->maybe_add_pagination_to_blog_page( get_post_type_archive_link( 'post' ) );
             } else {
-	            $new_url = rtrim(get_post_type_archive_link( 'post' ), '/') . '/?' . $url_obj->getQuery();
+	            $new_url = rtrim( $this->maybe_add_pagination_to_blog_page( get_post_type_archive_link( 'post' ) ), '/') . '/?' . $url_obj->getQuery();
             }
             $TRP_LANGUAGE = $trp_language_copy;
         }else {
@@ -386,6 +396,25 @@ class TRP_Url_Converter {
                 $current_slug = get_transient( 'tp_'.$english_woocommerce_slug.'_'. $this->settings['default-language'] );
                 if( $current_slug === false ){
                     $current_slug = trp_x( $english_woocommerce_slug, 'slug', 'woocommerce', $this->settings['default-language'] );
+
+                    //check that it is the same as the one saved in the database
+                    $wc_options = get_option('woocommerce_permalinks');
+                    switch($english_woocommerce_slug){
+                        case 'product-category':
+                            $option_index = 'category_base';
+                            break;
+                        case 'product-tag':
+                            $option_index = 'tag_base';
+                            break;
+                        case 'product':
+                            $option_index = 'product_base';
+                            break;
+                        default:
+                            $option_index = '';
+                    }
+                    if( !empty( $wc_options ) && !empty( $wc_options[$option_index] ) && $current_slug != $wc_options[$option_index] )
+                        $current_slug = $wc_options[$option_index];
+
                     set_transient( 'tp_'.$english_woocommerce_slug.'_'. $this->settings['default-language'], $current_slug, 12 * HOUR_IN_SECONDS );
                 }
                 if( strpos($new_url, '/'.$current_slug.'/') === false){
@@ -704,6 +733,20 @@ class TRP_Url_Converter {
         }
 
         return $value;
+    }
+
+    /**
+     * Function that adds pagination to a blog page if it is necessary
+     * @param $url
+     * @return string
+     */
+    function maybe_add_pagination_to_blog_page( $url ){
+        $pagenum = get_query_var( 'paged', 1 );
+        if( $pagenum !== 1 ) {
+            global $wp_rewrite;
+            $url = trailingslashit( $url ) . user_trailingslashit($wp_rewrite->pagination_base . '/' . $pagenum, 'paged' );
+        }
+        return $url;
     }
 
 }

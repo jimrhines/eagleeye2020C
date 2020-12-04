@@ -178,6 +178,29 @@ function trp_woo_pdf_invoices_and_packing_slips_compatibility_dont_translate_pdf
     return $bool;
 }
 
+/**
+ * Compatibility with WooCommerce PDF Invoices (woocommerce-ultimate-pdf-invoices)
+ * https://www.welaunch.io/en/product/woocommerce-pdf-invoices/
+ *
+ * @since 1.4.3
+ *
+ */
+add_filter( 'woocommerce_pdf_invoices_content', 'trp_woo_ultimate_pdf_invoices_compatibility');
+add_filter( 'woocommerce_pdf_invoices_order_data', 'trp_woo_ultimate_pdf_invoices_data_compatibility');
+
+function trp_woo_ultimate_pdf_invoices_compatibility($title){
+    if ( class_exists( 'TRP_Translation_Manager' ) ) {
+        return 	TRP_Translation_Manager::strip_gettext_tags($title);
+    }
+}
+
+function trp_woo_ultimate_pdf_invoices_data_compatibility($data_array){
+    if ( class_exists( 'TRP_Translation_Manager' ) ) {
+        $data_array = array_map('TRP_Translation_Manager::strip_gettext_tags',$data_array );
+    }
+    return $data_array;
+}
+
 
 /**
  * Compatibility with WooCommerce order notes
@@ -803,6 +826,60 @@ function trp_brizy_disable_dynamic_translation( $enable ){
 }
 
 /**
+ * Compatibility with Brizy PRO menu, the language switcher inside the menu does not work fully yet
+ */
+if( defined( 'BRIZY_PRO_VERSION' ) ){
+    add_filter( 'trp_home_url', 'trp_brizy_menu_pro_compatibility', 10, 5 );
+    function trp_brizy_menu_pro_compatibility( $new_url, $abs_home, $TRP_LANGUAGE, $path, $url ){
+        if ( version_compare( PHP_VERSION, '5.4.0', '>=' ) ) {
+            $callstack_functions = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 15);//set a limit if it is supported to improve performance
+        }
+        else{
+            $callstack_functions = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS);
+        }
+
+        $list_of_functions = array( 'restoreSiteUrl' );
+        if( !empty( $callstack_functions ) ) {
+            foreach ( $callstack_functions as $callstack_function ) {
+                if ( in_array( $callstack_function['function'], $list_of_functions ) ) {
+                    return $url;
+                }
+            }
+        }
+
+        return $new_url;
+    }
+}
+
+
+/**
+ * Compatibility with woocommerce-pdf-vouchers plugin, removed language from download link of the vouchers
+ */
+if( defined( 'WOO_VOU_PLUGIN_VERSION' ) ){
+    add_filter( 'trp_home_url', 'trp_woocommerce_pdf_vouchers_download_file_compatibility', 10, 5 );
+    function trp_woocommerce_pdf_vouchers_download_file_compatibility( $new_url, $abs_home, $TRP_LANGUAGE, $path, $url ){
+        if ( version_compare( PHP_VERSION, '5.4.0', '>=' ) ) {
+            $callstack_functions = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 15);//set a limit if it is supported to improve performance
+        }
+        else{
+            $callstack_functions = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS);
+        }
+
+        $list_of_functions = array( 'get_item_download_url' );
+        if( !empty( $callstack_functions ) ) {
+            foreach ( $callstack_functions as $callstack_function ) {
+                if ( in_array( $callstack_function['function'], $list_of_functions ) ) {
+                    return $url;
+                }
+            }
+        }
+
+        return $new_url;
+    }
+}
+
+
+/**
  * Compatibility with Advanced WooCommerce Search 1/2
  * Returns post ids where searched key matches translated version of post.
  */
@@ -939,6 +1016,21 @@ function trp_add_to_any_skip_dynamic_translation( $skip_selectors ){
 }
 
 /*
+ * Compatibility with Uncode theme menu on mobile
+ *
+ * Skip detection by translate-dom-changes of the url change when hitting the menu
+ *
+ */
+add_filter( 'trp_skip_selectors_from_dynamic_translation', 'trp_uncode_skip_dynamic_translation' );
+function trp_uncode_skip_dynamic_translation( $skip_selectors ){
+    if( function_exists( 'uncode_setup' ) ) {
+        $add_skip_selectors = array( '.menu-horizontal .menu-smart' );
+        return array_merge( $skip_selectors, $add_skip_selectors );
+    }
+    return $skip_selectors;
+}
+
+/*
  * Compatibility with PDF Embedder Premium Secure
  *
  * Skips link processing if ?pdfemb-serveurl is in the url
@@ -1032,3 +1124,107 @@ if( defined('ELEMENTOR_VERSION') ) {
         return $post;
     }
 }
+
+/**
+ * Add current-menu-item css class to menu items in WP Nav Menu
+ *
+ * Don't add them to language switcher items.
+ * Always adds them to secondary languages.
+ * Add them to default language if Use subdirectory is set to Yes
+ */
+add_filter('wp_nav_menu_objects', 'trp_add_current_menu_item_css_class');
+function trp_add_current_menu_item_css_class( $items ){
+    global $TRP_LANGUAGE;
+    $trp = TRP_Translate_Press::get_trp_instance();
+    $url_converter = $trp->get_component('url_converter');
+    $trp_settings = $trp->get_component( 'settings' );
+    $settings = $trp_settings->get_settings();
+
+    if ( $TRP_LANGUAGE === $settings['default-language'] && isset( $settings['add-subdirectory-to-default-language']) && $settings['add-subdirectory-to-default-language'] !== 'yes'  ) {
+        return $items;
+    }
+
+    foreach( $items as $item ){
+        if ( !in_array( 'current-menu-item', $item->classes ) && !in_array( 'menu-item-object-language_switcher', $item->classes )){
+            $url_for_language = $url_converter->get_url_for_language( $TRP_LANGUAGE, $item->url );
+            $url_for_language = strpos( $url_for_language, '#' ) ? substr( $url_for_language, 0, strpos( $url_for_language, '#' ) ) : $url_for_language;
+            $cur_page_url = set_url_scheme( untrailingslashit( $url_converter->cur_page_url() ) );
+
+            if ( untrailingslashit( $url_for_language ) == untrailingslashit( $cur_page_url ) ){
+                $item->classes[] = 'current-menu-item';
+            }
+        }
+    }
+    return $items;
+}
+
+
+/**
+ * Compatibility with xstore theme ajax search on other languages than english and when automatic translation was on
+ * a class from the search form got translated
+ */
+if( function_exists('initial_ETC') ) {
+    add_filter('trp_skip_gettext_processing', 'trp_exclude_xstore_search_class', 999, 4);
+    function trp_exclude_xstore_search_class($return, $translation, $text, $domain){
+
+        if (version_compare(PHP_VERSION, '5.4.0', '>=')) {
+            $callstack_functions = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 15);//set a limit if it is supported to improve performance
+        } else {
+            $callstack_functions = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS);
+        }
+
+        $list_of_functions = array();
+        if (!empty($callstack_functions)) {
+            foreach ($callstack_functions as $callstack_function) {
+                $list_of_functions[] = $callstack_function['function'];
+            }
+        }
+
+        if (in_array('esc_attr_e', $list_of_functions) && in_array('header_content_callback', $list_of_functions))
+            return true;
+
+        return $return;
+    }
+}
+
+
+/**
+ * Exclude some problematic gettext strings from being translated
+ */
+add_filter('trp_skip_gettext_processing', 'trp_exclude_problematic_gettext_strings', 999, 4 );
+function trp_exclude_problematic_gettext_strings ( $return, $translation, $text, $domain ){
+    $exclude_strings = array(
+        // some examples on how to use: (domain is optional)
+        //array( 'string' => 'Some Text', 'domain' => 'some-domain' )
+        //array( 'string' => 'Some Other Text' )
+        array( 'string' => 'Ștefan Vodă' )//this is translated by Google Translate into german as "Fan Vod" and the quotes create problems
+    );
+
+    foreach( $exclude_strings as $string_details ){
+        if( $text === $string_details['string'] ){
+            if( empty( $string_details['domain'] ) )
+                return true;
+            else if( $domain === $string_details['domain'] )
+                return true;
+        }
+    }
+
+    return $return;
+}
+
+
+/**
+ * Compatibility with WooCommerce API
+ *
+ * Particularly with Paypal and myPOS checkout
+ *
+ * When the IPN request comes do not translate anything outputted.
+ * MyPOS expects "OK" string which does not have to be translated as regular string.
+ * Paypal had trpst in the details sent.
+ */
+add_action( 'woocommerce_api_request', 'trp_woo_wc_api_handle_api_request', 1 );
+function trp_woo_wc_api_handle_api_request( ){
+    add_filter( 'trp_skip_gettext_processing', '__return_true' );
+    add_filter( 'trp_stop_translating_page', '__return_true' );
+}
+

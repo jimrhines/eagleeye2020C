@@ -181,8 +181,10 @@ function TRP_Translator(){
             for (var i = 0; i < mutation.addedNodes.length; i++) {
                 var node = mutation.addedNodes[i]
                 /* if it is an anchor add the trp-edit-translation=preview parameter to it */
-                if ( _this.is_editor ) {
-                    jQuery(node).find('a').context.href = _this.update_query_string('trp-edit-translation', 'preview', jQuery(node).find('a').context.href);
+                if ( _this.is_editor ){
+                    var anchor_tags = jQuery(node).find('a')
+                    if ( typeof anchor_tags.context !== 'undefined' )
+                        anchor_tags.context.href = _this.update_query_string('trp-edit-translation', 'preview', anchor_tags.context.href);
                 }
 
                 if ( _this.skip_string(node) ){

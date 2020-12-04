@@ -144,30 +144,6 @@ class MLAShortcode_Support {
 	}
 
 	/**
-	 * Filters the image src result, returning an icon to represent an attachment.
-	 *
-	 * @since 2.52
-	 *
-	 * @param array|false  $image         Either array with src, width & height, icon src, or false.
-	 * @param int          $attachment_id Image attachment ID.
-	 */
-	public static function _get_attachment_icon_src( $image, $attachment_id ) {
-		if ( $src = wp_mime_type_icon( $attachment_id ) ) {
-			/** This filter is documented in wp-includes/post.php */
-			$icon_dir = apply_filters( 'icon_dir', ABSPATH . WPINC . '/images/media' );
-
-			$src_file = $icon_dir . '/' . wp_basename( $src );
-			@list( $width, $height ) = getimagesize( $src_file );
-		}
-
-		if ( $src && $width && $height ) {
-			$image = array( $src, $width, $height );
-		}
-
-		return $image;
-	}
-
-	/**
 	 * Removes MIME type restriction from Photonic Gallery query
 	 *
 	 * @since 2.76
@@ -180,7 +156,16 @@ class MLAShortcode_Support {
 	}
 
 	/**
-	 * Filters the image src result, returning the "Featured Image" to represent a non-image attachment.
+	 * Informs _get_attachment_image_src() of the 'size=icon_feature' setting
+	 *
+	 * @since 2.90
+	 *
+	 * @var	string shortcode 'size' parameter value
+	 */
+	private static $size_parameter = '';
+
+	/**
+	 * Filters the image src result, returning the "Featured Image" or an icon to represent a non-image attachment.
 	 *
 	 * @since 2.76
 	 *
@@ -190,14 +175,19 @@ class MLAShortcode_Support {
 	 *                                    (in that order). Default 'thumbnail'.
 	 * @param bool         $icon          Whether the image should be treated as an icon. Default false.
   	 */
-	public static function _get_attachment_featured_image( $image, $attachment_id, $size, $icon ) {
-		if ( $image ) {
+	public static function _get_attachment_image_src( $image, $attachment_id, $size, $icon ) {
+		static $nested_call = false;
+
+		if ( $nested_call || ( $image && ( 'icon_only' !== self::$size_parameter ) && ( 'icon_feature' !== self::$size_parameter ) ) ) {
 			return $image;
 		}
 
-		if ( 'checked' == MLACore::mla_get_option( 'enable_featured_image' ) ) {
-			// Look for the "Featured Image" as an alternate thumbnail for PDFs, etc.
+		// Look for the "Featured Image" as an alternate thumbnail for PDFs, etc.
+		if ( ( 'icon_only' !== self::$size_parameter ) && ( 'checked' == MLACore::mla_get_option( 'enable_featured_image' ) ) ) {
+			$nested_call = true;
 			$feature = get_the_post_thumbnail( $attachment_id, $size, array( 'class' => 'attachment-thumbnail' ) );
+			$nested_call = false;
+
 			if ( ! empty( $feature ) ) {
 				$match_count = preg_match_all( '# width=\"([^\"]+)\" height=\"([^\"]+)\" src=\"([^\"]+)\" #', $feature, $matches, PREG_OFFSET_CAPTURE );
 				if ( ! ( ( $match_count == false ) || ( $match_count == 0 ) ) ) {
@@ -244,10 +234,17 @@ class MLAShortcode_Support {
 	public static function mla_validate_attributes( $attr, $content = NULL ) {
 //error_log( __LINE__ . " mla_validate_attributes() attr = " . var_export( $attr, true ), 0 );
 //error_log( __LINE__ . " mla_validate_attributes() content = " . var_export( $content, true ), 0 );
-		if ( empty( $attr ) ) {
+/*		if ( empty( $attr ) ) {
 			$attr = array();
 		} elseif ( is_string( $attr ) ) {
 			$attr = shortcode_parse_atts( $attr );
+		} // */
+		if ( is_string( $attr ) ) {
+			$attr = shortcode_parse_atts( $attr );
+		}
+		
+		if ( empty( $attr ) ) {
+			$attr = array();
 		}
 //error_log( __LINE__ . " mla_validate_attributes() attr = " . var_export( $attr, true ), 0 );
 
@@ -453,7 +450,7 @@ class MLAShortcode_Support {
 		 */
 		if ( ! isset( $attr[ $mla_page_parameter ] ) ) {
 			if ( isset( $_REQUEST[ $mla_page_parameter ] ) ) {
-				$attr[ $mla_page_parameter ] = $_REQUEST[ $mla_page_parameter ];
+				$attr[ $mla_page_parameter ] = sanitize_text_field( wp_unslash( $_REQUEST[ $mla_page_parameter ] ) );
 			}
 		}
 
@@ -477,7 +474,7 @@ class MLAShortcode_Support {
 			'mla_output' => 'gallery',
 			'mla_style' => MLACore::mla_get_option('default_style'),
 			'mla_markup' => MLACore::mla_get_option('default_markup'),
-			'mla_float' => is_rtl() ? 'right' : 'left',
+			'mla_float' => 'none', // before v2.90: is_rtl() ? 'right' : 'left',
 			'mla_itemwidth' => MLACore::mla_get_option('mla_gallery_itemwidth'),
 			'mla_margin' => MLACore::mla_get_option('mla_gallery_margin'),
 			'mla_target' => '',
@@ -731,6 +728,16 @@ class MLAShortcode_Support {
 			return $output;
 		} // empty $attachments
 
+		// Pass size argument to _get_attachment_image_src() and replace special values
+		$size = strtolower( $arguments['size'] );
+		self::$size_parameter = $size;
+
+		if ( ( 'icon_only' === $size ) || ( 'icon_feature' === $size ) ) {
+			$size = 'icon';
+		}
+
+		$size_class = $size;
+
 		// Look for Photonic-enhanced gallery; use the [gallery] shortcode if found
 		global $photonic;
 
@@ -818,7 +825,7 @@ class MLAShortcode_Support {
 
 				if ( $is_photonic  ) {
 					add_filter( 'pre_get_posts', 'MLAShortcode_Support::_photonic_pre_get_posts', 10, 4 );
-					add_filter( 'wp_get_attachment_image_src', 'MLAShortcode_Support::_get_attachment_featured_image', 10, 4 );
+					add_filter( 'wp_get_attachment_image_src', 'MLAShortcode_Support::_get_attachment_image_src', 10, 4 );
 				}
 
 				if ( ! empty( $content ) ) {
@@ -828,7 +835,7 @@ class MLAShortcode_Support {
 				}
 
 				if ( $is_photonic  ) {
-					remove_filter( 'wp_get_attachment_image_src', 'MLAShortcode_Support::_get_attachment_featured_image' );
+					remove_filter( 'wp_get_attachment_image_src', 'MLAShortcode_Support::_get_attachment_image_src' );
 					remove_filter( 'pre_get_posts', 'MLAShortcode_Support::_photonic_pre_get_posts' );
 				}
 
@@ -842,14 +849,6 @@ class MLAShortcode_Support {
 				$processing_alt_ids_value = true;
 			}
 		} // mla_alt_shortcode
-
-		$size_class = $arguments['size'];
-		$size = strtolower( $size_class );
-
-		$icon_only = 'icon_only' === $size;
-		if ( $icon_only ) {
-			$size = $size_class = 'icon';
-		}
 
 		if ( 'icon' == strtolower( $size) ) {
 			if ( 'checked' == MLACore::mla_get_option( MLACoreOptions::MLA_ENABLE_MLA_ICONS ) ) {
@@ -970,7 +969,7 @@ class MLAShortcode_Support {
 
 		$float = strtolower( $arguments['mla_float'] );
 		if ( ! in_array( $float, array( 'left', 'none', 'right' ) ) ) {
-			$float = is_rtl() ? 'right' : 'left';
+			$float = 'none';  // before v2.90: is_rtl() ? 'right' : 'left';
 		}
 
 		$style_values = array_merge( $page_values, array(
@@ -1320,16 +1319,12 @@ class MLAShortcode_Support {
 					$item_values['pagelink'] = sprintf( '<a href=\'%1$s\'>%2$s</a>', get_permalink( $attachment->ID ), $attachment->post_title );
 					$item_values['filelink'] = sprintf( '<a href=\'%1$s\'>%2$s</a>', $attachment->guid, $attachment->post_title );
 				} else {
-					if ( $icon_only ) {
-						add_filter( 'wp_get_attachment_image_src', 'MLAShortcode_Support::_get_attachment_icon_src', 10, 2 );
-					}
+					add_filter( 'wp_get_attachment_image_src', 'MLAShortcode_Support::_get_attachment_image_src', 10, 4 );
 
 					$item_values['pagelink'] = wp_get_attachment_link($attachment->ID, $size, true, $show_icon, $link_text);
 					$item_values['filelink'] = wp_get_attachment_link($attachment->ID, $size, false, $show_icon, $link_text);
 
-					if ( $icon_only ) {
-						remove_filter( 'wp_get_attachment_image_src', 'MLAShortcode_Support::_get_attachment_icon_src' );
-					}
+					remove_filter( 'wp_get_attachment_image_src', 'MLAShortcode_Support::_get_attachment_image_src' );
 				}
 			} else {
 				$item_values['pagelink'] = sprintf( '<a href=\'%1$s\'>%2$s</a>', $attachment->guid, $attachment->post_title );
@@ -1608,7 +1603,8 @@ class MLAShortcode_Support {
 				$item_values['thumbnail_width'] = '';
 				$item_values['thumbnail_height'] = '';
 				$item_values['thumbnail_url'] = '';
-
+				
+				/* Replaced by logic in _get_attachment_image_src v2.90
 				if ( ( 'none' !== $arguments['size'] ) && ( 'checked' == MLACore::mla_get_option( 'enable_featured_image' ) ) ) {
 					// Look for the "Featured Image" as an alternate thumbnail for PDFs, etc.
 					$feature = get_the_post_thumbnail( $attachment->ID, $size, array( 'class' => 'attachment-thumbnail' ) );
@@ -1624,7 +1620,7 @@ class MLAShortcode_Support {
 							$item_values['thumbnail_url'] = $matches[3][0][0];
 						}
 					}
-				} // enable_featured_image
+				} // enable_featured_image */
 			}
 
 			// Now that we have thumbnail_content we can check for 'span' and 'none'
@@ -1780,7 +1776,8 @@ class MLAShortcode_Support {
 
 				// Conditional caption tag to replicate WP 4.1+, now used in the default markup template.
 				if ( $item_values['captiontag'] && trim( $item_values['caption'] ) ) {
-					$item_values['captiontag_content'] = '<' . $item_values['captiontag'] . " class='wp-caption-text gallery-caption' id='" . $item_values['selector'] . '-' . $item_values['attachment_ID'] . "'>\n\t\t" . $item_values['caption'] . "\n\t</" . $item_values['captiontag'] . ">\n";
+//					$item_values['captiontag_content'] = '<' . $item_values['captiontag'] . " class='wp-caption-text gallery-caption' id='" . $item_values['selector'] . '-' . $item_values['attachment_ID'] . "'>\n\t\t" . $item_values['caption'] . "\n\t</" . $item_values['captiontag'] . ">\n";
+					$item_values['captiontag_content'] = '<' . $item_values['captiontag'] . " class='wp-caption-text gallery-caption' id='" . $item_values['selector'] . '-' . $item_values['attachment_ID'] . "'>\n\t" . $item_values['caption'] . "\n\t</" . $item_values['captiontag'] . ">";
 				} else {
 					$item_values['captiontag_content'] = '';
 				}
@@ -1971,7 +1968,7 @@ class MLAShortcode_Support {
 		 */
 		if ( ! isset( $attr[ $mla_page_parameter ] ) ) {
 			if ( isset( $_REQUEST[ $mla_page_parameter ] ) ) {
-				$attr[ $mla_page_parameter ] = $_REQUEST[ $mla_page_parameter ];
+				$attr[ $mla_page_parameter ] = sanitize_text_field( wp_unslash( $_REQUEST[ $mla_page_parameter ] ) );
 			}
 		}
 		 
@@ -2191,7 +2188,7 @@ class MLAShortcode_Support {
 				return $cloud;
 			}
 
-			echo $cloud;
+			echo $cloud; // phpcs:ignore
 			return;
 		}
 
@@ -2228,7 +2225,7 @@ class MLAShortcode_Support {
 				return $cloud;
 			}
 
-			echo $cloud;
+			echo $cloud; // phpcs:ignore
 			return;
 		}
 
@@ -2265,7 +2262,7 @@ class MLAShortcode_Support {
 			$link = get_edit_tag_link( $tag->term_id, $tag->taxonomy );
 			if ( ! is_wp_error( $link ) ) {
 				$tags[ $key ]->edit_link = $link;
-				$link = get_term_link( intval($tag->term_id), $tag->taxonomy );
+				$link = get_term_link( (int) $tag->term_id, $tag->taxonomy );
 				$tags[ $key ]->term_link = $link;
 			}
 
@@ -2280,7 +2277,7 @@ class MLAShortcode_Support {
 					return $cloud;
 				}
 
-				echo $cloud;
+				echo $cloud; // phpcs:ignore
 				return;
 			}
 
@@ -2735,7 +2732,7 @@ class MLAShortcode_Support {
 			return $cloud;
 		}
 
-		echo $cloud;
+		echo $cloud; // phpcs:ignore
 	}
 
 	/**
@@ -3267,7 +3264,7 @@ class MLAShortcode_Support {
 		 */
 		if ( ! isset( $attr[ $mla_item_parameter ] ) ) {
 			if ( isset( $_REQUEST[ $mla_item_parameter ] ) ) {
-				$attr[ $mla_item_parameter ] = $_REQUEST[ $mla_item_parameter ];
+				$attr[ $mla_item_parameter ] = sanitize_text_field( wp_unslash( $_REQUEST[ $mla_item_parameter ] ) );
 			}
 		}
 		 
@@ -3513,7 +3510,7 @@ class MLAShortcode_Support {
 				return $list;
 			}
 
-			echo $list;
+			echo $list; // phpcs:ignore
 			return;
 		}
 
@@ -3557,7 +3554,7 @@ class MLAShortcode_Support {
 				if ( ! empty( $arguments['option_none_value'] ) ) {
 					$option_none_value = self::_process_shortcode_parameter( $arguments['option_none_value'], $page_values );
 					if ( is_numeric( $option_none_value ) ) {
-						$option_none_id = intval( $option_none_value );
+						$option_none_id = (int) $option_none_value;
 						$option_none_slug = sanitize_title( $arguments['option_none_text'] );
 					} else {
 						$option_none_id = -1;
@@ -3593,7 +3590,7 @@ class MLAShortcode_Support {
 					return $list;
 				}
 
-				echo $list;
+				echo $list; // phpcs:ignore
 				return;
 			}
 		}
@@ -3611,7 +3608,7 @@ class MLAShortcode_Support {
 			if ( ! empty( $arguments['option_all_value'] ) ) {
 				$option_all_value = self::_process_shortcode_parameter( $arguments['option_all_value'], $page_values );
 				if ( is_numeric( $option_all_value ) ) {
-					$option_all_id = intval( $option_all_value );
+					$option_all_id = (int) $option_all_value;
 					$option_all_slug = sanitize_title( $arguments['option_all_text'] );
 				} else {
 					$option_all_id = 0;
@@ -3640,7 +3637,7 @@ class MLAShortcode_Support {
 					return $list;
 				}
 
-				echo $list;
+				echo $list; // phpcs:ignore
 				return;
 			}
 
@@ -3657,7 +3654,7 @@ class MLAShortcode_Support {
 					$link = get_edit_tag_link( $tag->term_id, $tag->taxonomy );
 					if ( ! is_wp_error( $link ) ) {
 						$tags[ $key ]->edit_link = $link;
-						$link = get_term_link( intval($tag->term_id), $tag->taxonomy );
+						$link = get_term_link( (int) $tag->term_id, $tag->taxonomy );
 						$tags[ $key ]->term_link = $link;
 					}
 
@@ -3672,7 +3669,7 @@ class MLAShortcode_Support {
 							return $list;
 						}
 
-						echo $list;
+						echo $list; // phpcs:ignore
 						return;
 					}
 
@@ -3825,7 +3822,7 @@ class MLAShortcode_Support {
 			return $list;
 		}
 
-		echo $list;
+		echo $list; // phpcs:ignore
 	}
 
 	/**
@@ -4233,15 +4230,15 @@ class MLAShortcode_Support {
 		$markup_values['last_page_text'] = 'mla_paginate_total="[+last_page+]"';
 		$markup_values['posts_per_page_text'] = 'posts_per_page="[+posts_per_page+]"';
 
-		if ( 'HTTPS' == substr( $_SERVER["SERVER_PROTOCOL"], 0, 5 ) ) {
+		if ( 'HTTPS' == substr( $_SERVER["SERVER_PROTOCOL"], 0, 5 ) ) { // phpcs:ignore
 			$markup_values['scheme'] = 'https://';
 		} else {
 			$markup_values['scheme'] = 'http://';
 		}
 
-		$markup_values['http_host'] = $_SERVER['HTTP_HOST'];
+		$markup_values['http_host'] = $_SERVER['HTTP_HOST']; // phpcs:ignore
 
-		$parts = wp_parse_url( $_SERVER['REQUEST_URI'] );
+		$parts = wp_parse_url( $_SERVER['REQUEST_URI'] ); // phpcs:ignore
 		$uri_path = empty( $parts['path'] ) ? '' : $parts['path'];
 		$uri_query = empty( $parts['query'] ) ? '' : $parts['query'];
 
@@ -5036,7 +5033,7 @@ class MLAShortcode_Support {
 				// fallthru
 			case 'id':
 				if ( is_numeric( $value ) ) {
-					$query_arguments[ $key ] = intval( $value );
+					$query_arguments[ $key ] = (int) $value;
 					if ( ! $children_ok ) {
 						$use_children = false;
 					}
@@ -5047,7 +5044,7 @@ class MLAShortcode_Support {
 			case 'posts_per_page':
 			case 'posts_per_archive_page':
 				if ( is_numeric( $value ) ) {
-					$value =  intval( $value );
+					$value =  (int) $value;
 					if ( ! empty( $value ) ) {
 						$query_arguments[ $key ] = $value;
 					}
@@ -5059,7 +5056,7 @@ class MLAShortcode_Support {
 				// fallthru
 			case 'offset':
 				if ( is_numeric( $value ) ) {
-					$query_arguments[ $key ] = intval( $value );
+					$query_arguments[ $key ] = (int) $value;
 					if ( ! $children_ok ) {
 						$use_children = false;
 					}
@@ -5078,7 +5075,7 @@ class MLAShortcode_Support {
 						$query_arguments[ $key ] = (get_query_var('paged')) ? get_query_var('paged') : 1;
 					}
 				} elseif ( is_numeric( $value ) ) {
-					$query_arguments[ $key ] = intval( $value );
+					$query_arguments[ $key ] = (int) $value;
 				} elseif ( '' === $value ) {
 					$query_arguments[ $key ] = 1;
 				}
@@ -5088,7 +5085,7 @@ class MLAShortcode_Support {
 			case  $mla_page_parameter :
 			case 'mla_paginate_total':
 				if ( is_numeric( $value ) ) {
-					$query_arguments[ $key ] = intval( $value );
+					$query_arguments[ $key ] = (int) $value;
 				} elseif ( '' === $value ) {
 					$query_arguments[ $key ] = 1;
 				}
@@ -6265,7 +6262,7 @@ class MLAShortcode_Support {
 			$link = get_edit_tag_link( $term->term_id, $term->taxonomy );
 			if ( ! is_wp_error( $link ) ) {
 				$term->edit_link = $link;
-				$link = get_term_link( intval($term->term_id), $term->taxonomy );
+				$link = get_term_link( (int) $term->term_id, $term->taxonomy );
 				$term->term_link = $link;
 			}
 

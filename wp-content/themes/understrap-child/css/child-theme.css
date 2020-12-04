@@ -12335,13 +12335,17 @@ img[src$=".svg"] {
     display: block;
     width: auto;
     margin: 0 0 1rem 0; }
-    #newsletter-signup form #email-address {
+    #newsletter-signup form #email-address,
+    #newsletter-signup form #full-name {
       display: inline-block;
       width: 100%;
       margin: 0.5rem 0 0 0; }
       @media (min-width: 576px) {
-        #newsletter-signup form #email-address {
+        #newsletter-signup form #email-address,
+        #newsletter-signup form #full-name {
           width: 300px; } }
+    #newsletter-signup form #full-name {
+      margin: -1rem 0 0 0; }
     #newsletter-signup form .wpcf7-not-valid-tip {
       font-size: 1rem; }
   #newsletter-signup a {
