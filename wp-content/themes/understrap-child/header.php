@@ -73,12 +73,14 @@ $container = get_theme_mod( 'understrap_container_type' );
 
 			<nav class="navbar navbar-expand-lg navbar-light">
 				<a class="navbar-brand" rel="home" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" itemprop="url">
-					<img src="/wp-content/themes/understrap-child/img/eeps-logo.svg" alt="<?php bloginfo( 'name' ); ?>" />
+					<img src="/wp-content/themes/understrap-child/img/eeps-logo.svg" width="300" height="45" alt="<?php bloginfo( 'name' ); ?>" />
 				</a>
-				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerEEPS" aria-controls="navbarTogglerEEPS" aria-expanded="false" aria-label="Toggle navigation">
+
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
-				<div class="collapse navbar-collapse" id="navbarTogglerEEPS">
+
+				<div class="collapse navbar-collapse" id="navbarTogglerDemo02">
 					<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
 						<li class="nav-item megamenu">
 							<a class="nav-link" href="<?php echo get_permalink(174); ?>">Products</a>
@@ -107,28 +109,6 @@ $container = get_theme_mod( 'understrap_container_type' );
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="<?php echo get_permalink(1474); ?>">Industries</a>
-							<!--div class="megamenu-content">
-						    	<div class="row">
-						    		<div class="col-md-2 mb-3">
-					    				<?php wp_nav_menu( array( 'theme_location' => 'industries-col-one', 'container_class' => 'industries-col-one' ) ); ?>
-									</div>
-						    		<div class="col-md-2 mb-3">
-						    			<?php wp_nav_menu( array( 'theme_location' => 'industries-col-two', 'container_class' => 'industries-col-two' ) ); ?>
-									</div>
-									<div class="col-md-2 mb-3">
-										<?php wp_nav_menu( array( 'theme_location' => 'industries-col-three', 'container_class' => 'industries-col-three' ) ); ?>
-									</div>
-									<div class="col-md-2 mb-3">
-										<?php wp_nav_menu( array( 'theme_location' => 'industries-col-four', 'container_class' => 'industries-col-four' ) ); ?>
-									</div>
-									<div class="col-md-2 mb-3">
-										<?php wp_nav_menu( array( 'theme_location' => 'industries-col-five', 'container_class' => 'industries-col-five' ) ); ?>
-									</div>
-									<div class="col-md-2 mb-3">
-										<?php wp_nav_menu( array( 'theme_location' => 'industries-col-six', 'container_class' => 'industries-col-six' ) ); ?>
-									</div>
-								</div>
-							</div-->
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="<?php echo get_permalink(297); ?>">Training</a>
@@ -138,48 +118,24 @@ $container = get_theme_mod( 'understrap_container_type' );
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="<?php echo get_permalink(295); ?>">Support</a>
-							<!--div class="megamenu-content">
-						    	<div class="row">
-						    		<div class="col-md-2 mb-3">
-					    				<?php wp_nav_menu( array( 'theme_location' => 'support-col-one', 'container_class' => 'support-col-one' ) ); ?>
-									</div>
-						    		<div class="col-md-2 mb-3">
-						    			<?php wp_nav_menu( array( 'theme_location' => 'support-col-two', 'container_class' => 'support-col-two' ) ); ?>
-									</div>
-									<div class="col-md-2 mb-3">
-										<?php wp_nav_menu( array( 'theme_location' => 'support-col-three', 'container_class' => 'support-col-three' ) ); ?>
-									</div>
-									<div class="col-md-2 mb-3">
-										<?php wp_nav_menu( array( 'theme_location' => 'support-col-four', 'container_class' => 'support-col-four' ) ); ?>
-									</div>
-									<div class="col-md-2 mb-3">
-										<?php wp_nav_menu( array( 'theme_location' => 'support-col-five', 'container_class' => 'support-col-five' ) ); ?>
-									</div>
-									<div class="col-md-2 mb-3">
-										<?php wp_nav_menu( array( 'theme_location' => 'support-col-six', 'container_class' => 'support-col-six' ) ); ?>
-									</div>
-								</div>
-							</div-->
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="<?php echo get_permalink(485); ?>">About Us</a>
 						</li>
 					</ul>
-					<div class="mr-4">
-						<?php wp_nav_menu(
-							array(
-								'theme_location'  => 'primary',
-								'container_class' => 'collapse navbar-collapse',
-								'container_id'    => 'navbarNavDropdown',
-								'menu_class'      => 'navbar-nav ml-auto',
-								'fallback_cb'     => '',
-								'menu_id'         => 'main-menu',
-								'depth'           => 2,
-								'walker'          => new Understrap_WP_Bootstrap_Navwalker(),
-							)
-						); ?>
-					</div>
-					<div class="my-2 my-lg-0">
+					<?php wp_nav_menu(
+						array(
+							'theme_location'  => 'primary',
+							'container_class' => 'collapse navbar-collapse',
+							'container_id'    => 'navbarNavDropdown',
+							'menu_class'      => 'navbar-nav ml-auto',
+							'fallback_cb'     => '',
+							'menu_id'         => 'main-menu',
+							'depth'           => 2,
+							'walker'          => new Understrap_WP_Bootstrap_Navwalker(),
+						)
+					); ?>
+					<div class="my-2 my-lg-0 pl-lg-1">
 						<a href="#search">
 							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M23.822 20.88l-6.353-6.354c.93-1.465 1.467-3.2 1.467-5.059.001-5.219-4.247-9.467-9.468-9.467s-9.468 4.248-9.468 9.468c0 5.221 4.247 9.469 9.468 9.469 1.768 0 3.421-.487 4.839-1.333l6.396 6.396 3.119-3.12zm-20.294-11.412c0-3.273 2.665-5.938 5.939-5.938 3.275 0 5.94 2.664 5.94 5.938 0 3.275-2.665 5.939-5.94 5.939-3.274 0-5.939-2.664-5.939-5.939z"/></svg>
 						</a>

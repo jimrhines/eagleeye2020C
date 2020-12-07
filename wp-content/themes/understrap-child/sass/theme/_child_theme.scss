@@ -195,21 +195,12 @@ img[src$=".svg"] {
 /*Header*/
 .navbar {
 	font-family: $accent-font-family;
-	padding: 1rem 0;
+	padding: 1rem 0 1.5rem 0;
 
 	.navbar-brand {
-		/*Firefox only*/
-		@media all and (min--moz-device-pixel-ratio:0) {
-			width: 20%;
-		}
-		/*Safari only*/
-		@media not all and (min-resolution:.001dpcm)
-		{ @supports (-webkit-appearance:none) and (stroke-color:transparent) {
-		        width: 25%;
-		}}
-		@include media-breakpoint-down(xs) {
-			width: 70%;
-		}
+		width: 300px; 
+		height: 45px;
+
 		@include media-breakpoint-up(md) {
 			margin-right: 2rem;
 		}
@@ -242,7 +233,7 @@ img[src$=".svg"] {
 		.megamenu-content {
 			display: none;
 			position: absolute;
-			top: 4rem;
+			top: 3rem;
 			left: -100rem;
 			z-index: 2;
 			padding: 1rem;
@@ -1033,8 +1024,7 @@ img[src$=".svg"] {
 		width: auto;
 		margin: 0 0 1rem 0;
 
-		#email-address,
-		#full-name {
+		#email-address {
 			display: inline-block;
 			width: 100%;
 			margin: 0.5rem 0 0 0;
@@ -1043,10 +1033,6 @@ img[src$=".svg"] {
 				width: 300px;
 			}
 
-		}
-
-		#full-name {
-			margin: -1rem 0 0 0;
 		}
 
 		.wpcf7-not-valid-tip {
