@@ -11783,12 +11783,14 @@ img[src$=".svg"] {
 .navbar {
   font-family: "Montserrat", sans-serif;
   padding: 1rem 0 1.5rem 0; }
-  .navbar .navbar-brand {
-    width: 300px;
-    height: 45px; }
-    @media (min-width: 768px) {
-      .navbar .navbar-brand {
-        margin-right: 2rem; } }
+  @media (max-width: 575.98px) {
+    .navbar .navbar-brand {
+      width: 70%; } }
+  @media (min-width: 768px) {
+    .navbar .navbar-brand {
+      width: 300px;
+      height: 45px;
+      margin-right: 2rem; } }
   .navbar a:hover {
     text-decoration: underline; }
   .navbar .nav-link {

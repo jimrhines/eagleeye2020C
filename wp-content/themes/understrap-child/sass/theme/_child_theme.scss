@@ -198,10 +198,12 @@ img[src$=".svg"] {
 	padding: 1rem 0 1.5rem 0;
 
 	.navbar-brand {
-		width: 300px; 
-		height: 45px;
-
+		@include media-breakpoint-down(xs) {
+			width: 70%;
+		}
 		@include media-breakpoint-up(md) {
+			width: 300px; 
+			height: 45px;
 			margin-right: 2rem;
 		}
 	}

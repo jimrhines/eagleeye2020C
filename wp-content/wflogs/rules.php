@@ -5469,15 +5469,6 @@ wfWAFRuleComparisonSubject::create($this, array (
   0 => 'request.md5Body',
   1 => '418c5509e2171d55b0aee5c2ea4442b5',
 ), array (
-)))), new wfWAFRuleLogicalOperator('OR'), new wfWAFRuleComparison($this, 'md5Equals', 'f9ae7c6643e9ec92d8149e748cefb0a4', array(wfWAFRuleComparisonSubject::create($this, array (
-  0 => 'request.md5QueryString',
-  1 => '418c5509e2171d55b0aee5c2ea4442b5',
-), array (
-)),
-wfWAFRuleComparisonSubject::create($this, array (
-  0 => 'request.md5Body',
-  1 => '418c5509e2171d55b0aee5c2ea4442b5',
-), array (
 ))))), new wfWAFRuleLogicalOperator('AND'), new wfWAFRuleComparison($this, 'currentUserIsNot', 'administrator', array(wfWAFRuleComparisonSubject::create($this, 'server.empty', array (
 ))))));
 $this->rules[288] = wfWAFRule::create($this, 288, NULL, 'obji', '100', 'WAF-RULE-288', 0, 'block', new wfWAFRuleComparisonGroup(new wfWAFRuleComparison($this, 'match', '/(^|;|{|})O:+?\\+*[0-9]+:/i', array(wfWAFRuleComparisonSubject::create($this, array (

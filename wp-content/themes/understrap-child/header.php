@@ -70,7 +70,6 @@ $container = get_theme_mod( 'understrap_container_type' );
 		<?php if ( 'container' == $container ) : ?>
 			<div class="container">
 		<?php endif; ?>
-
 			<nav class="navbar navbar-expand-lg navbar-light">
 				<a class="navbar-brand" rel="home" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" itemprop="url">
 					<img src="/wp-content/themes/understrap-child/img/eeps-logo.svg" width="300" height="45" alt="<?php bloginfo( 'name' ); ?>" />
