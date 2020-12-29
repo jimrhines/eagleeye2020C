@@ -423,7 +423,6 @@ img[src$=".svg"] {
 
 /*Home Page Template*/
 .jumbotron {
-	margin: 0 0 3rem 0;
 
 	@include media-breakpoint-up(md) {
 		padding-right: 10%;

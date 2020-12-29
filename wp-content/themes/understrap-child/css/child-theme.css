@@ -11923,21 +11923,22 @@ img[src$=".svg"] {
         display: block; } }
 
 /*Home Page Template*/
-.jumbotron {
-  margin: 0 0 3rem 0; }
-  @media (min-width: 768px) {
-    .jumbotron {
-      padding-right: 10%;
-      padding-left: 40%; } }
-  .jumbotron h1, .jumbotron h2 {
-    margin: 0 0 2rem 0;
-    color: #FEE300; }
-  @media (min-width: 768px) {
-    .jumbotron h1 {
-      font-size: 2.9rem; } }
-  .jumbotron h2 {
-    font-size: 1.5rem;
-    color: #FFF; }
+@media (min-width: 768px) {
+  .jumbotron {
+    padding-right: 10%;
+    padding-left: 40%; } }
+
+.jumbotron h1, .jumbotron h2 {
+  margin: 0 0 2rem 0;
+  color: #FEE300; }
+
+@media (min-width: 768px) {
+  .jumbotron h1 {
+    font-size: 2.9rem; } }
+
+.jumbotron h2 {
+  font-size: 1.5rem;
+  color: #FFF; }
 
 #top-solutions {
   margin: 0 0 3rem 0; }

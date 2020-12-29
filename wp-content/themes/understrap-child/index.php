@@ -23,6 +23,10 @@ $container = get_theme_mod( 'understrap_container_type' );
 	</div>
 </div>
 
+<div class="container-fluid mb-5 px-5 py-3" style="background-color: #FEE300;">
+	<p class="m-0">Eagle Eye Power Solutions is driven to increase reliability, decrease costs and meet compliance for its customers. With a strong history in battery monitoring, portable testers and load banks, Eagle Eye is a single-source, global provider of critical power solutions, education and services across the utility, telecom, UPS/data center and other industries.</p>
+</div>
+
 <div class="wrapper" id="full-width-page-wrapper">
 
 	<div class="<?php echo esc_attr( $container ); ?>" id="content">
@@ -32,7 +36,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 			<div id="primary" class="content-area w-100">
 
 				<main id="main" class="site-main" role="main">
-					
+
 					<?php if( have_rows('eagle_eye_solution') ): ?>
 						
 						<div id="top-solutions" class="row text-center">
