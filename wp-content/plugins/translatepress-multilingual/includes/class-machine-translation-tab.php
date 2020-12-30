@@ -130,4 +130,39 @@ class TRP_Machine_Translation_Tab {
 
         return $engines;
     }
+    
+    public function display_unsupported_languages(){
+        $trp = TRP_Translate_Press::get_trp_instance();
+        $machine_translator = $trp->get_component( 'machine_translator' );
+        $trp_languages = $trp->get_component( 'languages' );
+
+        if ( 'yes' === $this->settings['trp_machine_translation_settings']['machine-translation'] &&
+            !$machine_translator->check_languages_availability($this->settings['translation-languages'])
+        ){
+
+            $language_names = $trp_languages->get_language_names( $this->settings['translation-languages'], 'english_name' );
+
+            ?>
+            <tr id="trp_unsupported_languages">
+                <th scope=row><?php esc_html_e( 'Unsupported languages', 'translatepress-multilingual' ); ?></th>
+                <td>
+                    <ul class="trp-unsupported-languages">
+                        <?php
+                        foreach ( $this->settings['translation-languages'] as $language_code ) {
+                            if ( !$machine_translator->check_languages_availability( array( $language_code ) ) ) {
+                                echo '<li>' . $language_names[$language_code] . '</li>';
+                            }
+                        }
+                        ?>
+                   </ul>
+                  <a href="<?php echo esc_url( admin_url( 'admin.php?page=trp_machine_translation&trp_recheck_supported_languages=1&trp_recheck_supported_languages_nonce=' . wp_create_nonce('trp_recheck_supported_languages') ) ); ?>" class="button-secondary"><?php _e( 'Recheck supported languages', 'translatepress-multilingual' ); ?></a>
+                  <p><i><?php echo sprintf( __( '(last checked on %s)', 'translatepress-multilingual' ), esc_html( $machine_translator->get_last_checked_supported_languages() ) ); ?> </i></p>
+                   <p class="description">
+                       <?php echo wp_kses( __( 'The selected automatic translation engine does not provide support for these languages.<br>You can still manually translate pages in these languages using the Translation Editor.', 'translatepress-multilingual' ), array( 'br' => array() ) ); ?>
+                   </p>
+                </td>
+            </tr>
+            <?php
+        }
+    }
 }

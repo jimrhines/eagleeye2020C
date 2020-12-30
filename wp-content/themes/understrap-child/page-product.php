@@ -25,7 +25,17 @@ $container = get_theme_mod( 'understrap_container_type' );
 					<?php while ( have_posts() ) : the_post(); ?>
 						<div class="row">
 							<div class="col text-right mt-4 pr-4">
-								<a href="<?php echo esc_url( home_url( '/' ) ); ?>request-a-quote/?product-name=<?php the_field('product_model_number'); ?>" class="btn btn-primary d-print-none" role="button">Get a Quote &#62;</a>
+								<a href="<?php echo esc_url( home_url( '/' ) ); ?>request-a-quote/?product-name=<?php the_field('product_model_number'); ?>" class="btn btn-primary d-print-none" role="button">Get a Quote &#62;</a>	
+								<?php							
+									$wc_product_page = get_page_by_path("product/".basename(get_permalink()));
+
+									if(!$wc_product_page){
+									    //echo '<code>'.$page_path.'</code> Does not exist.';
+									} else {
+										echo "<a href=".esc_url( home_url( '/' ) )."product/".basename(get_permalink())." class='btn btn-primary d-print-none' role='button'>Buy Now &#62;</a>";
+									    //echo '<code>'.$page_path.'</code> Exists and resolves to: <code>'.get_permalink($page->ID).'</code>';
+									}  
+								?>
 							</div>
 						</div>
 						<div class="row">

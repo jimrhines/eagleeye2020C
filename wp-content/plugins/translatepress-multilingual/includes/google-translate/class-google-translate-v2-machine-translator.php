@@ -123,4 +123,32 @@ class TRP_Google_Translate_V2_Machine_Translator extends TRP_Machine_Translator 
         return isset( $this->settings['trp_machine_translation_settings'], $this->settings['trp_machine_translation_settings']['google-translate-key'] ) ? $this->settings['trp_machine_translation_settings']['google-translate-key'] : false;
 
     }
+
+
+    public function get_supported_languages(){
+        $response = wp_remote_post( "https://www.googleapis.com/language/translate/v2/languages", array(
+                'headers' => array(
+                    'timeout'                => 45,
+                    'Referer'                => $this->get_referer()
+                ),
+                'body' => 'key='.$this->settings['trp_machine_translation_settings']['google-translate-key'],
+            )
+        );
+
+        if ( is_array( $response ) && ! is_wp_error( $response ) && isset( $response['response'] ) &&
+            isset( $response['response']['code']) && $response['response']['code'] == 200 ) {
+            $data = json_decode( $response['body'] );
+            $supported_languages = array();
+            foreach( $data->data->languages as $language ){
+                $supported_languages[] = $language->language;
+            }
+            return $supported_languages;
+        }else{
+            return array();
+        }
+    }
+
+    public function get_engine_specific_language_codes($languages){
+        return $this->trp_languages->get_iso_codes($languages);
+    }
 }

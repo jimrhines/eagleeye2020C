@@ -189,7 +189,7 @@ msgstr ""
 msgid "Automatic translation has been disabled."
 msgstr ""
 
-#: includes/class-error-manager.php:129, includes/class-plugin-notices.php:340, includes/class-plugin-notices.php:391, includes/class-plugin-notices.php:372, includes/class-plugin-notices.php:405, includes/class-plugin-notices.php:430
+#: includes/class-error-manager.php:129, includes/class-plugin-notices.php:340, includes/class-plugin-notices.php:391, includes/class-plugin-notices.php:372, includes/class-plugin-notices.php:405, includes/class-plugin-notices.php:430, includes/class-plugin-notices.php:453
 msgid "Dismiss this notice."
 msgstr ""
 
@@ -277,6 +277,22 @@ msgstr ""
 msgid "DeepL"
 msgstr ""
 
+#: includes/class-machine-translation-tab.php:147
+msgid "Unsupported languages"
+msgstr ""
+
+#: includes/class-machine-translation-tab.php:158
+msgid "Recheck supported languages"
+msgstr ""
+
+#: includes/class-machine-translation-tab.php:159
+msgid "(last checked on %s)"
+msgstr ""
+
+#: includes/class-machine-translation-tab.php:161
+msgid "The selected automatic translation engine does not provide support for these languages.<br>You can still manually translate pages in these languages using the Translation Editor."
+msgstr ""
+
 #: includes/class-plugin-notices.php:338
 msgid "You are not using a permalink structure! Please <a href=\"%s\">enable</a> one or install our <a href=\"%s\">\"Language by GET parameter\"</a> addon, so that TranslatePress can function properly."
 msgstr ""
@@ -303,6 +319,10 @@ msgstr ""
 
 #: includes/class-plugin-notices.php:427
 msgid "The daily quota for machine translation characters exceeded. Please check the <strong>TranslatePress -> <a href=\"%s\">Automatic Translation</a></strong> page for more information."
+msgstr ""
+
+#: includes/class-plugin-notices.php:450
+msgid "One or more languages are unsupported by the automatic translation provider. Please check the <strong>TranslatePress -> <a href=\"%s\">Automatic Translation</a></strong> page for more information."
 msgstr ""
 
 #: includes/class-settings.php:26
@@ -661,11 +681,11 @@ msgstr ""
 msgid "Translate Page"
 msgstr ""
 
-#: includes/class-translation-manager.php:1203
+#: includes/class-translation-manager.php:1205
 msgid "Security check"
 msgstr ""
 
-#: includes/class-translation-manager.php:1277
+#: includes/class-translation-manager.php:1279
 msgid "<strong>Warning:</strong> Some strings have possibly incorrectly encoded characters. This may result in breaking the queries, rendering the page untranslated in live mode. Consider revising the following strings or their method of outputting."
 msgstr ""
 

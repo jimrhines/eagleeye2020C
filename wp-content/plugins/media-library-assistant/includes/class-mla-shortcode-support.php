@@ -385,6 +385,7 @@ class MLAShortcode_Support {
 	public static function mla_gallery_shortcode( $attr, $content = NULL ) {
 //error_log( __LINE__ . " mla_gallery_shortcode() _REQUEST = " . var_export( $_REQUEST, true ), 0 );
 //error_log( __LINE__ . " mla_gallery_shortcode() attr = " . var_export( $attr, true ), 0 );
+//error_log( __LINE__ . " mla_gallery_shortcode() content = " . var_export( $content, true ), 0 );
 		global $post;
 
 		// Some do_shortcode callers may not have a specific post in mind
@@ -564,7 +565,9 @@ class MLAShortcode_Support {
 			}
 
 			$attr_value = str_replace( '{+', '[+', str_replace( '+}', '+]', $attr_value ) );
+//error_log( __LINE__ . " mla_gallery_shortcode() attr_value = " . var_export( $attr_value, true ), 0 );
 			$replacement_values = MLAData::mla_expand_field_level_parameters( $attr_value, $attr, $page_values );
+//error_log( __LINE__ . " mla_gallery_shortcode() replacement_values = " . var_export( $replacement_values, true ), 0 );
 			$attr[ $attr_key ] = MLAData::mla_parse_template( $attr_value, $replacement_values );
 		}
 //error_log( __LINE__ . " mla_gallery_shortcode() attr = " . var_export( $attr, true ), 0 );
@@ -3933,16 +3936,15 @@ class MLAShortcode_Support {
 			$parts['path'] = '';
 		}
 
-		$clean_query = '';
+		$clean_query = array();
 		if ( empty( $parts['query'] ) ) {
 			// No existing query arguments; create query if requested
 			if ( false !== $value ) {
-				$clean_query = '?' . urlencode( $key ) . '=' . urlencode( $value );
+				$clean_query[ $key ] = $value;
 			}
 		} else {
 			parse_str( $parts['query'], $query );
 
-			$query_prefix = '?';
 			$add_it = true;
 			foreach ( $query as $query_key => $query_value ) {
 				// Query argument names cannot have URL special characters
@@ -3957,17 +3959,23 @@ class MLAShortcode_Support {
 						$query_value = $value;
 					}
 
-					$clean_query .= $query_prefix . urlencode( $query_key ) . '=' . urlencode( $query_value );
-					$query_prefix = '&';
+					$clean_query[ $query_key ] = $query_value;
 				}
 			}
 
 			if ( $add_it && ( false !== $value ) ) {
-				$clean_query .= $query_prefix . urlencode( $key ) . '=' . urlencode( $value );
+				$clean_query[ $key ] = $value;
 			}
 		}
 
-		return $parts['scheme'] . '://' . $parts['host'] . $parts['path'] . $clean_query;
+		$clean_query = urlencode_deep( $clean_query );
+		$clean_query = build_query( $clean_query );
+
+		if ( !empty( $clean_query ) ) {
+			return $parts['scheme'] . '://' . $parts['host'] . $parts['path'] . '?' . $clean_query;
+		} else {
+			return $parts['scheme'] . '://' . $parts['host'] . $parts['path'];
+		}
 	}
 
 	/**
@@ -4251,19 +4259,25 @@ class MLAShortcode_Support {
 		// Validate the query arguments to prevent cross-site scripting (reflection) attacks
 		$test_query = array();
 		parse_str( strval( $uri_query ), $test_query );
-
-		$clean_query = '';
-		$query_prefix = '?';
+		
+		$clean_query = array();
 		foreach ( $test_query as $test_key => $test_value ) {
 			// Query argument names cannot have URL special characters
 			if ( $test_key === urldecode( $test_key ) ) {
-				$clean_query .= $query_prefix . urlencode( $test_key ) . '=' . urlencode( $test_value );
-				$query_prefix = '&';
+				$clean_query[ $test_key ] = $test_value;
 			}
 		}
 
+		$clean_query = urlencode_deep( $clean_query );
+		$clean_query = build_query( $clean_query );
 		$markup_values['query_string'] = $clean_query;
-		$markup_values['request_uri'] = $uri_path . $markup_values['query_string'];	
+
+		if ( !empty( $clean_query ) ) {
+			$markup_values['request_uri'] = $uri_path .  '?' . $clean_query;	
+		} else {
+			$markup_values['request_uri'] = $uri_path;
+		}
+
 		$markup_values['new_url'] = set_url_scheme( $markup_values['scheme'] . $markup_values['http_host'] . $markup_values['request_uri'] );
 		$markup_values = apply_filters( 'mla_gallery_pagination_values', $markup_values );
 

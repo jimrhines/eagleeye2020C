@@ -17,7 +17,7 @@ function trp_the_language_switcher(){
  * @return mixed|string|void
  */
 function trp_safe_json_encode($value){
-    if (version_compare(PHP_VERSION, '5.4.0') >= 0) {
+    if (version_compare(PHP_VERSION, '5.4.0') >= 0 && apply_filters('trp_safe_json_encode_pretty_print', true )) {
         $encoded = json_encode($value, JSON_PRETTY_PRINT);
     } else {
         $encoded = json_encode($value);

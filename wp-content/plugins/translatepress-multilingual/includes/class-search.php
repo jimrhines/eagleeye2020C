@@ -36,10 +36,13 @@ class TRP_Search extends WP_Query{
         global $TRP_LANGUAGE;
 
         if ( $TRP_LANGUAGE !== $this->settings['default-language'] ) {
-            if (!is_admin() && $query->is_main_query() && $query->is_search()) {
+            if ( ( !is_admin() && $query->is_main_query() && $query->is_search() ) || apply_filters( 'trp_force_search', false ) ) {
 
                 // Get the "s" query arg from the initial search
                 $search_query = get_query_var('s');
+                //in some cases for instance some ajax searches we might need to get it from the query
+                if( empty($search_query) && !empty( $query->query['s'] ) )
+                    $search_query = $query->query['s'];
 
                 $search_result_ids = $this->get_post_ids_containing_search_term($search_query, $query);
 

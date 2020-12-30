@@ -57,7 +57,7 @@ class TRP_Translate_Press{
         define( 'TRP_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
         define( 'TRP_PLUGIN_BASE', plugin_basename( __DIR__ . '/index.php' ) );
         define( 'TRP_PLUGIN_SLUG', 'translatepress-multilingual' );
-        define( 'TRP_PLUGIN_VERSION', '1.8.7' );
+        define( 'TRP_PLUGIN_VERSION', '1.9.0' );
 
 	    wp_cache_add_non_persistent_groups(array('trp'));
 
@@ -204,6 +204,7 @@ class TRP_Translate_Press{
         $this->loader->add_action( 'admin_menu',        $this->machine_translation_tab, 'add_submenu_page' );
         $this->loader->add_action( 'admin_init',        $this->machine_translation_tab, 'register_setting' );
         $this->loader->add_action( 'admin_notices',     $this->machine_translation_tab, 'admin_notices' );
+        $this->loader->add_action( 'trp_machine_translation_extra_settings_bottom',     $this->machine_translation_tab, 'display_unsupported_languages' );
 
         //Machine Translation Logger defaults
         $this->loader->add_action( 'trp_machine_translation_sanitize_settings', $this->machine_translator_logger, 'sanitize_settings', 10, 1 );

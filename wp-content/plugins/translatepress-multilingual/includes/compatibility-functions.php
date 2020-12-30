@@ -812,7 +812,60 @@ if( function_exists('ct_is_show_builder') ) {
 
         return $output;
     }
+
+    /**
+     * Disable TRP when the Oxygen Builder is being loaded
+     */
+    add_filter( 'trp_stop_translating_page', 'trp_oxygen_disable_trp_in_builder');
+    function trp_oxygen_disable_trp_in_builder(){
+
+        if( defined( 'SHOW_CT_BUILDER' ) )
+            return true;
+
+    }
+
+    /**
+     * Used to redirect Oxygen Builder front-end to the default language.
+     * Hooked before TRP_Language_Switcher::redirect_to_correct_language() so we don't redirect twice
+     */
+    add_action( 'template_redirect', 'trp_oxygen_redirect_to_default_language', 10 );
+    function trp_oxygen_redirect_to_default_language(){
+
+        if( is_admin() || !isset( $_GET['ct_builder'] ) || $_GET['ct_builder'] != 'true' )
+            return;
+
+        $trp           = TRP_Translate_Press::get_trp_instance();
+        $url_converter = $trp->get_component('url_converter');
+        $settings      = ( new TRP_Settings() )->get_settings();
+
+        $current_url  = $url_converter->cur_page_url();
+        $current_lang = $url_converter->get_lang_from_url_string( $current_url );
+
+        if( ( $current_lang == null && $settings['add-subdirectory-to-default-language'] == 'yes' ) || ( $current_lang != null && $current_lang != $settings['default-language'] ) ){
+            $link_to_redirect = $url_converter->get_url_for_language( $settings['default-language'], null, '' );
+
+            wp_redirect( $link_to_redirect, 301 );
+            exit;
+        }
+
+    }
+
+    /**
+     * Hide Floating Language Switcher when the Oxygen builder is being shown
+     * @var [type]
+     */
+    add_filter( 'trp_floating_ls_html', 'trp_oxygen_disable_language_switcher' );
+    function trp_oxygen_disable_language_switcher( $html ){
+
+        if( isset( $_GET['ct_builder'] ) && $_GET['ct_builder'] == 'true' )
+            return '';
+
+        return $html;
+
+    }
 }
+
+
 
 /**
  * Compatibility with Brizy editor
@@ -1228,3 +1281,14 @@ function trp_woo_wc_api_handle_api_request( ){
     add_filter( 'trp_stop_translating_page', '__return_true' );
 }
 
+/**
+ * Add here compatibility with search plugins
+ */
+add_filter('trp_force_search', 'trp_force_search' );
+function trp_force_search( $bool ){
+    //force search in xstore theme ajax search
+    if( isset( $_REQUEST['action'] ) && $_REQUEST['action'] === 'etheme_ajax_search' )
+        $bool = true;
+
+    return $bool;
+}

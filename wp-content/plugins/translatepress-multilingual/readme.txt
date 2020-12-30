@@ -3,9 +3,9 @@ Contributors: cozmoslabs, razvan.mo, madalin.ungureanu, sareiodata, cristophor
 Donate link: https://www.translatepress.com/
 Tags: translate, translation, multilingual, automatic translation, bilingual, front-end translation, google translate, language
 Requires at least: 3.1.0
-Tested up to: 5.5.3
+Tested up to: 5.6
 Requires PHP: 5.6.20
-Stable tag: 1.8.7
+Stable tag: 1.9.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -138,6 +138,19 @@ For more information please check out our [documentation](https://translatepress
 
 
 == Changelog ==
+= 1.9.0 =
+* Fixed some cases of multiple requests for finding out supported languages for automatic translation
+
+= 1.8.9 =
+* Fixing search in xStore theme ajax search
+* Fix edge cases of translation misalignment that caused some strings not to be translated and generated some notices
+* Fix some cases of displaying uppercase trp-gettext wrappers
+* Better handling of unsupported languages by automatic translation engine
+
+= 1.8.8 =
+* Improved compatibility with Oxygen builder.
+* Fixed a issue with pagination on blog page displaying page 0
+
 = 1.8.7 =
 * Added region independent languages in hreflang meta tags
 * Fixed JS error in Translation Editor for some type of anchor tags.

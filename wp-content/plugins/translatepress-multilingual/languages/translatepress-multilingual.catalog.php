@@ -65,6 +65,10 @@
 <?php __("Could not install. Try again from <a href=\"%s\" >Plugins Dashboard.</a>", "translatepress-multilingual"); ?>
 <?php __("Automatic Translation", "translatepress-multilingual"); ?>
 <?php __("DeepL", "translatepress-multilingual"); ?>
+<?php __("Unsupported languages", "translatepress-multilingual"); ?>
+<?php __("Recheck supported languages", "translatepress-multilingual"); ?>
+<?php __("(last checked on %s)", "translatepress-multilingual"); ?>
+<?php __("The selected automatic translation engine does not provide support for these languages.<br>You can still manually translate pages in these languages using the Translation Editor.", "translatepress-multilingual"); ?>
 <?php __("You are not using a permalink structure! Please <a href=\"%s\">enable</a> one or install our <a href=\"%s\">\"Language by GET parameter\"</a> addon, so that TranslatePress can function properly.", "translatepress-multilingual"); ?>
 <?php __("Your <strong>TranslatePress</strong> license will expire on %1$s. Please %2$sRenew Your Licence%3$s to continue receiving access to product downloads, automatic updates and support.", "translatepress-multilingual"); ?>
 <?php __("Something went wrong, please try again.", "translatepress-multilingual"); ?>
@@ -72,6 +76,7 @@
 <?php __("Your <strong>TranslatePress</strong> serial number is invalid or missing. <br/>Please %1$sregister your copy%2$s to receive access to automatic updates and support. Need a license key? %3$sPurchase one now%4$s", "translatepress-multilingual"); ?>
 <?php __("NEW: Display different images based on language. Find out <a href=\"https://translatepress.com/docs/image-translation/\" >how to translate images, sliders and more</a> from the TranslatePress editor.", "translatepress-multilingual"); ?>
 <?php __("The daily quota for machine translation characters exceeded. Please check the <strong>TranslatePress -> <a href=\"%s\">Automatic Translation</a></strong> page for more information.", "translatepress-multilingual"); ?>
+<?php __("One or more languages are unsupported by the automatic translation provider. Please check the <strong>TranslatePress -> <a href=\"%s\">Automatic Translation</a></strong> page for more information.", "translatepress-multilingual"); ?>
 <?php __("Full Language Names", "translatepress-multilingual"); ?>
 <?php __("Short Language Names", "translatepress-multilingual"); ?>
 <?php __("Flags with Full Language Names", "translatepress-multilingual"); ?>

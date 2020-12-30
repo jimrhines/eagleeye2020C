@@ -33,13 +33,64 @@ class TRP_Machine_Translator {
     /**
      * Whether automatic translation is available.
      *
+     * @param array $languages
      * @return bool
      */
-    public function is_available(){
-        if( !empty( $this->settings['trp_machine_translation_settings']['machine-translation'] ) && $this->settings['trp_machine_translation_settings']['machine-translation'] == 'yes' )
-            return true;
-        else
+    public function is_available( $languages = array() ){
+        if( !empty( $this->settings['trp_machine_translation_settings']['machine-translation'] ) &&
+            $this->settings['trp_machine_translation_settings']['machine-translation'] == 'yes'
+        ) {
+            if ( empty( $languages ) ){
+                // can be used to simply know if machine translation is available
+                return true;
+            }
+
+            return $this->check_languages_availability($languages);
+
+        }else {
             return false;
+        }
+    }
+
+    public function check_languages_availability( $languages, $force_recheck = false ){
+        if ( !method_exists( $this, 'get_supported_languages' ) || !method_exists( $this, 'get_engine_specific_language_codes' )){
+            return true;
+        }
+        $force_recheck = ( current_user_can('manage_options') &&
+            !empty( $_GET['trp_recheck_supported_languages']) && $_GET['trp_recheck_supported_languages'] === '1' &&
+            wp_verify_nonce( $_GET['trp_recheck_supported_languages_nonce'], 'trp_recheck_supported_languages' ) ) ? true : $force_recheck;
+        $data = get_option('trp_db_stored_data', array() );
+        if ( isset( $_GET['trp_recheck_supported_languages'] )) {
+            unset($_GET['trp_recheck_supported_languages'] );
+        }
+
+        // if supported languages are not stored, fetch them and update option
+        if ( empty( $data['trp_mt_supported_languages'][$this->settings['trp_machine_translation_settings']['translation-engine']]['last-checked'] ) || $force_recheck ){
+            if ( empty( $data['trp_mt_supported_languages'] ) ) {
+                $data['trp_mt_supported_languages'] = array();
+            }
+            if ( empty( $data['trp_mt_supported_languages'][ $this->settings['trp_machine_translation_settings']['translation-engine'] ] ) ) {
+                $data['trp_mt_supported_languages'][ $this->settings['trp_machine_translation_settings']['translation-engine'] ] = array( 'languages' => array() );
+            }
+
+            $data['trp_mt_supported_languages'][$this->settings['trp_machine_translation_settings']['translation-engine']]['languages'] = $this->get_supported_languages();
+            $data['trp_mt_supported_languages'][$this->settings['trp_machine_translation_settings']['translation-engine']]['last-checked'] = date("Y-m-d H:i:s" );
+            update_option('trp_db_stored_data', $data );
+        }
+
+        $languages_iso_to_check = $this->get_engine_specific_language_codes( $languages );
+
+        $all_are_available = !array_diff($languages_iso_to_check, $data['trp_mt_supported_languages'][$this->settings['trp_machine_translation_settings']['translation-engine']]['languages']);
+
+        return apply_filters('trp_mt_available_supported_languages', $all_are_available, $languages, $this->settings );
+    }
+
+    public function get_last_checked_supported_languages(){
+        $data = get_option('trp_db_stored_data', array() );
+        if ( empty( $data['trp_mt_supported_languages'][$this->settings['trp_machine_translation_settings']['translation-engine']]['last-checked'] ) ){
+            $this->check_languages_availability( $this->settings['translation-languages'], true);
+        }
+        return $data['trp_mt_supported_languages'][$this->settings['trp_machine_translation_settings']['translation-engine']]['last-checked'];
     }
 
 	/**

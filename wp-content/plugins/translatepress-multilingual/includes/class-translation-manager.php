@@ -816,7 +816,7 @@ class TRP_Translation_Manager
                 }
                 $machine_translation_codes = $this->trp_languages->get_iso_codes($this->settings['translation-languages']);
                 /* We assume Gettext strings are in English so don't automatically translate into English */
-                if ($machine_translation_codes[$TRP_LANGUAGE] != 'en' && $this->machine_translator->is_available()) {
+                if ($machine_translation_codes[$TRP_LANGUAGE] != 'en' && $this->machine_translator->is_available(array($TRP_LANGUAGE))) {
                     global $trp_gettext_strings_for_machine_translation;
                     if ($text == $translation) {
                         foreach ($trp_translated_gettext_texts as $trp_translated_gettext_text) {
@@ -1000,8 +1000,10 @@ class TRP_Translation_Manager
                 $this->machine_translator = $trp->get_component('machine_translator');
             }
 
+            // Gettext strings are considered by default to be in the English language
+            $source_language = apply_filters('trp_gettext_source_language', 'en_US', $TRP_LANGUAGE, array(), $trp_gettext_strings_for_machine_translation);
             // machine translate new strings
-            if ($this->machine_translator->is_available()) {
+            if ($this->machine_translator->is_available(array($source_language, $TRP_LANGUAGE))) {
 
                 /* Transform associative array into ordered numeric array. We need to keep keys numeric and ordered because $new_strings and $machine_strings depend on it.
                  * Array was constructed as associative with db ids as keys to avoid duplication.
@@ -1013,8 +1015,6 @@ class TRP_Translation_Manager
                     $new_strings[] = $trp_gettext_string_for_machine_translation['original'];
                 }
 
-                // Gettext strings are considered by default to be in the English language
-                $source_language = apply_filters('trp_gettext_source_language', 'en_US', $TRP_LANGUAGE, $new_strings, $trp_gettext_strings_for_machine_translation);
                 if (apply_filters('trp_gettext_allow_machine_translation', true, $source_language, $TRP_LANGUAGE, $new_strings, $trp_gettext_strings_for_machine_translation)) {
                     $machine_strings = $this->machine_translator->translate($new_strings, $TRP_LANGUAGE, $source_language);
                 } else {
@@ -1048,8 +1048,8 @@ class TRP_Translation_Manager
     {
 
         /* remove trp-gettext wrap */
-        $dateformatstring = preg_replace('/#!trpst#trp-gettext (.*?)#!trpen#/', '', $dateformatstring);
-        $dateformatstring = preg_replace('/#!trpst#(.?)\/trp-gettext#!trpen#/', '', $dateformatstring);
+        $dateformatstring = preg_replace('/#!trpst#trp-gettext (.*?)#!trpen#/i', '', $dateformatstring);
+        $dateformatstring = preg_replace('/#!trpst#(.?)\/trp-gettext#!trpen#/i', '', $dateformatstring);
 
 
         global $wp_locale;
@@ -1159,13 +1159,15 @@ class TRP_Translation_Manager
     static function strip_gettext_tags($string)
     {
         if (is_string($string) && strpos($string, 'data-trpgettextoriginal=') !== false) {
-            $string = preg_replace('/ data-trpgettextoriginal=\d+#!trpen#/', '', $string);
-            $string = preg_replace('/data-trpgettextoriginal=\d+#!trpen#/', '', $string);//sometimes it can be without space
-            $string = str_replace('#!trpst#trp-gettext', '', $string);
-            $string = str_replace('#!trpst#/trp-gettext', '', $string);
-            $string = str_replace('#!trpst#\/trp-gettext', '', $string);
-            $string = str_replace('#!trpen#', '', $string);
+            // final 'i' is for case insensitive. same for the 'i' in  str_ireplace
+            $string = preg_replace('/ data-trpgettextoriginal=\d+#!trpen#/i', '', $string);
+            $string = preg_replace('/data-trpgettextoriginal=\d+#!trpen#/i', '', $string);//sometimes it can be without space
+            $string = str_ireplace('#!trpst#trp-gettext', '', $string);
+            $string = str_ireplace('#!trpst#/trp-gettext', '', $string);
+            $string = str_ireplace('#!trpst#\/trp-gettext', '', $string);
+            $string = str_ireplace('#!trpen#', '', $string);
         }
+
 
         return $string;
     }

@@ -348,10 +348,8 @@ class TRP_Translation_Render{
     	global $trp_editor_notices;
 
         /* replace our special tags so we have valid html */
-        $output = str_replace('#!trpst#', '<', $output);
-        $output = str_replace('#!TRPST#', '<', $output);
-        $output = str_replace('#!trpen#', '>', $output);
-        $output = str_replace('#!TRPEN#', '>', $output);
+        $output = str_ireplace('#!trpst#', '<', $output);
+        $output = str_ireplace('#!trpen#', '>', $output);
 
         $output = apply_filters('trp_before_translate_content', $output);
 
@@ -407,9 +405,8 @@ class TRP_Translation_Render{
 	     */
 	    if( $json_array && $json_array != $output ) {
 		    /* if it's one of our own ajax calls don't do nothing */
-	        if ( ! empty( $_REQUEST['action'] ) && strpos( $_REQUEST['action'], 'trp_' ) === 0 && $_REQUEST['action'] != 'trp_split_translation_block' ) {
+            if ( ! empty( $_REQUEST['action'] ) && strpos( $_REQUEST['action'], 'trp_' ) === 0 && $_REQUEST['action'] != 'trp_split_translation_block' )
 		        return $output;
-	        }
 
 	        //check if we have a json response
 	        if ( ! empty( $json_array ) ) {
@@ -652,6 +649,7 @@ class TRP_Translation_Render{
                 && $parent->tag!="script"
                 && $parent->tag!="style"
                 && $parent->tag != 'title'
+                && $parent->tag != 'textarea' //explicitly exclude textarea strings
                 && strpos($outertext,'[vc_') === false
                 && !$this->trp_is_numeric($trimmed_string)
                 && !preg_match('/^\d+%$/',$trimmed_string)
@@ -660,16 +658,8 @@ class TRP_Translation_Render{
             {
                 // $translateable_strings array needs to be in sync in $nodes array
                 $string_count = array_push( $translateable_strings, $trimmed_string );
-                if( $parent->tag == 'button') {
-                    array_push($nodes, array('node' => $row, 'type' => 'button'));
-                }
-                else {
-                    if ( $parent->tag == 'option' ) {
-                        array_push( $nodes, array( 'node' => $row, 'type' => 'option' ) );
-                    } elseif ( $parent->tag != 'textarea' ) {//explicitly exclude textarea strings
-                        array_push( $nodes, array( 'node' => $row, 'type' => 'text' ) );
-                    }
-                }
+                $node_type_to_push = ( in_array( $parent->tag, array( 'button', 'option' ) ) ) ? $parent->tag : 'text';
+                array_push($nodes, array('node' => $row, 'type' => $node_type_to_push ));
 
                 //add data-trp-post-id attribute if needed
                 $nodes = $this->maybe_add_post_id_in_node( $nodes, $row, $string_count );
@@ -993,21 +983,21 @@ class TRP_Translation_Render{
      * @return string|string[]|null
      */
     function remove_trp_html_tags( $string ){
-        $string = preg_replace( '/(<|&lt;)trp-gettext (.*?)(>|&gt;)/', '', $string );
-        $string = preg_replace( '/(<|&lt;)(\\\\)*\/trp-gettext(>|&gt;)/', '', $string );
+        $string = preg_replace( '/(<|&lt;)trp-gettext (.*?)(>|&gt;)/i', '', $string );
+        $string = preg_replace( '/(<|&lt;)(\\\\)*\/trp-gettext(>|&gt;)/i', '', $string );
 
         // In case we have a gettext string which was run through rawurlencode(). See more details on iss6563
-        $string = preg_replace( '/%23%21trpst%23trp-gettext(.*?)%23%21trpen%23/', '', $string );
-        $string = preg_replace( '/%23%21trpst%23%2Ftrp-gettext%23%21trpen%23/', '', $string );
+        $string = preg_replace( '/%23%21trpst%23trp-gettext(.*?)%23%21trpen%23/i', '', $string );
+        $string = preg_replace( '/%23%21trpst%23%2Ftrp-gettext%23%21trpen%23/i', '', $string );
 
         if (!isset($_REQUEST['trp-edit-translation']) || $_REQUEST['trp-edit-translation'] != 'preview') {
-            $string = preg_replace('/(<|&lt;)trp-wrap (.*?)(>|&gt;)/', '', $string);
-            $string = preg_replace('/(<|&lt;)(\\\\)*\/trp-wrap(>|&gt;)/', '', $string);
+            $string = preg_replace('/(<|&lt;)trp-wrap (.*?)(>|&gt;)/i', '', $string);
+            $string = preg_replace('/(<|&lt;)(\\\\)*\/trp-wrap(>|&gt;)/i', '', $string);
         }
 
         //remove post containers before outputting
-        $string = preg_replace( '/(<|&lt;)trp-post-container (.*?)(>|&gt;)/', '', $string );
-        $string = preg_replace( '/(<|&lt;)(\\\\)*\/trp-post-container(>|&gt;)/', '', $string );
+        $string = preg_replace( '/(<|&lt;)trp-post-container (.*?)(>|&gt;)/i', '', $string );
+        $string = preg_replace( '/(<|&lt;)(\\\\)*\/trp-post-container(>|&gt;)/i', '', $string );
 
         return $string;
     }
@@ -1248,7 +1238,7 @@ class TRP_Translation_Render{
 	    }
 
         $translated_strings = array();
-	    $machine_translation_available = $this->machine_translator->is_available();
+	    $machine_translation_available = $this->machine_translator->is_available( array( $this->settings['default-language'], $language_code ));
 
         if ( ! $this->trp_query ) {
             $trp = TRP_Translate_Press::get_trp_instance();

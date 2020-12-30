@@ -38,6 +38,10 @@ span.select2-container{
     box-shadow: none;
 }
 
+ul.trp-unsupported-languages{
+    list-style: inside;
+}
+
 
 /**************************************************/
 /* Extra styling for admin notices

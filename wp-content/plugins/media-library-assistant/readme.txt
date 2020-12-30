@@ -5,7 +5,7 @@ Tags: media, media library, gallery, images, categories, tags, attachments, IPTC
 Requires at least: 3.5.0
 Tested up to: 5.6
 Requires PHP: 5.3
-Stable tag: 2.92
+Stable tag: 2.93
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -181,6 +181,13 @@ All of the MLA source code has been annotated with "DocBlocks", a special type o
 
 == Changelog ==
 
+= 2.93 =
+* New: The "MLA Simple Mapping Hooks Example" plugin has been updated so it will run when attachments are uploaded or updated by the WP/LR Sync plugin.
+* New: For the "Smart Media Categories" example plugin, support has been added for the "Postie" plugin chron job that creates posts and attachments from an email.
+* Fix: <strong>Correct defect in parsing `request:` substitution parameters containing compound names to access array elements, e.g., `tax_input`.</strong>
+* Fix: <strong>For `[mla_gallery]` pagination shortcodes, correct defects in handling substitution parameters containing array values, e.g., `tax_input`.</strong>
+* Fix: For the "Smart Media Categories" example plugin, term synchronization now works when multiple attachments are added to a parent in the same page load.
+
 = 2.92 =
 * Fix: Correct Media/Assistant Quick Edit error that deleted term assignments in the WordPress Categories taxonomy.
 
@@ -314,8 +321,8 @@ All of the MLA source code has been annotated with "DocBlocks", a special type o
 
 == Upgrade Notice ==
 
-= 2.92 =
-Correct Media/Assistant Quick Edit error that deleted term assignments in the WordPress Categories taxonomy.
+= 2.93 =
+IMPORTANT: Correct defects in handling array values, e.g., tax_input, in request: parameters and pagination controls. Example plugin enhancements. Two enhancements in all, three fixes.
 
 == Other Notes ==
 

@@ -11940,6 +11940,9 @@ img[src$=".svg"] {
   font-size: 1.5rem;
   color: #FFF; }
 
+#positioning-statement {
+  background-color: #FEE300; }
+
 #top-solutions {
   margin: 0 0 3rem 0; }
   #top-solutions .solution {

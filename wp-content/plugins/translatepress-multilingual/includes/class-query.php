@@ -521,7 +521,7 @@ class TRP_Query{
                                     meta_id bigint(20) AUTO_INCREMENT NOT NULL PRIMARY KEY,
                                     original_id bigint(20) NOT NULL,
                                     meta_key varchar(255),
-                                    meta_value longtext,                                    
+                                    meta_value longtext,
                                     UNIQUE KEY meta_id (meta_id) )
                                      $charset_collate;";
             require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
@@ -1164,10 +1164,10 @@ class TRP_Query{
 					    ' . $table_name . ' AS `b`
 					WHERE
 					    -- IMPORTANT: Ensures one version remains
-					    `a`.ID < ' . $batch . ' 
-					    AND `b`.ID < ' . $batch . ' 
+					    `a`.ID < ' . $batch . '
+					    AND `b`.ID < ' . $batch . '
 					    AND `a`.`ID` < `b`.`ID`
-					
+
 					    -- Check for all duplicates. Binary ensure case sensitive comparison
 					    AND (`a`.`original` COLLATE '.$charset.'_bin = `b`.`original` OR `a`.`original` IS NULL AND `b`.`original` IS NULL)
 					    AND (`a`.`translated` COLLATE '.$charset.'_bin = `b`.`translated` OR `a`.`translated` IS NULL AND `b`.`translated` IS NULL)

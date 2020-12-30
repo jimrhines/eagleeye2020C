@@ -741,8 +741,8 @@ class TRP_Url_Converter {
      * @return string
      */
     function maybe_add_pagination_to_blog_page( $url ){
-        $pagenum = get_query_var( 'paged', 1 );
-        if( $pagenum !== 1 ) {
+        $pagenum = get_query_var( 'paged' );
+        if( !empty( $pagenum ) ) {
             global $wp_rewrite;
             $url = trailingslashit( $url ) . user_trailingslashit($wp_rewrite->pagination_base . '/' . $pagenum, 'paged' );
         }
