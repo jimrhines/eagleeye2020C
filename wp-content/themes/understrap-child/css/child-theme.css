@@ -11762,6 +11762,9 @@ img[src$=".svg"] {
   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(254, 227, 0, 0.5);
           box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(254, 227, 0, 0.5); }
 
+.woocommerce form .form-row input.wc-pao-addon-field {
+  width: 20%; }
+
 /*Responsive Videos*/
 .embed-container {
   position: relative;
