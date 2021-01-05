@@ -11945,6 +11945,8 @@ img[src$=".svg"] {
 
 #positioning-statement {
   background-color: #FEE300; }
+  #positioning-statement a {
+    text-decoration: underline; }
 
 #top-solutions {
   margin: 0 0 3rem 0; }

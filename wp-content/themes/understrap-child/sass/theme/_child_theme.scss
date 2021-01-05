@@ -460,6 +460,10 @@ img[src$=".svg"] {
 
 #positioning-statement {
 	background-color: $brand-yellow;
+
+	a {
+		text-decoration: underline;
+	}
 }
 
 #top-solutions {
