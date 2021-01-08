@@ -137,7 +137,9 @@ img[src$=".svg"] {
 .btn-primary,
 .btn-secondary,
 .wpcf7 input[type="submit"],
-.entry-content input[type=submit] {
+.entry-content input[type=submit],
+.cart .btn-outline-primary,
+.add-to-cart-container .btn-outline-primary {
 	color: $brand-black;
 	background-color: $brand-yellow;
 	border-color: $brand-yellow;
@@ -148,6 +150,24 @@ img[src$=".svg"] {
 	    color: $brand-black;
 	    background-color: $brand-yellow-hover;
 	    border-color: $brand-yellow-hover; 
+	}
+}
+
+.btn-secondary {
+	color: $brand-yellow;
+	background-color: $brand-black;
+	border-color: $brand-black;
+
+	&:visited {
+		color: $brand-yellow-hover;
+	}
+
+	&:active,
+	&:focus,
+	&:hover {
+	    color: $brand-yellow-hover !important;
+	    background-color: $brand-black !important;
+	    border-color: $brand-black !important;
 	}
 }
 
@@ -178,7 +198,7 @@ img[src$=".svg"] {
 	.form-row {
 
 		input.wc-pao-addon-field {
-			width: 20%;
+			width: 10%;
 		}
 
 	}

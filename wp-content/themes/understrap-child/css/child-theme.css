@@ -11710,7 +11710,13 @@ img[src$=".svg"] {
 .btn-primary,
 .btn-secondary,
 .wpcf7 input[type="submit"],
-.entry-content input[type=submit] {
+.entry-content input[type=submit],
+.cart .btn-outline-primary,
+.cart .wpcf7 input[type=submit],
+.wpcf7 .cart input[type=submit],
+.add-to-cart-container .btn-outline-primary,
+.add-to-cart-container .wpcf7 input[type=submit],
+.wpcf7 .add-to-cart-container input[type=submit] {
   color: #413f42;
   background-color: #FEE300;
   border-color: #FEE300; }
@@ -11723,10 +11729,39 @@ img[src$=".svg"] {
   .wpcf7 input[type="submit"]:hover,
   .entry-content input[type=submit]:active,
   .entry-content input[type=submit]:focus,
-  .entry-content input[type=submit]:hover {
+  .entry-content input[type=submit]:hover,
+  .cart .btn-outline-primary:active,
+  .cart .wpcf7 input:active[type=submit],
+  .wpcf7 .cart input:active[type=submit],
+  .cart .btn-outline-primary:focus,
+  .cart .wpcf7 input:focus[type=submit],
+  .wpcf7 .cart input:focus[type=submit],
+  .cart .btn-outline-primary:hover,
+  .cart .wpcf7 input:hover[type=submit],
+  .wpcf7 .cart input:hover[type=submit],
+  .add-to-cart-container .btn-outline-primary:active,
+  .add-to-cart-container .wpcf7 input:active[type=submit],
+  .wpcf7 .add-to-cart-container input:active[type=submit],
+  .add-to-cart-container .btn-outline-primary:focus,
+  .add-to-cart-container .wpcf7 input:focus[type=submit],
+  .wpcf7 .add-to-cart-container input:focus[type=submit],
+  .add-to-cart-container .btn-outline-primary:hover,
+  .add-to-cart-container .wpcf7 input:hover[type=submit],
+  .wpcf7 .add-to-cart-container input:hover[type=submit] {
     color: #413f42;
     background-color: #FFCC00;
     border-color: #FFCC00; }
+
+.btn-secondary {
+  color: #FEE300;
+  background-color: #413f42;
+  border-color: #413f42; }
+  .btn-secondary:visited {
+    color: #FFCC00; }
+  .btn-secondary:active, .btn-secondary:focus, .btn-secondary:hover {
+    color: #FFCC00 !important;
+    background-color: #413f42 !important;
+    border-color: #413f42 !important; }
 
 .wpcf7 input[type="submit"],
 .entry-content input[type=submit] {
@@ -11763,7 +11798,7 @@ img[src$=".svg"] {
           box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(254, 227, 0, 0.5); }
 
 .woocommerce form .form-row input.wc-pao-addon-field {
-  width: 20%; }
+  width: 10%; }
 
 /*Responsive Videos*/
 .embed-container {
