@@ -1,16 +1,18 @@
 <?php
+
+namespace WPGO_Plugins\Simple_Sitemap;
+
 /*
  *      Class for the [simple-sitemap-tax] shortcode
 */
 
 class WPGO_Simple_Sitemap_Tax_Shortcode {
 
-
 	 /* Main class constructor. */
 	public function __construct() {
 
-		add_shortcode( 'simple-sitemap-tax', array( &$this, 'render_sitemap_taxonomy' ) );
-		add_shortcode( 'sst', array( &$this, 'render_sitemap_taxonomy' ) );
+		add_shortcode( 'simple-sitemap-tax', array( 'WPGO_Plugins\Simple_Sitemap\WPGO_Simple_Sitemap_Tax_Shortcode', 'render_sitemap_taxonomy' ) );
+		add_shortcode( 'sst', array( 'WPGO_Plugins\Simple_Sitemap\WPGO_Simple_Sitemap_Tax_Shortcode', 'render_sitemap_taxonomy' ) );
 	}
 
 	/* Shortcode function. */

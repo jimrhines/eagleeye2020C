@@ -69,14 +69,23 @@ class TRP_Translation_Memory {
                     $this->trp_query = $trp->get_component( 'query' );
                 }
 
-                // data-trp-translate-id, data-trp-translate-id-innertext are in the wp_trp_dictionary_* tables
-                $table_name = $this->trp_query->get_table_name( $language_code );
+                $table_name = null;
+
+                // there is no dictionary table with the default language
+                if ( $language_code !== $this->settings['default-language'] ) {
+                    // data-trp-translate-id, data-trp-translate-id-innertext are in the wp_trp_dictionary_* tables
+                    $table_name = $this->trp_query->get_table_name( $language_code );
+                }
 
                 if( strpos($selector, "data-trpgettextoriginal" ) !== false ){
                     $table_name = $this->trp_query->get_gettext_table_name( $language_code );
                 }
 
-                $dictionary = $this->get_similar_string_translation($string, $number, $table_name);
+                if ( $table_name === null ) {
+                    $dictionary = array();
+                }else{
+                    $dictionary = $this->get_similar_string_translation( $string, $number, $table_name );
+                }
                 echo json_encode($dictionary);
                 wp_die();
             }

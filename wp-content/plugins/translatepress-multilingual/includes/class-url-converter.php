@@ -105,13 +105,16 @@ class TRP_Url_Converter {
             $path = $_SERVER['REQUEST_URI'];
         }
 
-        //check if sitemap and .xml
+        // Verify that this is a sitemap url and that it contains the .xml extension
         if( strpos($path, 'sitemap') !== false &&
-            strpos($path, '.xml') !== false &&
-            !in_array( 'wpseo_sitemap_url', $wp_current_filter ) &&
+            strpos($path, '.xml')    !== false &&
+            // Bypass this check if we're on certain filters in order to be able to generate other language urls
+            !in_array( 'wpseo_sitemap_url',     $wp_current_filter ) &&
             !in_array( 'seopress_sitemaps_url', $wp_current_filter ) &&
-            !in_array( 'rank_math/sitemap/url', $wp_current_filter )&&
-            !in_array( 'aiosp_sitemap_data', $wp_current_filter )
+            !in_array( 'rank_math/sitemap/url', $wp_current_filter ) &&
+            !in_array( 'aiosp_sitemap_data',    $wp_current_filter ) &&
+            !in_array( 'aioseo_sitemap_terms',  $wp_current_filter ) &&
+            !in_array( 'aioseo_sitemap_posts',  $wp_current_filter )
         ){
             return true;
         }
@@ -323,26 +326,24 @@ class TRP_Url_Converter {
 
             $processed_permalink = get_permalink($post_id);
 
-            if($url_obj->isSchemeless()){
-                $arguments = str_replace(trailingslashit($processed_permalink), '', trailingslashit(trailingslashit( home_url() ) . ltrim($url, '/') ) );
-            } else {
-                $arguments = str_replace($processed_permalink, '', $url );
-            }
+            $url_to_replace = ($url_obj->isSchemeless()) ? trailingslashit(trailingslashit( home_url() ) . ltrim($url, '/') ) : $url;
+            $arguments = str_replace(untrailingslashit($processed_permalink), '', $url_to_replace );
 
             // if nothing was replaced, something was wrong, just use the normal permalink without any arguments.
-            if( $arguments == $url ) $arguments = '';
+            if( $arguments == $url_to_replace )
+                $arguments = '';
 
             $TRP_LANGUAGE = $language;
-            $new_url = get_permalink( $post_id ) . $arguments;
+            $new_url = trailingslashit( get_permalink($post_id) ) . ltrim($arguments, '/');
             trp_bulk_debug($debug, array('url' => $url, 'new url' => $new_url, 'found post id' => $post_id, 'url type' => 'based on permalink', 'for language' => $TRP_LANGUAGE));
             $TRP_LANGUAGE = $trp_language_copy;
 
-        }else if( isset( $trp_current_url_term_slug ) && isset($trp_current_url_taxonomy) && strpos( $url, get_term_link( $trp_current_url_term_slug, $trp_current_url_taxonomy) ) === 0 ) { // check here if it is a term link
+        }else if( isset( $trp_current_url_term_slug ) && isset($trp_current_url_taxonomy) && strpos( urldecode($url), get_term_link( $trp_current_url_term_slug, $trp_current_url_taxonomy) ) === 0 ) { // check here if it is a term link
             $current_term_link = get_term_link( $trp_current_url_term_slug, $trp_current_url_taxonomy);
             $TRP_LANGUAGE = $language;
                 $check_term_link = get_term_link($trp_current_url_term_slug, $trp_current_url_taxonomy);
                 if (!is_wp_error($check_term_link))
-                    $new_url =  str_replace( $current_term_link, $check_term_link, $url );
+                    $new_url =  str_replace( $current_term_link, $check_term_link, urldecode($url) );
                 else
                     $new_url = $url;
 
@@ -397,7 +398,7 @@ class TRP_Url_Converter {
                 if( $current_slug === false ){
                     $current_slug = trp_x( $english_woocommerce_slug, 'slug', 'woocommerce', $this->settings['default-language'] );
 
-                    //check that it is the same as the one saved in the database
+                    //check that it is the same as the one saved in the database or it was manually set to the default in english
                     $wc_options = get_option('woocommerce_permalinks');
                     switch($english_woocommerce_slug){
                         case 'product-category':
@@ -412,7 +413,7 @@ class TRP_Url_Converter {
                         default:
                             $option_index = '';
                     }
-                    if( !empty( $wc_options ) && !empty( $wc_options[$option_index] ) && $current_slug != $wc_options[$option_index] )
+                    if( !empty( $wc_options ) && !empty( $wc_options[$option_index] ) && $current_slug != $wc_options[$option_index] && in_array( $wc_options[$option_index], $english_woocommerce_slugs ) )
                         $current_slug = $wc_options[$option_index];
 
                     set_transient( 'tp_'.$english_woocommerce_slug.'_'. $this->settings['default-language'], $current_slug, 12 * HOUR_IN_SECONDS );
@@ -695,7 +696,12 @@ class TRP_Url_Converter {
 
     /* on frontend on other languages dinamically generate the woo permalink structure for the default slugs */
     function woocommerce_filter_permalink_option( $value ){
-        global $TRP_LANGUAGE;
+        global $TRP_LANGUAGE, $trp_wc_permalinks;
+
+        //keep the unfiltered value in a global, we might need it later
+        if( !isset( $trp_wc_permalinks ) )
+            $trp_wc_permalinks = $value;
+
         if( $TRP_LANGUAGE != $this->settings['default-language'] ) {
             if( trim($value['product_base'], '/') === trp_x( 'product', 'slug', 'woocommerce', $this->settings['default-language'] ) ){
                 $value['product_base'] = '';
@@ -728,7 +734,7 @@ class TRP_Url_Converter {
      */
     function prevent_permalink_update_on_other_languages( $value, $old_value ){
         global $TRP_LANGUAGE;
-        if( isset($TRP_LANGUAGE) && $TRP_LANGUAGE != $this->settings['default-language'] ) {
+        if( isset($TRP_LANGUAGE) && $TRP_LANGUAGE != $this->settings['default-language'] && apply_filters( 'trp_prevent_permalink_update_on_other_languages', true ) ) {
             $value = $old_value;
         }
 

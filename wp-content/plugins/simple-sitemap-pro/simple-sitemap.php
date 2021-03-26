@@ -4,7 +4,7 @@
 Plugin Name: Simple Sitemap Pro
 Plugin URI: http://wordpress.org/plugins/simple-sitemap/
 Description: HTML sitemap to display content as a single linked list of posts, pages, or custom post types. You can even display posts in groups sorted by taxonomy!
-Version: 3.5
+Version: 3.5.2
 Author: David Gwyer
 Author URI: http://www.wpgoplugins.com
 Text Domain: simple-sitemap
@@ -27,15 +27,17 @@ Text Domain: simple-sitemap
     along with this program; if not, write to the Free Software
     Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
+namespace WPGO_Plugins\Simple_Sitemap;
+
 if ( !defined( 'ABSPATH' ) ) {
     exit;
 }
 
-if ( function_exists( 'ss_fs' ) ) {
+if ( function_exists( __NAMESPACE__ . '\\ss_fs' ) ) {
     ss_fs()->set_basename( true, __FILE__ );
 } else {
     
-    if ( !function_exists( 'ss_fs' ) ) {
+    if ( !function_exists( __NAMESPACE__ . '\\ss_fs' ) ) {
         // Create a helper function for easy SDK access.
         function ss_fs()
         {
@@ -100,7 +102,7 @@ if ( function_exists( 'ss_fs' ) ) {
             $root = $this->module_roots['dir'];
             $path = $root . 'lib/classes/bootstrap.php';
             
-            if ( ss_fs()->is__premium_only() ) {
+            if ( ss_fs()->can_use_premium_code__premium_only() ) {
                 $tmp = $root . 'modules/classes/bootstrap.php';
                 if ( file_exists( $tmp ) ) {
                     $path = $tmp;

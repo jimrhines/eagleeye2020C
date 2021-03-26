@@ -27,8 +27,8 @@ class TRP_Upgrade {
 	 * Register Settings subpage for TranslatePress
 	 */
 	public function register_menu_page(){
-		add_submenu_page( 'TRPHidden', 'TranslatePress Remove Duplicate Rows', 'TRPHidden', 'manage_options', 'trp_remove_duplicate_rows', array($this, 'trp_remove_duplicate_rows') );
-		add_submenu_page( 'TRPHidden', 'TranslatePress Update Database', 'TRPHidden', 'manage_options', 'trp_update_database', array( $this, 'trp_update_database_page' ) );
+		add_submenu_page( 'TRPHidden', 'TranslatePress Remove Duplicate Rows', 'TRPHidden', apply_filters( 'trp_settings_capability', 'manage_options' ), 'trp_remove_duplicate_rows', array($this, 'trp_remove_duplicate_rows') );
+		add_submenu_page( 'TRPHidden', 'TranslatePress Update Database', 'TRPHidden', apply_filters( 'trp_settings_capability', 'manage_options' ), 'trp_update_database', array( $this, 'trp_update_database_page' ) );
 	}
 
 	/**
@@ -130,6 +130,22 @@ class TRP_Upgrade {
                     'batch_size'        => 5000,
                     'message_initial'   => '',
                     'message_processing'=> __('Updating original string ids for language %s...', 'translatepress-multilingual' )
+                ),
+                'regenerate_original_meta' => array(
+                    'version'           => '0', // independent of tp version, available only on demand
+                    'option_name'       => 'trp_regenerate_original_meta_table',
+                    'callback'          => array( $this,'trp_regenerate_original_meta_table'),
+                    'batch_size'        => 200,
+                    'message_initial'   => '',
+                    'message_processing'=> __('Regenerating original meta table for language %s...', 'translatepress-multilingual' )
+                ),
+                'clean_original_meta' => array(
+                    'version'           => '0', // independent of tp version, available only on demand
+                    'option_name'       => 'trp_clean_original_meta_table',
+                    'callback'          => array( $this,'trp_clean_original_meta_table'),
+                    'batch_size'        => 20000,
+                    'message_initial'   => '',
+                    'message_processing'=> __('Cleaning original meta table for language %s...', 'translatepress-multilingual' )
                 )
 			)
 		);
@@ -448,6 +464,11 @@ class TRP_Upgrade {
 		// prepare page structure
 		require_once TRP_PLUGIN_DIR . 'partials/trp-remove-duplicate-rows.php';
 
+        if ( isset( $_GET['trp_rm_duplicates_original_strings'] ) ){
+            $this->trp_remove_duplicate_original_strings();
+            exit;
+        }
+
 		if ( empty( $_GET['trp_rm_duplicates'] ) ){
 			// iteration not started
 			return;
@@ -628,6 +649,77 @@ class TRP_Upgrade {
             // targeting 1.5.9 to 1.6.1 where incomplete machine-translation settings may have resulted
             $machine_translation_settings = array_merge( $default_machine_translation_settings, $machine_translation_settings );
             update_option('trp_machine_translation_settings', $machine_translation_settings);
+        }
+    }
+
+
+    public function trp_remove_duplicate_original_strings(){
+        if ( ! $this->trp_query ) {
+            $trp = TRP_Translate_Press::get_trp_instance();
+            /* @var TRP_Query */
+            $this->trp_query = $trp->get_component( 'query' );
+        }
+        $this->trp_query->rename_originals_table();
+        $this->trp_query->check_original_table();
+
+        echo '<br> ' . esc_html__( 'Recreated original strings table.', 'translatepress-multilingual' );
+
+        update_option( 'trp_updated_database_original_id_insert_166', 'no' );
+        update_option( 'trp_updated_database_original_id_cleanup_166', 'no' );
+        update_option( 'trp_updated_database_original_id_update_166', 'no' );
+
+        update_option( 'trp_regenerate_original_meta_table', 'no' );
+        update_option( 'trp_clean_original_meta_table', 'no' );
+
+        $url = add_query_arg( array('page'=>'trp_update_database'), site_url('wp-admin/admin.php') );
+        echo '<meta http-equiv="refresh" content="0; url=' . esc_url( $url ) . '" />';
+        echo '<br> ' . esc_html__( 'If the page does not redirect automatically', 'translatepress-multilingual' ) . ' <a href="' . esc_url( $url ) . '" >' . esc_html__( 'click here', 'translatepress-multilingual' ) . '.</a>';
+        exit;
+    }
+
+    public function trp_regenerate_original_meta_table($language_code, $inferior_limit, $batch_size ){
+
+        if ( $language_code != $this->settings['default-language']) {
+            // perform regeneration of original meta table only once
+            return true;
+        }
+        if ( ! $this->trp_query ) {
+            $trp = TRP_Translate_Press::get_trp_instance();
+            /* @var TRP_Query */
+            $this->trp_query = $trp->get_component( 'query' );
+        }
+        $this->trp_query->regenerate_original_meta_table($inferior_limit, $batch_size);
+
+        $last_id = $this->db->get_var("SELECT MAX(meta_id) FROM " .  $this->trp_query->get_table_name_for_original_meta() );
+        if ( $last_id < $inferior_limit ){
+            // reached end of table
+            return true;
+        }else{
+            // not done. get another batch
+            return false;
+        }
+    }
+
+    public function trp_clean_original_meta_table($language_code, $inferior_limit, $batch_size){
+        if ( $language_code != $this->settings['default-language']) {
+            // perform regeneration of original meta table only once
+            return true;
+        }
+        if ( ! $this->trp_query ) {
+            $trp = TRP_Translate_Press::get_trp_instance();
+            /* @var TRP_Query */
+            $this->trp_query = $trp->get_component( 'query' );
+        }
+        $rows_affected = $this->trp_query->clean_original_meta( $batch_size );
+        if ( $rows_affected > 0 ){
+            return false;
+        }else{
+            $old_originals_table = get_option( 'trp_original_strings_table_for_recovery', '' );
+            if ( !empty ( $old_originals_table) && strpos($old_originals_table, 'trp_original_strings1') !== false ) {
+                delete_option('trp_original_strings_table_for_recovery');
+                $this->trp_query->drop_table( $old_originals_table );
+            }
+            return true;
         }
     }
 }

@@ -66,10 +66,20 @@
                 $lnk = sprintf( wp_kses( __( 'To add <strong>more than two languages</strong> download and install the <strong>Extra Languages Add-on</strong> from <a href="%s" class="trp-translatepress-account-page" target="_blank" title="TranslatePress Account page">your account</a>. Once activated, you\'ll be able to add unlimited languages.', 'translatepress-multilingual' ), array( 'strong' => array(), 'br' => array(), 'a' => array( 'href' => array(), 'title' => array(), 'target' => array(), 'class' => array() ) ) ), esc_url( $url ) );
             }else {
                 $url = trp_add_affiliate_id_to_link('https://translatepress.com/?utm_source=wpbackend&utm_medium=clientsite&utm_content=multiple_languages&utm_campaign=tpfree');
-                $lnk = sprintf( wp_kses( __( 'To add <strong>more than two languages</strong> and support for SEO Title, Description, Slug and more check out <a href="%s" class="button button-primary" target="_blank" title="TranslatePress Pro">TranslatePress PRO</a>', 'translatepress-multilingual' ), array( 'strong' => array(), 'br' => array(), 'a' => array( 'href' => array(), 'title' => array(), 'target' => array(), 'class' => array() ) ) ), esc_url( $url ) );
-                $lnk .= '<br/>' . __('Not only are you getting extra features and premium support, but you also help fund the future development of TranslatePress.', 'translatepress-multilingual');
+                $lnk = sprintf(
+                    // Translators: %1$s is the URL to the add-ons. %2$2 is for the TranslatePress add-on verbiage.
+                    __( 'To add <strong>more than two languages</strong> and support for SEO Title, Description, Slug and more check out <a href="%1$s" target="_blank" title="%2$s">%2$s</a>.', 'translatepress-multilingual' ),
+                    esc_url( $url ),
+                    _x( 'TranslatePress Advanced Add-ons', 'Verbiage for the TranslatePress Advanced add-ons', 'translatepress-multilingual' )
+                );
+                $lnk .= '<br/><br />' . __('Not only are you getting extra features and premium support, but you also help fund the future development of TranslatePress.', 'translatepress-multilingual');
+                $lnk .= sprintf(
+                    '<br /><br />' . '<a href="%1$s" class="button button-primary" target="_blank" title="%2$s">%2$s</a>',
+                    esc_url( $url ),
+                    _x( 'TranslatePress Advanced Add-ons', 'Link to the TranslatePress add-ons', 'translatepress-multilingual' )
+                );
             }
-            echo $lnk;
+            echo wp_kses_post( $lnk ); // Post kses for more generalized output that is more forgiving and has late escaping.
             ?>
         </p>
     </td>

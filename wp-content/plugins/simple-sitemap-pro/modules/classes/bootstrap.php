@@ -1,4 +1,7 @@
 <?php
+
+namespace WPGO_Plugins\Simple_Sitemap;
+
 /*
  *	Bootstrap plugin
 */
@@ -11,6 +14,7 @@ class WPGO_Simple_Sitemap_BootStrap {
 	public function __construct($module_roots) {
 
 		$this->module_roots = $module_roots;
+
 		$this->load_supported_features();
 	}
 
@@ -18,19 +22,19 @@ class WPGO_Simple_Sitemap_BootStrap {
 	public function load_supported_features() {
 
 		$root = $this->module_roots['dir'];
-
+    
 		// enqueue plugin scripts
 		require_once( $root . 'modules/classes/enqueue-scripts.php' );
 		new WPGO_Simple_Sitemap_Enqueue_Scripts($this->module_roots);
-
+    
 		// plugin docs/settings page
 		require_once( $root . 'modules/classes/settings.php' );
 		new WPGO_Simple_Sitemap_Settings($this->module_roots);
-	
+    
 		// sitemap shortcodes
 		require_once( $root . 'modules/classes/shortcodes/shortcodes.php' );
 		new WPGO_Simple_Sitemap_Shortcodes($this->module_roots);
-
+    
 		// localize plugin
 		require_once( $root . 'shared/localize.php' );
 		new WPGO_Simple_Sitemap_Localize($this->module_roots);
@@ -46,7 +50,7 @@ class WPGO_Simple_Sitemap_BootStrap {
 		// plugin hooks
 		require_once( $root . 'shared/hooks.php' );
 
-		// walker class to render hierarchical pages
+    // walker class to render hierarchical pages
 		require_once( $root . 'shared/class-wpgo-walker-page.php' );
 	}
 

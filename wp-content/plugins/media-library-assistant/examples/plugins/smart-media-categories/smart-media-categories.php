@@ -14,7 +14,7 @@
  * Plugin Name: Smart Media Categories
  * Plugin URI:  http://davidlingren.com/
  * Description: Assigns taxonomy terms to Media Library items based on the terms of their parent post/page.
- * Version:     1.1.5
+ * Version:     1.1.6
  * Author:      David Lingren
  * Author URI:  http://davidlingren.com/
  * Text Domain: smart-media-categories
@@ -49,9 +49,7 @@ if ( ! defined( 'WPINC' ) ) {
  * Public-Facing Functionality
  *----------------------------------------------------------------------------*/
 
-/*
- * Plugin class for the public-facing side of the WordPress site.
- */
+// Plugin class for the public-facing side of the WordPress site.
 require_once( plugin_dir_path( __FILE__ ) . 'public/class-smart-media-categories.php' );
 
 /*
@@ -61,9 +59,7 @@ require_once( plugin_dir_path( __FILE__ ) . 'public/class-smart-media-categories
 register_activation_hook( __FILE__, array( 'Smart_Media_Categories', 'activate' ) );
 register_deactivation_hook( __FILE__, array( 'Smart_Media_Categories', 'deactivate' ) );
 
-/*
- * Create an instance of the public-facing class.
- */
+// Create an instance of the public-facing class.
 add_action( 'plugins_loaded', array( 'Smart_Media_Categories', 'get_instance' ) );
 
 /*----------------------------------------------------------------------------*
@@ -82,9 +78,11 @@ add_action( 'plugins_loaded', array( 'Smart_Media_Categories', 'get_instance' ) 
  *
  * The code below is intended to to give the lightest footprint possible.
  */
+
 if ( is_admin() /* && ( ! defined( 'DOING_AJAX' ) || ! DOING_AJAX ) */ ) {
 	require_once( plugin_dir_path( __FILE__ ) . 'admin/class-smart-media-categories-admin.php' );
 	add_action( 'plugins_loaded', array( 'Smart_Media_Categories_Admin', 'get_instance' ) );
+//error_log( __LINE__ . ' smart-media-categories.php is_admin() Support _REQUEST = ' . var_export( $_REQUEST, true ), 0 );
 }
 
 // Look for Postie chron job

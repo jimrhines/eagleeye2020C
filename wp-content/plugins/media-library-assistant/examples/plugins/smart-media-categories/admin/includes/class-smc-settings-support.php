@@ -127,6 +127,20 @@ class SMC_Settings_Support {
 					'title' => __( 'Reattach Item', 'smart-media-categories' ),
 					'description' => __( "When an items new parent is a <strong>Sync Post Type</strong>, it will inherit the parent's terms.", 'smart-media-categories' ),
 				),
+				'exclude_default' => array(
+					'type' => 'checkbox',
+					'default' => '0',
+					'id' => 'smc_automatic_exclude_default',
+					'title' => __( 'Exclude Post Default', 'smart-media-categories' ),
+					'description' => __( "Exclude the Settings/Wriing 'Default Post Category' term from Attachments.", 'smart-media-categories' ),
+				),
+				'postie_sync' => array(
+					'type' => 'checkbox',
+					'default' => '1',
+					'id' => 'smc_automatic_postie_sync',
+					'title' => __( 'Sync Postie Emails', 'smart-media-categories' ),
+					'description' => __( "Apply syncronization options to posts created by Postie email processing.", 'smart-media-categories' ),
+				),
 			),
 			'smc_manual_options' => array(
 			),

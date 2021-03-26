@@ -1,4 +1,4 @@
-# Copyright (C) 2020 TranslatePress Multilingual
+# Copyright (C) 2021 TranslatePress Multilingual
 # This file is distributed under the same license as the TranslatePress Multilingual package.
 msgid ""
 msgstr ""
@@ -97,7 +97,7 @@ msgstr ""
 msgid "Are you sure you want to remove this language?"
 msgstr ""
 
-#: ../tp-add-on-extra-languages/partials/language-selector-pro.php:43, includes/class-advanced-tab.php:483, includes/class-advanced-tab.php:494, includes/class-advanced-tab.php:582, includes/class-advanced-tab.php:613, partials/main-settings-language-selector.php:40
+#: ../tp-add-on-extra-languages/partials/language-selector-pro.php:43, includes/class-advanced-tab.php:502, includes/class-advanced-tab.php:513, includes/class-advanced-tab.php:601, includes/class-advanced-tab.php:632, partials/main-settings-language-selector.php:40
 msgid "Remove"
 msgstr ""
 
@@ -105,7 +105,7 @@ msgstr ""
 msgid "Choose..."
 msgstr ""
 
-#: ../tp-add-on-extra-languages/partials/language-selector-pro.php:58, includes/class-advanced-tab.php:494, includes/class-advanced-tab.php:613, partials/main-settings-language-selector.php:55
+#: ../tp-add-on-extra-languages/partials/language-selector-pro.php:58, includes/class-advanced-tab.php:513, includes/class-advanced-tab.php:632, partials/main-settings-language-selector.php:55
 msgid "Add"
 msgstr ""
 
@@ -113,7 +113,7 @@ msgstr ""
 msgid "Select the languages you wish to make your website available in."
 msgstr ""
 
-#: ../tp-add-on-seo-pack/includes/class-slug-manager.php:40, ../tp-add-on-seo-pack/includes/string-translation/class-string-translation-seo.php:56
+#: ../tp-add-on-seo-pack/includes/class-slug-manager.php:48, ../tp-add-on-seo-pack/includes/string-translation/class-string-translation-seo.php:56
 msgid "Post Slug"
 msgstr ""
 
@@ -133,15 +133,15 @@ msgstr ""
 msgid "Advanced"
 msgstr ""
 
-#: includes/class-advanced-tab.php:286, includes/class-error-manager.php:155, partials/machine-translation-settings-page.php:13, partials/machine-translation-settings-page.php:78, partials/machine-translation-settings-page.php:111, partials/main-settings-page.php:41, partials/main-settings-page.php:54, partials/main-settings-page.php:67
+#: includes/class-advanced-tab.php:305, includes/class-error-manager.php:155, partials/machine-translation-settings-page.php:13, partials/machine-translation-settings-page.php:88, partials/machine-translation-settings-page.php:121, partials/main-settings-page.php:41, partials/main-settings-page.php:54, partials/main-settings-page.php:67
 msgid "Yes"
 msgstr ""
 
-#: includes/class-advanced-tab.php:483, includes/class-advanced-tab.php:494, includes/class-advanced-tab.php:582, includes/class-advanced-tab.php:613
+#: includes/class-advanced-tab.php:502, includes/class-advanced-tab.php:513, includes/class-advanced-tab.php:601, includes/class-advanced-tab.php:632
 msgid "Are you sure you want to remove this item?"
 msgstr ""
 
-#: includes/class-advanced-tab.php:566, includes/class-advanced-tab.php:600
+#: includes/class-advanced-tab.php:585, includes/class-advanced-tab.php:619
 msgid "Select..."
 msgstr ""
 
@@ -189,7 +189,7 @@ msgstr ""
 msgid "Automatic translation has been disabled."
 msgstr ""
 
-#: includes/class-error-manager.php:129, includes/class-plugin-notices.php:340, includes/class-plugin-notices.php:391, includes/class-plugin-notices.php:372, includes/class-plugin-notices.php:405, includes/class-plugin-notices.php:430, includes/class-plugin-notices.php:453
+#: includes/class-error-manager.php:129, includes/class-plugin-notices.php:340, includes/class-plugin-notices.php:391, includes/class-plugin-notices.php:372, includes/class-plugin-notices.php:405, includes/class-plugin-notices.php:430, includes/class-plugin-notices.php:454
 msgid "Dismiss this notice."
 msgstr ""
 
@@ -277,19 +277,19 @@ msgstr ""
 msgid "DeepL"
 msgstr ""
 
-#: includes/class-machine-translation-tab.php:147
+#: includes/class-machine-translation-tab.php:148
 msgid "Unsupported languages"
 msgstr ""
 
-#: includes/class-machine-translation-tab.php:158
+#: includes/class-machine-translation-tab.php:159
 msgid "Recheck supported languages"
 msgstr ""
 
-#: includes/class-machine-translation-tab.php:159
+#: includes/class-machine-translation-tab.php:160
 msgid "(last checked on %s)"
 msgstr ""
 
-#: includes/class-machine-translation-tab.php:161
+#: includes/class-machine-translation-tab.php:162
 msgid "The selected automatic translation engine does not provide support for these languages.<br>You can still manually translate pages in these languages using the Translation Editor."
 msgstr ""
 
@@ -321,7 +321,7 @@ msgstr ""
 msgid "The daily quota for machine translation characters exceeded. Please check the <strong>TranslatePress -> <a href=\"%s\">Automatic Translation</a></strong> page for more information."
 msgstr ""
 
-#: includes/class-plugin-notices.php:450
+#: includes/class-plugin-notices.php:451
 msgid "One or more languages are unsupported by the automatic translation provider. Please check the <strong>TranslatePress -> <a href=\"%s\">Automatic Translation</a></strong> page for more information."
 msgstr ""
 
@@ -681,47 +681,47 @@ msgstr ""
 msgid "Translate Page"
 msgstr ""
 
-#: includes/class-translation-manager.php:1205
+#: includes/class-translation-manager.php:1268
 msgid "Security check"
 msgstr ""
 
-#: includes/class-translation-manager.php:1279
+#: includes/class-translation-manager.php:1342
 msgid "<strong>Warning:</strong> Some strings have possibly incorrectly encoded characters. This may result in breaking the queries, rendering the page untranslated in live mode. Consider revising the following strings or their method of outputting."
 msgstr ""
 
-#: includes/class-translation-render.php:147
+#: includes/class-translation-render.php:150
 msgid "Description"
 msgstr ""
 
-#: includes/class-translation-render.php:153
+#: includes/class-translation-render.php:156
 msgid "OG Title"
 msgstr ""
 
-#: includes/class-translation-render.php:159
+#: includes/class-translation-render.php:162
 msgid "OG Site Name"
 msgstr ""
 
-#: includes/class-translation-render.php:165
+#: includes/class-translation-render.php:168
 msgid "OG Description"
 msgstr ""
 
-#: includes/class-translation-render.php:171
+#: includes/class-translation-render.php:174
 msgid "Twitter Title"
 msgstr ""
 
-#: includes/class-translation-render.php:177
+#: includes/class-translation-render.php:180
 msgid "Twitter Description"
 msgstr ""
 
-#: includes/class-translation-render.php:181
+#: includes/class-translation-render.php:184
 msgid "Page Title"
 msgstr ""
 
-#: includes/class-translation-render.php:187
+#: includes/class-translation-render.php:190
 msgid "Dublin Core Title"
 msgstr ""
 
-#: includes/class-translation-render.php:193
+#: includes/class-translation-render.php:196
 msgid "Dublin Core Description"
 msgstr ""
 
@@ -737,80 +737,92 @@ msgstr ""
 msgid "Updating original string ids for language %s..."
 msgstr ""
 
-#: includes/class-upgrade.php:166
+#: includes/class-upgrade.php:140
+msgid "Regenerating original meta table for language %s..."
+msgstr ""
+
+#: includes/class-upgrade.php:148
+msgid "Cleaning original meta table for language %s..."
+msgstr ""
+
+#: includes/class-upgrade.php:182
 msgid "TranslatePress data update"
 msgstr ""
 
-#: includes/class-upgrade.php:166
+#: includes/class-upgrade.php:182
 msgid "We need to update your translations database to the latest version."
 msgstr ""
 
-#: includes/class-upgrade.php:167
+#: includes/class-upgrade.php:183
 msgid "IMPORTANT: It is strongly recommended to first backup the database!\nAre you sure you want to continue?"
 msgstr ""
 
-#: includes/class-upgrade.php:167
+#: includes/class-upgrade.php:183
 msgid "Run the updater"
 msgstr ""
 
-#: includes/class-upgrade.php:183
+#: includes/class-upgrade.php:199
 msgid "Update aborted! Your user account doesn't have the capability to perform database updates."
 msgstr ""
 
-#: includes/class-upgrade.php:188
+#: includes/class-upgrade.php:204
 msgid "Update aborted! Invalid nonce."
 msgstr ""
 
-#: includes/class-upgrade.php:227
+#: includes/class-upgrade.php:243
 msgid "Update aborted! Incorrect action."
 msgstr ""
 
-#: includes/class-upgrade.php:230
+#: includes/class-upgrade.php:246
 msgid "Update aborted! Incorrect language code."
 msgstr ""
 
-#: includes/class-upgrade.php:216
+#: includes/class-upgrade.php:232
 msgid "Updating database to version %s+"
 msgstr ""
 
-#: includes/class-upgrade.php:220, includes/class-upgrade.php:280
+#: includes/class-upgrade.php:236, includes/class-upgrade.php:296
 msgid "Processing table for language %s..."
 msgstr ""
 
-#: includes/class-upgrade.php:203, includes/class-upgrade.php:309, includes/class-upgrade.php:457, includes/class-upgrade.php:462
+#: includes/class-upgrade.php:219, includes/class-upgrade.php:325, includes/class-upgrade.php:478, includes/class-upgrade.php:483
 msgid "Back to TranslatePress Settings"
 msgstr ""
 
-#: includes/class-upgrade.php:207
+#: includes/class-upgrade.php:223
 msgid "Successfully updated database!"
 msgstr ""
 
-#: includes/class-upgrade.php:284, includes/class-upgrade.php:277
+#: includes/class-upgrade.php:300, includes/class-upgrade.php:293
 msgid " done."
 msgstr ""
 
-#: includes/class-upgrade.php:457
+#: includes/class-upgrade.php:478
 msgid "Done."
 msgstr ""
 
-#: includes/class-upgrade.php:462
+#: includes/class-upgrade.php:483
 msgid "Invalid nonce."
 msgstr ""
 
-#: includes/class-upgrade.php:486
+#: includes/class-upgrade.php:507
 msgid "Querying table <strong>%s</strong>"
 msgstr ""
 
-#: includes/class-upgrade.php:528
+#: includes/class-upgrade.php:549
 msgid "%s duplicates removed"
 msgstr ""
 
-#: includes/class-upgrade.php:566
+#: includes/class-upgrade.php:587, includes/class-upgrade.php:676
 msgid "If the page does not redirect automatically"
 msgstr ""
 
-#: includes/class-upgrade.php:566
+#: includes/class-upgrade.php:587, includes/class-upgrade.php:676
 msgid "click here"
+msgstr ""
+
+#: includes/class-upgrade.php:665
+msgid "Recreated original strings table."
 msgstr ""
 
 #: includes/compatibility-functions.php:28
@@ -937,51 +949,61 @@ msgstr ""
 msgid "Choose which engine you want to use in order to automatically translate your website."
 msgstr ""
 
-#: partials/machine-translation-settings-page.php:47
-msgid "<strong>DeepL</strong> automatic translation is available as a premium add-on in <a href=\"%s\" class=\"button button-primary\" target=\"_blank\" title=\"TranslatePress Pro\">TranslatePress PRO</a>"
+#. translators: %1$s is the URL to the DeepL add-on. %2$s is the name of the Pro offerings.
+#: partials/machine-translation-settings-page.php:49
+msgid "<strong>DeepL</strong> automatic translation is available as a <a href=\"%1$s\" target=\"_blank\" title=\"%2$s\">%2$s</a>."
 msgstr ""
 
-#: partials/machine-translation-settings-page.php:48
+#: partials/machine-translation-settings-page.php:51
+msgctxt "Verbiage for the DeepL Pro Add-on"
+msgid "TranslatePress Pro Add-on"
+msgstr ""
+
+#: partials/machine-translation-settings-page.php:53
 msgid "By upgrading you'll get access to all paid add-ons, premium support and help fund the future development of TranslatePress."
 msgstr ""
 
-#: partials/machine-translation-settings-page.php:49
+#: partials/machine-translation-settings-page.php:54
 msgid "Please note that DeepL API usage is paid separately. See <a href=\"https://www.deepl.com/pro.html#developer\">DeepL pricing information</a>."
 msgstr ""
 
-#: partials/machine-translation-settings-page.php:63
+#: partials/machine-translation-settings-page.php:58
+msgid "TranslatePress Pro Add-ons"
+msgstr ""
+
+#: partials/machine-translation-settings-page.php:73
 msgid "Test API credentials"
 msgstr ""
 
-#: partials/machine-translation-settings-page.php:65
+#: partials/machine-translation-settings-page.php:75
 msgid "Click here to check if the selected translation engine is configured correctly."
 msgstr ""
 
-#: partials/machine-translation-settings-page.php:74
+#: partials/machine-translation-settings-page.php:84
 msgid "Block Crawlers"
 msgstr ""
 
-#: partials/machine-translation-settings-page.php:81
+#: partials/machine-translation-settings-page.php:91
 msgid "Block crawlers from triggering automatic translations on your website."
 msgstr ""
 
-#: partials/machine-translation-settings-page.php:87
+#: partials/machine-translation-settings-page.php:97
 msgid "Limit machine translation / characters per day"
 msgstr ""
 
-#: partials/machine-translation-settings-page.php:93
+#: partials/machine-translation-settings-page.php:103
 msgid "Add a limit to the number of automatically translated characters so you can better budget your project."
 msgstr ""
 
-#: partials/machine-translation-settings-page.php:99
+#: partials/machine-translation-settings-page.php:109
 msgid "Today's character count:"
 msgstr ""
 
-#: partials/machine-translation-settings-page.php:107
+#: partials/machine-translation-settings-page.php:117
 msgid "Log machine translation queries."
 msgstr ""
 
-#: partials/machine-translation-settings-page.php:114
+#: partials/machine-translation-settings-page.php:124
 msgid "Only enable for testing purposes. Can impact performance.<br>All records are stored in the wp_trp_machine_translation_log database table. Use a plugin like <a href=\"https://wordpress.org/plugins/wp-data-access/\">WP Data Access</a> to browse the logs or directly from your database manager (PHPMyAdmin, etc.)"
 msgstr ""
 
@@ -989,12 +1011,23 @@ msgstr ""
 msgid "Select the language you wish to make your website available in."
 msgstr ""
 
-#: partials/main-settings-language-selector.php:69
-msgid "To add <strong>more than two languages</strong> and support for SEO Title, Description, Slug and more check out <a href=\"%s\" class=\"button button-primary\" target=\"_blank\" title=\"TranslatePress Pro\">TranslatePress PRO</a>"
+#. translators: %1$s is the URL to the add-ons. %2$2 is for the TranslatePress add-on verbiage.
+#: partials/main-settings-language-selector.php:71
+msgid "To add <strong>more than two languages</strong> and support for SEO Title, Description, Slug and more check out <a href=\"%1$s\" target=\"_blank\" title=\"%2$s\">%2$s</a>."
 msgstr ""
 
-#: partials/main-settings-language-selector.php:70
+#: partials/main-settings-language-selector.php:73
+msgctxt "Verbiage for the TranslatePress Advanced add-ons"
+msgid "TranslatePress Advanced Add-ons"
+msgstr ""
+
+#: partials/main-settings-language-selector.php:75
 msgid "Not only are you getting extra features and premium support, but you also help fund the future development of TranslatePress."
+msgstr ""
+
+#: partials/main-settings-language-selector.php:79
+msgctxt "Link to the TranslatePress add-ons"
+msgid "TranslatePress Advanced Add-ons"
 msgstr ""
 
 #: partials/main-settings-language-selector.php:66
@@ -1139,6 +1172,10 @@ msgstr ""
 
 #: partials/trp-remove-duplicate-rows.php:29
 msgid "Remove duplicate gettext rows"
+msgstr ""
+
+#: partials/trp-remove-duplicate-rows.php:30
+msgid "Remove duplicate original strings"
 msgstr ""
 
 #: partials/trp-update-database.php:3
@@ -1311,6 +1348,14 @@ msgstr ""
 
 #: includes/advanced-settings/disable-post-container-tags.php:33
 msgid "It disables search indexing the post content in translated languages.<br/>Useful when the content of the post doesn't allow HTML thus breaking the page."
+msgstr ""
+
+#: includes/advanced-settings/do-not-translate-certain-paths.php:10
+msgid "Do not translate certain paths"
+msgstr ""
+
+#: includes/advanced-settings/do-not-translate-certain-paths.php:11
+msgid "Choose what paths can be translated. Supports wildcard at the end of the path.<br>For example, to exclude https://example.com/some/path you can either use the rule /some/path/ or /some/*.<br>Enter each rule on it's own line. To exclude the home page use {{home}}."
 msgstr ""
 
 #: includes/advanced-settings/enable-auto-translate-slug.php:8

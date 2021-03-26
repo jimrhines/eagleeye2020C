@@ -5,92 +5,102 @@ import Select from 'react-select';
 const { __ } = wp.i18n;
 const { InspectorControls } = wp.blockEditor;
 const {
-  PanelBody,
-  PanelRow,
-  ServerSideRender,
-  TextControl,
-  RadioControl,
-  SelectControl,
-  Spinner
+	PanelBody,
+	PanelRow,
+	ServerSideRender,
+	TextControl,
+	RadioControl,
+	SelectControl,
+	Spinner
 } = wp.components;
 const { registerBlockType } = wp.blocks;
 const { Component, Fragment } = wp.element;
 
 export class SelectCPT extends Component {
 
-  constructor(props) {
-    super(); // or super(props); ??
+	constructor(props) {
+		super(); // or super(props); ??
 
-    this.state = {
-      loading: false,
-      types: [],
-    };
-    this.props = props;
-  }
+		this.state = {
+			loading: false,
+			types: [],
+		};
+		this.props = props;
+	}
 
-  // get post types to populate select box
-  componentDidMount() {
+	// get post types to populate select box
+	componentDidMount() {
 
-    this.setState({ loading: true });
+		this.setState({ loading: true });
 
-    const url = 'simple-sitemap/v1/post-types';
-    //const url = '/wp/v2/types';
+		const url = 'simple-sitemap/v1/post-types';
+		//const url = '/wp/v2/types';
 
-    wp.apiFetch({ path: url, method: 'GET' }).then(
-      (data) => {
+		wp.apiFetch({ path: url, method: 'GET' }).then(
+			(data) => {
 
-        var post_types = [];
+				var post_types = [];
 
-        const entries = Object.entries(data);
-        for (const [key, value] of entries) {
+				const entries = Object.entries(data);
+				for (const [key, value] of entries) {
 
-          //console.log(key, value);
+					//console.log(key, value);
 
-          const tmp = {
-            value: key,
-            label: value
-          };
+					const tmp = {
+						value: key,
+						label: value
+					};
 
-          post_types.push(tmp);
-        }
+					post_types.push(tmp);
+				}
 
-        this.setState({
-          types: post_types,
-          loading: false
-        });
-        return data;
-      },
-      (err) => {
-        return err;
-      }
-    );
-  }
+				this.setState({
+					types: post_types,
+					loading: false
+				});
+				return data;
+			},
+			(err) => {
+				return err;
+			}
+		);
+	}
 
-  render() {
-    const { setAttributes, block_post_types, multi=true, className } = this.props;
-    //console.log(JSON.stringify(this.props));
+	render() {
+		const { setAttributes, block_post_types, multi = true, className } = this.props;
+		//console.log(JSON.stringify(this.props));
 
-    // Not really needed as this displays a spinning icon EVERY time a sitemap block is clicked on which doesn't look great.
-    // if ( this.state.loading ) {
-    //   return (
-    //     <p style={{'display': 'flex', 'align-items': 'center'}} className={className} >
-    //       <Spinner />
-    //       { __( 'Loading post types', 'simple-sitemap' ) }
-    //     </p>
-    //   );
-    // }
+		// Not really needed as this displays a spinning icon EVERY time a sitemap block is clicked on which doesn't look great.
+		// if ( this.state.loading ) {
+		//   return (
+		//     <p style={{'display': 'flex', 'align-items': 'center'}} className={className} >
+		//       <Spinner />
+		//       { __( 'Loading post types', 'simple-sitemap' ) }
+		//     </p>
+		//   );
+		// }
 
-    return (
-      <div>
-        <Select
-          value={JSON.parse(block_post_types)}
-          isMulti={multi}
-          onChange={(val) => setAttributes({ block_post_types: JSON.stringify(val) })}
-          options={this.state.types}
-          className="react-select-container"
-          classNamePrefix="react-select"
-        />
-      </div>
-    );
-  }
+		const selectStyles = {
+			container: styles => ({
+				...styles,
+				'& div[class$="-Input"]': {
+					'& input:focus': {
+						boxShadow: 'none'
+					}
+				}
+			})
+		};
+	
+		return (
+			<Select
+				value={JSON.parse(block_post_types)}
+				isMulti={multi}
+				onChange={(val) => setAttributes({ block_post_types: JSON.stringify(val) })}
+				options={this.state.types}
+				className="react-select-container"
+				classNamePrefix="react-select"
+				styles={selectStyles}
+			/>
+		);
+	}
 }

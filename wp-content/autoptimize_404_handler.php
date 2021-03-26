@@ -27,7 +27,7 @@ if ( strpos( $original_request, 'uucss/uucss-' ) !== false ) {
 }
 
 $fallback_target  = preg_replace( '/(.*)_(?:[a-z0-9]{32})\.(js|css)$/', '${1}_fallback.${2}', $original_request );
-$ao_cache_dir     = 'C:\Users\jrhin\Local Sites\eepowers\app\public/wp-content/cache/autoptimize/';
+$ao_cache_dir     = '/nas/content/live/eepowersstage/wp-content/cache/autoptimize/';
 $js_or_css        = pathinfo( $original_request, PATHINFO_EXTENSION );
 $fallback_path    = $ao_cache_dir . $js_or_css . '/autoptimize_fallback.' . $js_or_css;
 

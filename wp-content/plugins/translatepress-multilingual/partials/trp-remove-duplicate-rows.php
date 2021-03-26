@@ -27,6 +27,7 @@
                     <input type="hidden" name="trp_rm_duplicates" value="<?php echo esc_attr( $this->settings['translation-languages'][0] ); ?>">
                     <input type="submit" class="button-primary" name="trp_rm_duplicates_dictionary" value="<?php esc_attr_e( 'Remove duplicate dictionary rows', 'translatepress-multilingual' ); ?>">
                     <input type="submit" class="button-primary" name="trp_rm_duplicates_gettext" value="<?php esc_attr_e( 'Remove duplicate gettext rows', 'translatepress-multilingual' ); ?>">
+                    <input type="submit" class="button-primary" name="trp_rm_duplicates_original_strings" value="<?php esc_attr_e( 'Remove duplicate original strings', 'translatepress-multilingual' ); ?>">
                 </form>
             <?php } ?>
 

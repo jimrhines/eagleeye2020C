@@ -1,4 +1,7 @@
 <?php
+
+namespace WPGO_Plugins\Simple_Sitemap;
+
 /*
  *      Class for the [simple-sitemap-group] shortcode
 */
@@ -8,8 +11,8 @@ class WPGO_Simple_Sitemap_Group_Shortcode {
 	 /* Main class constructor. */
 	public function __construct() {
 
-		add_shortcode( 'simple-sitemap-group', array( &$this, 'render' ) );
-		add_shortcode( 'ssg', array( &$this, 'render' ) );
+		add_shortcode( 'simple-sitemap-group', array( 'WPGO_Plugins\Simple_Sitemap\WPGO_Simple_Sitemap_Group_Shortcode', 'render' ) );
+		add_shortcode( 'ssg', array( 'WPGO_Plugins\Simple_Sitemap\WPGO_Simple_Sitemap_Group_Shortcode', 'render' ) );
 	}
 
 	/* Shortcode function. */

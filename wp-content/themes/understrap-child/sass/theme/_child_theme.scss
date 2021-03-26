@@ -120,7 +120,9 @@ img[src$=".svg"] {
 
 .btn,
 .wpcf7 input[type="submit"],
-.entry-content input[type=submit] {
+.entry-content input[type=submit],
+.woocommerce .btn-outline-primary,
+.woocommerce button.button.alt {
 	text-transform: uppercase;
 	border-radius: 0;
 	font-family: $accent-font-family;
@@ -138,8 +140,8 @@ img[src$=".svg"] {
 .btn-secondary,
 .wpcf7 input[type="submit"],
 .entry-content input[type=submit],
-.cart .btn-outline-primary,
-.add-to-cart-container .btn-outline-primary {
+.woocommerce .btn-outline-primary,
+.woocommerce button.button.alt {
 	color: $brand-black;
 	background-color: $brand-yellow;
 	border-color: $brand-yellow;
@@ -166,8 +168,8 @@ img[src$=".svg"] {
 	&:focus,
 	&:hover {
 	    color: $brand-yellow-hover !important;
-	    background-color: $brand-black !important;
-	    border-color: $brand-black !important;
+	    background-color: $brand-black-hover !important;
+	    border-color: $brand-black-hover !important;
 	}
 }
 

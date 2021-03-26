@@ -37,13 +37,16 @@ class TRP_Translation_Render{
             return;//we have two cases where we don't do anything: we are on the admin side and we are not in an ajax call or we are in the left side of the translation editor
         }
         else {
+            global $trp_output_buffer_started;//use this global so we know that we started the output buffer. we can check it for instance when wrapping gettext
             mb_http_output("UTF-8");
             if ( $TRP_LANGUAGE == $this->settings['default-language'] && !trp_is_translation_editor() ) {
                 // on default language when we are not in editor we just need to clear any trp tags that could still be present and handle links for special situation
                 $chunk_size = ($this->handle_custom_links_for_default_language() ) ? null : 4096;
                 ob_start(array( $this, 'render_default_language' ), $chunk_size);
+                $trp_output_buffer_started = true;
             } else {
                 ob_start(array($this, 'translate_page'));//everywhere else translate the page
+                $trp_output_buffer_started = true;
             }
         }
     }
@@ -1011,14 +1014,6 @@ class TRP_Translation_Render{
         $html_decoded_value = html_entity_decode( (string) $value );
         if ( $html_decoded_value != strip_tags( $html_decoded_value ) ) {
 
-            $json_array = json_decode( $value, true );
-            if( ! ( $json_array && $json_array != $value ) ) {
-                /* stripslashes only if not json. Covers the case where we have json inside json.
-                 * Not sure why we need stripslashes for html though.
-                 * Keeping it because it's legacy and it might solve a use case we are unaware of right now */
-                $value = stripslashes($value);
-            }
-
             $value = $this->translate_page( $value );
             /*the translate-press tag can appear on a gettext string without html and should not be left in the json
             as we don't know how it will be inserted into the page by js */
@@ -1209,16 +1204,19 @@ class TRP_Translation_Render{
      */
     protected function is_admin_link( $url, $admin_url = '', $wp_login_url = '' ){
 
-        if( empty( $admin_url ) )
-            $admin_url = admin_url();
+	    if( empty( $admin_url ) )
+		    $admin_url = admin_url();
 
-        if( empty( $wp_login_url ) )
-            $wp_login_url = wp_login_url();
+	    if( empty( $wp_login_url ) )
+		    $wp_login_url = wp_login_url();
 
-        if ( strpos( $url, $admin_url ) !== false || strpos( $url, $wp_login_url ) !== false ){
-            return true;
-        }
-        return false;
+	    if ( strpos( $url, $admin_url ) !== false || strpos( $url, $wp_login_url ) !== false ){
+		    $is_admin_link = true;
+	    } else {
+		    $is_admin_link = false;
+	    }
+
+	    return apply_filters('trp_is_admin_link', $is_admin_link, $url, $admin_url, $wp_login_url);
 
     }
 

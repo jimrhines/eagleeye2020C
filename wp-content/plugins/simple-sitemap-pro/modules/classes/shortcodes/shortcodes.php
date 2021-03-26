@@ -1,4 +1,7 @@
 <?php
+
+namespace WPGO_Plugins\Simple_Sitemap;
+
 /*
  *	Bootstrap class for the sitemap shortcodes
 */
@@ -23,25 +26,29 @@ class WPGO_Simple_Sitemap_Shortcodes {
 
 		$root = $this->module_roots['dir'];
 
-		require_once( $root . 'shared/shortcodes_utility.php' );		
-
-		// [simple-sitemap] shortcode
+		require_once( $root . 'shared/shortcodes_utility.php' );
+    WPGO_Shortcode_Utility::create_instance($this->module_roots);		
+    
+    // require shortcode class walkers
+    require_once( $root . 'modules/classes/walkers/simple-sitemap-child-walker.php' );
+		
+    // [simple-sitemap] shortcode
 		require_once( $root . 'modules/classes/shortcodes/simple-sitemap-shortcode.php' );
 		new WPGO_Simple_Sitemap_Shortcode($this->module_roots);
-
+    
 		// [simple-sitemap-group] shortcode
 		require_once( $root . 'modules/classes/shortcodes/simple-sitemap-group-shortcode.php' );
 		new WPGO_Simple_Sitemap_Group_Shortcode($this->module_roots);
-
+    
 		// [simple-sitemap-child] shortcode
 		require_once( $root . 'modules/classes/shortcodes/simple-sitemap-child-shortcode.php' );
-		new WPGO_Simple_Sitemap_Child_Shortcode();
-
+		//new WPGO_Simple_Sitemap_Child_Shortcode();
+    
 		// [simple-sitemap-menu] shortcode
 		require_once( $root . 'modules/classes/shortcodes/simple-sitemap-menu-shortcode.php' );
 		new WPGO_Simple_Sitemap_Menu_Shortcode();
-
-		// [simple-sitemap-tax] shortcode
+    
+    // [simple-sitemap-tax] shortcode
 		require_once( $root . 'modules/classes/shortcodes/simple-sitemap-tax-shortcode.php' );
 		new WPGO_Simple_Sitemap_Tax_Shortcode();
 	}

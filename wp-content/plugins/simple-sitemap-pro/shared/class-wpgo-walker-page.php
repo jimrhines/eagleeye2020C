@@ -1,7 +1,10 @@
 <?php
 
+namespace WPGO_Plugins\Simple_Sitemap;
+
 // Custom walker class to render hierarchical pages
-class WPGO_Walker_Page extends Walker {
+// Backslash needed here as 'Walker' class is outside of the 'WPGO_Plugins\Simple_Sitemap' namespace
+class WPGO_Walker_Page extends \Walker {
 
 	public $ssp_args;
 

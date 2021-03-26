@@ -134,7 +134,7 @@ class TRP_Error_Manager{
     }
 
     public function register_submenu_errors_page(){
-        add_submenu_page( 'TRPHidden', 'TranslatePress Error Manager', 'TRPHidden', 'manage_options', 'trp_error_manager', array( $this, 'error_manager_page_content' ) );
+        add_submenu_page( 'TRPHidden', 'TranslatePress Error Manager', 'TRPHidden', apply_filters( 'trp_settings_capability', 'manage_options' ), 'trp_error_manager', array( $this, 'error_manager_page_content' ) );
     }
 
     public function error_manager_page_content(){

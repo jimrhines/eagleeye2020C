@@ -2,12 +2,12 @@
 # This file is distributed under the same license as the Themes - UnderStrap package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-05-01 21:42:56+0000\n"
+"PO-Revision-Date: 2020-12-27 17:46:06+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: GlotPress/2.4.0-alpha\n"
+"X-Generator: GlotPress/3.0.0-alpha.2\n"
 "Language: it\n"
 "Project-Id-Version: Themes - UnderStrap\n"
 
@@ -61,10 +61,6 @@ msgstr "Aggiungi un menu"
 msgid "Display name"
 msgstr "Mostra nome"
 
-#: inc/custom-comments.php:41
-msgid "Save my name, email, and website in this browser for the next time I comment"
-msgstr "Salva il mio nome, email e sito web in questo browser per la prossima volta che commento"
-
 #: woocommerce/myaccount/form-edit-account.php:38
 msgid "This will be how your name will be displayed in the account section and in reviews"
 msgstr "Questo sarà il modo in cui il tuo nome verrà visualizzato nella sezione account e nelle recensioni"
@@ -72,6 +68,10 @@ msgstr "Questo sarà il modo in cui il tuo nome verrà visualizzato nella sezion
 #: woocommerce/checkout/form-coupon.php:31
 msgid "If you have a coupon code, please apply it below."
 msgstr "Se hai un codice coupon, applicalo di seguito."
+
+#: inc/custom-comments.php:41
+msgid "Save my name, email, and website in this browser for the next time I comment"
+msgstr "Salva il mio nome, email e sito web in questo browser per la prossima volta che commento"
 
 #: woocommerce/product-searchform.php:26
 msgid "Search for:"
@@ -165,10 +165,6 @@ msgstr "%title&nbsp;<i class=\"fa fa-angle-right\"></i>"
 msgctxt "Previous post link"
 msgid "<i class=\"fa fa-angle-left\"></i>&nbsp;%title"
 msgstr "<i class=\"fa fa-angle-left\"></i>&nbsp;%title"
-
-#: woocommerce/myaccount/form-edit-account.php:48
-msgid "Password change"
-msgstr "Cambia password"
 
 #. Template Name of the theme
 msgid "Left Sidebar Layout"
@@ -270,6 +266,10 @@ msgstr "Nuova password (lascia vuoto per non modificare)"
 #: woocommerce/myaccount/form-edit-account.php:51
 msgid "Current password (leave blank to leave unchanged)"
 msgstr "Password attuale (lascia vuoto per non modificare)"
+
+#: woocommerce/myaccount/form-edit-account.php:48
+msgid "Password change"
+msgstr "Cambia password"
 
 #: woocommerce/myaccount/form-login.php:87
 #: woocommerce/myaccount/form-edit-account.php:43
@@ -511,11 +511,6 @@ msgstr "Pagine:"
 msgid "Search"
 msgstr "Cerca"
 
-#. translators: %s: query term
-#: search.php:36
-msgid "Search Results for: %s"
-msgstr "Risultati di ricerca per: %s"
-
 #. Template Name of the theme
 msgid "Full Width Page"
 msgstr "Pagina larghezza intera"
@@ -523,6 +518,11 @@ msgstr "Pagina larghezza intera"
 #: searchform.php:16
 msgid "Search &hellip;"
 msgstr "Cerca &hellip;"
+
+#. translators: %s: query term
+#: search.php:36
+msgid "Search Results for: %s"
+msgstr "Risultati della ricerca per: %s"
 
 #: 404.php:46
 msgid "Most Used Categories"
@@ -543,10 +543,6 @@ msgstr "Hero Slider"
 #: inc/template-tags.php:71
 msgid "% Comments"
 msgstr "% Commenti"
-
-#: inc/template-tags.php:71
-msgid "1 Comment"
-msgstr "1 Commento"
 
 #: inc/template-tags.php:71
 msgid "Leave a comment"
@@ -576,11 +572,6 @@ msgstr "I commenti sono chiusi."
 #: inc/hooks.php:31
 msgid "http://wordpress.org/"
 msgstr "http://wordpress.org/"
-
-#. translators:
-#: inc/hooks.php:34
-msgid "Proudly powered by %s"
-msgstr "Orgogliosamente sviluppato da %s"
 
 #: header.php:31
 msgid "Skip to content"
@@ -667,6 +658,15 @@ msgstr "Pronto a pubblicare il tuo primo articolo? <a href=\"%1$s\">Inizia da qu
 #: loop-templates/content-none.php:40
 msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
 msgstr "Non riusciamo a trovare quello che cerchi. Forse eseguire una ricerca potrebbe essere di aiuto."
+
+#: inc/template-tags.php:71
+msgid "1 Comment"
+msgstr "1 commento"
+
+#. translators:
+#: inc/hooks.php:34
+msgid "Proudly powered by %s"
+msgstr "Proudly powered by %s"
 
 #. Theme URI of the theme
 #: inc/hooks.php:41

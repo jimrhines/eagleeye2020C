@@ -4,17 +4,22 @@ msgstr ""
 "X-Generator: babel-plugin-makepot\n"
 
 #: lib/src/blocks/simple-sitemap-group/index.js:95
+#: lib/src/blocks/simple-sitemap/index.js:119
 #: lib/src/blocks/simple-sitemap/index.js:108
 #: modules/src/blocks/simple-sitemap-group/index.js:155
 #: modules/src/blocks/simple-sitemap/index.js:193
 msgid "General Settings"
 msgstr ""
 
+#: lib/src/blocks/simple-sitemap/index.js:175
+#: lib/src/blocks/simple-sitemap/index.js:164
 #: lib/src/blocks/simple-sitemap/index.js:163
 #: modules/src/blocks/simple-sitemap/index.js:302
 msgid "Tab Settings"
 msgstr ""
 
+#: lib/src/blocks/simple-sitemap/index.js:180
+#: lib/src/blocks/simple-sitemap/index.js:169
 #: lib/src/blocks/simple-sitemap/index.js:168
 #: modules/src/blocks/simple-sitemap/index.js:342
 msgid "Page Settings"

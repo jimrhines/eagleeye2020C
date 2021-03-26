@@ -11,9 +11,11 @@ class TRP_Query{
     protected $table_name;
     public $db;
     protected $settings;
+    protected $url_converter;
     protected $translation_render;
     protected $error_manager;
     protected $tables_exist = array();
+    protected $db_sql_version = null;
 
     const NOT_TRANSLATED = 0;
     const MACHINE_TRANSLATED = 1;
@@ -655,11 +657,12 @@ class TRP_Query{
 		}
 
 		$on_duplicate = ' ON DUPLICATE KEY UPDATE ';
+		$key_term_values = $this->is_values_accepted() ? 'VALUES' : 'VALUE';
 		foreach ( $columns_to_update as $column ) {
 			if ( $column == 'id' ){
 				continue;
 			}
-			$on_duplicate .= $column . '=VALUES(' . $column . '),';
+			$on_duplicate .= $column . '=' . $key_term_values . '(' . $column . '),';
 		}
 		$query .= implode( ', ', $place_holders );
 
@@ -795,11 +798,12 @@ class TRP_Query{
         }
 
 	    $on_duplicate = ' ON DUPLICATE KEY UPDATE ';
+        $key_term_values = $this->is_values_accepted() ? 'VALUES' : 'VALUE';
 	    foreach ( $columns_to_update as $column ) {
 		    if ( $column == 'id' ){
 			    continue;
 		    }
-		    $on_duplicate .= $column . '=VALUES(' . $column . '),';
+            $on_duplicate .= $column . '=' . $key_term_values . '(' . $column . '),';
 	    }
 	    $query .= implode( ', ', $place_holders );
 
@@ -1281,13 +1285,18 @@ class TRP_Query{
 
 	public function maybe_record_automatic_translation_error($error_details = array(), $ignore_last_error = false ){
         if ( !empty( $this->db->last_error) || $ignore_last_error ){
+            $trp = TRP_Translate_Press::get_trp_instance();
             if( !$this->error_manager ){
-                $trp = TRP_Translate_Press::get_trp_instance();
                 $this->error_manager = $trp->get_component( 'error_manager' );
             }
+            if( !$this->url_converter ) {
+                $this->url_converter = $trp->get_component( 'url_converter' );
+            }
+
             $default_error_details = array(
                 'last_error'  => $this->db->last_error,
-                'disable_automatic_translations' => true
+                'disable_automatic_translations' => true,
+                'url' => $this->url_converter->cur_page_url(),
             );
             $error_details = array_merge( $default_error_details, $error_details );
             $this->error_manager->record_error( $error_details );
@@ -1349,5 +1358,97 @@ class TRP_Query{
         $sql = "DELETE FROM `" . sanitize_text_field( $table_name ). "` WHERE " . implode( $place_holders, " OR " );
         $query = $this->db->prepare( $sql, $values );
         return $this->db->query( $query );
+    }
+
+    public function rename_originals_table(){
+        $new_table_name = sanitize_text_field( $this->get_table_name_for_original_strings() . time() );
+        $this->db->query( "ALTER TABLE " . $this->get_table_name_for_original_strings() . " RENAME TO " . $new_table_name );
+
+        $table_to_use_for_recovery = get_option('trp_original_strings_table_for_recovery', '');
+        if ( $table_to_use_for_recovery == '' ) {
+            // if a previous run of removing original strings duplicates failed, use the old table, not the one created during that failed time
+            update_option( 'trp_original_strings_table_for_recovery', $new_table_name );
+        }
+    }
+
+    public function regenerate_original_meta_table($inferior_limit, $batch_size){
+
+        if( !$this->error_manager ){
+            $trp = TRP_Translate_Press::get_trp_instance();
+            $this->error_manager = $trp->get_component( 'error_manager' );
+        }
+
+        $originals_table = $this->get_table_name_for_original_strings();
+        $recovery_originals_table = sanitize_text_field( get_option( 'trp_original_strings_table_for_recovery' ) );
+        $originals_meta_table = $this->get_table_name_for_original_meta();
+        if ( empty( $recovery_originals_table ) ){
+            $this->error_manager->record_error(array('regenerate_original_meta_table' => 'Empty option trp_original_strings_table_for_recovery'));
+            return;
+        }
+
+        $this->db->query( $this->db->prepare("UPDATE `$originals_meta_table` trp_meta INNER JOIN `$recovery_originals_table` trp_old ON trp_meta.original_id = trp_old.id LEFT JOIN `$originals_table` trp_new ON trp_new.original = trp_old.original set trp_meta.original_id = IF(trp_new.id IS NULL, 0, trp_new.id) WHERE trp_meta.meta_id > %d AND trp_meta.meta_id <= %d AND trp_new.id != trp_old.id", $inferior_limit, ($inferior_limit + $batch_size) ) );
+
+        /* UPDATE `wp_trp_original_meta` trp_meta INNER JOIN `wp_trp_original_strings1608214654` as trp_old ON trp_meta.original_id = trp_old.id
+         * LEFT JOIN `wp_trp_original_strings` as trp_new on trp_new.original = trp_old.original  set trp_meta.original_id = IF(trp_new.id IS NULL, 0, trp_new.id)
+         * WHERE trp_meta.meta_id > 10 AND trp_meta.meta_id <= 33 AND trp_new.id != trp_old.id*/
+
+        if (!empty($this->db->last_error)) {
+            $this->error_manager->record_error(array('last_error_regenerate_original_meta_table' => $this->db->last_error));
+        }
+    }
+
+    public function clean_original_meta( $limit ){
+        $limit = (int) $limit;
+        $sql = "DELETE FROM `" . sanitize_text_field( $this->get_table_name_for_original_meta() ). "` WHERE original_id = 0 LIMIT " . $limit;
+        return $this->db->query( $sql );
+    }
+
+    public function drop_table($table_name){
+        $sql = "DROP TABLE `" . sanitize_text_field( $table_name ). "`";
+        return $this->db->query( $sql );
+    }
+
+    /**
+     * Return db sql version
+     *
+     * Using 'select version()' instead of wpdb->db_server_info because
+     * db_server_info returns format 5.5.5-10.3.3-mariadb instead of 10.3.3-mariadb on some setups
+     * https://www.php.net/manual/en/mysqli.get-server-info.php#118822
+     *
+     * @return string|null
+     */
+    public function get_db_sql_version(){
+        if ( $this->db_sql_version === null ){
+            $this->db_sql_version = $this->db->get_var( 'select version()' );
+            $this->db_sql_version = ( $this->db_sql_version === null ) ? '0' : $this->db_sql_version;
+        }
+        return $this->db_sql_version;
+    }
+
+    /**
+     * Whether it is safe to use VALUES() instead of VALUE()
+     *
+     * Starting with 10.3.3 MariaDB recommends using VALUE() instead of VALUES()
+     * Even though they say they still accept the term values for 'on duplicate key update' syntax,
+     * some users still report syntax error.
+     * https://mariadb.com/kb/en/values-value/
+     *
+     * MySQL servers marked the use of VALUES deprecated starting with 8.0.20 but have not removed support for it.
+     * We can't use the MariaDB approach, their alternative is different and not supported by earlier versions.
+     * For now, there is no need to further complicate this SQL query based on DB version and make.
+     *
+     *
+     * @return bool
+     */
+    public function is_values_accepted(){
+        $return = true;
+        $db_sql_version = strtolower( $this->get_db_sql_version() );
+        if ( strpos( $db_sql_version, 'mariadb' ) !== false ){
+            $db_server_array = explode('-', $db_sql_version);
+            if( isset( $db_server_array[1] ) && $db_server_array[1] == 'mariadb' && version_compare($db_server_array[0], '10.3.3', '>=') ){
+                $return = false;
+            }
+        }
+        return $return;
     }
 }

@@ -44,10 +44,20 @@
                         <p class="trp-upsell-multiple-languages" id="trp-upsell-deepl">
                             <?php
                                 $url = trp_add_affiliate_id_to_link('https://translatepress.com/?utm_source=wpbackend&utm_medium=clientsite&utm_content=deepl_upsell&utm_campaign=tpfree');
-                                $lnk = sprintf( wp_kses( __( '<strong>DeepL</strong> automatic translation is available as a premium add-on in <a href="%s" class="button button-primary" target="_blank" title="TranslatePress Pro">TranslatePress PRO</a>', 'translatepress-multilingual' ), array( 'strong' => array(), 'br' => array(), 'a' => array( 'href' => array(), 'title' => array(), 'target'=> array(), 'class' => array() ) ) ), esc_url( $url ) );
-                                $lnk .= '<br/>' . __( 'By upgrading you\'ll get access to all paid add-ons, premium support and help fund the future development of TranslatePress.', 'translatepress-multilingual' );
-                                $lnk .= '<br/>' . __( 'Please note that DeepL API usage is paid separately. See <a href="https://www.deepl.com/pro.html#developer">DeepL pricing information</a>.', 'translatepress-multilingual' );
-                                echo $lnk;
+                                $lnk = sprintf(
+                                    // Translators: %1$s is the URL to the DeepL add-on. %2$s is the name of the Pro offerings.
+                                    __( '<strong>DeepL</strong> automatic translation is available as a <a href="%1$s" target="_blank" title="%2$s">%2$s</a>.', 'translatepress-multilingual' ),
+                                    esc_url( $url ),
+                                    _x( 'TranslatePress Pro Add-on', 'Verbiage for the DeepL Pro Add-on', 'translatepress-multilingual' )
+                                );
+                                $lnk .= '<br/><br />' . __( 'By upgrading you\'ll get access to all paid add-ons, premium support and help fund the future development of TranslatePress.', 'translatepress-multilingual' );
+                                $lnk .= '<br/><br />' . __( 'Please note that DeepL API usage is paid separately. See <a href="https://www.deepl.com/pro.html#developer">DeepL pricing information</a>.', 'translatepress-multilingual' );
+                                $lnk .= sprintf(
+                                    '<br /><br />' . '<a href="%1$s" class="button button-primary" target="_blank" title="%2$s">%2$s</a>',
+                                    esc_url( $url ),
+                                    __( 'TranslatePress Pro Add-ons', 'translatepress-multilingual' )
+                                );
+                                echo wp_kses_post( $lnk ); // Post kses for more generalized output that is more forgiving and has late escaping.
                             ?>
                         </p>
                     </td>

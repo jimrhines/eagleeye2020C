@@ -1,22 +1,25 @@
 <?php
+
+namespace WPGO_Plugins\Simple_Sitemap;
+
 /*
  * Class for the [simple-sitemap] shortcode
 */
 
 class WPGO_Simple_Sitemap_Shortcode {
 
-	protected $module_roots;
+  protected $module_roots;
 
-	 /* Main class constructor. */
-	 public function __construct($module_roots) {
+	  /* Main class constructor. */
+	  public function __construct($module_roots) {
 
-		$this->module_roots = $module_roots;
+	  $this->module_roots = $module_roots;
 
-		add_shortcode( 'simple-sitemap', array( 'WPGO_Simple_Sitemap_Shortcode', 'render' ) );
-		add_shortcode( 'ss', array( 'WPGO_Simple_Sitemap_Shortcode', 'render' ) ); // shortcode alias
+	  add_shortcode( 'simple-sitemap', array( 'WPGO_Plugins\Simple_Sitemap\WPGO_Simple_Sitemap_Shortcode', 'render' ) );
+  	add_shortcode( 'ss', array( 'WPGO_Plugins\Simple_Sitemap\WPGO_Simple_Sitemap_Shortcode', 'render' ) );
 	}
 
-	public static function render($attr) {
+	public function render($attr) {
 
 		/* Get attributes from the shortcode. */
 		$args = shortcode_atts( array(

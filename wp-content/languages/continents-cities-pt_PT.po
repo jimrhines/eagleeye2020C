@@ -1,15 +1,15 @@
-# Translation of WordPress - 5.5.x - Development - Continents & Cities in Portuguese (Portugal)
-# This file is distributed under the same license as the WordPress - 5.5.x - Development - Continents & Cities package.
+# Translation of WordPress - 5.7.x - Development - Continents & Cities in Portuguese (Portugal)
+# This file is distributed under the same license as the WordPress - 5.7.x - Development - Continents & Cities package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2018-07-18 13:43:42+0000\n"
+"PO-Revision-Date: 2021-03-16 17:35:02+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: GlotPress/3.0.0-alpha.2\n"
 "Language: pt\n"
-"Project-Id-Version: WordPress - 5.5.x - Development - Continents & Cities\n"
+"Project-Id-Version: WordPress - 5.7.x - Development - Continents & Cities\n"
 
 #: wp-admin/includes/continents-cities.php:478
 msgid "Saratov"
@@ -1247,7 +1247,7 @@ msgstr "Longyearbyen"
 
 #: wp-admin/includes/continents-cities.php:254
 msgid "Arctic"
-msgstr "Ártico"
+msgstr "Árctico"
 
 #: wp-admin/includes/continents-cities.php:252
 msgid "Vostok"
@@ -1291,7 +1291,7 @@ msgstr "Casey"
 
 #: wp-admin/includes/continents-cities.php:240
 msgid "Antarctica"
-msgstr "Antártica"
+msgstr "Antárctida"
 
 #: wp-admin/includes/continents-cities.php:238
 msgid "Yellowknife"

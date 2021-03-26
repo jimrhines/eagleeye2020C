@@ -1,0 +1,1116 @@
+# Translation of Plugins - Nested Pages - Stable (latest release) in Japanese
+# This file is distributed under the same license as the Plugins - Nested Pages - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2020-09-30 03:54:55+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: GlotPress/3.0.0-alpha.2\n"
+"Language: ja_JP\n"
+"Project-Id-Version: Plugins - Nested Pages - Stable (latest release)\n"
+
+#: app/Views/partials/row.php:278
+msgid "Preview"
+msgstr "プレビュー"
+
+#: app/Views/settings/settings-general.php:172
+msgid "- or Donate through Paypal -"
+msgstr "- または Paypal で寄付 -"
+
+#: app/Views/settings/settings-general.php:171
+msgid "Sponsor on Github"
+msgstr "Github でスポンサーになる"
+
+#: app/Views/settings/settings-general.php:170
+msgid "You can help support the continued development and upkeep of this plugin by sponsoring on Github. Whether you are an individual using this on a side project, a business, or an agency using this plugin across multiple sites… every bit helps!"
+msgstr "このプラグインを継続的に開発および維持管理できるよう、Github でご支援ください。副業で使っている個人、企業、あるいは複数サイトで利用中の代行業の皆さま、少額でも大歓迎です !"
+
+#: app/Views/settings/settings-general.php:169
+msgid "Sponsor this Plugin"
+msgstr "プラグインのスポンサーに"
+
+#: app/Views/settings/settings-general.php:168
+msgid "Show Some Love!"
+msgstr "応援してください !"
+
+#: app/Views/settings/settings-general.php:64
+msgid "Include private items in the menu."
+msgstr "非公開の項目をメニューに含める"
+
+#: app/Views/settings/settings-general.php:126
+msgid "Admins may always view the sort view."
+msgstr "管理者は並び替え表示を常に見られます。"
+
+#: app/Views/settings/settings-general.php:110
+msgid "Sort view access is also filterable through the nestedpages_sort_view_$type filter."
+msgstr "並び替え表示は、nestedpages_sort_view_$type フィルターを利用しても絞り込めます。"
+
+#: app/Views/settings/settings-general.php:109
+msgid "Allow Sort View"
+msgstr "並び替え表示を許可"
+
+#: app/Views/settings/settings-general.php:92
+msgid "Page sorting capability is also controlled through the nestedpages_sorting_$type capability"
+msgstr "固定ページの並び替え機能は、nestedpages_sorting_$type 機能からでも制御できます。"
+
+#: app/Views/forms/quickedit-post.php:243
+msgid "<strong>Current Menu</strong>: %s"
+msgstr "<strong>現在のメニュー</strong>: %s"
+
+#: app/Views/partials/row.php:75
+msgid "(Sticky)"
+msgstr "(ブログのトップに固定)"
+
+#: app/Views/partials/row.php:297
+msgid "Trash %s & Children"
+msgstr "「%s」と子項目をゴミ箱へ移動"
+
+#: app/Views/partials/row.php:294
+msgid "Trash %s"
+msgstr "「%s」をゴミ箱へ移動"
+
+#: app/Form/Listeners/TrashWithChildren.php:53
+msgid "Current page could not be determined"
+msgstr "現在のページを判別できませんでした"
+
+#: app/Views/settings/settings-posttypes.php:170
+msgid "Add custom status support for this post type."
+msgstr "この投稿タイプにカスタムのステータスを追加。"
+
+#: app/Views/settings/settings-posttypes.php:169
+msgid "Enable Custom Statuses"
+msgstr "カスタムステータスを有効化"
+
+#: app/Views/listing.php:43
+msgid "Sync %s Order"
+msgstr "%sの順序を同期"
+
+#: app/Views/partials/row.php:154
+msgid "Add Child %s"
+msgstr "子項目「%s」を追加"
+
+#: app/Views/partials/row.php:130
+msgid "%i Comments"
+msgstr "%i件のコメント"
+
+#: app/Views/partials/row.php:119
+msgid "Translations (%s)"
+msgstr "翻訳 (%s)"
+
+#: app/Views/partials/bulk-edit.php:71
+msgid "Parent %s"
+msgstr "親項目「%s」"
+
+#: app/Views/partials/tool-list.php:38
+msgid "Empty (%s)"
+msgstr "空 (%s)"
+
+#: app/Views/settings/settings-posttypes.php:87
+msgid "Currently assigned to: %s"
+msgstr "現在の割り当て先: %s"
+
+#: app/Views/settings/settings-posttypes.php:34
+msgid "Replace Default %s Menu"
+msgstr "デフォルトの「%s」メニューを置換"
+
+#: app/Views/settings/settings-posttypes.php:19
+msgid "%s <em>(Hierarchical)</em>"
+msgstr "%s <em>(階層)</em>"
+
+#: app/Views/settings/settings-general.php:44
+msgid "Use the classic (non-indented) hierarchy display."
+msgstr "クラシック (インデントなし) の階層表示を使用。"
+
+#: app/Entities/Confirmation/TrashRestoredConfirmation.php:12
+msgid "%d item restored from trash."
+msgid_plural "%d items restored from trash."
+msgstr[0] "%d件の項目をゴミ箱から復元しました。"
+
+#: app/Entities/Confirmation/TrashConfirmation.php:26
+msgid "%d %s moved to the trash."
+msgstr "%d件の%sをゴミ箱へ移動しました。"
+
+#: app/Entities/Confirmation/TrashConfirmation.php:17
+msgid "%d Link Removed."
+msgid_plural "%d Links Removed."
+msgstr[0] "%d件のリンクを削除しました。"
+
+#: app/Views/settings/settings-admincustom.php:24
+msgid "Reset Admin Menu Settings"
+msgstr "管理者メニューの設定をリセット"
+
+#: app/Entities/AdminCustomization/AdminMenuItems.php:312
+msgid "Profile"
+msgstr "プロフィール"
+
+#: app/Views/settings/partials/nav-menu-settings.php:65
+msgid "Reference"
+msgstr "参照"
+
+#: app/Views/settings/partials/nav-menu-settings.php:65
+msgid "Icon CSS Class"
+msgstr "アイコンの CSS クラス"
+
+#: app/Views/settings/partials/nav-menu-settings.php:47
+msgid "Details"
+msgstr "詳細"
+
+#: app/Views/settings/partials/nav-menu-settings.php:42
+msgid "Separator (WooCommerce)"
+msgstr "区切り (WooCommerce)"
+
+#: app/Config/AdminMenuSettings.php:60
+#: app/Views/settings/partials/nav-menu-settings/header.php:22
+#: app/Views/settings/partials/nav-menu-settings.php:42
+msgid "Separator"
+msgstr "区切り"
+
+#: app/Views/settings/partials/nav-menu-settings/header.php:19
+msgid "New"
+msgstr "新規"
+
+#: app/Views/settings/settings.php:14
+msgid "Admin Customization"
+msgstr "管理者メニューのカスタマイズ"
+
+#: app/Views/settings/settings-admincustom.php:22
+msgid "Some plugins may add menu items on activation. These new menu items will not display until the Nested Pages Admin Menu has been configured with these items."
+msgstr "プラグインを有効化するとメニュー項目が追加されることがあります。こういった新しいメニュー項目は、Nested Pages の管理者メニューで設定するまで表示されません。"
+
+#: app/Views/settings/settings-admincustom.php:22
+msgid "Important: Plugin Menu Items "
+msgstr "重要: プラグインのメニュー項目"
+
+#: app/Views/settings/settings-admincustom.php:21
+msgid "Reorder, hide and rename admin menu items by user role. These changes do not effect actual permissions, only menu appearance."
+msgstr "ユーザーの権限に応じて、順序変更、非表示、名前変更ができます。ここで変更しても実際の権限には影響しません。メニューの外観のみです。"
+
+#: app/Views/settings/settings-admincustom.php:21
+msgid "Menu Items"
+msgstr "メニュー項目"
+
+#: app/Views/settings/settings-admincustom.php:13
+msgid "Admin Menu"
+msgstr "管理者メニュー"
+
+#: app/Views/settings/settings-admincustom.php:4
+msgid "Select Items to Customize"
+msgstr "カスタマイズする項目を選択"
+
+#: app/Form/Validation/Validation.php:227
+msgid "%s is required."
+msgstr "「%s」は必須です。"
+
+#: app/Entities/AdminMenu/AdminSubmenu.php:89
+#: app/Views/partials/tool-list.php:46
+msgid "Default %s"
+msgstr "デフォルトの%s"
+
+#: app/Views/settings/settings-general.php:155
+msgid "User preferences have been successfully reset."
+msgstr "ユーザー設定が正常にリセットされました。"
+
+#: app/Views/settings/settings-general.php:146
+msgid "Toggle states are saved for each user. This action will clear these preferences for all users. If PHP errors appear within the nested view after an update, this may help clear them."
+msgstr "設定状態はユーザーごとに保存されています。これを実行すると、全ユーザーの設定がクリアされます。更新後にネスト表示で PHP のエラーが発生する場合、これを実行すると解消できることがあります。"
+
+#: app/Views/settings/settings-general.php:145
+#: app/Views/settings/settings-general.php:151
+msgid "Reset User Preferences"
+msgstr "ユーザー設定をリセット"
+
+#: app/Form/Listeners/QuickEdit.php:26
+msgid "You do not have sufficient privileges to edit this post."
+msgstr "この投稿を編集する権限がありません。"
+
+#: app/Entities/Post/PrivatePostParent.php:30
+msgid "(no parent)"
+msgstr "(親なし)"
+
+#: app/Activation/Dependencies.php:136
+msgid "Are you sure you would like to empty the trash? This action is not reversible."
+msgstr "ゴミ箱を空にしてよろしいですか? この操作は元に戻せません。"
+
+#: app/Views/settings/settings-posttypes.php:318
+msgid "Initial Order:"
+msgstr "当初の順序:"
+
+#: app/Views/settings/settings-posttypes.php:302
+msgid "Default (Menu Order)"
+msgstr "デフォルト (メニューの順序)"
+
+#: app/Views/settings/settings-posttypes.php:295
+msgid "Initial Order By:"
+msgstr "当初の順序:"
+
+#: app/Views/partials/row.php:200
+msgid "Push to Bottom"
+msgstr "末尾に挿入"
+
+#: app/Views/partials/row.php:189
+msgid "Push to Top"
+msgstr "先頭に挿入"
+
+#: app/Views/partials/row.php:174
+msgid "Insert %s After"
+msgstr "後に「%s」を挿入"
+
+#: app/Views/partials/row.php:166
+msgid "Insert %s Before"
+msgstr "前に「%s」を挿入"
+
+#: app/Views/partials/tool-list.php:150 app/Views/partials/list-header.php:17
+msgid "Apply"
+msgstr "適用"
+
+#: app/Views/partials/bulk-edit.php:74
+msgid "— No Change —"
+msgstr "— 変更なし —"
+
+#: app/Form/Validation/Validation.php:187
+msgid "A valid parent page was not provided to insert after."
+msgstr "後挿入の対象として有効な親ページがありません。"
+
+#: app/Form/Validation/Validation.php:181
+msgid "A valid parent page was not provided to insert before."
+msgstr "前挿入の対象として有効な親ページがありません。"
+
+#: app/Activation/Dependencies.php:152
+msgid "Insert After"
+msgstr "後に挿入"
+
+#: app/Activation/Dependencies.php:151
+msgid "Insert Before"
+msgstr "前に挿入"
+
+#: app/Views/settings/settings-general.php:138
+msgid "Settings have been successfully reset."
+msgstr "設定が正常にリセットされました。"
+
+#: app/Views/settings/settings-general.php:136
+msgid "Reset Nested Pages Settings"
+msgstr "Nested Pages の設定をリセット"
+
+#: app/Views/settings/settings-general.php:133
+msgid "Warning: Resetting plugin settings will remove all menu settings, post type customizations, role customizations and any other Nested Pages settings. These will be replaced with the default settings. This action cannot be undone."
+msgstr "警告: プラグインの設定をリセットすると、メニュー設定、投稿タイプのカスタマイズ、権限のカスタマイズ、その他 Nested Pages の設定がすべて消去され、デフォルト設定に変更されます。この操作は元に戻せません。 "
+
+#: app/Views/settings/settings-general.php:132
+msgid "Reset Plugin Settings"
+msgstr "プラグインの設定をリセット"
+
+#: app/Views/settings/settings-posttypes.php:281
+msgid "Add and remove sort options."
+msgstr "並び替えのオプションを追加および削除。"
+
+#: app/Views/settings/settings-posttypes.php:280
+msgid "Sort Options"
+msgstr "並び替えオプション"
+
+#: app/Views/settings/settings-posttypes.php:7
+msgid "Enable Post Types:"
+msgstr "投稿タイプを有効化:"
+
+#: app/Views/partials/wpml-translations.php:13
+msgid "Close"
+msgstr "閉じる"
+
+#: app/Views/partials/wpml-translations.php:4
+msgid "Translations for "
+msgstr "翻訳:"
+
+#: app/Views/forms/quickedit-post.php:179
+msgid "Make Sticky"
+msgstr "先頭に固定表示"
+
+#: app/Form/Listeners/WpmlTranslations.php:35
+msgid "There are currently no translations for the selected post."
+msgstr "現在、選択した投稿に翻訳はありません。"
+
+#: app/Form/Listeners/WpmlTranslations.php:28
+msgid "WPML is not currently installed."
+msgstr "WPML がインストールされていません。"
+
+#: app/Entities/PluginIntegration/WPML.php:228
+msgid "All Languages"
+msgstr "すべての言語"
+
+#: app/Entities/PluginIntegration/WPML.php:151
+msgid "Sync WPML Menus"
+msgstr "WPML のメニューを同期"
+
+#: app/Activation/Dependencies.php:149
+msgid "Add Translation"
+msgstr "翻訳を追加"
+
+#: app/Views/settings/settings-posttypes.php:109
+msgid "There are currently no pages available."
+msgstr "現在、表示できるページがありません。"
+
+#: app/Views/settings/settings-posttypes.php:96
+msgid "No pages were found."
+msgstr "ページが見つかりませんでした。"
+
+#: app/Views/settings/settings-posttypes.php:95
+msgid "Search Pages"
+msgstr "ページを検索"
+
+#: app/Views/settings/settings-posttypes.php:80
+msgid "Assign Page"
+msgstr "ページを割り当てる"
+
+#: app/Views/settings/settings-posttypes.php:77
+msgid "Adds contextual links and post counts to the page row for the assigned post type."
+msgstr "割り当て先のページ行内にこの投稿タイプのリンクと投稿数を追加。"
+
+#: app/Views/settings/settings-posttypes.php:76
+msgid "Assign Page for Listing"
+msgstr "一覧表示するページを割り当て"
+
+#: app/Views/settings/settings-posttypes.php:53
+msgid "Remove drag and drop sorting from this post type."
+msgstr "この投稿タイプでドラッグ & ドロップによる並び替えを無効化。"
+
+#: app/Views/settings/settings-posttypes.php:52
+#: app/Views/settings/settings-posttypes.php:56
+msgid "Disable Sorting"
+msgstr "並び替えを無効化"
+
+#: app/Views/settings/partials/nav-menu-settings.php:44
+#: app/Views/settings/settings-posttypes.php:87
+#: app/Activation/Dependencies.php:146
+msgid "Remove"
+msgstr "削除"
+
+#: app/Activation/Dependencies.php:145
+msgid "Currently assigned to:"
+msgstr "現在の割り当て先:"
+
+#: app/Views/listing.php:85 app/Views/listing.php:88
+msgid "Dismiss this notice."
+msgstr "この通知を非表示。"
+
+#. Description of the plugin
+msgid "Provides an intuitive drag and drop interface for managing pages in the Wordpress admin, while enhancing quick edit. Includes an auto-generated menu to match the nested interface, support for all post types and more."
+msgstr "直感的なドラッグ & ドロップで、WordPress 管理者画面ページを管理すると同時に、クイック編集機能も強化します。また、ネスト化したインターフェイスに一致するメニューも自動生成されます。どのような投稿タイプに対応しています。"
+
+#: app/Views/settings/settings-posttypes.php:264
+msgid "No ACF Fields configured for this post type"
+msgstr "この投稿タイプには ACF フィールドが構成されていません"
+
+#: app/Views/settings/settings-posttypes.php:249
+msgid "Advanced Custom Fields"
+msgstr "詳細なカスタムフィールド"
+
+#: app/Views/settings/settings-posttypes.php:243
+msgid "Check to Include in Quick Edit."
+msgstr "クイック編集に含めるにはチェック。"
+
+#: app/Views/settings/settings-posttypes.php:237
+msgid "Set which custom fields display in the quick edit form."
+msgstr "どのカスタムフィールドをクイック編集フォームに表示するか設定。"
+
+#: app/Views/settings/settings-posttypes.php:236
+#: app/Views/settings/settings-posttypes.php:240
+msgid "Configure Custom Fields"
+msgstr "カスタムフィールドを構成"
+
+#: app/Views/settings/settings-posttypes.php:194
+msgid "Check to remove from Quick Edit."
+msgstr "クイック編集から除外するにはチェック。"
+
+#: app/Views/settings/settings-posttypes.php:188
+msgid "Remove standard fields from the quick edit form."
+msgstr "クイック編集フォームから標準のフィールドを除去。"
+
+#: app/Views/settings/settings-posttypes.php:187
+#: app/Views/settings/settings-posttypes.php:191
+msgid "Configure Standard Fields"
+msgstr "標準のフィールドを構成"
+
+#: app/Views/settings/settings-posttypes.php:148
+msgid "Large"
+msgstr "大"
+
+#: app/Views/settings/settings-posttypes.php:147
+msgid "Medium"
+msgstr "中"
+
+#: app/Views/settings/settings-posttypes.php:146
+msgid "Small"
+msgstr "小"
+
+#: app/Views/settings/settings-posttypes.php:144
+msgid "Thumbnail Display Size"
+msgstr "サムネイルの表示サイズ"
+
+#: app/Views/settings/settings-posttypes.php:133
+msgid "Thumbnail Source"
+msgstr "サムネイルのソース"
+
+#: app/Views/settings/settings-posttypes.php:130
+msgid "Display Thumbnails for %s"
+msgstr "「%s」のサムネイルを表示"
+
+#: app/Views/settings/settings-posttypes.php:127
+msgid "Note: Thumbnail width is displayed at a maximum of 80px in the nested pages view. The image is scaled proportionally."
+msgstr "注: ネストされたページの表示で、サムネイルの幅は最大80px で表示されます。画像は縦横比を保って拡大縮小されます。"
+
+#: app/Views/settings/settings-posttypes.php:126
+msgid "Display the thumbnail in the list sort view."
+msgstr "一覧での並び替え表示でサムネイルを表示。"
+
+#: app/Views/settings/settings-posttypes.php:125
+msgid "Display Thumbnails"
+msgstr "サムネイルを表示"
+
+#: app/Views/settings/settings-posttypes.php:68
+msgid "Disable Nesting for %s"
+msgstr "「%s」でネストを無効化"
+
+#: app/Views/settings/settings-posttypes.php:65
+msgid "To disable nesting on hierarchical post types, select this option."
+msgstr "階層になっている投稿タイプでネストを無効にするには、このオプションを選択。"
+
+#: app/Views/settings/settings-posttypes.php:42
+msgid "If the default menu is replaced, a link to the default view will be added. Select this to remove the link"
+msgstr "デフォルトのメニューが置き換えられている場合、デフォルト表示へのリンクが追加されています。これを選択するとリンクは消去されます。"
+
+#: app/Views/settings/settings-posttypes.php:41
+msgid "Remove Default Link"
+msgstr "デフォルトへのリンクを消去"
+
+#: app/Views/settings/settings-posttypes.php:31
+msgid "Replace the default top-level item with the nested view link."
+msgstr "デフォルトで表示されるトップ項目をネスト表示へのリンクに置き換える。"
+
+#: app/Views/settings/settings-general.php:77
+msgid "Manually sync page order."
+msgstr "ページの順序を手動で同期"
+
+#: app/Views/settings/settings-general.php:71
+msgid "Manually sync menu."
+msgstr "メニューを手動で同期"
+
+#: app/Views/partials/list-header.php:19
+msgid "Nested Items Selected"
+msgstr "選択されたネスト項目"
+
+#: app/Views/partials/list-header.php:13
+msgid "Move to Trash"
+msgstr "ゴミ箱へ移動"
+
+#: app/Views/partials/bulk-edit.php:104 app/Views/partials/bulk-edit.php:114
+msgid "Show"
+msgstr "表示"
+
+#: app/Views/partials/bulk-edit.php:103 app/Views/partials/bulk-edit.php:113
+#: app/Views/settings/partials/nav-menu-settings/header.php:27
+msgid "Hide"
+msgstr "非表示"
+
+#: app/Views/partials/bulk-edit.php:100
+msgid "Display in Nested View"
+msgstr "ネストで表示"
+
+#: app/Views/partials/bulk-edit.php:94
+msgid "Do not allow"
+msgstr "許可しない"
+
+#: app/Views/partials/bulk-edit.php:93
+msgid "Allow"
+msgstr "許可する"
+
+#: app/Views/partials/bulk-edit.php:90
+msgid "Comments"
+msgstr "コメント"
+
+#: app/Views/partials/bulk-edit.php:27 app/Views/partials/bulk-edit.php:48
+#: app/Views/partials/bulk-edit.php:62 app/Views/partials/bulk-edit.php:92
+#: app/Views/partials/bulk-edit.php:102 app/Views/partials/bulk-edit.php:112
+msgid "No Change"
+msgstr "変更なし"
+
+#: app/Views/partials/bulk-edit.php:15
+msgid "There are links selected. Bulk edit will not apply to links."
+msgstr "リンクが選択されています。一括編集はリンクには適用されません。"
+
+#: app/Views/partials/bulk-edit.php:12
+msgid "Bulk Edit"
+msgstr "一括編集"
+
+#: app/Views/settings/settings-posttypes.php:315
+msgid "Order"
+msgstr "順序"
+
+#: app/Config/SettingsRepository.php:106
+msgid "Password/Private"
+msgstr "パスワード / 非公開"
+
+#: app/Config/SettingsRepository.php:105
+msgid "Post Status"
+msgstr "投稿ステータス"
+
+#: app/Config/SettingsRepository.php:103
+msgid "Post Date"
+msgstr "投稿日"
+
+#: app/Config/SettingsRepository.php:101
+msgid "Post Title"
+msgstr "投稿タイトル"
+
+#: app/Activation/Dependencies.php:142
+msgid "Trash Posts and Delete Links"
+msgstr "投稿をゴミ箱へ移動し、リンクを削除"
+
+#: app/Activation/Dependencies.php:140
+msgid "Are you sure you would like to delete this item? This action is not reversible."
+msgstr "この項目を削除しますか ? 操作は元に戻せません。"
+
+#: app/Activation/Dependencies.php:139
+msgid "Your selection includes link items, which cannot be recovered after deleting. Would you like to continue? (Other items are moved to the trash)"
+msgstr "リンクが選択されています。リンクは削除後に元に戻せません。続行しますか ? (それ以外はゴミ箱へ移動します)"
+
+#: app/Views/partials/list-header.php:11 app/Activation/Dependencies.php:138
+msgid "Bulk Actions"
+msgstr "一括操作"
+
+#. Author URI of the plugin
+msgid "https://github.com/kylephillips"
+msgstr "https://github.com/kylephillips"
+
+#. Author of the plugin
+msgid "Kyle Phillips"
+msgstr "Kyle Phillips"
+
+#. Plugin URI of the plugin
+msgid "http://nestedpages.com"
+msgstr "http://nestedpages.com"
+
+#: app/Views/settings/settings.php:10
+msgid "Post Types"
+msgstr "投稿タイプ"
+
+#: app/Views/settings/settings.php:6
+msgid "General"
+msgstr "一般"
+
+#: app/Views/settings/settings-posttypes.php:358
+msgid "<strong>Important:</strong> Changing page structures on live sites may effect SEO and existing inbound links. Limit URL structure changes on live sites by disabling nesting. Sorting within the current nesting structure will still be available. If nesting changes are made to a live site, it may help to add a 301 redirect from the old location to the new one."
+msgstr "<strong>重要:</strong> 本番サイトのページ構造を変更すると、SEO や被リンクにも影響する恐れがあります。ネストを無効にすることで URL 構造の変更を制限できます。その場合でも、現在のネスト構造内で並び替えは可能です。本番サイトでネストを変更したら、前の場所から新しい場所への301リダイレクトを追加するとよいかもしれません。"
+
+#: app/Views/settings/settings-posttypes.php:355
+msgid "If default menu is not replaced, an additional submenu item will be added for \"Nested/Sort View\""
+msgstr "デフォルトのメニューを置き換えない場合、ネスト表示や並び替え表示のサブメニューが追加されます。"
+
+#: app/Views/settings/settings-posttypes.php:64
+msgid "Disable Nesting"
+msgstr "ネストを無効化"
+
+#: app/Views/settings/settings-posttypes.php:45
+msgid "Hide Default %s Link"
+msgstr "デフォルトの「%s」のリンクを非表示"
+
+#: app/Views/settings/settings-posttypes.php:30
+msgid "Replace Default Menu"
+msgstr "デフォルトのメニューを置き換え"
+
+#: app/Views/settings/settings-general.php:103
+msgid "Admins always have sorting ability."
+msgstr "管理者は並び替えが可能。"
+
+#: app/Views/settings/settings-general.php:91
+msgid "Allow Page Sorting"
+msgstr "ページの並び替えを許可"
+
+#: app/Views/settings/settings-general.php:83
+msgid "Disable menu sync completely"
+msgstr "メニューの同期を完全に無効化"
+
+#: app/Views/settings/settings-general.php:58
+msgid "Hide Menu Sync Checkbox (%s)"
+msgstr "「メニューを同期」のチェックボックスを非表示 (%s)"
+
+#: app/Views/settings/settings-general.php:51
+msgid "Menu Sync"
+msgstr "メニューを同期"
+
+#: app/Views/settings/settings-general.php:40
+msgid "Enable Date Picker in Quick Edit"
+msgstr "クイック編集で日付選択ツールを有効化"
+
+#: app/Views/settings/settings-general.php:35
+msgid "Display Options"
+msgstr "表示オプション"
+
+#: app/Views/settings/settings-general.php:25
+msgid "Important: Once the menu name has changed, theme files should be updated to reference the new name."
+msgstr "重要: メニュー名を変更したら、新しい名前を参照するようテーマファイルも更新してください。"
+
+#: app/Views/settings/settings-general.php:24
+msgid "Menu Name"
+msgstr "メニュー名"
+
+#: app/Views/settings/settings-general.php:14
+msgid "Nested Pages Version"
+msgstr "Nested Pages のバージョン"
+
+#: app/Views/settings/settings-general.php:5
+msgid "Currently Disabled"
+msgstr "現在無効"
+
+#: app/Views/settings/settings-general.php:5
+msgid "Currently Enabled"
+msgstr "現在有効 "
+
+#: app/Views/partials/tool-list.php:164
+msgid "All "
+msgstr "すべて"
+
+#: app/Views/partials/tool-list.php:112
+#: app/Views/settings/settings-posttypes.php:323
+msgid "Descending"
+msgstr "降順"
+
+#: app/Views/partials/tool-list.php:111
+#: app/Views/settings/settings-posttypes.php:322
+msgid "Ascending"
+msgstr "昇順"
+
+#: app/Views/partials/tool-list.php:90
+#: app/Views/settings/settings-posttypes.php:292
+msgid "Order By"
+msgstr "並び順"
+
+#: app/Views/partials/tool-list.php:86
+msgid "Menu Order"
+msgstr "メニューの順序"
+
+#: app/Views/partials/tool-list.php:65
+msgid "All Authors"
+msgstr "すべての投稿者"
+
+#: app/Views/partials/tool-list.php:37
+msgid "Trash"
+msgstr "ゴミ箱"
+
+#: app/Views/partials/tool-list.php:14
+msgid "All"
+msgstr "すべて"
+
+#: app/Views/partials/row.php:70 app/Views/partials/list-header.php:15
+#: app/Views/forms/quickedit-post.php:243 app/Activation/Dependencies.php:150
+msgid "Edit"
+msgstr "編集"
+
+#: app/Views/partials/row.php:63
+msgid "%s currently editing"
+msgstr "現在 %s さんが編集中です"
+
+#: app/Entities/Listing/Listing.php:229
+msgid "Posts Page"
+msgstr "投稿ページ"
+
+#: app/Entities/Listing/Listing.php:228
+msgid "Front Page"
+msgstr "フロントページ"
+
+#: app/Views/listing.php:61 app/Views/listing.php:66
+msgid "Sync Menu"
+msgstr "メニューを同期"
+
+#: app/Config/SettingsRepository.php:123 app/Views/forms/quickedit-post.php:23
+msgid "Taxonomies"
+msgstr "タクソノミー"
+
+#: app/Config/SettingsRepository.php:112 app/Views/forms/quickedit-post.php:26
+msgid "Menu Options"
+msgstr "メニュー設定"
+
+#: app/Config/SettingsRepository.php:107 app/Views/forms/quickedit-post.php:162
+msgid "Allow Comments"
+msgstr "コメントを許可"
+
+#: app/Views/partials/bulk-edit.php:52 app/Views/forms/quickedit-post.php:152
+#: app/Activation/Dependencies.php:154
+msgid "Private"
+msgstr "非公開"
+
+#: app/Views/forms/quickedit-post.php:149
+msgid "&ndash;OR&ndash;"
+msgstr "&ndash; または &ndash;"
+
+#: app/Views/forms/quickedit-post.php:146
+msgid "Password"
+msgstr "パスワード"
+
+#: app/Views/forms/quickedit-post.php:63
+msgid "pm"
+msgstr "pm"
+
+#: app/Views/forms/quickedit-post.php:62
+msgid "am"
+msgstr "am"
+
+#: app/Views/forms/quickedit-post.php:58
+msgid "@"
+msgstr "@"
+
+#: app/Views/partials/tool-list.php:87 app/Views/forms/quickedit-post.php:55
+#: app/Views/forms/quickedit-post.php:72
+#: app/Views/settings/settings-posttypes.php:299
+msgid "Date"
+msgstr "日付"
+
+#: app/Config/SettingsRepository.php:102 app/Views/forms/quickedit-post.php:47
+msgid "Slug"
+msgstr "スラッグ "
+
+#: app/Views/partials/bulk-edit.php:148 app/Views/forms/quickedit-post.php:287
+#: app/Views/forms/quickedit-link.php:87
+msgid "Update"
+msgstr "更新"
+
+#: app/Config/SettingsRepository.php:115 app/Views/forms/quickedit-post.php:171
+#: app/Views/forms/quickedit-link.php:60
+msgid "Hide in Nested Pages"
+msgstr "Nested Pages で非表示"
+
+#: app/Views/partials/bulk-edit.php:110 app/Views/forms/quickedit-post.php:264
+#: app/Views/forms/quickedit-link.php:54 app/Views/forms/new-child.php:84
+msgid "Hide in Nav Menu"
+msgstr "ナビゲーションメニューで非表示"
+
+#: app/Views/forms/quickedit-post.php:256 app/Views/forms/quickedit-link.php:48
+msgid "CSS Classes"
+msgstr "CSS クラス"
+
+#: app/Entities/PostType/PostTypeRepository.php:474
+#: app/Views/forms/quickedit-link.php:31
+msgid "Scheduled"
+msgstr "予約済み"
+
+#: app/Views/forms/quickedit-link.php:8
+msgid "Link"
+msgstr "リンク"
+
+#: app/Views/forms/new-child.php:109
+msgid "Add & Edit"
+msgstr "追加して編集"
+
+#: app/Views/partials/bulk-edit.php:63 app/Views/forms/quickedit-post.php:138
+#: app/Views/forms/new-child.php:74
+msgid "Default Template"
+msgstr "デフォルトテンプレート"
+
+#: app/Config/SettingsRepository.php:111 app/Views/partials/bulk-edit.php:60
+#: app/Views/forms/quickedit-post.php:136 app/Views/forms/new-child.php:72
+msgid "Template"
+msgstr "テンプレート"
+
+#: app/Views/forms/new-child.php:28
+msgid "+"
+msgstr "+"
+
+#: app/Views/forms/quickedit-post.php:270 app/Views/forms/quickedit-link.php:66
+#: app/Views/forms/link-form.php:99
+msgid "Open link in a new window/tab"
+msgstr "リンクを新しいウィンドウまたはタブで開く"
+
+#: app/Views/forms/link-form.php:93
+msgid "CSS Classes (optional)"
+msgstr "CSS クラス (オプション)"
+
+#: app/Views/forms/quickedit-post.php:252 app/Views/forms/quickedit-link.php:44
+#: app/Views/forms/link-form.php:89
+msgid "Title Attribute"
+msgstr "タイトル属性"
+
+#: app/Views/forms/quickedit-post.php:248 app/Views/forms/quickedit-link.php:17
+#: app/Views/forms/link-form.php:85
+msgid "Navigation Label"
+msgstr "ナビゲーションラベル"
+
+#: app/Views/forms/quickedit-link.php:22 app/Views/forms/link-form.php:81
+msgid "URL"
+msgstr "URL"
+
+#: app/Views/forms/link-form.php:76
+msgid "Original"
+msgstr "オリジナル"
+
+#: app/Views/forms/link-form.php:71
+msgid "Select an item"
+msgstr "項目を選択"
+
+#: app/Views/forms/link-form.php:35 app/Views/forms/link-form.php:57
+msgid "No Results"
+msgstr "一致する結果がありません"
+
+#: app/Views/forms/link-form.php:28 app/Views/forms/link-form.php:57
+msgid "Search"
+msgstr "検索"
+
+#: app/Views/forms/link-form.php:19
+msgid "Custom Link"
+msgstr "カスタムリンク"
+
+#: app/Views/forms/empty-trash-modal.php:11
+msgid "Empty Trash"
+msgstr "ゴミ箱を空にする"
+
+#: app/Views/forms/delete-confirmation-modal.php:11
+#: app/Activation/Dependencies.php:141
+msgid "Delete"
+msgstr "削除"
+
+#: app/Views/partials/bulk-edit.php:145 app/Views/forms/quickedit-post.php:284
+#: app/Views/forms/quickedit-link.php:84
+#: app/Views/forms/delete-confirmation-modal.php:10
+#: app/Views/forms/new-child.php:103 app/Views/forms/empty-trash-modal.php:10
+#: app/Views/forms/link-form.php:116 app/Views/forms/clone-form.php:63
+msgid "Cancel"
+msgstr "キャンセル"
+
+#: app/Config/SettingsRepository.php:104 app/Views/partials/bulk-edit.php:37
+#: app/Views/forms/quickedit-post.php:95 app/Views/forms/new-child.php:62
+#: app/Views/forms/clone-form.php:51
+#: app/Views/settings/settings-posttypes.php:287
+msgid "Author"
+msgstr "登録者"
+
+#: app/Entities/PostType/PostTypeRepository.php:478
+#: app/Views/partials/tool-list.php:22 app/Views/partials/bulk-edit.php:54
+#: app/Views/forms/quickedit-link.php:34 app/Views/forms/new-child.php:40
+#: app/Views/forms/clone-form.php:33
+msgid "Draft"
+msgstr "下書き"
+
+#: app/Entities/PostType/PostTypeRepository.php:477
+#: app/Views/partials/bulk-edit.php:53 app/Views/forms/quickedit-link.php:33
+#: app/Views/forms/clone-form.php:32
+msgid "Pending Review"
+msgstr "レビュー待ち"
+
+#: app/Entities/PostType/PostTypeRepository.php:473
+#: app/Views/partials/tool-list.php:18 app/Views/partials/bulk-edit.php:50
+#: app/Views/forms/quickedit-link.php:30 app/Views/forms/new-child.php:38
+#: app/Views/forms/clone-form.php:30
+msgid "Published"
+msgstr "公開"
+
+#: app/Views/partials/bulk-edit.php:46 app/Views/forms/quickedit-post.php:109
+#: app/Views/forms/quickedit-link.php:27 app/Views/forms/new-child.php:35
+#: app/Views/forms/clone-form.php:27
+msgid "Status"
+msgstr "状態"
+
+#: app/Views/forms/clone-form.php:15
+msgid "Number of Copies"
+msgstr "コピーの数"
+
+#: app/Views/partials/row.php:210 app/Views/forms/clone-form.php:10
+#: app/Views/forms/clone-form.php:66
+msgid "Clone"
+msgstr "複製"
+
+#: app/Form/Validation/Validation.php:202
+msgid "Page titles cannot be blank."
+msgstr "ページのタイトルは空白にできません。"
+
+#: app/Form/Validation/Validation.php:194
+msgid "Please provide at least one page title."
+msgstr "少なくとも1つのページタイトルを入力してください。"
+
+#: app/Form/Validation/Validation.php:174
+msgid "A valid parent page was not provided."
+msgstr "親ページが有効ではありません。"
+
+#: app/Form/Validation/Validation.php:160
+msgid "Please provide a "
+msgstr "入力してください:"
+
+#: app/Form/Listeners/NewMenuItem.php:28 app/Form/Validation/Validation.php:150
+msgid "Please provide a valid URL."
+msgstr "有効な URL を入力してください。"
+
+#: app/Form/Validation/Validation.php:147
+msgid "Please provide a menu title."
+msgstr "メニューのタイトルを入力してください。"
+
+#: app/Form/Validation/Validation.php:136
+msgid "Please provide a valid date."
+msgstr "有効な日付を入力してください。"
+
+#: app/Form/Listeners/SyncMenu.php:24
+msgid "Menu sync disabled."
+msgstr "メニューの同期が無効です。"
+
+#: app/Form/Listeners/SyncMenu.php:34
+msgid "Menu sync enabled."
+msgstr "メニューの同期が有効です。"
+
+#: app/Form/Listeners/Sort.php:33
+msgid "There was an error updating the page order."
+msgstr "ページの順序を更新する際にエラーが発生しました。"
+
+#: app/Form/Listeners/Sort.php:31
+msgid "Page order successfully updated."
+msgstr "ページの順序が正常に更新されました。"
+
+#: app/Form/Listeners/QuickEdit.php:35
+msgid "Post successfully updated."
+msgstr "投稿が正常に更新されました。"
+
+#: app/Form/Listeners/NewMenuItem.php:47
+#: app/Form/Listeners/QuickEditLink.php:28
+msgid "Link successfully updated."
+msgstr "リンクが正常に更新されました。"
+
+#: app/Form/Listeners/NewMenuItem.php:27
+msgid "Custom Links must have a label."
+msgstr "カスタムリンクにはラベルが必要です。"
+
+#: app/Form/Listeners/EmptyTrash.php:17
+msgid "Trash successfully emptied."
+msgstr "ゴミ箱が正常に空になりました。"
+
+#: app/Form/Listeners/ClonePost.php:36
+#: app/Form/Listeners/TrashWithChildren.php:50
+#: app/Form/Listeners/WpmlTranslations.php:47
+msgid "Post Not Found"
+msgstr "投稿が見つかりません"
+
+#: app/Form/Listeners/BaseHandler.php:128
+msgid "There was an error updating the page."
+msgstr "ページを更新する際にエラーが発生しました。"
+
+#: app/Form/Listeners/BaseHandler.php:94
+msgid "Incorrect Form Field"
+msgstr "フォームのフィールドに誤り"
+
+#: app/Entities/PostType/RegisterPostTypes.php:30
+msgid "Redirect"
+msgstr "リダイレクト"
+
+#: app/Entities/PostType/RegisterPostTypes.php:29
+msgid "Redirects"
+msgstr "転送ルール"
+
+#: app/Entities/PostType/PostTypeRepository.php:413
+msgid "Sort View"
+msgstr "並び替え表示"
+
+#: app/Entities/PostType/PostTypeRepository.php:413
+msgid "Nested View"
+msgstr "ネスト表示"
+
+#: app/Entities/Confirmation/TrashConfirmation.php:31
+msgid "Undo"
+msgstr "元に戻す"
+
+#: app/Entities/Confirmation/LinkDeletedConfirmation.php:11
+msgid "Link successfully deleted."
+msgstr "リンクが正常に削除されました。"
+
+#. Plugin Name of the plugin
+#: app/Config/Settings.php:84
+msgid "Nested Pages"
+msgstr "Nested Pages"
+
+#: app/Config/Settings.php:83 app/Views/settings/settings.php:2
+msgid "Nested Pages Settings"
+msgstr "Nested Pages の設定"
+
+#: app/Views/settings/settings-posttypes.php:23
+#: app/Views/settings/settings-admincustom.php:14 app/Bootstrap.php:69
+msgid "Settings"
+msgstr "設定"
+
+#: app/Views/partials/row-link.php:50 app/Views/partials/row.php:55
+#: app/Activation/Dependencies.php:137
+msgid "Hidden"
+msgstr "非表示"
+
+#: app/Views/forms/empty-trash-modal.php:9
+msgid "Are you sure you would like to empty the trash? This action is not reversable."
+msgstr "ゴミ箱を空にしますか ? この操作は元に戻せません。"
+
+#: app/Views/listing.php:23 app/Views/listing.php:24
+#: app/Activation/Dependencies.php:135
+msgid "Add Multiple"
+msgstr "複数を追加"
+
+#: app/Activation/Dependencies.php:134
+msgid "Add Pages"
+msgstr "複数ページを追加"
+
+#: app/Activation/Dependencies.php:133
+msgid "Add Page"
+msgstr "ページを追加"
+
+#: app/Views/forms/new-child.php:106 app/Views/forms/link-form.php:120
+#: app/Activation/Dependencies.php:132
+msgid "Add"
+msgstr "追加"
+
+#: app/Activation/Dependencies.php:131
+msgid "Add Child Pages"
+msgstr "複数の子ページを追加"
+
+#: app/Activation/Dependencies.php:130
+msgid "Add Child Page"
+msgstr "子ページを追加"
+
+#: app/Views/forms/new-child.php:7 app/Activation/Dependencies.php:129
+msgid "Add Child"
+msgstr "子を追加"
+
+#: app/Views/partials/row.php:270 app/Activation/Dependencies.php:128
+msgid "View"
+msgstr "表示"
+
+#: app/Activation/Dependencies.php:127
+msgid "Page Title"
+msgstr "ページタイトル"
+
+#: app/Views/partials/row-link.php:75 app/Views/partials/row.php:256
+#: app/Views/forms/quickedit-post.php:18 app/Activation/Dependencies.php:126
+msgid "Quick Edit"
+msgstr "クイック編集"
+
+#: app/Entities/Post/PostUpdateRepository.php:116
+#: app/Views/partials/tool-list.php:88 app/Views/forms/quickedit-post.php:40
+#: app/Views/forms/new-child.php:19 app/Views/forms/new-child.php:21
+#: app/Views/settings/settings-posttypes.php:300
+#: app/Activation/Dependencies.php:125
+msgid "Title"
+msgstr "タイトル"
+
+#: app/Views/partials/row.php:146 app/Activation/Dependencies.php:124
+msgid "Add Child Link"
+msgstr "子のリンクを追加"
+
+#: app/Views/listing.php:29 app/Views/listing.php:30
+#: app/Activation/Dependencies.php:123
+msgid "Add Link"
+msgstr "リンクを追加"
+
+#: app/Views/partials/tool-list.php:29 app/Activation/Dependencies.php:122
+msgid "Hide Hidden"
+msgstr "非表示項目を表示しない"
+
+#: app/Views/partials/tool-list.php:27 app/Activation/Dependencies.php:121
+msgid "Show Hidden"
+msgstr "非表示項目を表示する"
+
+#: app/Activation/Dependencies.php:120
+msgid "Collapse All"
+msgstr "すべて閉じる"
+
+#: app/Views/partials/list-header.php:19 app/Views/listing.php:36
+#: app/Activation/Dependencies.php:119
+msgid "Expand All"
+msgstr "すべて開く"

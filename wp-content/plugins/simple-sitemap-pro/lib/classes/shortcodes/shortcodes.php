@@ -1,4 +1,7 @@
 <?php
+
+namespace WPGO_Plugins\Simple_Sitemap;
+
 /*
  *	Bootstrap class for the sitemap shortcodes
 */

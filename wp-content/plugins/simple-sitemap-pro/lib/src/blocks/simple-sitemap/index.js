@@ -103,6 +103,17 @@ export default registerBlockType(
 				setAttributes({ links: isChecked });
 			}
 
+			const selectStyles = {
+				container: styles => ({
+					...styles,
+					'& div[class$="-Input"]': {
+						'& input:focus': {
+							boxShadow: 'none'
+						}
+					}
+				})
+			};
+	
 			return [
 				<InspectorControls>
 					<PanelBody title={__('General Settings', 'simple-sitemap')}>
@@ -121,6 +132,7 @@ export default registerBlockType(
 									{ value: 'post', label: 'Post' },
 									{ value: 'page', label: 'Page' }
 								]}
+								styles={selectStyles}
 							/>
 						</PanelRow>
 						<PanelRow>

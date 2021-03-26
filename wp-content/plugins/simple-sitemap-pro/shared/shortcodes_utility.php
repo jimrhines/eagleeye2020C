@@ -1,11 +1,15 @@
 <?php
+
+namespace WPGO_Plugins\Simple_Sitemap;
+
 /*
  * Shortcodes utility class
 */
 
 class WPGO_Shortcode_Utility {
 
-	/* Class properties. */
+  protected static $instance;
+  protected $module_roots;
 	protected static $_thumb_size = 22; // pixels
 
 	// Enqueue scripts only when shortcode used on a page.
@@ -14,6 +18,27 @@ class WPGO_Shortcode_Utility {
 	//	wp_enqueue_script( 'simple-sitemap-shortcode-js' );
 	//	wp_enqueue_style( 'simple-sitemap-shortcode-css' );
 	//}
+
+  public function __construct($module_roots)
+  {
+    $this->module_roots = $module_roots;
+  }
+
+  public static function create_instance($module_roots)
+  {
+      if (!self::$instance) {
+          self::$instance = new WPGO_Shortcode_Utility($module_roots);
+      }
+      return self::$instance;
+  }
+
+  public static function get_instance()
+  {
+      if (!self::$instance) {
+          die('Error: Class instance hasn\'t been created yet.');
+      }
+      return self::$instance;
+  }
 
 	public static function get_post_type_label( $show_label, $post_type, $post_type_tag, $post_type_label_font_size ) {
 
@@ -85,7 +110,7 @@ class WPGO_Shortcode_Utility {
 	public static function render_list_items($args, $post_type, $query_args) {
 
 		$args['image_size'] = self::$_thumb_size;
-		$sitemap_query = new WP_Query( $query_args );
+		$sitemap_query = new \WP_Query( $query_args );
 
 		if ( $sitemap_query->have_posts() ) :
 

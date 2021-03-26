@@ -42,7 +42,9 @@ add_filter( 'trp_allow_tp_to_run', 'trp_missing_mbstrings_library' );
  */
 add_filter( 'nav_menu_link_attributes', 'trp_remove_html_from_menu_title', 10, 3);
 function trp_remove_html_from_menu_title( $atts, $item, $args ){
-    $atts['title'] = wp_strip_all_tags($atts['title']);
+    if( isset( $atts['title'] ) )
+        $atts['title'] = wp_strip_all_tags($atts['title']);
+        
     return $atts;
 }
 
@@ -239,7 +241,7 @@ function trp_woo_data_strip_trpst( $data ){
 add_filter( 'trp_skip_selectors_from_dynamic_translation', 'trp_woo_skip_dynamic_translation' );
 function trp_woo_skip_dynamic_translation( $skip_selectors ){
     if( class_exists( 'WooCommerce' ) ) {
-        $add_skip_selectors = array( '#select2-billing_country-results', '#select2-shipping_country-results' );
+        $add_skip_selectors = array( '#billing_country', '#shipping_country', '#billing_state', '#shipping_state', '#select2-billing_country-results',  '#select2-billing_state-results', '#select2-shipping_country-results', '#select2-shipping_state-results' );
         return array_merge( $skip_selectors, $add_skip_selectors );
     }
     return $skip_selectors;
@@ -825,37 +827,10 @@ if( function_exists('ct_is_show_builder') ) {
     }
 
     /**
-     * Used to redirect Oxygen Builder front-end to the default language.
-     * Hooked before TRP_Language_Switcher::redirect_to_correct_language() so we don't redirect twice
+     * Hide Floating Language Switcher when the Oxygen is shown
      */
-    add_action( 'template_redirect', 'trp_oxygen_redirect_to_default_language', 10 );
-    function trp_oxygen_redirect_to_default_language(){
-
-        if( is_admin() || !isset( $_GET['ct_builder'] ) || $_GET['ct_builder'] != 'true' )
-            return;
-
-        $trp           = TRP_Translate_Press::get_trp_instance();
-        $url_converter = $trp->get_component('url_converter');
-        $settings      = ( new TRP_Settings() )->get_settings();
-
-        $current_url  = $url_converter->cur_page_url();
-        $current_lang = $url_converter->get_lang_from_url_string( $current_url );
-
-        if( ( $current_lang == null && $settings['add-subdirectory-to-default-language'] == 'yes' ) || ( $current_lang != null && $current_lang != $settings['default-language'] ) ){
-            $link_to_redirect = $url_converter->get_url_for_language( $settings['default-language'], null, '' );
-
-            wp_redirect( $link_to_redirect, 301 );
-            exit;
-        }
-
-    }
-
-    /**
-     * Hide Floating Language Switcher when the Oxygen builder is being shown
-     * @var [type]
-     */
-    add_filter( 'trp_floating_ls_html', 'trp_oxygen_disable_language_switcher' );
-    function trp_oxygen_disable_language_switcher( $html ){
+    add_filter( 'trp_floating_ls_html', 'trp_page_builder_compatibility_disable_language_switcher' );
+    function trp_page_builder_compatibility_disable_language_switcher( $html ){
 
         if( isset( $_GET['ct_builder'] ) && $_GET['ct_builder'] == 'true' )
             return '';
@@ -863,9 +838,59 @@ if( function_exists('ct_is_show_builder') ) {
         return $html;
 
     }
+
 }
 
+if( function_exists( 'ct_is_show_builder' ) || defined( 'FL_BUILDER_VERSION' ) ){
 
+    /**
+     * Used to redirect Oxygen Builder front-end to the default language.
+     * Hooked before TRP_Language_Switcher::redirect_to_correct_language() so we don't redirect twice
+     */
+    add_action( 'template_redirect', 'trp_page_builder_compatibility_redirect_to_default_language', 10 );
+    function trp_page_builder_compatibility_redirect_to_default_language(){
+
+        if( !is_admin() && ( ( isset( $_GET['ct_builder'] ) && $_GET['ct_builder'] == 'true' ) || isset( $_GET['fl_builder'] ) ) ){
+
+            $trp           = TRP_Translate_Press::get_trp_instance();
+            $url_converter = $trp->get_component('url_converter');
+            $settings      = ( new TRP_Settings() )->get_settings();
+
+            $current_url  = $url_converter->cur_page_url();
+            $current_lang = $url_converter->get_lang_from_url_string( $current_url );
+
+            if( ( $current_lang == null && $settings['add-subdirectory-to-default-language'] == 'yes' ) || ( $current_lang != null && $current_lang != $settings['default-language'] ) ){
+                $link_to_redirect = $url_converter->get_url_for_language( $settings['default-language'], null, '' );
+
+                if( $link_to_redirect != $current_url ){
+                    wp_redirect( $link_to_redirect, 301 );
+                    exit;
+                }
+
+            }
+
+        }
+
+    }
+
+    /**
+     * Disable automatic language redirect when the Oxygen or Beaver Builders are showing
+     */
+    add_action( 'plugins_loaded', 'trp_page_builder_compatibility_disable_automatic_language_redirect' );
+    function trp_page_builder_compatibility_disable_automatic_language_redirect(){
+
+        if( ( isset( $_GET['ct_builder'] ) && $_GET['ct_builder'] == 'true' ) || isset( $_GET['fl_builder'] ) ){
+
+            $trp    = TRP_Translate_Press::get_trp_instance();
+            $loader = $trp->get_component( 'loader' );
+
+            $loader->remove_hook( 'wp_enqueue_scripts', 'enqueue_cookie_adding' );
+
+        }
+
+    }
+
+}
 
 /**
  * Compatibility with Brizy editor
@@ -1152,7 +1177,7 @@ function trp_elementor_blockquote_translate_tweet_button( $array ){
 
                     //add author if it was eliminated
                     if(!empty($quote_author) )
-                        $array['text'] = $array['text'] . ' — ' . $quote_author;
+                        $array['text'] = $array['text'] . ' — ' .  $translation_render->translate_page($quote_author);
 
                     break;
                 }
@@ -1161,6 +1186,32 @@ function trp_elementor_blockquote_translate_tweet_button( $array ){
 
     }
     return $array;
+}
+
+/**
+ * Add compatibility with blockquote tweet button in elementor pro that had the link broken, it doubled the language in the url
+ */
+if( function_exists('elementor_pro_load_plugin') ) {
+    add_filter('trp_home_url', 'trp_elementor_blockquote_tweet_button_url', 10, 5);
+    function trp_elementor_blockquote_tweet_button_url($new_url, $abs_home, $TRP_LANGUAGE, $path, $url)
+    {
+        if (version_compare(PHP_VERSION, '5.4.0', '>=')) {
+            $callstack_functions = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 15);//set a limit if it is supported to improve performance
+        } else {
+            $callstack_functions = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS);
+        }
+
+        $list_of_functions = array('render');
+        if (!empty($callstack_functions)) {
+            foreach ($callstack_functions as $callstack_function) {
+                if (in_array($callstack_function['function'], $list_of_functions) && isset($callstack_function['class']) && $callstack_function['class'] === 'ElementorPro\Modules\Blockquote\Widgets\Blockquote') {
+                    return $url;
+                }
+            }
+        }
+
+        return $new_url;
+    }
 }
 
 /**
@@ -1240,6 +1291,16 @@ if( function_exists('initial_ETC') ) {
     }
 }
 
+/**
+ * Add compatibility with Business Directory Plugin that requires to update permalinks when we are on other languages or else it will throw a 404 error
+ */
+if( defined( 'WPBDP_PLUGIN_FILE' ) ) {
+    add_filter('trp_prevent_permalink_update_on_other_languages', 'trp_prevent_permalink_update_on_other_languages');
+    function trp_prevent_permalink_update_on_other_languages($bool){
+        return false;
+    }
+}
+
 
 /**
  * Exclude some problematic gettext strings from being translated
@@ -1282,6 +1343,21 @@ function trp_woo_wc_api_handle_api_request( ){
 }
 
 /**
+ * Compatibility with WooCommerce Min/Max Quantities that wrongly add data-quantity attribute two times on the link and our parser breaks this. The update of the parser to 1.9.1 should render this redundant
+ */
+if( class_exists('WC_Min_Max_Quantities') ) {
+    add_filter('woocommerce_loop_add_to_cart_link', 'trp_check_duplicate_quantity_attribute_on_link', 99, 2);
+    function trp_check_duplicate_quantity_attribute_on_link($html, $product){
+        $occurrences = substr_count($html, " data-quantity=");
+        if ($occurrences > 1) {
+            $html = preg_replace('/(data-quantity="\d+"(?!.*data-quantity="\d+"))/', '', $html, 1);
+        }
+
+        return $html;
+    }
+}
+
+/**
  * Add here compatibility with search plugins
  */
 add_filter('trp_force_search', 'trp_force_search' );
@@ -1290,5 +1366,97 @@ function trp_force_search( $bool ){
     if( isset( $_REQUEST['action'] ) && $_REQUEST['action'] === 'etheme_ajax_search' )
         $bool = true;
 
+    //compatibility with WooCommerce Product Search plugin
+    if( class_exists('WooCommerce_Product_Search_Service') ) {
+        if (isset($_REQUEST['action']) && $_REQUEST['action'] === 'product_search')
+            $bool = true;
+    }
+
     return $bool;
 }
+
+/**
+ * Compatibility with WooCommerce Product Search plugin
+ * The only way I found is to hijack the cache in the get_post_ids_for_request() function from WooCommerce_Product_Search_Service class. It comes with a loss of performance
+ */
+if( class_exists('WooCommerce_Product_Search_Service') ) {
+
+    add_filter('woocommerce_product_search_request_search_query', 'trp_woocommerce_product_search_compatibility');
+
+    function trp_woocommerce_product_search_compatibility($search_query)
+    {
+        global $TRP_LANGUAGE;
+        $trp = TRP_Translate_Press::get_trp_instance();
+        $trp_settings = $trp->get_component('settings');
+        $settings = $trp_settings->get_settings();
+
+        if ($TRP_LANGUAGE !== $settings['default-language']) {
+            $title = isset($_REQUEST[WooCommerce_Product_Search_Service::TITLE]) ? intval($_REQUEST[WooCommerce_Product_Search_Service::TITLE]) > 0 : WooCommerce_Product_Search_Service::DEFAULT_TITLE;
+            $excerpt = isset($_REQUEST[WooCommerce_Product_Search_Service::EXCERPT]) ? intval($_REQUEST[WooCommerce_Product_Search_Service::EXCERPT]) > 0 : WooCommerce_Product_Search_Service::DEFAULT_EXCERPT;
+            $content = isset($_REQUEST[WooCommerce_Product_Search_Service::CONTENT]) ? intval($_REQUEST[WooCommerce_Product_Search_Service::CONTENT]) > 0 : WooCommerce_Product_Search_Service::DEFAULT_CONTENT;
+            $tags = isset($_REQUEST[WooCommerce_Product_Search_Service::TAGS]) ? intval($_REQUEST[WooCommerce_Product_Search_Service::TAGS]) > 0 : WooCommerce_Product_Search_Service::DEFAULT_TAGS;
+            $sku = isset($_REQUEST[WooCommerce_Product_Search_Service::SKU]) ? intval($_REQUEST[WooCommerce_Product_Search_Service::SKU]) > 0 : WooCommerce_Product_Search_Service::DEFAULT_SKU;
+            $categories = isset($_REQUEST[WooCommerce_Product_Search_Service::CATEGORIES]) ? intval($_REQUEST[WooCommerce_Product_Search_Service::CATEGORIES]) > 0 : WooCommerce_Product_Search_Service::DEFAULT_CATEGORIES;
+            $attributes = isset($_REQUEST[WooCommerce_Product_Search_Service::ATTRIBUTES]) ? intval($_REQUEST[WooCommerce_Product_Search_Service::ATTRIBUTES]) > 0 : WooCommerce_Product_Search_Service::DEFAULT_ATTRIBUTES;
+            $variations = isset($_REQUEST[WooCommerce_Product_Search_Service::VARIATIONS]) ? intval($_REQUEST[WooCommerce_Product_Search_Service::VARIATIONS]) > 0 : WooCommerce_Product_Search_Service::DEFAULT_VARIATIONS;
+
+            $min_price = isset($_REQUEST[WooCommerce_Product_Search_Service::MIN_PRICE]) ? WooCommerce_Product_Search_Service::to_float($_REQUEST[WooCommerce_Product_Search_Service::MIN_PRICE]) : null;
+            $max_price = isset($_REQUEST[WooCommerce_Product_Search_Service::MAX_PRICE]) ? WooCommerce_Product_Search_Service::to_float($_REQUEST[WooCommerce_Product_Search_Service::MAX_PRICE]) : null;
+            if ($min_price !== null && $min_price <= 0) {
+                $min_price = null;
+            }
+            if ($max_price !== null && $max_price <= 0) {
+                $max_price = null;
+            }
+            if ($min_price !== null && $max_price !== null && $max_price < $min_price) {
+                $max_price = null;
+            }
+
+            $on_sale = isset($_REQUEST[WooCommerce_Product_Search_Service::ON_SALE]) ? intval($_REQUEST[WooCommerce_Product_Search_Service::ON_SALE]) > 0 : WooCommerce_Product_Search_Service::DEFAULT_ON_SALE;
+
+            //this is how they get the key in the method get_cache_key()
+            $cache_key = md5(implode('-', array(
+                'title' => $title,
+                'excerpt' => $excerpt,
+                'content' => $content,
+                'tags' => $tags,
+                'sku' => $sku,
+                'categories' => $categories,
+                'attributes' => $attributes,
+                'variations' => $variations,
+
+                'search_query' => $search_query,
+                'min_price' => $min_price,
+                'max_price' => $max_price,
+                'on_sale' => $on_sale
+            )));
+
+            $trp_search = $trp->get_component('search');
+            $include = $trp_search->get_post_ids_containing_search_term($search_query, null);
+            wp_cache_set($cache_key, $include, WooCommerce_Product_Search_Service::POST_CACHE_GROUP, WooCommerce_Product_Search_Service::CACHE_LIFETIME);
+        }
+
+        return $search_query;
+    }
+}
+
+
+
+/**
+ * Strip tags manually from a problematic string coming from the My Listing theme
+ */
+ add_action('init', 'trp_mylisting_hook_exclude_string' );
+ function trp_mylisting_hook_exclude_string(){
+     if( class_exists( 'MyListing\\App' ) ){
+         add_filter('gettext_with_context', 'trp_mylisting_exclude_string', 101, 4 );
+     }
+ }
+
+ function trp_mylisting_exclude_string( $translation, $text, $context, $domain ){
+
+     if( $domain == 'my-listing' && $text == 'my-listings' )
+         $translation = TRP_Translation_Manager::strip_gettext_tags( $translation );
+
+     return $translation;
+
+ }

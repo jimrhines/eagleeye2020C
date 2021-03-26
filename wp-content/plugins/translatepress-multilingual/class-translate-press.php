@@ -57,7 +57,7 @@ class TRP_Translate_Press{
         define( 'TRP_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
         define( 'TRP_PLUGIN_BASE', plugin_basename( __DIR__ . '/index.php' ) );
         define( 'TRP_PLUGIN_SLUG', 'translatepress-multilingual' );
-        define( 'TRP_PLUGIN_VERSION', '1.9.0' );
+        define( 'TRP_PLUGIN_VERSION', '1.9.7' );
 
 	    wp_cache_add_non_persistent_groups(array('trp'));
 
@@ -116,6 +116,9 @@ class TRP_Translate_Press{
         require_once TRP_PLUGIN_DIR . 'includes/class-install-plugins.php';
         if ( did_action( 'elementor/loaded' ) )
             require_once TRP_PLUGIN_DIR . 'includes/class-elementor-language-for-blocks.php';
+        if ( defined( 'WPB_VC_VERSION' ) ) {
+            require_once TRP_PLUGIN_DIR . 'includes/class-wp-bakery-language-for-blocks.php';
+        }
     }
 
     /**
@@ -323,9 +326,11 @@ class TRP_Translate_Press{
 
         /* handle dynamic texts with gettext */
         $this->loader->add_filter( 'locale', $this->languages, 'change_locale', 99999 );
+        $this->loader->add_filter( 'plugin_locale', $this->languages, 'change_locale', 99999 );
 
         $this->loader->add_action( 'init', $this->translation_manager, 'create_gettext_translated_global' );
         $this->loader->add_action( 'init', $this->translation_manager, 'initialize_gettext_processing' );
+        $this->loader->add_action( 'trp_call_gettext_filters', $this->translation_manager, 'verify_locale_of_loaded_textdomain' );
         $this->loader->add_action( 'shutdown', $this->translation_manager, 'machine_translate_gettext', 100 );
 
 
@@ -374,7 +379,7 @@ class TRP_Translate_Press{
         $this->loader->add_action( 'plugins_loaded', $this, 'init_machine_translation', 10 );
 
         //search
-        $this->loader->add_filter( 'pre_get_posts', $this->search, 'trp_search_filter', 10 );
+        $this->loader->add_filter( 'pre_get_posts', $this->search, 'trp_search_filter', 100 );
         $this->loader->add_filter( 'get_search_query', $this->search, 'trp_search_query', 10 );
     }
 

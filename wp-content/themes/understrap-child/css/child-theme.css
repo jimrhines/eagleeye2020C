@@ -11692,7 +11692,11 @@ img[src$=".svg"] {
 .btn,
 .wpcf7 input[type=submit],
 .wpcf7 input[type="submit"],
-.entry-content input[type=submit] {
+.entry-content input[type=submit],
+.woocommerce .btn-outline-primary,
+.woocommerce .wpcf7 input[type=submit],
+.wpcf7 .woocommerce input[type=submit],
+.woocommerce button.button.alt {
   text-transform: uppercase;
   border-radius: 0;
   font-family: "Montserrat", sans-serif;
@@ -11703,7 +11707,15 @@ img[src$=".svg"] {
   .wpcf7 input[type="submit"]:active,
   .wpcf7 input[type="submit"]:focus,
   .entry-content input[type=submit]:active,
-  .entry-content input[type=submit]:focus {
+  .entry-content input[type=submit]:focus,
+  .woocommerce .btn-outline-primary:active,
+  .woocommerce .wpcf7 input:active[type=submit],
+  .wpcf7 .woocommerce input:active[type=submit],
+  .woocommerce .btn-outline-primary:focus,
+  .woocommerce .wpcf7 input:focus[type=submit],
+  .wpcf7 .woocommerce input:focus[type=submit],
+  .woocommerce button.button.alt:active,
+  .woocommerce button.button.alt:focus {
     background-color: #FFCC00 !important;
     border-color: #FFCC00 !important; }
 
@@ -11711,12 +11723,10 @@ img[src$=".svg"] {
 .btn-secondary,
 .wpcf7 input[type="submit"],
 .entry-content input[type=submit],
-.cart .btn-outline-primary,
-.cart .wpcf7 input[type=submit],
-.wpcf7 .cart input[type=submit],
-.add-to-cart-container .btn-outline-primary,
-.add-to-cart-container .wpcf7 input[type=submit],
-.wpcf7 .add-to-cart-container input[type=submit] {
+.woocommerce .btn-outline-primary,
+.woocommerce .wpcf7 input[type=submit],
+.wpcf7 .woocommerce input[type=submit],
+.woocommerce button.button.alt {
   color: #413f42;
   background-color: #FEE300;
   border-color: #FEE300; }
@@ -11730,24 +11740,18 @@ img[src$=".svg"] {
   .entry-content input[type=submit]:active,
   .entry-content input[type=submit]:focus,
   .entry-content input[type=submit]:hover,
-  .cart .btn-outline-primary:active,
-  .cart .wpcf7 input:active[type=submit],
-  .wpcf7 .cart input:active[type=submit],
-  .cart .btn-outline-primary:focus,
-  .cart .wpcf7 input:focus[type=submit],
-  .wpcf7 .cart input:focus[type=submit],
-  .cart .btn-outline-primary:hover,
-  .cart .wpcf7 input:hover[type=submit],
-  .wpcf7 .cart input:hover[type=submit],
-  .add-to-cart-container .btn-outline-primary:active,
-  .add-to-cart-container .wpcf7 input:active[type=submit],
-  .wpcf7 .add-to-cart-container input:active[type=submit],
-  .add-to-cart-container .btn-outline-primary:focus,
-  .add-to-cart-container .wpcf7 input:focus[type=submit],
-  .wpcf7 .add-to-cart-container input:focus[type=submit],
-  .add-to-cart-container .btn-outline-primary:hover,
-  .add-to-cart-container .wpcf7 input:hover[type=submit],
-  .wpcf7 .add-to-cart-container input:hover[type=submit] {
+  .woocommerce .btn-outline-primary:active,
+  .woocommerce .wpcf7 input:active[type=submit],
+  .wpcf7 .woocommerce input:active[type=submit],
+  .woocommerce .btn-outline-primary:focus,
+  .woocommerce .wpcf7 input:focus[type=submit],
+  .wpcf7 .woocommerce input:focus[type=submit],
+  .woocommerce .btn-outline-primary:hover,
+  .woocommerce .wpcf7 input:hover[type=submit],
+  .wpcf7 .woocommerce input:hover[type=submit],
+  .woocommerce button.button.alt:active,
+  .woocommerce button.button.alt:focus,
+  .woocommerce button.button.alt:hover {
     color: #413f42;
     background-color: #FFCC00;
     border-color: #FFCC00; }
@@ -11760,8 +11764,8 @@ img[src$=".svg"] {
     color: #FFCC00; }
   .btn-secondary:active, .btn-secondary:focus, .btn-secondary:hover {
     color: #FFCC00 !important;
-    background-color: #413f42 !important;
-    border-color: #413f42 !important; }
+    background-color: #616161 !important;
+    border-color: #616161 !important; }
 
 .wpcf7 input[type="submit"],
 .entry-content input[type=submit] {

@@ -22,6 +22,10 @@ class TRP_Ajax{
         }
 
         include './external-functions.php';
+        if ( !trp_is_valid_language_code( $_POST['language'] ) || !trp_is_valid_language_code( $_POST['$original_language'] ) ) {
+            echo json_encode( 'TranslatePress Error: Invalid language code' );
+            exit;
+        }
 
         if ( $this->connect_to_db() ){
 

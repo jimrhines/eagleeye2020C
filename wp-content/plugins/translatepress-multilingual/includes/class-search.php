@@ -139,7 +139,7 @@ class TRP_Search extends WP_Query{
 
         if ( $TRP_LANGUAGE !== $this->settings['default-language'] ) {
             if ( !is_admin() && isset( $_GET['s'] ) && empty( $s )  ){
-                $s = sanitize_text_field( $_GET['s'] );
+                $s = sanitize_text_field( wp_unslash( $_GET['s'] ) );
             }
         }
 

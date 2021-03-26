@@ -1,4 +1,7 @@
 <?php
+
+namespace WPGO_Plugins\Simple_Sitemap;
+
 /*
  *	Enqueue plugin scripts
 */
@@ -123,7 +126,7 @@ class WPGO_Simple_Sitemap_Enqueue_Scripts {
 					]
 				),
 				'editor_script'   => 'simple-sitemap-block', // The script name we gave in the wp_register_script() call.
-				'render_callback' => array( 'WPGO_Simple_Sitemap_Shortcode', 'render' ),
+				'render_callback' => array( 'WPGO_Plugins\Simple_Sitemap\WPGO_Simple_Sitemap_Shortcode', 'render' ),
 			) );
 
 			// Register our block, and explicitly define the attributes we accept.
@@ -163,7 +166,7 @@ class WPGO_Simple_Sitemap_Enqueue_Scripts {
 					)
 				),
 				'editor_script'   => 'simple-sitemap-block', // The script name we gave in the wp_register_script() call.
-				'render_callback' => array( 'WPGO_Simple_Sitemap_Group_Shortcode', 'render' ),
+				'render_callback' => array( 'WPGO_Plugins\Simple_Sitemap\WPGO_Simple_Sitemap_Group_Shortcode', 'render' ),
 			) );			
 
 			// Register our block, and explicitly define the attributes we accept.
@@ -199,7 +202,7 @@ class WPGO_Simple_Sitemap_Enqueue_Scripts {
 					// ]
 			// ),
 			// 	'editor_script'   => 'simple-sitemap-block', // The script name we gave in the wp_register_script() call.
-			// 	'render_callback' => array( 'WPGO_Simple_Sitemap_Group_Shortcode', 'render' ),
+			// 	'render_callback' => array( 'WPGO_Plugins\Simple_Sitemap\WPGO_Simple_Sitemap_Group_Shortcode', 'render' ),
 			// ) );
 		}
 	}

@@ -1,5 +1,7 @@
 <?php
 
+namespace WPGO_Plugins\Simple_Sitemap;
+
 /**
  * Conent filter hooks class.
  *

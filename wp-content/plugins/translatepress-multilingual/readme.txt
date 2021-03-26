@@ -3,9 +3,9 @@ Contributors: cozmoslabs, razvan.mo, madalin.ungureanu, sareiodata, cristophor
 Donate link: https://www.translatepress.com/
 Tags: translate, translation, multilingual, automatic translation, bilingual, front-end translation, google translate, language
 Requires at least: 3.1.0
-Tested up to: 5.6
+Tested up to: 5.7
 Requires PHP: 5.6.20
-Stable tag: 1.9.0
+Stable tag: 1.9.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -138,6 +138,54 @@ For more information please check out our [documentation](https://translatepress
 
 
 == Changelog ==
+= 1.9.7 =
+* Compatibility with Woocommerce Product Search plugin
+* Fixed some cases where JSON was broken in translated pages
+* Fixed issue with links containing translated taxonomy due to special characters
+* Fixed SQL errors in Slug Translation interface.
+* Fixed some cases with links on translated pages incorrectly pointing to the current page
+* Add filter for is_admin_link so plugins that hide the admin can work
+* Minor improvements to Slug Translation UI.
+
+= 1.9.6 =
+* Adding missing Uruguay flag
+* Improved security for dynamic translations
+* Disable automatic language redirect when editing a page with Oxygen or Beaver Builder
+* Fixed cases of missing table sql errors
+* Fixed sql error for some MariaDB setups due to deprecated syntax
+* Fixed some issues with Exclude certain paths functionality.
+
+= 1.9.5 =
+* Added setting that allows you to translate only certain paths or exclude certain paths from being translated.
+* Fixed some cases where GET parameters were lost from links in translated languages
+* WP Bakery integration that allow to include/exclude blocks for languages
+* Added a compatibility for the MyListing theme.
+* Load unsupported languages section only if an API key is saved.
+* Add support for AIO SEO sitemap detection
+
+= 1.9.4 =
+* Updated DOM parser to version 1.9.1, this should fix a bunch of broken HTML issues
+* Fixed a case in Woocommerce where slugs weren't translated from the seo-pack addon
+* Fixed share link in Elementor blockquote Tweet button
+* Fixed a possible issue with the search parameter being un-slashed
+
+= 1.9.3 =
+* Compatibility with WooCommerce Min/Max Quantities plugin that added an attribute data-quantity two times on a link
+* Added compatibility with Business Directory Plugin that was throwing 404
+* Fixed some cases of unnecessary calls to automatic translation API-s
+
+= 1.9.2 =
+* Fixed Norwegian language not working with Google Automatic Translation
+* Fixed loading localization text-domain in different language than expected.
+* Fixed gettext strings in incorrect language.
+* Fixed WooCommerce country and states translations.
+
+= 1.9.1 =
+* Fixing issue with WooCommerce slugs resulting in 404 if they were changed manually from the defaults in certain cases
+* Added a new cleanup option in settings
+* Fixed some issues with extra characters appearing on translated languages in certain conditions
+* Always load Beaver Builder in default language.
+
 = 1.9.0 =
 * Fixed some cases of multiple requests for finding out supported languages for automatic translation
 

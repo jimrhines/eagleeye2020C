@@ -1,0 +1,814 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2020-11-26 12:54:08+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: GlotPress/2.4.0-alpha\n"
+"Language: ko_KR\n"
+"Project-Id-Version: WooCommerce - WooCommerce Product Add-ons\n"
+
+#: includes/class-wc-product-addons-display.php:88
+msgid "%s characters remaining"
+msgstr ""
+
+#: woocommerce-product-addons.php:223
+msgid "New features of the Product Add-ons 3.0 versions are not available for WooCommerce less than 3.0. To use this new features, please update your WooCommerce version to the latest version."
+msgstr "Product Add-ons 3.0 버전의 새로운 기능은 WooCommerce 3.0 미만에서는 이용할 수 없습니다. 이 새로운 기능을 사용하려면 WooCommerce 버전을 최신 버전으로 업데이트하세요."
+
+#: woocommerce-product-addons.php:215
+msgid "Find products"
+msgstr "상품 찾기"
+
+#: woocommerce-product-addons.php:215
+msgid "Create an add-on that applies to every product, or apply it to specific categories. Create an add-on for an individual product by editing the product."
+msgstr "모든 상품에 적용되는 애드온을 만들거나 특정 카테고리에 적용합니다. 상품을 편집하여 개별 상품을 위한 애드온을 만들 수 있습니다."
+
+#: woocommerce-product-addons.php:215
+msgid "WooCommerce Product Add-ons is ready to go!"
+msgstr "WooCommerce 상품 애드온을 사용해보세요!"
+
+#: woocommerce-product-addons.php:202
+msgid "Documentation"
+msgstr "문서"
+
+#: woocommerce-product-addons.php:201
+msgid "Support"
+msgstr "고객지원"
+
+#. translators: %s WC download URL link.
+#: woocommerce-product-addons.php:35
+msgid "Product Add-ons requires WooCommerce to be installed and active. You can download %s here."
+msgstr "상품 애드온을 사용하려면 WooCommerce를 설치하고 활성화해야 합니다. 여기에서 %s을(를) 다운로드할 수 있습니다."
+
+#: legacy/includes/class-product-addon-display.php:70
+msgid "Sub total:"
+msgstr "소계:"
+
+#: legacy/admin/views/html-addon.php:65
+msgid "Min / Max"
+msgstr "최소/최대"
+
+#: legacy/admin/views/html-addon.php:51
+msgid "Description"
+msgstr "설명"
+
+#: legacy/admin/views/html-addon.php:15
+msgid "Additional price multiplier"
+msgstr "추가 가격 승수"
+
+#: legacy/admin/views/html-addon.php:14
+msgid "Additional custom price input"
+msgstr "추가 사용자 정의 가격 입력"
+
+#: legacy/admin/views/html-addon-panel.php:110
+msgid "Min / max"
+msgstr "최소/최대"
+
+#: legacy/admin/views/html-addon-panel.php:106
+msgid "Min / max characters"
+msgstr "최소/최대 글자 수"
+
+#: legacy/admin/views/html-addon-panel.php:97
+msgid "Min / max multiplier"
+msgstr "최소/최대 승수"
+
+#: legacy/admin/views/html-addon-panel.php:93
+msgid "Min / max price"
+msgstr "최소/최대 가격"
+
+#: legacy/admin/views/html-addon-panel.php:50
+msgid "All addon fields require a name."
+msgstr "모든 애드온 필드에는 이름이 있어야 합니다."
+
+#: legacy/admin/views/html-addon-panel.php:28
+msgid "New add-on"
+msgstr "새 애드온"
+
+#: includes/groups/class-wc-product-addons-groups.php:83
+#: legacy/groups/class-product-addon-groups.php:83
+#: legacy/includes/groups/class-product-addon-groups.php:83
+msgid "Unable to delete group. Invalid global add ons group ID."
+msgstr "그룹을 삭제할 수 없습니다. 유효하지 않은 글로벌 애드온 그룹 ID입니다."
+
+#: includes/groups/class-wc-product-addons-groups.php:51
+#: legacy/groups/class-product-addon-groups.php:51
+#: legacy/includes/groups/class-product-addon-groups.php:51
+msgid "Unable to retrieve data. Invalid global add ons group or product ID."
+msgstr "데이터를 가져올 수 없습니다. 유효하지 않은 글로벌 애드온 그룹 또는 상품 ID입니다."
+
+#: includes/fields/class-wc-product-addons-field-file-upload.php:34
+msgid "Filesize exceeds the limit."
+msgstr "파일 크기가 한도를 초과합니다."
+
+#. translators: %s Addon name
+#: includes/fields/class-wc-product-addons-field-custom.php:61
+msgid "Please enter a value greater than 0 for \"%s\"."
+msgstr "\"%s\"에 0보다 큰 값을 입력하세요."
+
+#. translators: 1 Addon name 2 Maximum amount
+#: includes/fields/class-wc-product-addons-field-custom.php:47
+msgid "The maximum allowed amount for \"%1$s\" is %2$s."
+msgstr "\"%1$s\"에 허용된 최대 금액은 %2$s입니다."
+
+#. translators: 1 Addon name 2 minimum amount
+#: includes/fields/class-wc-product-addons-field-custom.php:40
+msgid "The minimum amount required for \"%1$s\" is %2$s."
+msgstr "\"%1$s\"에 필요한 최소 금액은 %2$s입니다."
+
+#. translators: 1 Addon name 2 Maximum amount
+#: includes/fields/class-wc-product-addons-field-custom.php:32
+msgid "The maximum allowed characters for \"%1$s\" is %2$s."
+msgstr "\"%1$s\"에 허용된 최대 글자 수는 %2$s입니다."
+
+#. translators: 1 Addon name 2 Minimum amount
+#: includes/fields/class-wc-product-addons-field-custom.php:27
+msgid "The minimum characters required for \"%1$s\" is %2$s."
+msgstr "\"%1$s\"에 필요한 최소 글자 수는 %2$s입니다."
+
+#: includes/class-wc-product-addons-display.php:87
+msgid "Subtotal"
+msgstr "소계"
+
+#: includes/admin/views/html-global-admin.php:63
+msgid "Need help with add-ons? Visit the <a href=\"https://docs.woocommerce.com/document/product-add-ons\" target=\"_blank\">Documentation</a>."
+msgstr "애드온에 도움이 필요하신가요? <a href=\"https://docs.woocommerce.com/document/product-add-ons\" target=\"_blank\">설명서</a>를 확인해보세요."
+
+#: includes/admin/views/html-global-admin.php:56
+msgid "Create add-ons."
+msgstr "애드온을 만듭니다."
+
+#: includes/admin/views/html-global-admin.php:56
+msgid "No add-ons found."
+msgstr "애드온이 없습니다."
+
+#: includes/admin/views/html-global-admin.php:40
+msgid "No Products Assigned"
+msgstr "할당된 상품 없음"
+
+#: includes/admin/views/html-global-admin.php:9
+msgid "Create New"
+msgstr "새로 만들기"
+
+#: includes/admin/views/html-global-admin.php:9
+msgid "Add-Ons"
+msgstr "애드온"
+
+#: includes/admin/views/html-global-admin-add.php:59
+msgid "Select which categories this add-on should apply to. Create add-ons for a single product when editing that product."
+msgstr "이 애드온을 적용할 카테고리를 선택합니다. 단일 상품을 편집할 때 해당 상품에 대한 애드온을 만듭니다."
+
+#: includes/admin/views/html-global-admin-add.php:48
+msgid "Product categories"
+msgstr "상품 카테고리"
+
+#: includes/admin/views/html-global-admin-add.php:46
+msgid "Choose categories&hellip;"
+msgstr "카테고리를 선택합니다."
+
+#: includes/admin/views/html-global-admin-add.php:43
+#: includes/admin/views/html-global-admin.php:16
+msgid "Product Categories"
+msgstr "상품 카테고리"
+
+#: includes/admin/views/html-global-admin-add.php:38
+msgid "This determines the order when there are multiple add-ons. Add-ons for individual products are set to order 10."
+msgstr "애드온이 여러 개 있을 때 이에 따라 순서가 결정됩니다. 개발 상품에 대한 애드온은 순서가 10으로 설정됩니다."
+
+#: includes/admin/views/html-global-admin-add.php:29
+msgid "This name is for your reference only and will not be visible to customers."
+msgstr "이 이름은 참조용이며 고객에게 보이지 않습니다."
+
+#: includes/admin/views/html-global-admin-add.php:25
+#: includes/admin/views/html-global-admin.php:14
+#: legacy/admin/views/html-addon.php:37
+msgid "Name"
+msgstr "이름"
+
+#: includes/admin/views/html-global-admin-add.php:19
+msgid "Set up add-ons that apply to all products or specific product categories."
+msgstr "모든 상품 또는 특정 상품 카테고리에 적용되는 애드온을 설정합니다."
+
+#: includes/admin/views/html-global-admin-add.php:11
+msgid "Update"
+msgstr "업데이트"
+
+#: includes/admin/views/html-global-admin-add.php:10
+msgid "Edit Add-on"
+msgstr "애드온 편집"
+
+#: includes/admin/views/html-global-admin-add.php:7
+msgid "Publish"
+msgstr "발행하기"
+
+#: includes/admin/views/html-global-admin-add.php:6
+#: woocommerce-product-addons.php:215
+msgid "Create add-ons"
+msgstr "애드온 만들기"
+
+#: includes/admin/views/html-addon.php:243
+msgid "Adjust price"
+msgstr "가격 조정"
+
+#: includes/admin/views/html-addon.php:231
+msgid "Enter a minimum and maximum value for the limit range."
+msgstr "한도 범위의 최소 및 최대 금액을 입력합니다."
+
+#: includes/admin/views/html-addon.php:184
+msgid "Add Option"
+msgstr "옵션 추가"
+
+#: includes/admin/views/html-addon.php:166
+#: includes/admin/views/html-addon.php:244
+msgid "Choose how to calculate price: apply a flat fee regardless of quantity, charge per quantity ordered, or charge a percentage of the total"
+msgstr "가격을 계산할 방법을 선택합니다. 수량과 관계없이 고정 금액을 적용하거나 주문한 수량에 따라 가격을 부과하거나 총 합계의 비율로 부과합니다."
+
+#: includes/admin/views/html-addon.php:160
+msgid "Option"
+msgstr "옵션"
+
+#: includes/admin/views/html-addon.php:139
+msgid "Add description"
+msgstr "설명 추가"
+
+#: includes/admin/views/html-addon.php:129
+msgid "Hide"
+msgstr "숨기기"
+
+#: includes/admin/views/html-addon.php:127 legacy/admin/views/html-addon.php:63
+msgid "Label"
+msgstr "레이블"
+
+#: includes/admin/views/html-addon.php:123
+msgid "Format title"
+msgstr "형식 제목"
+
+#: includes/admin/views/html-addon.php:114
+msgid "Title"
+msgstr "타이틀"
+
+#: includes/admin/views/html-addon.php:105
+msgid "Only Email Address"
+msgstr "이메일 주소만"
+
+#: includes/admin/views/html-addon.php:104
+msgid "Only Letters and Numbers"
+msgstr "문자와 숫자만"
+
+#: includes/admin/views/html-addon.php:103
+msgid "Only Numbers"
+msgstr "숫자만"
+
+#: includes/admin/views/html-addon.php:102
+msgid "Only Letters"
+msgstr "문자만"
+
+#: includes/admin/views/html-addon.php:101
+msgid "Any Text"
+msgstr "모든 텍스트"
+
+#: includes/admin/views/html-addon.php:97
+msgid "Restriction"
+msgstr "제한"
+
+#: includes/admin/views/html-addon.php:90
+msgid "Images"
+msgstr "이미지"
+
+#: includes/admin/views/html-addon.php:89
+msgid "Radio Buttons"
+msgstr "라디오 버튼"
+
+#: includes/admin/views/html-addon.php:88
+msgid "Dropdowns"
+msgstr "드롭다운"
+
+#: includes/admin/views/html-addon.php:84
+msgid "Display as"
+msgstr "다음으로 표시:"
+
+#: includes/admin/views/html-addon.php:77
+#: includes/admin/views/html-addon.php:128
+msgid "Heading"
+msgstr "헤딩요소"
+
+#: includes/admin/views/html-addon.php:75
+msgid "Customer Defined Price"
+msgstr "고객 정의 가격"
+
+#: includes/admin/views/html-addon.php:66
+msgid "Type"
+msgstr "방식"
+
+#: includes/admin/views/html-addon.php:9
+msgid "Multiple choice"
+msgstr "다중 선택"
+
+#: includes/admin/views/html-addon-panel.php:56
+msgid "Hide additional add-ons that may apply to this product."
+msgstr "이 상품에 적용될 수 있는 추가 애드온을 숨깁니다."
+
+#: includes/admin/views/html-addon-panel.php:55
+msgid "Exclude add-ons"
+msgstr "애드온 제외"
+
+#. translators: %s URL to addons page
+#: includes/admin/views/html-addon-panel.php:50
+msgid "You can create additional <a href=\"%s\">add-ons</a> that apply to all products or to certain categories."
+msgstr "모든 상품 또는 특정 카테고리에 적용되는 추가 <a href=\"%s\">애드온</a>을 만들 수 있습니다."
+
+#: includes/admin/views/html-addon-panel.php:46
+msgid "Additional add-ons"
+msgstr "추가 애드온"
+
+#: includes/admin/views/html-addon-panel.php:32
+msgid "Add Field"
+msgstr "필드 추가"
+
+#: includes/admin/views/html-addon-panel.php:11
+msgid "Add fields to get additional information from customers"
+msgstr "고객에게서 추가 정보를 얻을 필드 추가"
+
+#: includes/admin/views/html-addon-panel.php:11
+msgid "Add-on fields"
+msgstr "애드온 필드"
+
+#: includes/admin/views/html-addon-option.php:40
+#: includes/admin/views/html-addon.php:251
+msgid "Percentage Based"
+msgstr "비율 기준"
+
+#: includes/admin/views/html-addon-option.php:39
+#: includes/admin/views/html-addon.php:250
+msgid "Quantity Based"
+msgstr "수량 기준"
+
+#: includes/admin/views/html-addon-option.php:38
+#: includes/admin/views/html-addon.php:249
+msgid "Flat Fee"
+msgstr "고정 가격"
+
+#: includes/admin/views/html-addon-option.php:33
+msgid "Enter an option"
+msgstr "옵션 입력"
+
+#: includes/admin/class-wc-product-addons-privacy.php:20
+msgid "By using this extension, you may be storing personal data or sharing data with an external service. <a href=\"%s\" target=\"_blank\">Learn more about how this works, including what you may want to include in your privacy policy.</a>"
+msgstr "이 확장 기능을 사용하여 개인 데이터를 저장하거나 외부 서비스와 데이터를 공유할 수 있습니다. <a href=\"%s\" target=\"_blank\">개인정보 취급방침에 포함할 내용 등 작동 원리를 자세히 알아보세요.</a>"
+
+#: includes/admin/class-wc-product-addons-admin.php:60
+#: includes/admin/class-wc-product-addons-privacy.php:12
+msgid "Product Add-ons"
+msgstr "상품 애드온"
+
+#: includes/admin/class-wc-product-addons-admin.php:648
+msgid "Variation ID:"
+msgstr "변형 ID:"
+
+#. translators: %s ID of variation
+#: includes/admin/class-wc-product-addons-admin.php:645
+msgid "%s (No longer exists)"
+msgstr "%s(더 이상 존재하지 않음)"
+
+#: includes/admin/class-wc-product-addons-admin.php:636
+msgid "SKU:"
+msgstr "SKU:"
+
+#: includes/admin/class-wc-product-addons-admin.php:291
+#: includes/admin/views/html-addon.php:70
+msgid "Multiple Choice"
+msgstr "다중 선택"
+
+#: includes/admin/class-wc-product-addons-admin.php:287
+msgid "Dropdown"
+msgstr "드롭다운"
+
+#: includes/admin/class-wc-product-addons-admin.php:284
+#: includes/admin/views/html-addon.php:74
+msgid "File Upload"
+msgstr "파일 업로드"
+
+#: includes/admin/class-wc-product-addons-admin.php:281
+#: includes/admin/views/html-addon.php:73
+msgid "Long Text"
+msgstr "긴 텍스트"
+
+#: includes/admin/class-wc-product-addons-admin.php:278
+#: includes/admin/views/html-addon.php:72
+msgid "Short Text"
+msgstr "짧은 텍스트"
+
+#: includes/admin/class-wc-product-addons-admin.php:275
+#: includes/admin/views/html-addon.php:76
+msgid "Quantity"
+msgstr "수량"
+
+#: includes/admin/class-wc-product-addons-admin.php:272
+#: includes/admin/views/html-addon.php:165 legacy/admin/views/html-addon.php:64
+msgid "Price"
+msgstr "가격"
+
+#: includes/admin/class-wc-product-addons-admin.php:269
+msgid "Checkbox"
+msgstr "확인란"
+
+#: includes/admin/class-wc-product-addons-admin.php:240
+#: includes/admin/class-wc-product-addons-admin.php:312
+msgid "Add-ons Group"
+msgstr "애드온 그룹"
+
+#: includes/admin/class-wc-product-addons-admin.php:214
+msgid "Error: Add-on not found"
+msgstr "오류: 애드온 없음"
+
+#: includes/admin/class-wc-product-addons-admin.php:168
+msgid "Add Image"
+msgstr "이미지 추가"
+
+#: includes/admin/class-wc-product-addons-admin.php:167
+msgid "Add Image Swatch"
+msgstr "이미지 견본 추가"
+
+#: includes/admin/class-wc-product-addons-admin.php:165
+msgid "Are you sure you want remove this add-on field?"
+msgstr "이 애드온 필드를 제거하시겠어요?"
+
+#: includes/admin/class-wc-product-addons-admin.php:164
+#: includes/admin/views/html-addon.php:193
+msgid "Restrictions"
+msgstr "제한"
+
+#: includes/admin/class-wc-product-addons-admin.php:163
+#: includes/admin/views/html-addon.php:206
+#: includes/admin/views/html-addon.php:209
+msgid "Limit character length"
+msgstr "글자 수 제한"
+
+#: includes/admin/class-wc-product-addons-admin.php:162
+#: includes/admin/views/html-addon.php:203
+msgid "Limit quantity range"
+msgstr "수량 범위 제한"
+
+#: includes/admin/class-wc-product-addons-admin.php:161
+#: includes/admin/views/html-addon.php:199
+msgid "Limit price range"
+msgstr "가격 범위 제한"
+
+#: includes/admin/class-wc-product-addons-admin.php:160
+msgid "All fields must have a title and/or option name. Please review the settings highlighted in red border."
+msgstr "모든 필드에 제목 및/또는 옵션 이름이 있어야 합니다. 빨간색 테두리로 강조된 설정을 검토하세요."
+
+#: legacy/templates/addons/select.php:12 templates/addons/image.php:56
+#: templates/addons/select.php:19
+msgid "Select an option..."
+msgstr "옵션 선택..."
+
+#: legacy/templates/addons/select.php:10 templates/addons/image.php:16
+#: templates/addons/image.php:54 templates/addons/radiobutton.php:18
+#: templates/addons/select.php:17
+msgid "None"
+msgstr "없습니다"
+
+#: legacy/templates/addons/input_multiplier.php:18
+msgid "This must be a number!"
+msgstr "숫자여야 합니다."
+
+#: legacy/templates/addons/file_upload.php:13
+#: legacy/templates/addons/file_upload.php:19
+#: templates/addons/file-upload.php:30
+msgid "(max file size %s)"
+msgstr "(최대 파일 크기 %s)"
+
+#: includes/admin/views/html-addon.php:149
+#: legacy/templates/addons/addon-start.php:6
+#: templates/addons/addon-start.php:59 templates/addons/addon-start.php:70
+msgid "Required field"
+msgstr "필수 필드"
+
+#: legacy/fields/class-product-addon-field-custom.php:80
+#: legacy/includes/fields/class-product-addon-field-custom.php:80
+msgid "A valid email address is required for \"%s - %s\"."
+msgstr "\"%s - %s\"에 유효한 이메일 주소는 필수입니다."
+
+#: legacy/fields/class-product-addon-field-custom.php:75
+#: legacy/includes/fields/class-product-addon-field-custom.php:75
+msgid "Only letters and digits are allowed for \"%s - %s\"."
+msgstr "\"%s - %s\"에는 문자와 숫자만 허용됩니다."
+
+#: legacy/fields/class-product-addon-field-custom.php:70
+#: legacy/includes/fields/class-product-addon-field-custom.php:70
+msgid "Only digits are allowed for \"%s - %s\"."
+msgstr "\"%s - %s\"에는 숫자만 허용됩니다."
+
+#: legacy/fields/class-product-addon-field-custom.php:65
+#: legacy/includes/fields/class-product-addon-field-custom.php:65
+msgid "Only letters are allowed for \"%s - %s\"."
+msgstr "\"%s - %s\"에는 문자만 허용됩니다."
+
+#: legacy/fields/class-product-addon-field-custom.php:60
+#: legacy/includes/fields/class-product-addon-field-custom.php:60
+msgid "Please enter a value greater than 0 for \"%s - %s\"."
+msgstr "\"%s - %s\"에 0보다 큰 값을 입력하세요."
+
+#: legacy/fields/class-product-addon-field-custom.php:48
+#: legacy/includes/fields/class-product-addon-field-custom.php:48
+msgid "The maximum allowed amount for \"%s - %s\" is %s."
+msgstr "\"%s - %s\"에 허용된 최대 금액은 %s입니다."
+
+#: legacy/fields/class-product-addon-field-custom.php:42
+#: legacy/includes/fields/class-product-addon-field-custom.php:42
+msgid "The minimum allowed amount for \"%s - %s\" is %s."
+msgstr "\"%s - %s\"에 허용된 최소 금액은 %s입니다."
+
+#: legacy/fields/class-product-addon-field-custom.php:35
+#: legacy/includes/fields/class-product-addon-field-custom.php:35
+msgid "The maximum allowed length for \"%s - %s\" is %s."
+msgstr "\"%s - %s\"에 허용된 최대 길이는 %s입니다."
+
+#: legacy/fields/class-product-addon-field-custom.php:31
+#: legacy/includes/fields/class-product-addon-field-custom.php:31
+msgid "The minimum allowed length for \"%s - %s\" is %s."
+msgstr "\"%s - %s\"에 허용된 최소 길이는 %s입니다."
+
+#. translators: %s Name of the addon
+#. translators: %s Addon name
+#: includes/fields/class-wc-product-addons-field-custom.php:17
+#: includes/fields/class-wc-product-addons-field-file-upload.php:29
+#: includes/fields/class-wc-product-addons-field-list.php:15
+#: includes/fields/class-wc-product-addons-field-select.php:14
+#: legacy/fields/class-product-addon-field-custom.php:19
+#: legacy/fields/class-product-addon-field-file-upload.php:29
+#: legacy/fields/class-product-addon-field-list.php:15
+#: legacy/fields/class-product-addon-field-select.php:14
+#: legacy/includes/fields/class-product-addon-field-custom.php:19
+#: legacy/includes/fields/class-product-addon-field-file-upload.php:29
+#: legacy/includes/fields/class-product-addon-field-list.php:15
+#: legacy/includes/fields/class-product-addon-field-select.php:14
+msgid "\"%s\" is a required field."
+msgstr "\"%s\" 필드는 필수 필드입니다."
+
+#: includes/class-wc-product-addons-display.php:468
+#: legacy/includes/class-product-addon-display-legacy.php:68
+#: legacy/includes/class-product-addon-display.php:407
+msgid "Select options"
+msgstr "옵션 선택"
+
+#: legacy/includes/class-product-addon-display.php:351
+msgid "Please enter an email address"
+msgstr "이메일 주소를 입력하세요."
+
+#: legacy/includes/class-product-addon-display.php:339
+msgid "Please enter letters or digits only"
+msgstr "문자 또는 숫자만 입력하세요."
+
+#: legacy/includes/class-product-addon-display.php:326
+msgid "Please enter digits only"
+msgstr "숫자만 입력하세요."
+
+#: legacy/includes/class-product-addon-display.php:313
+msgid "Please enter letters only"
+msgstr "문자만 입력하세요."
+
+#: legacy/includes/class-product-addon-display.php:71
+msgid "characters remaining"
+msgstr "자 남음"
+
+#: legacy/includes/class-product-addon-display.php:69
+msgid "Options total:"
+msgstr "옵션 총계:"
+
+#: legacy/admin/views/html-global-admin.php:54
+msgid "Add one?"
+msgstr "추가하시겠어요?"
+
+#: legacy/admin/views/html-global-admin.php:54
+msgid "No global add-ons exists yet."
+msgstr "아직 글로벌 애드온이 없습니다."
+
+#: includes/admin/views/html-global-admin.php:29
+#: legacy/admin/views/html-global-admin.php:46
+msgid "Delete"
+msgstr "삭제"
+
+#: includes/admin/views/html-global-admin.php:29
+#: legacy/admin/views/html-global-admin.php:46
+msgid "Edit"
+msgstr "편집"
+
+#: legacy/admin/views/html-global-admin.php:18
+msgid "Actions"
+msgstr "작업"
+
+#: legacy/admin/views/html-global-admin.php:17
+msgid "Applies to..."
+msgstr "다음 항목에 적용..."
+
+#: includes/admin/views/html-global-admin.php:17
+#: legacy/admin/views/html-global-admin.php:15
+msgid "Number of Fields"
+msgstr "필드 수"
+
+#: legacy/admin/views/html-global-admin.php:14
+msgid "Reference"
+msgstr "참조"
+
+#: legacy/admin/views/html-global-admin.php:9
+msgid "Add Global Add-on"
+msgstr "글로벌 애드온 추가"
+
+#: legacy/admin/views/html-global-admin-add.php:66
+msgid "Save Global Add-on"
+msgstr "글로벌 애드온 저장"
+
+#: legacy/admin/views/html-global-admin-add.php:49
+msgid "Choose categories which should show these addons (or apply to all products)."
+msgstr "이 애드온을 표시하거나 모든 상품에 적용할 카테고리를 선택합니다."
+
+#: legacy/admin/views/html-global-admin-add.php:43
+msgid "Category:"
+msgstr "카테고리:"
+
+#: legacy/admin/views/html-global-admin-add.php:38
+msgid "Product category notifications"
+msgstr "상품 카테고리 알림"
+
+#: includes/admin/views/html-global-admin-add.php:47
+#: includes/admin/views/html-global-admin.php:38
+#: legacy/admin/views/html-global-admin-add.php:37
+#: legacy/admin/views/html-global-admin.php:36
+msgid "All Products"
+msgstr "모든 상품"
+
+#: legacy/admin/views/html-global-admin-add.php:36
+msgid "Choose some options&hellip;"
+msgstr "옵션을 선택합니다."
+
+#: legacy/admin/views/html-global-admin-add.php:33
+msgid "Applied to..."
+msgstr "다음 항목에 적용..."
+
+#: legacy/admin/views/html-global-admin-add.php:28
+msgid "Give this global addon a priority - this will determine the order in which multiple groups of addons get displayed on the frontend. Per-product add-ons will always have priority 10."
+msgstr "이 글로벌 애드온에 우선순위를 적용합니다. 이에 따라 여러 애드온 그룹이 프론트엔드에 표시될 순서가 결정됩니다. 상품당 애드온의 우선순위는 항상 10입니다."
+
+#: includes/admin/views/html-global-admin-add.php:34
+#: includes/admin/views/html-global-admin.php:15
+#: legacy/admin/views/html-global-admin-add.php:24
+#: legacy/admin/views/html-global-admin.php:16
+msgid "Priority"
+msgstr "우선순위"
+
+#: legacy/admin/views/html-global-admin-add.php:19
+msgid "Give this global add-on a reference/name to make it recognisable."
+msgstr "이 글로벌 애드온을 알아볼 수 있는 참조/이름을 지정합니다."
+
+#: legacy/admin/views/html-global-admin-add.php:15
+msgid "Global Add-on Reference"
+msgstr "글로벌 애드온 참조"
+
+#: legacy/admin/views/html-global-admin-add.php:9
+msgid "Add/Edit Global Add-on"
+msgstr "글로벌 애드온 추가/편집"
+
+#: legacy/admin/views/html-addon.php:72
+msgid "New&nbsp;Option"
+msgstr "새 옵션"
+
+#: legacy/admin/views/html-addon.php:43
+msgid "Required fields?"
+msgstr "필수 필드"
+
+#: legacy/admin/views/html-addon.php:20
+msgid "Email address"
+msgstr "이메일 주소"
+
+#: legacy/admin/views/html-addon.php:22 templates/addons/custom-text.php:36
+msgid "Only letters and numbers"
+msgstr "문자와 숫자만"
+
+#: legacy/admin/views/html-addon.php:23 templates/addons/custom-text.php:32
+msgid "Only numbers"
+msgstr "숫자만"
+
+#: legacy/admin/views/html-addon.php:21 templates/addons/custom-text.php:28
+msgid "Only letters"
+msgstr "문자만"
+
+#: legacy/admin/views/html-addon.php:19
+msgid "Any text"
+msgstr "모든 텍스트"
+
+#: legacy/admin/views/html-addon.php:18
+msgid "Custom input (text)"
+msgstr "사용자 정의 입력(텍스트)"
+
+#: legacy/admin/views/html-addon.php:25
+msgid "File upload"
+msgstr "파일 업로드"
+
+#: legacy/admin/views/html-addon.php:17
+msgid "Custom input (textarea)"
+msgstr "사용자 정의 입력(텍스트 영역)"
+
+#: legacy/admin/views/html-addon.php:27
+msgid "Select box"
+msgstr "선택 상자"
+
+#: legacy/admin/views/html-addon.php:26
+msgid "Radio buttons"
+msgstr "라디오 버튼"
+
+#: includes/admin/views/html-addon.php:71 legacy/admin/views/html-addon.php:16
+msgid "Checkboxes"
+msgstr "확인란"
+
+#: legacy/admin/views/html-addon.php:12
+msgid "Group"
+msgstr "그룹"
+
+#: includes/admin/views/html-addon.php:56 legacy/admin/views/html-addon.php:11
+msgid "Click to toggle"
+msgstr "토글하려면 클릭"
+
+#: includes/admin/views/html-addon.php:55 legacy/admin/views/html-addon.php:10
+msgid "Remove"
+msgstr "삭제하기"
+
+#: includes/admin/class-wc-product-addons-admin.php:166
+#: legacy/admin/views/html-addon-panel.php:208
+#: legacy/admin/views/html-addon-panel.php:288
+msgid "Are you sure you want delete this option?"
+msgstr "이 옵션을 삭제하시겠어요?"
+
+#: legacy/admin/views/html-addon-panel.php:185
+msgid "Are you sure you want remove this add-on?"
+msgstr "이 애드온 필드를 제거하시겠어요?"
+
+#: legacy/admin/views/html-addon-panel.php:44
+msgid "Check this to exclude this product from all Global Addons"
+msgstr "모든 글로벌 애드온에서 이 상품을 제외하려면 선택합니다."
+
+#: legacy/admin/views/html-addon-panel.php:43
+msgid "Global Addon Exclusion"
+msgstr "글로벌 애드온 제외"
+
+#: includes/admin/views/html-addon-panel.php:42
+#: legacy/admin/views/html-addon-panel.php:37
+msgid "Paste exported form data here and then save to import fields. The imported fields will be appended."
+msgstr "내보낸 양식 데이터를 여기에 붙여넣고 가져오기 필드에 저장합니다. 가져온 필드가 첨부됩니다."
+
+#: includes/admin/views/html-addon-panel.php:36
+#: legacy/admin/views/html-addon-panel.php:32
+msgid "Export"
+msgstr "내보내기"
+
+#: includes/admin/views/html-addon-panel.php:35
+#: legacy/admin/views/html-addon-panel.php:31
+msgid "Import"
+msgstr "가져오기"
+
+#: includes/admin/views/html-addon-panel.php:13
+#: legacy/admin/views/html-addon-panel.php:10
+msgid "Expand all"
+msgstr "모두 펼치기"
+
+#: includes/admin/views/html-addon-panel.php:13
+#: legacy/admin/views/html-addon-panel.php:10
+msgid "Close all"
+msgstr "모두 닫기"
+
+#: legacy/admin/views/html-addon-option.php:7
+msgid "Default Label"
+msgstr "기본 레이블"
+
+#: includes/admin/class-wc-product-addons-admin.php:45
+#: includes/admin/class-wc-product-addons-admin.php:358
+#: legacy/admin/class-product-addon-admin.php:186
+#: legacy/admin/views/html-global-admin-add.php:54
+msgid "Add-ons"
+msgstr "애드온"
+
+#: includes/admin/class-wc-product-addons-admin.php:252
+#: legacy/admin/class-product-addon-admin.php:119
+msgid "Add-on deleted successfully"
+msgstr "애드온이 성공적으로 삭제되었습니다."
+
+#: legacy/admin/class-product-addon-admin.php:107
+#: legacy/admin/class-product-addon-admin.php:140
+msgid "Global Add-on Group"
+msgstr "글로벌 애드온 그룹"
+
+#: legacy/admin/class-product-addon-admin.php:79
+msgid "Error: Global Add-on not found"
+msgstr "오류: 글로벌 애드온 없음"
+
+#: includes/admin/class-wc-product-addons-admin.php:199
+#: legacy/admin/class-product-addon-admin.php:64
+msgid "Add-on saved successfully"
+msgstr "애드온이 성공적으로 저장되었습니다."
+
+#: legacy/admin/class-product-addon-admin.php:33
+#: legacy/admin/views/html-global-admin.php:9
+msgid "Global Add-ons"
+msgstr "글로벌 애드온"

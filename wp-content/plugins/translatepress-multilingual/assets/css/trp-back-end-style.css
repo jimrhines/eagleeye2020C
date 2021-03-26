@@ -215,3 +215,16 @@ a.trp-recommended-learn-more{
 .trp-recommended-buttons{
     margin-bottom: 40px;
 }
+
+#trp-adv-translate-certain-paths .trp-adv-holder {
+    margin-bottom: 24px;
+}
+
+#trp-adv-translate-certain-paths .trp-adv-holder label:not(:last-child) {
+    margin-right: 24px;
+}
+
+#trp-adv-translate-certain-paths textarea {
+    width: 450px;
+    min-height: 150px;
+}

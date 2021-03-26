@@ -29,7 +29,7 @@ class TRP_Advanced_Tab {
 	 * Hooked to admin_menu
 	 */
 	public function add_submenu_page_advanced() {
-		add_submenu_page( 'TRPHidden', 'TranslatePress Advanced Settings', 'TRPHidden', 'manage_options', 'trp_advanced_page', array(
+		add_submenu_page( 'TRPHidden', 'TranslatePress Advanced Settings', 'TRPHidden', apply_filters( 'trp_settings_capability', 'manage_options' ), 'trp_advanced_page', array(
 			$this,
 			'advanced_page_content'
 		) );
@@ -77,10 +77,25 @@ class TRP_Advanced_Tab {
                         $settings[ $registered_setting['name'] ] = sanitize_text_field($submitted_settings[ $registered_setting['name'] ]);
                         break;
                     }
+                    case 'custom': {
+						foreach ( $registered_setting['rows'] as $row_label => $row_type ) {
+                            if (isset($submitted_settings[$registered_setting['name']][$row_label])) {
+
+                                if( $row_type != 'textarea' )
+                                    $value = sanitize_text_field( $submitted_settings[$registered_setting['name']][$row_label] );
+                                else
+                                    $value = sanitize_textarea_field( $submitted_settings[$registered_setting['name']][$row_label] );
+
+                                $settings[$registered_setting['name']][$row_label] = $value;
+
+                            }
+                        }
+						break;
+					}
 					case 'input_array': {
 						foreach ( $registered_setting['rows'] as $row_label => $row_name ) {
                             if (isset($submitted_settings[$registered_setting['name']][$row_label])) {
-                                    $settings[$registered_setting['name']][$row_label] = sanitize_text_field($submitted_settings[$registered_setting['name']][$row_label]);
+                                    $settings[$registered_setting['name']][$row_label] = sanitize_text_field( $submitted_settings[$registered_setting['name']][$row_label] );
                             }
                         }
 						break;
@@ -205,6 +220,7 @@ class TRP_Advanced_Tab {
         include_once(TRP_PLUGIN_DIR . 'includes/advanced-settings/separators.php');
         include_once(TRP_PLUGIN_DIR . 'includes/advanced-settings/disable-languages-sitemap.php');
         include_once(TRP_PLUGIN_DIR . 'includes/advanced-settings/remove-duplicates-from-db.php');
+        include_once(TRP_PLUGIN_DIR . 'includes/advanced-settings/do-not-translate-certain-paths.php');
 	}
 
 	/*
@@ -262,6 +278,9 @@ class TRP_Advanced_Tab {
                     break;
 				case 'mixed':
 					echo $this->mixed_setting( $setting );
+					break;
+				case 'custom':
+					echo $this->custom_setting( $setting );
 					break;
 			}
 		}
@@ -610,7 +629,7 @@ class TRP_Advanced_Tab {
 					break;
 			}
 		}
-		$html .= "<td><input type='button' class='button-secondary trp-adst-button-add-new-item' value='" . __( 'Add', 'translatepress-multilingual' ) . "'><span class='trp-adst-remove-element' style='display: none;' data-confirm-message='" . __('Are you sure you want to remove this item?', 'translatepress-multilingual') . "'>" . __( 'Remove', 'translatepress-multilingual' ) . "</span></td>";
+		$html .= "<td><input type='button' id='button_add_" . $setting['name'] . "' class='button-secondary trp-adst-button-add-new-item' value='" . __( 'Add', 'translatepress-multilingual' ) . "'><span class='trp-adst-remove-element' style='display: none;' data-confirm-message='" . __('Are you sure you want to remove this item?', 'translatepress-multilingual') . "'>" . __( 'Remove', 'translatepress-multilingual' ) . "</span></td>";
 		$html .= "</tr></table>";
 		$html .= "<p class='description'>
                         " . $setting['description'] . "
@@ -621,4 +640,20 @@ class TRP_Advanced_Tab {
 		return apply_filters( 'trp_advanced_setting_list', $html );
 
 	}
+
+
+    /**
+     * Can be used to output content outside the very static methods from above
+     * Hook to the provided filter
+     *
+     */
+    public function custom_setting( $setting ){
+
+        if( empty( $setting['name'] ) )
+            return;
+
+        return apply_filters( 'trp_advanced_setting_custom_' . $setting['name'], $setting );
+
+    }
+
 }

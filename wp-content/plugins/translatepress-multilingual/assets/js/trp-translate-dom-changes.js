@@ -354,7 +354,7 @@ function TRP_Translator(){
                         if ( attribute_content && _this.trim( attribute_content.trim(), _this.except_characters ) != '' ) {
                             nodesInfo.push({node: all_nodes[j], original: attribute_content, attribute: attribute_selector_item.accessor });
                             string_originals.push( attribute_content )
-                            if ( trp_data ['showdynamiccontentbeforetranslation'] == false && ( attribute_selector_item.accessor != 'src' ) ) {
+                            if ( trp_data ['showdynamiccontentbeforetranslation'] == false && ( attribute_selector_item.accessor != 'src' ) && ( attribute_selector_item.accessor != 'href' ) ) {
                                 all_nodes[j].setAttribute( attribute_selector_item.accessor, '' );
                             }
                             for ( var s = 0; s < skip_attr_machine_translation.length; s++ ){

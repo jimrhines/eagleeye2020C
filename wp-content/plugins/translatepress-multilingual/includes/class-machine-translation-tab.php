@@ -35,8 +35,8 @@ class TRP_Machine_Translation_Tab {
     * Hooked to admin_menu
     */
     public function add_submenu_page() {
-        add_submenu_page( 'TRPHidden', 'TranslatePress Automatic Translation', 'TRPHidden', 'manage_options', 'trp_machine_translation', array( $this, 'machine_translation_page_content' ) );
-        add_submenu_page( 'TRPHidden', 'TranslatePress Test Automatic Translation API', 'TRPHidden', 'manage_options', 'trp_test_machine_api', array( $this, 'test_api_page_content' ) );
+        add_submenu_page( 'TRPHidden', 'TranslatePress Automatic Translation', 'TRPHidden', apply_filters( 'trp_settings_capability', 'manage_options' ), 'trp_machine_translation', array( $this, 'machine_translation_page_content' ) );
+        add_submenu_page( 'TRPHidden', 'TranslatePress Test Automatic Translation API', 'TRPHidden', apply_filters( 'trp_settings_capability', 'manage_options' ), 'trp_test_machine_api', array( $this, 'test_api_page_content' ) );
     }
 
     /**
@@ -130,13 +130,14 @@ class TRP_Machine_Translation_Tab {
 
         return $engines;
     }
-    
+
     public function display_unsupported_languages(){
         $trp = TRP_Translate_Press::get_trp_instance();
         $machine_translator = $trp->get_component( 'machine_translator' );
         $trp_languages = $trp->get_component( 'languages' );
 
         if ( 'yes' === $this->settings['trp_machine_translation_settings']['machine-translation'] &&
+            !empty( $machine_translator->get_api_key() ) &&
             !$machine_translator->check_languages_availability($this->settings['translation-languages'])
         ){
 
