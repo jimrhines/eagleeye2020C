@@ -42,7 +42,25 @@ ul.trp-unsupported-languages{
     list-style: inside;
 }
 
+input.trp-text-input-error {
+    border: 1px solid #a00;
+}
 
+/**************************************************/
+/* SVG Styling
+/**************************************************/
+.trp-svg-icon {
+    height: 20px;
+    width: 20px;
+    line-height: 0;
+    vertical-align: middle;
+}
+.trp-svg-icon.fas-times-circle {
+    color: #a00;
+}
+.trp-svg-icon.fas-check-circle {
+    color: #14aa00;
+}
 /**************************************************/
 /* Extra styling for admin notices
 /**************************************************/
@@ -134,6 +152,15 @@ input.trp-translation-published{
 .trp-ls-select-option{
     margin-top: 10px;
 }
+
+.form-table td p.trp-error-inline, /* WP style */
+.trp-error-inline {
+    color: #a00;
+    font-weight: 500;
+    margin-bottom: 1em;
+    box-sizing: border-box;
+}
+
 
 .warning,
 .trp-upsell-multiple-languages{

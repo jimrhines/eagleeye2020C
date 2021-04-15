@@ -235,6 +235,8 @@ class TRP_Editor_Api_Regular_Strings {
 			$this->trp_query->update_strings( $update_string_array, $language, array('id','translated', 'status', 'block_type'));
 			$this->trp_query->remove_possible_duplicates($update_string_array, $language, 'regular');
 		}
+
+        do_action('trp_save_editor_translations_regular_strings', $update_strings, $this->settings);
 		
 	}
 

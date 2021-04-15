@@ -1449,6 +1449,23 @@ class TRP_Query{
                 $return = false;
             }
         }
-        return $return;
+        return apply_filters('trp_is_sql_values_accepted', $return );
+    }
+
+    /**
+     * Return true if the dictionary table of $language has at least $minimum_rows with $status
+     *
+     * @param $language
+     * @param $minimum_rows
+     * @param $status
+     *
+     * @return bool
+     */
+    public function minimum_rows_with_status( $language, $minimum_rows, $status ) {
+        $minimum_rows = (int) $minimum_rows;
+        $status = (int) $status;
+
+        $sql = "SELECT (COUNT(*) > " . $minimum_rows . ") FROM `" . sanitize_text_field( $this->get_table_name( $language ) ). "` WHERE status = " . $status;
+        return $this->db->get_var( $sql );
     }
 }

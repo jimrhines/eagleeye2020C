@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the WordPress - 5.7.x - Development - Administration package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-03-23 14:22:01+0000\n"
+"PO-Revision-Date: 2021-04-13 16:33:34+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -315,7 +315,7 @@ msgstr "<strong>社群活动位置</strong>——用于仪表盘小工具中显�
 
 #: wp-admin/erase-personal-data.php:35 wp-admin/export-personal-data.php:35
 msgid "<strong>Profile Information</strong> &mdash; user email address, username, display name, nickname, first name, last name, description/bio, and registration date."
-msgstr "<strong>个人资料信息</strong>——用户的电子邮箱地址、用户名、显示名、昵称、姓名、个人说明和注册日期。"
+msgstr "<strong>个人资料信息</strong>——用户的电子邮箱地址、用户名、显示名、昵称、姓氏、名字、个人说明和注册日期。"
 
 #: wp-admin/erase-personal-data.php:34
 msgid "Personal data that is collected by WordPress and is deleted or anonymized include:"
@@ -360,27 +360,9 @@ msgid "Cannot send password reset, permission denied."
 msgstr "无法发送密码重置邮件，权限不足。"
 
 #. translators: 1: post_max_size, 2: upload_max_filesize
-#: wp-admin/includes/class-wp-site-health.php:2186
+#: wp-admin/includes/class-wp-site-health.php:2156
 msgid "The setting for %1$s is currently configured as 0, this could cause some problems when trying to upload files through plugin or theme features that rely on various upload methods. It is recommended to configure this setting to a fixed value, ideally matching the value of %2$s, as some upload methods read the value 0 as either unlimited, or disabled."
 msgstr "%1$s当前被配置为0，当尝试通过依赖各种上传方法的插件或主题功能上传文件时，这可能会导致一些问题。建议将此设置配置为固定值，最好与%2$s的值匹配，因为某些上传方法将数值“0”读取为无限制或禁用。"
-
-#: wp-admin/includes/class-wp-site-health.php:1661
-msgid "Talk to your web host about resolving this HTTPS issue for your website."
-msgstr "请与您的主机提供商讨论如何解决您网站的HTTPS问题。"
-
-#. translators: %s: URL to Settings > General > WordPress Address.
-#: wp-admin/includes/class-wp-site-health.php:1654
-msgid "Your <a href=\"%s\">WordPress Address</a> is set up to use HTTPS, but your website appears to be unavailable when using an HTTPS connection."
-msgstr "您的<a href=\"%s\">WordPress地址</a>已设置为使用HTTPS，但使用HTTPS连接时，您的网站似乎不可用。"
-
-#. translators: %s: URL to Settings > General > WordPress Address.
-#: wp-admin/includes/class-wp-site-health.php:1645
-msgid "Your <a href=\"%s\">WordPress Address</a> is set up to use HTTPS, but the SSL certificate appears to be invalid."
-msgstr "您的<a href=\"%s\">WordPress地址</a>已设置为使用HTTPS，但SSL证书似乎是无效的。"
-
-#: wp-admin/includes/class-wp-site-health.php:1637
-msgid "There are problems with the HTTPS connection of your website"
-msgstr "您网站的HTTPS连接存在问题"
 
 #: wp-admin/includes/class-wp-site-health.php:1622
 #: wp-admin/includes/class-wp-site-health.php:1629
@@ -515,7 +497,7 @@ msgstr "PHP是用以构建及维护WordPress的程序语言。较新版本的PHP
 msgid "Your website appears to use Basic Authentication, which is not currently compatible with Application Passwords."
 msgstr "您的网站似乎正在使用HTTP基本认证功能，该功能目前与应用程序密码功能不兼容。"
 
-#: wp-admin/includes/class-wp-site-health.php:2255
+#: wp-admin/includes/class-wp-site-health.php:2225
 msgid "https://developer.wordpress.org/rest-api/frequently-asked-questions/#why-is-authentication-not-working"
 msgstr "https://developer.wordpress.org/rest-api/frequently-asked-questions/#why-is-authentication-not-working"
 
@@ -780,31 +762,31 @@ msgstr "- %1$s（从版本%2$s更新至%3$s）"
 msgid "Current Header Video"
 msgstr "当前头部视频"
 
-#: wp-admin/includes/class-wp-site-health.php:2367
+#: wp-admin/includes/class-wp-site-health.php:2337
 msgid "Authorization header"
 msgstr "授权标头"
 
-#: wp-admin/includes/class-wp-site-health.php:2256
+#: wp-admin/includes/class-wp-site-health.php:2226
 msgid "Learn how to configure the Authorization header."
 msgstr "了解如何配置授权标头。"
 
-#: wp-admin/includes/class-wp-site-health.php:2250
+#: wp-admin/includes/class-wp-site-health.php:2220
 msgid "Flush permalinks"
 msgstr "重新整理固定链接"
 
-#: wp-admin/includes/class-wp-site-health.php:2235
+#: wp-admin/includes/class-wp-site-health.php:2205
 msgid "The authorization header is invalid."
 msgstr "授权标头无效。"
 
-#: wp-admin/includes/class-wp-site-health.php:2233
+#: wp-admin/includes/class-wp-site-health.php:2203
 msgid "The authorization header is missing."
 msgstr "授权标头丢失。"
 
-#: wp-admin/includes/class-wp-site-health.php:2226
+#: wp-admin/includes/class-wp-site-health.php:2196
 msgid "The Authorization header comes from the third-party applications you approve. Without it, those apps cannot connect to your site."
 msgstr "授权标头来自您批准的第三方应用程序。如果没有授权标头，这些应用程序将无法连接到您的站点。"
 
-#: wp-admin/includes/class-wp-site-health.php:2218
+#: wp-admin/includes/class-wp-site-health.php:2188
 msgid "The Authorization header is working as expected."
 msgstr "授权标头按预期工作。"
 
@@ -933,7 +915,7 @@ msgid "You can choose whether or not your site will be crawled by robots, ping s
 msgstr "您可以决定是否让索引工具、搜索引擎爬虫、ping服务访问您的站点。如果您不希望它们访问您的站点，请选择“建议搜索引擎不索引本站点”，并点击下方的“保存更改”。"
 
 #. translators: 1: post_max_size, 2: upload_max_filesize
-#: wp-admin/includes/class-wp-site-health.php:2175
+#: wp-admin/includes/class-wp-site-health.php:2145
 msgid "The \"%1$s\" value is smaller than \"%2$s\"."
 msgstr "%1$s的值比%2$s小。"
 
@@ -965,39 +947,39 @@ msgstr "此更新不能与您的WordPress和PHP版本相兼容。"
 msgid "Disallowed Comment Keys"
 msgstr "禁止使用的评论关键字"
 
-#: wp-admin/includes/class-wp-site-health.php:2337
+#: wp-admin/includes/class-wp-site-health.php:2307
 msgid "Plugin and theme auto-updates"
 msgstr "插件和主题自动更新"
 
-#: wp-admin/includes/class-wp-site-health.php:2635
+#: wp-admin/includes/class-wp-site-health.php:2605
 msgid "There appear to be no issues with plugin and theme auto-updates."
 msgstr "插件和主题自动更新一切如常。"
 
-#: wp-admin/includes/class-wp-site-health.php:2629
+#: wp-admin/includes/class-wp-site-health.php:2599
 msgid "Auto-updates for themes appear to be disabled. This will prevent your site from receiving new versions automatically when available."
 msgstr "主题的自动更新似乎已被禁用。这将阻止您的网站自动接收可用的新版本。"
 
-#: wp-admin/includes/class-wp-site-health.php:2624
+#: wp-admin/includes/class-wp-site-health.php:2594
 msgid "Auto-updates for plugins appear to be disabled. This will prevent your site from receiving new versions automatically when available."
 msgstr "插件的自动更新似乎已被禁用。这将阻止您的网站自动接收可用的新版本。"
 
-#: wp-admin/includes/class-wp-site-health.php:2619
+#: wp-admin/includes/class-wp-site-health.php:2589
 msgid "Auto-updates for plugins and themes appear to be disabled. This will prevent your site from receiving new versions automatically when available."
 msgstr "插件和主题的自动更新似乎已被禁用。这将阻止您的网站自动接收可用的新版本。"
 
-#: wp-admin/includes/class-wp-site-health.php:2610
+#: wp-admin/includes/class-wp-site-health.php:2580
 msgid "Auto-updates for plugins and/or themes appear to be disabled, but settings are still set to be displayed. This could cause auto-updates to not work as expected."
 msgstr "插件和（或）主题的自动更新似乎已被禁用，但是界面依然被设置为显示更新。这可能导致自动更新无法如期进行。"
 
-#: wp-admin/includes/class-wp-site-health.php:1885
+#: wp-admin/includes/class-wp-site-health.php:1855
 msgid "Your site may have problems auto-updating plugins and themes"
 msgstr "您的网站可能无法自动更新插件和主题"
 
-#: wp-admin/includes/class-wp-site-health.php:1874
+#: wp-admin/includes/class-wp-site-health.php:1844
 msgid "Plugin and theme auto-updates ensure that the latest versions are always installed."
 msgstr "插件与主题的自动更新能保证安装的总是最新版本。"
 
-#: wp-admin/includes/class-wp-site-health.php:1866
+#: wp-admin/includes/class-wp-site-health.php:1836
 msgid "Plugin and theme auto-updates appear to be configured correctly"
 msgstr "插件和主题自动更新配置正确"
 
@@ -1014,26 +996,26 @@ msgid "Sorry, you are not allowed to modify plugins."
 msgstr "抱歉，您不能修改插件。"
 
 #. translators: 1: post_max_size, 2: upload_max_filesize
-#: wp-admin/includes/class-wp-site-health.php:2196
+#: wp-admin/includes/class-wp-site-health.php:2166
 msgid "The setting for %1$s is smaller than %2$s, this could cause some problems when trying to upload files."
 msgstr "%1$s 的设定值小于%2$s，尝试上传文件时可能会导致一些问题。"
 
 #. translators: 1: file_uploads, 2: 0
-#: wp-admin/includes/class-wp-site-health.php:2161
+#: wp-admin/includes/class-wp-site-health.php:2131
 msgid "%1$s is set to %2$s. You won't be able to upload files on your site."
 msgstr "%1$s的值被设置为%2$s，因此您无法在这个网站上传文件。"
 
 #. translators: %s: ini_get()
-#: wp-admin/includes/class-wp-site-health.php:2149
+#: wp-admin/includes/class-wp-site-health.php:2119
 msgid "The %s function has been disabled, some media settings are unavailable because of this."
 msgstr "%s函数已被禁用，因此某些媒体设置不可用。"
 
 #. translators: 1: file_uploads, 2: php.ini
-#: wp-admin/includes/class-wp-site-health.php:2136
+#: wp-admin/includes/class-wp-site-health.php:2106
 msgid "The %1$s directive in %2$s determines if uploading files is allowed on your site."
 msgstr "%2$s中的%1$s指令决定了您的网站是否允许上传文件。"
 
-#: wp-admin/includes/class-wp-site-health.php:2126
+#: wp-admin/includes/class-wp-site-health.php:2096
 msgid "Files can be uploaded."
 msgstr "可以上传文件。"
 
@@ -1054,7 +1036,7 @@ msgid "Max size of post data allowed"
 msgstr "最大允许POST提交数据大小"
 
 #: wp-admin/includes/class-wp-debug-data.php:553
-#: wp-admin/includes/class-wp-site-health.php:2333
+#: wp-admin/includes/class-wp-site-health.php:2303
 msgid "File uploads"
 msgstr "文件上传"
 
@@ -1399,7 +1381,7 @@ msgctxt "comment"
 msgid "Not spam"
 msgstr "不是垃圾评论"
 
-#: wp-admin/includes/class-wp-site-health.php:2305
+#: wp-admin/includes/class-wp-site-health.php:2275
 msgid "PHP Sessions"
 msgstr "PHP会话"
 
@@ -1823,14 +1805,14 @@ msgstr "回收站中没有评论。"
 msgid "File is empty. Please upload something more substantial. This error could also be caused by uploads being disabled in your %1$s file or by %2$s being defined as smaller than %3$s in %1$s."
 msgstr "文件是空的。请上传有内容的文件。这个错误也有可能是因为您的%1$s文件禁止了上传，或%1$s中%2$s的值小于%3$s的值。"
 
-#: wp-admin/includes/class-wp-site-health.php:2811
+#: wp-admin/includes/class-wp-site-health.php:2781
 #: wp-admin/js/site-health.js:336
 msgid "A test is unavailable"
 msgstr "测试不可用"
 
 #. translators: 1: The WordPress error message. 2: The WordPress error code.
-#: wp-admin/includes/class-wp-site-health.php:2075
-#: wp-admin/includes/class-wp-site-health.php:2686
+#: wp-admin/includes/class-wp-site-health.php:2045
+#: wp-admin/includes/class-wp-site-health.php:2656
 msgid "Error: %1$s (%2$s)"
 msgstr "错误：%1$s（%2$s）"
 
@@ -1917,7 +1899,7 @@ msgstr "删除请求"
 msgid "Table prefix"
 msgstr "数据表前缀"
 
-#: wp-admin/includes/class-wp-site-health.php:2301
+#: wp-admin/includes/class-wp-site-health.php:2271
 msgid "PHP Default Timezone"
 msgstr "PHP默认时区"
 
@@ -2027,7 +2009,7 @@ msgstr "%s设置已被取消注册。系统会将取消注册的设置废弃不�
 
 #: wp-admin/edit-form-advanced.php:380
 msgid "<strong>Format</strong> &mdash; Post Formats designate how your theme will display a specific post. For example, you could have a <em>standard</em> blog post with a title and paragraphs, or a short <em>aside</em> that omits the title and contains a short text blurb. Your theme could enable all or some of 10 possible formats. <a href=\"https://wordpress.org/support/article/post-formats/#supported-formats\">Learn more about each post format</a>."
-msgstr "<strong>格式</strong>——文章格式规定了您的主题将显示一篇文章的方式。比如，您可以有一篇“标准”的文章，其包括标题和几个段落；也可以有一篇短小的“旁白”，略去标题而只有短短一段文字。您的主题可以启用10种可用格式的全部或一部分。<a href=\"https://wordpress.org/support/article/post-formats/#supported-formats\">了解更多有关各种文章格式的信息</a>。"
+msgstr "<strong>形式</strong>——文章形式规定了您的主题将显示一篇文章的方式。比如，您可以有一篇“标准”的文章，其包括标题和几个段落；也可以有一篇短小的“旁白”，略去标题而只有短短一段文字。您的主题可以启用10种可用的文章形式的全部或一部分。<a href=\"https://wordpress.org/support/article/post-formats/#supported-formats\">了解更多有关各种文章形式的信息</a>。"
 
 #: wp-admin/edit-form-advanced.php:337
 msgid "<a href=\"https://wordpress.org/support/article/pages-screen/\">Documentation on Editing Pages</a>"
@@ -2225,11 +2207,11 @@ msgid "Password protected"
 msgstr "密码保护"
 
 #. translators: %s: The name of the late cron event.
-#: wp-admin/includes/class-wp-site-health.php:1774
+#: wp-admin/includes/class-wp-site-health.php:1744
 msgid "The scheduled event, %s, is late to run. Your site still works, but this may indicate that scheduling posts or automated updates may not work as intended."
 msgstr "计划事件%s执行被延迟。您的站点仍然工作，但这可能意味着定时发布或自动更新不再正常运行。"
 
-#: wp-admin/includes/class-wp-site-health.php:1768
+#: wp-admin/includes/class-wp-site-health.php:1738
 msgid "A scheduled event is late"
 msgstr "一个计划事件被延迟"
 
@@ -2464,7 +2446,7 @@ msgstr "%1$s得是一个%2$s对象。"
 #. translators: %s: Recovery Mode exit link.
 #: wp-admin/includes/update.php:1001
 msgid "You are in recovery mode. This means there may be an error with a theme or plugin. To exit recovery mode, log out or use the Exit button. <a href=\"%s\">Exit Recovery Mode</a>"
-msgstr "您正位于恢复模式。您的一个主题或插件可能发生了错误。要退出恢复模式，请注销或使用退出按钮。<a href=\"%s\">退出恢复模式</a>"
+msgstr "您正位于恢复模式。您的其中一个已启用的主题或插件可能发生了错误。要退出恢复模式，请注销登陆或使用退出按钮。<a href=\"%s\">退出恢复模式</a>"
 
 #. translators: Tab heading for Site Health Info page.
 #: wp-admin/site-health-info.php:62 wp-admin/site-health.php:100
@@ -2626,11 +2608,11 @@ msgstr "此更新不能与您的PHP版本相兼容。"
 
 #: wp-admin/includes/class-wp-posts-list-table.php:509
 msgid "All formats"
-msgstr "全部格式"
+msgstr "所有形式"
 
 #: wp-admin/includes/class-wp-posts-list-table.php:507
 msgid "Filter by post format"
-msgstr "以文章格式过滤"
+msgstr "以文章形式筛选"
 
 #: wp-admin/includes/plugin.php:2487
 msgid "Go to the Plugins screen"
@@ -2668,12 +2650,12 @@ msgid "Sorry, you are not allowed to perform this action."
 msgstr "抱歉，您不能进行此操作。"
 
 #. translators: 1: Name of the constant used. 2: List of allowed hostnames.
-#: wp-admin/includes/class-wp-site-health.php:2001
+#: wp-admin/includes/class-wp-site-health.php:1971
 msgid "HTTP requests have been blocked by the %1$s constant, with some allowed hosts: %2$s."
 msgstr "HTTP请求已被%1$s常量阻止，并允许了一些主机：%2$s。"
 
 #. translators: %s: Name of the constant used.
-#: wp-admin/includes/class-wp-site-health.php:1986
+#: wp-admin/includes/class-wp-site-health.php:1956
 msgid "HTTP requests have been blocked by the %s constant, with no allowed hosts."
 msgstr "HTTP请求已被%s常量阻止，且没有允许的主机。"
 
@@ -2700,11 +2682,11 @@ msgstr "WordPress主机团队维护着一份必需和推荐的模组列表，列
 #: wp-admin/includes/class-wp-site-health.php:1105
 #: wp-admin/includes/class-wp-site-health.php:1155
 #: wp-admin/includes/class-wp-site-health.php:1246
-#: wp-admin/includes/class-wp-site-health.php:1726
-#: wp-admin/includes/class-wp-site-health.php:1912
-#: wp-admin/includes/class-wp-site-health.php:1955
-#: wp-admin/includes/class-wp-site-health.php:2026
-#: wp-admin/includes/class-wp-site-health.php:2129
+#: wp-admin/includes/class-wp-site-health.php:1696
+#: wp-admin/includes/class-wp-site-health.php:1882
+#: wp-admin/includes/class-wp-site-health.php:1925
+#: wp-admin/includes/class-wp-site-health.php:1996
+#: wp-admin/includes/class-wp-site-health.php:2099
 msgid "Performance"
 msgstr "性能"
 
@@ -2752,10 +2734,10 @@ msgstr[0] "您的站点有%d个未启用的插件。"
 #: wp-admin/includes/class-wp-site-health.php:1361
 #: wp-admin/includes/class-wp-site-health.php:1430
 #: wp-admin/includes/class-wp-site-health.php:1511
-#: wp-admin/includes/class-wp-site-health.php:1680
-#: wp-admin/includes/class-wp-site-health.php:1799
-#: wp-admin/includes/class-wp-site-health.php:1869
-#: wp-admin/includes/class-wp-site-health.php:2221
+#: wp-admin/includes/class-wp-site-health.php:1650
+#: wp-admin/includes/class-wp-site-health.php:1769
+#: wp-admin/includes/class-wp-site-health.php:1839
+#: wp-admin/includes/class-wp-site-health.php:2191
 msgid "Security"
 msgstr "安全"
 
@@ -2769,7 +2751,7 @@ msgstr "抹除个人数据列表导航"
 
 #: wp-admin/erase-personal-data.php:91
 msgid "Filter erase personal data list"
-msgstr "过滤抹除个人数据列表"
+msgstr "筛选抹除个人数据列表"
 
 #: wp-admin/export-personal-data.php:93
 msgid "Export personal data list"
@@ -2781,7 +2763,7 @@ msgstr "导出个人数据列表导航"
 
 #: wp-admin/export-personal-data.php:91
 msgid "Filter export personal data list"
-msgstr "过滤导出个人数据列表"
+msgstr "筛选导出个人数据列表"
 
 #: wp-admin/includes/class-wp-plugin-install-list-table.php:564
 #: wp-admin/includes/plugin-install.php:876
@@ -2856,200 +2838,200 @@ msgstr "好样的！"
 msgid "Secondary menu"
 msgstr "次要菜单"
 
-#: wp-admin/includes/class-wp-site-health.php:2707
+#: wp-admin/includes/class-wp-site-health.php:2677
 msgid "The loopback request to your site completed successfully."
 msgstr "到您站点的环回请求成功完成。"
 
 #. translators: %d: The HTTP response code returned.
-#: wp-admin/includes/class-wp-site-health.php:2699
+#: wp-admin/includes/class-wp-site-health.php:2669
 msgid "The loopback request returned an unexpected http status code, %d, it was not possible to determine if this will prevent features from working as expected."
 msgstr "到您站点的环回请求返回了预期外的HTTP状态码%d，无法判断依赖此种请求的功能是否能正常工作。"
 
-#: wp-admin/includes/class-wp-site-health.php:2683
+#: wp-admin/includes/class-wp-site-health.php:2653
 msgid "The loopback request to your site failed, this means features relying on them are not currently working as expected."
 msgstr "到您站点的环回请求失败，这意味着依赖此种请求的功能将不能正常工作。"
 
-#: wp-admin/includes/class-wp-site-health.php:2475
+#: wp-admin/includes/class-wp-site-health.php:2445
 msgid "No scheduled events exist on this site."
 msgstr "此站点不存在计划事件。"
 
-#: wp-admin/includes/class-wp-site-health.php:2379
+#: wp-admin/includes/class-wp-site-health.php:2349
 msgid "REST API availability"
 msgstr "REST API可用性"
 
-#: wp-admin/includes/class-wp-site-health.php:2355
+#: wp-admin/includes/class-wp-site-health.php:2325
 msgid "Loopback request"
 msgstr "环回请求"
 
-#: wp-admin/includes/class-wp-site-health.php:2329
+#: wp-admin/includes/class-wp-site-health.php:2299
 msgid "Debugging enabled"
 msgstr "调试已启用"
 
-#: wp-admin/includes/class-wp-site-health.php:2325
+#: wp-admin/includes/class-wp-site-health.php:2295
 msgid "HTTP Requests"
 msgstr "HTTP请求"
 
-#: wp-admin/includes/class-wp-site-health.php:2321
+#: wp-admin/includes/class-wp-site-health.php:2291
 msgid "Scheduled events"
 msgstr "计划事件"
 
-#: wp-admin/includes/class-wp-site-health.php:2317
+#: wp-admin/includes/class-wp-site-health.php:2287
 msgid "Secure communication"
 msgstr "安全通信"
 
-#: wp-admin/includes/class-wp-site-health.php:2361
+#: wp-admin/includes/class-wp-site-health.php:2331
 msgid "HTTPS status"
 msgstr "HTTPS状态"
 
-#: wp-admin/includes/class-wp-site-health.php:2313
+#: wp-admin/includes/class-wp-site-health.php:2283
 msgid "MySQL utf8mb4 support"
 msgstr "MySQL utf8mb4支持"
 
-#: wp-admin/includes/class-wp-site-health.php:2297
+#: wp-admin/includes/class-wp-site-health.php:2267
 msgid "PHP Extensions"
 msgstr "PHP扩展"
 
-#: wp-admin/includes/class-wp-site-health.php:2309
+#: wp-admin/includes/class-wp-site-health.php:2279
 msgid "Database Server version"
 msgstr "数据库服务器版本"
 
-#: wp-admin/includes/class-wp-site-health.php:2293
+#: wp-admin/includes/class-wp-site-health.php:2263
 msgid "PHP Version"
 msgstr "PHP版本"
 
-#: wp-admin/includes/class-wp-site-health.php:2289
+#: wp-admin/includes/class-wp-site-health.php:2259
 msgid "Theme Versions"
 msgstr "主题版本"
 
-#: wp-admin/includes/class-wp-site-health.php:2285
+#: wp-admin/includes/class-wp-site-health.php:2255
 msgid "Plugin Versions"
 msgstr "插件版本"
 
-#: wp-admin/includes/class-wp-site-health.php:2281
+#: wp-admin/includes/class-wp-site-health.php:2251
 msgid "WordPress Version"
 msgstr "WordPress版本"
 
 #. translators: %s: The name of the query parameter being tested.
-#: wp-admin/includes/class-wp-site-health.php:2107
+#: wp-admin/includes/class-wp-site-health.php:2077
 msgid "The REST API did not process the %s query parameter correctly."
 msgstr "REST API未能正确处理%s请求参数。"
 
-#: wp-admin/includes/class-wp-site-health.php:2101
+#: wp-admin/includes/class-wp-site-health.php:2071
 msgid "The REST API did not behave correctly"
 msgstr "REST API行为不正确"
 
 #. translators: 1: The HTTP error code. 2: The HTTP error message.
-#: wp-admin/includes/class-wp-site-health.php:2090
+#: wp-admin/includes/class-wp-site-health.php:2060
 msgid "The REST API call gave the following unexpected result: (%1$d) %2$s."
 msgstr "REST API调用返回了预料之外的结果：（%1$d）%2$s。"
 
-#: wp-admin/includes/class-wp-site-health.php:2084
+#: wp-admin/includes/class-wp-site-health.php:2054
 msgid "The REST API encountered an unexpected result"
 msgstr "REST API遇到了预料之外的结果"
 
-#: wp-admin/includes/class-wp-site-health.php:2072
+#: wp-admin/includes/class-wp-site-health.php:2042
 msgid "The REST API request failed due to an error."
 msgstr "REST API请求因遇到了错误而失败。"
 
-#: wp-admin/includes/class-wp-site-health.php:2066
+#: wp-admin/includes/class-wp-site-health.php:2036
 msgid "The REST API encountered an error"
 msgstr "REST API遇到了错误"
 
-#: wp-admin/includes/class-wp-site-health.php:2031
+#: wp-admin/includes/class-wp-site-health.php:2001
 msgid "The REST API is one way WordPress, and other applications, communicate with the server. One example is the block editor screen, which relies on this to display, and save, your posts and pages."
 msgstr "REST API是WordPress及其他应用与服务器通信的一种途径。例如区块编辑器页面，它依赖REST来显示及保存您的页面和文章。"
 
-#: wp-admin/includes/class-wp-site-health.php:2023
+#: wp-admin/includes/class-wp-site-health.php:1993
 msgid "The REST API is available"
 msgstr "REST API可用"
 
-#: wp-admin/includes/class-wp-site-health.php:1995
+#: wp-admin/includes/class-wp-site-health.php:1965
 msgid "HTTP requests are partially blocked"
 msgstr "HTTP请求被部分阻止"
 
-#: wp-admin/includes/class-wp-site-health.php:1980
+#: wp-admin/includes/class-wp-site-health.php:1950
 msgid "HTTP requests are blocked"
 msgstr "HTTP请求被阻止"
 
-#: wp-admin/includes/class-wp-site-health.php:1960
+#: wp-admin/includes/class-wp-site-health.php:1930
 msgid "It is possible for site maintainers to block all, or some, communication to other sites and services. If set up incorrectly, this may prevent plugins and themes from working as intended."
 msgstr "站点维护者可以阻止全部或部分到其他站点和服务的连接。如果没有正确设置，这可能会让一些插件及主题停止工作。"
 
-#: wp-admin/includes/class-wp-site-health.php:1952
+#: wp-admin/includes/class-wp-site-health.php:1922
 msgid "HTTP requests seem to be working as expected"
 msgstr "HTTP请求似乎工作正常"
 
-#: wp-admin/includes/class-wp-site-health.php:1928
+#: wp-admin/includes/class-wp-site-health.php:1898
 msgid "Your site could not complete a loopback request"
 msgstr "您的站点不能完成环回请求"
 
-#: wp-admin/includes/class-wp-site-health.php:1917
+#: wp-admin/includes/class-wp-site-health.php:1887
 msgid "Loopback requests are used to run scheduled events, and are also used by the built-in editors for themes and plugins to verify code stability."
 msgstr "环回请求被用来运行计划事件，也被内建的主题及插件编辑器使用来确保代码稳定性。"
 
-#: wp-admin/includes/class-wp-site-health.php:1909
+#: wp-admin/includes/class-wp-site-health.php:1879
 msgid "Your site can perform loopback requests"
 msgstr "您的站点可以进行环回请求"
 
-#: wp-admin/includes/class-wp-site-health.php:1833
+#: wp-admin/includes/class-wp-site-health.php:1803
 msgid "Background updates may not be working properly"
 msgstr "后台更新可能未能正常工作"
 
-#: wp-admin/includes/class-wp-site-health.php:1825
+#: wp-admin/includes/class-wp-site-health.php:1795
 msgid "Background updates are not working as expected"
 msgstr "后台更新未能正常工作"
 
-#: wp-admin/includes/class-wp-site-health.php:1822
+#: wp-admin/includes/class-wp-site-health.php:1792
 msgid "Passed"
 msgstr "通过"
 
-#: wp-admin/includes/class-wp-site-health.php:1804
+#: wp-admin/includes/class-wp-site-health.php:1774
 msgid "Background updates ensure that WordPress can auto-update if a security update is released for the version you are currently using."
 msgstr "后台更新确保WordPress能够在您正运行的版本需要安全更新时自动更新WordPress。"
 
-#: wp-admin/includes/class-wp-site-health.php:1796
+#: wp-admin/includes/class-wp-site-health.php:1766
 msgid "Background updates are working"
 msgstr "后台更新正常工作"
 
 #. translators: %s: The name of the failed cron event.
-#: wp-admin/includes/class-wp-site-health.php:1761
+#: wp-admin/includes/class-wp-site-health.php:1731
 msgid "The scheduled event, %s, failed to run. Your site still works, but this may indicate that scheduling posts or automated updates may not work as intended."
 msgstr "计划事件%s执行失败。您的站点仍然工作，但这可能意味着定时发布或自动更新不再正常运行。"
 
-#: wp-admin/includes/class-wp-site-health.php:1755
+#: wp-admin/includes/class-wp-site-health.php:1725
 msgid "A scheduled event has failed"
 msgstr "一个计划事件已失败"
 
 #. translators: %s: The error message returned while from the cron scheduler.
-#: wp-admin/includes/class-wp-site-health.php:1748
+#: wp-admin/includes/class-wp-site-health.php:1718
 msgid "While trying to test your site&#8217;s scheduled events, the following error was returned: %s"
 msgstr "在试图检查您的站点的计划事件时，遇到了此错误：%s"
 
-#: wp-admin/includes/class-wp-site-health.php:1742
+#: wp-admin/includes/class-wp-site-health.php:1712
 msgid "It was not possible to check your scheduled events"
 msgstr "不能检查您的计划事件"
 
-#: wp-admin/includes/class-wp-site-health.php:1731
+#: wp-admin/includes/class-wp-site-health.php:1701
 msgid "Scheduled events are what periodically looks for updates to plugins, themes and WordPress itself. It is also what makes sure scheduled posts are published on time. It may also be used by various plugins to make sure that planned actions are executed."
 msgstr "计划事件包括定期检查插件、主题和WordPress自身的更新，也包括让计划文章按时发布。很多插件也通过计划事件来确保动作按期执行。"
 
-#: wp-admin/includes/class-wp-site-health.php:1723
+#: wp-admin/includes/class-wp-site-health.php:1693
 msgid "Scheduled events are running"
 msgstr "计划事件正在运行"
 
-#: wp-admin/includes/class-wp-site-health.php:1704
+#: wp-admin/includes/class-wp-site-health.php:1674
 msgid "Talk to your web host about OpenSSL support for PHP."
 msgstr "请与您的主机提供商联系PHP的OpenSSL支持。"
 
-#: wp-admin/includes/class-wp-site-health.php:1700
+#: wp-admin/includes/class-wp-site-health.php:1670
 msgid "Your site is unable to communicate securely with other services"
 msgstr "您的站点不能与其他服务安全地通信"
 
-#: wp-admin/includes/class-wp-site-health.php:1696
+#: wp-admin/includes/class-wp-site-health.php:1666
 msgid "Your site can communicate securely with other services"
 msgstr "您的站点能够与其他服务安全地通信"
 
-#: wp-admin/includes/class-wp-site-health.php:1685
+#: wp-admin/includes/class-wp-site-health.php:1655
 msgid "Securely communicating between servers are needed for transactions such as fetching files, conducting sales on store sites, and much more."
 msgstr "服务器间的安全通讯对传输文件、进行交易等活动而言实属必需。"
 
@@ -3068,7 +3050,7 @@ msgstr "您的站点正在使用活跃HTTPS连接"
 #. translators: %s: URL to Settings > General > Site Address.
 #: wp-admin/includes/class-wp-site-health.php:1540
 msgid "You are accessing this website using HTTPS, but your <a href=\"%s\">Site Address</a> is not set up to use HTTPS by default."
-msgstr "您正在通过HTTPS访问此网站，但您的<a href=\"%s\">WordPress地址</a>并未设为默认使用HTTPS。"
+msgstr "您正在通过HTTPS访问此网站，但您的<a href=\"%s\">站点地址</a>并未设为默认使用HTTPS。"
 
 #: wp-admin/includes/class-wp-site-health.php:1465
 msgid "Your site is set to display errors to site visitors"
@@ -3178,7 +3160,7 @@ msgstr "必需的模组%s未被安装或已被禁用。"
 
 #: wp-admin/includes/class-wp-site-health.php:1001
 #: wp-admin/includes/class-wp-site-health.php:1389
-#: wp-admin/includes/class-wp-site-health.php:1829
+#: wp-admin/includes/class-wp-site-health.php:1799
 msgid "Error"
 msgstr "错误"
 
@@ -3632,7 +3614,7 @@ msgstr "WordPress.org可达"
 
 #: wp-admin/includes/class-wp-debug-data.php:421
 #: wp-admin/includes/class-wp-debug-data.php:427
-#: wp-admin/includes/class-wp-site-health.php:2343
+#: wp-admin/includes/class-wp-site-health.php:2313
 msgid "Communication with WordPress.org"
 msgstr "与WordPress.org通讯"
 
@@ -4119,7 +4101,7 @@ msgstr "……或这个："
 #. translators: First page content.
 #: wp-admin/includes/upgrade.php:303
 msgid "Hi there! I'm a bike messenger by day, aspiring actor by night, and this is my website. I live in Los Angeles, have a great dog named Jack, and I like pi&#241;a coladas. (And gettin' caught in the rain.)"
-msgstr "欢迎！我白天是个邮递员，晚上就是个有抱负的演员。这是我的网站。我住在天朝的帝都，有条叫做Jack的狗。"
+msgstr "嗨，大家好！我白天是个邮递员，晚上就是个有抱负的演员。这是我的网站。我住在北京，养了条吉通人性的狗叫小黑，我喜欢艺术和旅行。"
 
 #. translators: First page content.
 #: wp-admin/includes/upgrade.php:298
@@ -4269,7 +4251,7 @@ msgstr "在此章节中您应当表明在用户评论时您收集何种信息。
 #. translators: Privacy policy tutorial.
 #: wp-admin/includes/class-wp-privacy-policy-content.php:475
 msgid "In this section you should note what personal data you collect from users and site visitors. This may include personal data, such as name, email address, personal account preferences; transactional data, such as purchase information; and technical data, such as information about cookies."
-msgstr "在此章节中您应当列出您从站点用户和访问者处收集哪些个人数据，这可能包括个人数据，如姓名、电子邮箱地址、个人账户偏好；交易数据，如购买信息；和技术数据，如关于cookies的信息。"
+msgstr "在此章节中，您应当列出您从站点用户和访问者处收集哪些个人数据，这可能包括如姓名、电子邮箱地址、个人账户设置等个人数据，如购买信息等交易数据，如Cookies中所包含的信息等技术数据。"
 
 #: wp-admin/includes/class-wp-privacy-policy-content.php:449
 msgid "Suggested text:"
@@ -4468,7 +4450,7 @@ msgstr "此站点上的文章可能会包含嵌入的内容（如视频、图像
 #. translators: Default privacy policy heading.
 #: wp-admin/includes/class-wp-privacy-policy-content.php:536
 msgid "Embedded content from other websites"
-msgstr "其他站点的嵌入内容"
+msgstr "来自其他网站的嵌入内容"
 
 #. translators: Default privacy policy text.
 #: wp-admin/includes/class-wp-privacy-policy-content.php:531
@@ -4478,7 +4460,7 @@ msgstr "如果您编辑或发布文章，我们会在您的浏览器中保存一
 #. translators: Default privacy policy text.
 #: wp-admin/includes/class-wp-privacy-policy-content.php:529
 msgid "When you log in, we will also set up several cookies to save your login information and your screen display choices. Login cookies last for two days, and screen options cookies last for a year. If you select &quot;Remember Me&quot;, your login will persist for two weeks. If you log out of your account, the login cookies will be removed."
-msgstr "当您登录时，我们也会设置多个cookies来保存您的登录信息及屏幕显示选项。登录cookies会保留两天，而屏幕显示选项cookies会保留一年。如果您选择了“记住我”，您的登录会保留两周。如果您注销，登录cookies将被移除。"
+msgstr "当您登录时，我们也会设置多个cookies来保存您的登录信息及屏幕显示选项。登录cookies会保留两天，而屏幕显示选项cookies会保留一年。如果您选择了“记住我”，您的登录状态则会保留两周。如果您注销登陆了您的账户，用于登录的cookies将会被移除。"
 
 #. translators: Default privacy policy text.
 #: wp-admin/includes/class-wp-privacy-policy-content.php:527
@@ -4488,7 +4470,7 @@ msgstr "如果您访问我们的登录页，我们会设置一个临时的cookie
 #. translators: Default privacy policy text.
 #: wp-admin/includes/class-wp-privacy-policy-content.php:525
 msgid "If you leave a comment on our site you may opt-in to saving your name, email address and website in cookies. These are for your convenience so that you do not have to fill in your details again when you leave another comment. These cookies will last for one year."
-msgstr "如果您在我们的站点上留下评论，您可以选择用cookies保存您的名称、电子邮箱地址和网站地址。这是通过让您可以不用在评论时再次填写相关内容而向您提供方便。这些cookies会保留一年。"
+msgstr "如果您在我们的站点上留下评论，您可以选择用cookies保存您的名字、电子邮箱地址和网站网址。这是通过让您可以不用在评论时再次填写相关内容而向您提供方便。这些cookies会保留一年。"
 
 #. translators: Privacy policy tutorial.
 #: wp-admin/includes/class-wp-privacy-policy-content.php:522
@@ -4558,12 +4540,12 @@ msgstr "我们的站点地址是：%s。"
 #. translators: Privacy policy tutorial.
 #: wp-admin/includes/class-wp-privacy-policy-content.php:465
 msgid "The amount of information you may be required to show will vary depending on your local or national business regulations. You may, for example, be required to display a physical address, a registered address, or your company registration number."
-msgstr "此章节中需要的信息多少将会取决于您当地或国家的商业法规。您有可能需要展示您的实际地址、登记地址或公司注册号码。"
+msgstr "此章节中所需要的信息，将根据您所在国家或地区的商业法规要求而有所不同。例如，您有可能需要展示您的实际地址、注册地址或公司注册代码。"
 
 #. translators: Privacy policy tutorial.
 #: wp-admin/includes/class-wp-privacy-policy-content.php:463
 msgid "In this section you should note your site URL, as well as the name of the company, organization, or individual behind it, and some accurate contact information."
-msgstr "在此章节中您应当写出您的站点URL，和在站点之后的公司、组织或个人。您也应该留下准确的联系信息。"
+msgstr "在此章节中，您应当列出您的站点URL、主办站点的公司、组织或个人及准确的联系信息。"
 
 #. translators: Default privacy policy heading.
 #: wp-admin/includes/class-wp-privacy-policy-content.php:459
@@ -5157,7 +5139,7 @@ msgstr "%s已加入固定链接结构"
 #. translators: %s: Permalink structure tag.
 #: wp-admin/options-permalink.php:286
 msgid "%s (A sanitized version of the author name.)"
-msgstr "%s（处理过的作者名称。）"
+msgstr "%s（处理过的作者名。）"
 
 #. translators: %s: Permalink structure tag.
 #: wp-admin/options-permalink.php:284
@@ -5481,7 +5463,7 @@ msgstr "清除当前过滤器"
 #. translators: Accessibility text.
 #: wp-admin/theme-install.php:72
 msgid "Select one or more Theme features to filter by"
-msgstr "选择一个或多个主题特征来过滤"
+msgstr "选择一个或多个主题特征进行筛选"
 
 #. translators: %s: Number of ratings.
 #: wp-admin/includes/theme.php:825 wp-admin/theme-install.php:450
@@ -5943,7 +5925,7 @@ msgstr "抱歉，您不能导出此站点的内容。"
 
 #: wp-admin/edit.php:252
 msgid "You can filter the list of posts by post status using the text links above the posts list to only show posts with that status. The default view is to show all posts."
-msgstr "您可以通过点击列表上方的文字链接来过滤列表显示的项目——全部、已发布、草稿、回收站。默认视图中，显示所有文章。"
+msgstr "您可以通过点击列表上方的文字链接来筛选列表显示的项目——全部、已发布、草稿、回收站。默认视图中，显示所有文章。"
 
 #: wp-admin/customize.php:206
 msgid "Close the Customizer and go back to the previous page"
@@ -5974,7 +5956,7 @@ msgstr "自定义字段可为您的文章添加额外元数据，而这些字段
 #. translators: %s: Documentation URL.
 #: wp-admin/includes/meta-boxes.php:745
 msgid "Trackbacks are a way to notify legacy blog systems that you&#8217;ve linked to them. If you link other WordPress sites, they&#8217;ll be notified automatically using <a href=\"%s\">pingbacks</a>, no other action necessary."
-msgstr "Trackbacks是一种通知老旧博客系统您链接到了他们的方法。如果您链接到了其他WordPress站点，他们将自动被<a href=\"%s\">pingbacks</a>系统通知，无须其他操作。"
+msgstr "Trackback是一种通知老旧博客系统您链接到了他们的方法。如果您链接到了其他WordPress站点，将自动通过<a href=\"%s\">Pingback</a>通知他们，无须其他操作。"
 
 #. translators: %s: Documentation URL.
 #: wp-admin/includes/meta-boxes.php:707
@@ -6068,7 +6050,7 @@ msgstr "保存新的电子邮箱地址时发生错误，请重试。"
 
 #: wp-admin/upload.php:229
 msgid "You can narrow the list by file type/status or by date using the dropdown menus above the media table."
-msgstr "使用列表上方的下拉菜单，您可以通过指定文件类型、状态或日期来过滤列表项。"
+msgstr "使用列表上方的下拉菜单，您可以通过指定文件类型、状态或日期来筛选列表项。"
 
 #: wp-admin/themes.php:575 wp-admin/network/themes.php:429
 msgid "The following themes are installed but incomplete."
@@ -6154,7 +6136,7 @@ msgstr "点击图片来修改或更新"
 #: wp-admin/includes/plugin-install.php:741
 msgid "Reviews with %1$d star: %2$s. Opens in a new tab."
 msgid_plural "Reviews with %1$d stars: %2$s. Opens in a new tab."
-msgstr[0] "%1$d星的评论：%2$s。在新标签页打开。"
+msgstr[0] "%1$d星的评价：%2$s。在新标签页中打开。"
 
 #: wp-admin/includes/plugin-install.php:733
 msgid "Read all reviews on WordPress.org or write your own!"
@@ -6162,7 +6144,7 @@ msgstr "在WordPress.org阅读所有评价或撰写您的评价！"
 
 #: wp-admin/includes/plugin-install.php:732
 msgid "Reviews"
-msgstr "评论"
+msgstr "评价"
 
 #. translators: %s: URL to "Features as Plugins" page.
 #: wp-admin/includes/plugin-install.php:407
@@ -6576,7 +6558,7 @@ msgstr "用户列表导航"
 
 #: wp-admin/users.php:81 wp-admin/network/users.php:236
 msgid "Filter users list"
-msgstr "过滤用户列表"
+msgstr "筛选用户列表"
 
 #: wp-admin/upload.php:260
 msgid "Media items list"
@@ -6588,7 +6570,7 @@ msgstr "媒体项目列表导航"
 
 #: wp-admin/upload.php:258
 msgid "Filter media items list"
-msgstr "过滤媒体项目列表"
+msgstr "筛选媒体项目列表"
 
 #: wp-admin/themes.php:651
 msgid "Install Parent Theme"
@@ -6600,7 +6582,7 @@ msgstr "主题列表"
 
 #: wp-admin/theme-install.php:168 wp-admin/network/themes.php:330
 msgid "Filter themes list"
-msgstr "过滤主题列表"
+msgstr "筛选主题列表"
 
 #: wp-admin/plugins.php:704
 msgid "All selected plugins are up to date."
@@ -6616,7 +6598,7 @@ msgstr "插件列表导航"
 
 #: wp-admin/plugins.php:594 wp-admin/plugin-install.php:115
 msgid "Filter plugins list"
-msgstr "过滤插件列表"
+msgstr "筛选插件列表"
 
 #. translators: %s: Plugin file name.
 #: wp-admin/plugin-editor.php:211
@@ -6677,7 +6659,7 @@ msgid "The %1$s plugin header is deprecated. Use %2$s instead."
 msgstr "%1$s插件头已被废弃，请改用%2$s。"
 
 #: wp-admin/includes/class-wp-site-health.php:1009
-#: wp-admin/includes/class-wp-site-health.php:1837
+#: wp-admin/includes/class-wp-site-health.php:1807
 msgid "Warning"
 msgstr "警告"
 
@@ -6802,7 +6784,7 @@ msgstr "项目列表导航"
 
 #: wp-admin/includes/class-wp-screen.php:760
 msgid "Filter items list"
-msgstr "过滤项目列表"
+msgstr "筛选项目列表"
 
 #: wp-admin/includes/class-wp-plugins-list-table.php:823
 msgid "Network Only"
@@ -6936,7 +6918,7 @@ msgstr "评论列表导航"
 
 #: wp-admin/edit-comments.php:202
 msgid "Filter comments list"
-msgstr "过滤评论列表"
+msgstr "筛选评论列表"
 
 #: wp-admin/edit-comments.php:187
 msgid "In the <strong>Submitted on</strong> column, the date and time the comment was left on your site appears. Clicking on the date/time link will take you to that comment on your live site."
@@ -6981,15 +6963,15 @@ msgstr "您将要删除这名用户："
 #. translators: %s: User's display name.
 #: wp-admin/user-edit.php:725
 msgid "Log %s out of all locations."
-msgstr "已在所有位置登出%1$s。"
+msgstr "注销%s的所有会话。"
 
 #: wp-admin/user-edit.php:713
 msgid "Did you lose your phone or leave your account logged in at a public computer? You can log out everywhere else, and stay logged in here."
-msgstr "您丢失了您的手机或是在公共电脑上登录着您的账户？您可以在其他设备上登出，只在此处保留登录状态。"
+msgstr "如果您丢失了您的手机或是在公共电脑上登录了您的账户，您可以立即注销其他设备的登陆状态，并只保留此处的登录状态。"
 
 #: wp-admin/user-edit.php:701 wp-admin/user-edit.php:711
 msgid "Log Out Everywhere Else"
-msgstr "登出其他设备"
+msgstr "注销除此之外的所有会话"
 
 #: wp-admin/user-edit.php:699 wp-admin/user-edit.php:709
 #: wp-admin/user-edit.php:719
@@ -7246,7 +7228,7 @@ msgstr "一篇文章未更新，有其他人正在编辑。"
 
 #: wp-admin/user-edit.php:57
 msgid "You can log out of other devices, such as your phone or a public computer, by clicking the Log Out Everywhere Else button."
-msgstr "您可以通过点击“登出其他设备”按钮来在您的其他设备上登出，如您的手机或公共电脑。"
+msgstr "您可以通过点击 “注销除此之外的所有会话”按钮来注销其他设备的登录状态，例如您的手机或公共计算机。"
 
 #: wp-admin/update-core.php:766
 msgid "New translations are available."
@@ -7425,7 +7407,7 @@ msgstr "https://cn.wordpress.org/support"
 
 #: wp-admin/user-edit.php:703
 msgid "You are only logged in at this location."
-msgstr "您只有在此处登入。"
+msgstr "执行以上操作后，仅会保留当前会话的登录状态。"
 
 #: wp-admin/includes/plugin-install.php:402
 msgid "These suggestions are based on the plugins you and other users have installed."
@@ -7437,7 +7419,7 @@ msgstr "您可以通过右侧的图标启用免打扰写作模式。此功能在
 
 #: wp-admin/user-edit.php:721
 msgid "Log Out Everywhere"
-msgstr "登出所有设备"
+msgstr "注销所有会话"
 
 #: wp-admin/includes/class-wp-plugin-install-list-table.php:111
 msgctxt "Plugin Installer"
@@ -7516,20 +7498,20 @@ msgstr "所有分类"
 
 #: wp-admin/includes/class-wp-comments-list-table.php:499
 msgid "Filter by comment type"
-msgstr "按评论类型过滤"
+msgstr "按评论类型筛选"
 
 #. translators: %s: User's display name.
 #: wp-admin/includes/ajax-actions.php:3851
 msgid "%s has been logged out."
-msgstr "%s已被登出。"
+msgstr "已成功注销%s的会话。"
 
 #: wp-admin/includes/ajax-actions.php:3847
 msgid "You are now logged out everywhere else."
-msgstr "您已在所有其他地方登出。"
+msgstr "您已成功注销除此之外的所有会话。"
 
 #: wp-admin/includes/ajax-actions.php:3838
 msgid "Could not log out user sessions. Please try again."
-msgstr "未能登出会话，请重试。"
+msgstr "无法注销用户会话，请重试。"
 
 #: wp-admin/includes/ajax-actions.php:3725
 msgid "This preview is unavailable in the editor."
@@ -7726,7 +7708,7 @@ msgstr "如果您联系我们，我们也将尽力确保您不再遇到此问题
 
 #: wp-admin/theme-install.php:235
 msgid "Filtering by:"
-msgstr "过滤条件："
+msgstr "筛选条件："
 
 #: wp-admin/includes/media.php:3255
 msgid "Displayed on attachment pages."
@@ -8002,7 +7984,7 @@ msgstr "%s个评级"
 #: wp-admin/includes/template.php:2641
 msgid "%1$s rating based on %2$s rating"
 msgid_plural "%1$s rating based on %2$s ratings"
-msgstr[0] "%1$s颗星（基于%2$s个评级）"
+msgstr[0] "%1$s星（基于%2$s个评级）"
 
 #: wp-admin/my-sites.php:45
 msgid "This screen shows an individual user all of their sites in this network, and also allows that user to set a primary site. They can use the links under each site to visit either the front end or the dashboard for that site."
@@ -8291,7 +8273,7 @@ msgstr "正在更新%1$s（%2$s）的翻译…"
 msgid "Update Translations"
 msgstr "更新翻译"
 
-#: wp-admin/includes/class-wp-site-health.php:2349
+#: wp-admin/includes/class-wp-site-health.php:2319
 msgid "Background updates"
 msgstr "后台更新"
 
@@ -8599,7 +8581,7 @@ msgstr "从左边栏中添加菜单项目。"
 #. translators: %s: https://wordpress.org/plugins
 #: wp-admin/includes/plugin-install.php:272
 msgid "Plugins extend and expand the functionality of WordPress. You may automatically install plugins from the <a href=\"%s\">WordPress Plugin Directory</a> or upload a plugin in .zip format by clicking the button at the top of this page."
-msgstr "插件为WordPress添加新功能。您可以在您的控制板选择并直接安装<a href=\"%s\">WordPress插件目录</a>中的插件，或者点击顶部的按钮上传.zip格式的插件。"
+msgstr "插件可以扩展和增强WordPress的功能。您可以从<a href=\"%s\">WordPress插件目录</a>中自动安装插件，或者通过点击本页顶部的按钮上传.zip格式的插件文件。"
 
 #. Plugin URI of the plugin
 msgid "http://wordpress.org/plugins/hello-dolly/"
@@ -9051,7 +9033,7 @@ msgstr "请在下方填写您的数据库连接信息。如果您不确定，请
 
 #: wp-admin/plugin-install.php:103
 msgid "If you want to install a plugin that you&#8217;ve downloaded elsewhere, click the Upload Plugin button above the plugins list. You will be prompted to upload the .zip package, and once uploaded, you can activate the new plugin."
-msgstr "如果您想安装从别处下载的插件，请点击列表上方的“上传”。WordPress接受.zip格式的压缩包，在上传成功后，您可启用该插件。"
+msgstr "如果您想安装从别处下载的插件，请点击列表上方的“上传”。WordPress接受.zip格式的压缩包，在上传成功后，您就可以启用该插件了。"
 
 #: wp-admin/plugin-install.php:102
 msgid "You can also browse a user&#8217;s favorite plugins, by using the Favorites link above the plugins list and entering their WordPress.org username."
@@ -9532,7 +9514,7 @@ msgstr "%1$s有新版本可用。<a href=\"%2$s\" %3$s>查看版本%4$s详情</a
 #. translators: %s: Plugin author.
 #: wp-admin/includes/plugin.php:214
 msgid "By %s."
-msgstr "作者为%s。"
+msgstr "作者%s。"
 
 #: wp-admin/includes/meta-boxes.php:848 wp-admin/includes/template.php:494
 msgid "Add Comment"
@@ -9818,7 +9800,7 @@ msgstr "通过邮件发布设置能让您通过邮件将您文章的内容发送
 
 #: wp-admin/users.php:45
 msgid "You can filter the list of users by User Role using the text links above the users list to show All, Administrator, Editor, Author, Contributor, or Subscriber. The default view is to show all users. Unused User Roles are not listed."
-msgstr "您可以使用用户列表上方的文字链接按用户角色过滤用户列表，可显示所有、管理员、编辑、作者、贡献者或订阅者。默认视图为显示所有用户。未使用的用户角色不会被列出。"
+msgstr "您可以使用用户列表上方的文字链接按用户角色筛选用户列表，可显示所有、管理员、编辑、作者、贡献者或订阅者。默认视图为显示所有用户。未使用的用户角色不会被列出。"
 
 #: wp-admin/import.php:25
 msgid "In previous versions of WordPress, all importers were built-in. They have been turned into plugins since most people only use them once or infrequently."
@@ -10008,7 +9990,7 @@ msgstr "安装主题"
 
 #: wp-admin/user-new.php:283
 msgid "Subscribers can read comments/comment/receive newsletters, etc. but cannot create regular site content."
-msgstr "订阅者可以阅读评论、发表评论、接收电子报等，但不能发布诸如文章、页面等常规网站内容。"
+msgstr "订阅者可以阅读评论、发表评论、接收电子报等，但不能发布诸如文章、页面等常规站点内容。"
 
 #: wp-admin/user-new.php:285
 msgid "Authors can publish and manage their own posts, and are able to upload files."
@@ -10320,7 +10302,7 @@ msgstr "音频、视频等文件"
 
 #: wp-admin/includes/media.php:2401
 msgid "Insert media from another website"
-msgstr "插入其他站点上的媒体"
+msgstr "插入来自其他网站的媒体"
 
 #: wp-admin/includes/file.php:2164
 msgid "<strong>Error</strong>: Could not connect to the server. Please verify the settings are correct."
@@ -12307,11 +12289,11 @@ msgstr "昵称"
 
 #: wp-admin/user-new.php:520 wp-admin/user-edit.php:453
 msgid "Last Name"
-msgstr "姓"
+msgstr "姓氏"
 
 #: wp-admin/user-new.php:516 wp-admin/user-edit.php:448
 msgid "First Name"
-msgstr "名"
+msgstr "名字"
 
 #: wp-admin/user-edit.php:325
 msgid "Enable keyboard shortcuts for comment moderation."
@@ -13001,7 +12983,7 @@ msgstr "用户必须注册并登录才可以发表评论"
 
 #: wp-admin/options-discussion.php:66
 msgid "Comment author must fill out name and email"
-msgstr "评论者必须填入姓名和电子邮箱地址"
+msgstr "评论者必须填入名字和电子邮箱地址"
 
 #: wp-admin/options-discussion.php:64 wp-admin/options-discussion.php:65
 msgid "Other comment settings"
@@ -14868,7 +14850,7 @@ msgstr "发送Trackback"
 #. translators: %s: Date and time of the revision.
 #: wp-admin/edit-form-advanced.php:202
 msgid "Page restored to revision from %s."
-msgstr "页面已还原到在%s的版本。"
+msgstr "页面已从%s的修订版本中还原。"
 
 #: wp-admin/edit-form-advanced.php:189
 msgid "Post saved."

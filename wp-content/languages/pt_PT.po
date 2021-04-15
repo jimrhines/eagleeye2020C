@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the WordPress - 5.7.x - Development package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-03-05 00:49:07+0000\n"
+"PO-Revision-Date: 2021-04-01 22:41:12+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -98,9 +98,26 @@ msgstr ","
 msgid "Uncategorized"
 msgstr "Sem categoria"
 
+#: wp-includes/https-detection.php:139
+msgid "SSL verification failed."
+msgstr "A verificação de SSL falhou."
+
+#: wp-includes/https-detection.php:134
+msgid "HTTPS request failed."
+msgstr "O pedido HTTPS falhou."
+
+#. translators: 1: $l10n, 2: wp_add_inline_script()
+#: wp-includes/class.wp-scripts.php:492
+msgid "The %1$s parameter must be an array. To pass arbitrary data to scripts, use the %2$s function instead."
+msgstr "O parâmetro %1$s deve ser um array. Para passar dados arbitrários para scripts, use em alternativa a função %2$s."
+
 #: wp-includes/query.php:909
 msgid "https://developer.wordpress.org/reference/functions/is_main_query/"
 msgstr "https://developer.wordpress.org/reference/functions/is_main_query/"
+
+#: wp-includes/taxonomy.php:610
+msgid "Filter by category"
+msgstr "Filtrar por categoria"
 
 #. translators: Documentation explaining HTTPS and why it should be used.
 #: wp-includes/functions.php:7635
@@ -116,13 +133,162 @@ msgstr "Saiba mais sobre a resolução de problemas no WordPress."
 msgid "https://wordpress.org/support/article/faq-troubleshooting/"
 msgstr "https://wordpress.org/support/article/faq-troubleshooting/"
 
+#: wp-includes/user.php:4281
+msgid "The confirmation key has expired for this personal data request."
+msgstr "A chave de confirmação expirou para este pedido de dados pessoais."
+
+#: wp-includes/user.php:4277
+msgid "The confirmation key is invalid for this personal data request."
+msgstr "A chave de confirmação é inválida para este pedido de dados pessoais."
+
+#: wp-includes/user.php:4258
+msgid "The confirmation key is missing from this personal data request."
+msgstr "Chave de confirmação em falta para este pedido de dados pessoais."
+
+#: wp-includes/user.php:4254
+msgid "This personal data request has expired."
+msgstr "Este pedido de dados pessoais expirou."
+
+#: wp-includes/user.php:4062 wp-includes/user.php:4250
+#: wp-admin/includes/privacy-tools.php:23
+#: wp-admin/includes/privacy-tools.php:52
+msgid "Invalid personal data request."
+msgstr "Pedido de dados pessoais inválido."
+
+#: wp-includes/user.php:3973
+msgid "Invalid request status."
+msgstr "O estado do pedido é inválido."
+
 #: wp-includes/class-wp-application-passwords.php:78
 msgid "Each application name should be unique."
 msgstr "O nome de cada aplicação deve ser único."
 
+#: wp-includes/https-detection.php:150
+msgid "It looks like the response did not come from this site."
+msgstr "Parece que a resposta não veio deste site."
+
+#. translators: 1: Parameter, 2: List of valid values.
+#: wp-includes/rest-api.php:1965
+msgid "%1$s is not one of %2$l."
+msgstr "%1$s não é um de %2$l."
+
+#. translators: 1: Parameter, 2: Valid values.
+#: wp-includes/rest-api.php:1961
+msgid "%1$s is not %2$s."
+msgstr "%1$s não é %2$s."
+
+#: wp-includes/cron.php:1197
+msgid "The cron event list could not be saved."
+msgstr "Não foi possível guardar a lista de eventos do cron."
+
+#: wp-includes/cron.php:578 wp-includes/cron.php:667
+msgid "A plugin prevented the hook from being cleared."
+msgstr "Um plugin impediu que o hook fosse limpo."
+
+#: wp-includes/cron.php:498
+msgid "A plugin prevented the event from being unscheduled."
+msgstr "Um plugin impediu que o agendamento do evento fosse cancelado."
+
+#: wp-includes/cron.php:407
+msgid "A plugin prevented the event from being rescheduled."
+msgstr "Um plugin impediu que o evento fosse reagendado."
+
+#: wp-includes/cron.php:254 wp-includes/cron.php:423
+msgid "Event schedule does not exist."
+msgstr "O evento agendado não existe."
+
+#: wp-includes/cron.php:183 wp-includes/cron.php:295
+msgid "A plugin disallowed this event."
+msgstr "Um plugin não permitiu este evento."
+
+#: wp-includes/cron.php:154
+msgid "A duplicate event already exists."
+msgstr "Já existe um evento duplicado."
+
+#: wp-includes/cron.php:97 wp-includes/cron.php:276
+msgid "A plugin prevented the event from being scheduled."
+msgstr "Um plugin impediu que o evento fosse agendado."
+
+#: wp-includes/cron.php:45 wp-includes/cron.php:241 wp-includes/cron.php:346
+#: wp-includes/cron.php:467
+msgid "Event timestamp must be a valid Unix timestamp."
+msgstr "A data e hora do evento têm de estar num formato Unix válido."
+
+#: wp-includes/rest-api/endpoints/class-wp-rest-attachments-controller.php:1428
+msgid "As a percentage of the image, the height to crop the image to. DEPRECATED: Use `modifiers` instead."
+msgstr "Como percentagem da imagem, a altura do corte da imagem. OBSOLETO: Utilize os `modificadores` em alternativa."
+
+#: wp-includes/rest-api/endpoints/class-wp-rest-attachments-controller.php:1422
+msgid "As a percentage of the image, the width to crop the image to. DEPRECATED: Use `modifiers` instead."
+msgstr "Como percentagem da imagem, a largura do corte da imagem. OBSOLETO: Utilize os `modificadores` em alternativa."
+
+#: wp-includes/rest-api/endpoints/class-wp-rest-attachments-controller.php:1416
+msgid "As a percentage of the image, the y position to start the crop from. DEPRECATED: Use `modifiers` instead."
+msgstr "Como percentagem da imagem, a posição y do início do corte da imagem. OBSOLETO: Utilize os `modificadores` em alternativa."
+
+#: wp-includes/rest-api/endpoints/class-wp-rest-attachments-controller.php:1410
+msgid "As a percentage of the image, the x position to start the crop from. DEPRECATED: Use `modifiers` instead."
+msgstr "Como percentagem da imagem, a posição x do início do corte da imagem. OBSOLETO: Utilize os `modificadores` em alternativa."
+
+#: wp-includes/rest-api/endpoints/class-wp-rest-attachments-controller.php:1402
+msgid "The amount to rotate the image clockwise in degrees. DEPRECATED: Use `modifiers` instead."
+msgstr "O valor de rotação da imagem no sentido dos ponteiros do relógio, em graus. OBSOLETO: Utilize os `modificadores` em alternativa."
+
+#: wp-includes/rest-api/endpoints/class-wp-rest-attachments-controller.php:1391
+msgid "Height of the crop as a percentage of the image height."
+msgstr "Altura do corte como percentagem da altura da imagem."
+
+#: wp-includes/rest-api/endpoints/class-wp-rest-attachments-controller.php:1387
+msgid "Width of the crop as a percentage of the image width."
+msgstr "Largura do corte como percentagem da largura da imagem."
+
+#: wp-includes/rest-api/endpoints/class-wp-rest-attachments-controller.php:1383
+msgid "Vertical position from the top to begin the crop as a percentage of the image height."
+msgstr "Posição vertical a partir do topo para iniciar o corte como uma percentagem da altura da imagem."
+
+#: wp-includes/rest-api/endpoints/class-wp-rest-attachments-controller.php:1379
+msgid "Horizontal position from the left to begin the crop as a percentage of the image width."
+msgstr "Posição horizontal a partir da esquerda para iniciar o corte como uma percentagem da largura da imagem."
+
+#: wp-includes/rest-api/endpoints/class-wp-rest-attachments-controller.php:1369
+msgid "Crop arguments."
+msgstr "Argumentos de corte."
+
+#: wp-includes/rest-api/endpoints/class-wp-rest-attachments-controller.php:1364
+msgid "Crop type."
+msgstr "Tipo de corte."
+
+#: wp-includes/rest-api/endpoints/class-wp-rest-attachments-controller.php:1353
+msgid "Angle to rotate clockwise in degrees."
+msgstr "Ângulo em graus para rodar no sentido dos ponteiros do relógio."
+
+#: wp-includes/rest-api/endpoints/class-wp-rest-attachments-controller.php:1346
+msgid "Rotation arguments."
+msgstr "Argumentos de rotação."
+
+#: wp-includes/rest-api/endpoints/class-wp-rest-attachments-controller.php:1341
+msgid "Rotation type."
+msgstr "Tipo de rotação."
+
 #: wp-includes/rest-api/endpoints/class-wp-rest-attachments-controller.php:1338
 msgid "Rotation"
 msgstr "Rotação"
+
+#: wp-includes/rest-api/endpoints/class-wp-rest-attachments-controller.php:1330
+msgid "Image edit."
+msgstr "Edição de imagem."
+
+#: wp-includes/rest-api/endpoints/class-wp-rest-attachments-controller.php:1326
+msgid "Array of image edits."
+msgstr "Array de edições da imagem."
+
+#: wp-includes/rest-api/endpoints/class-wp-rest-application-passwords-controller.php:522
+msgid "Cannot introspect Application Password."
+msgstr "Não é possível examinar a senha de aplicação."
+
+#: wp-includes/rest-api/endpoints/class-wp-rest-application-passwords-controller.php:494
+msgid "The authenticated Application Password can only be introspected for the current user."
+msgstr "A senha de aplicação autenticada só pode ser examinada para o utilizador actual."
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-application-passwords-controller.php:431
 msgid "Sorry, you are not allowed to delete this application password."
@@ -148,6 +314,35 @@ msgstr "Não tem permissão para ler esta senha de aplicação."
 msgid "Sorry, you are not allowed to list application passwords for this user."
 msgstr "Não tem permissão para listar senhas de aplicação deste utilizador."
 
+#. translators: %s: Taxonomy name.
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2976
+msgid "Limit result set to items with specific terms assigned in the %s taxonomy."
+msgstr "Limita conjunto de resultados a itens com termos específicos atribuídos na taxonomia %s."
+
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2963
+msgid "Whether to include child terms in the terms limiting the result set."
+msgstr "Incluir ou não termos dependentes nos termos que limitam o conjunto de resultados."
+
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2955
+msgid "Term IDs."
+msgstr "ID de termos."
+
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2951
+msgid "Perform an advanced term query."
+msgstr "Executa uma consulta avançada de termos."
+
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2950
+msgid "Term ID Taxonomy Query"
+msgstr "Consulta de ID de termos de taxonomia"
+
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2943
+msgid "Match terms with the listed IDs."
+msgstr "Corresponder termos com ID na lista."
+
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2942
+msgid "Term ID List"
+msgstr "Lista de ID de termos"
+
 #: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2669
 msgid "Limit response to posts modified before a given ISO8601 compliant date."
 msgstr "Limita resposta a artigos modificados até uma data especificada em ISO8601."
@@ -156,6 +351,10 @@ msgstr "Limita resposta a artigos modificados até uma data especificada em ISO8
 msgid "Limit response to posts modified after a given ISO8601 compliant date."
 msgstr "Limita resposta a artigos modificados depois de uma data especificada em ISO8601."
 
+#: wp-includes/rest-api/endpoints/class-wp-rest-themes-controller.php:541
+msgid "A named status for the theme."
+msgstr "O nome do estado para o tema."
+
 #: wp-includes/rest-api/endpoints/class-wp-rest-themes-controller.php:161
 msgid "Theme not found."
 msgstr "Tema não encontrado."
@@ -163,6 +362,12 @@ msgstr "Tema não encontrado."
 #: wp-includes/rest-api/endpoints/class-wp-rest-themes-controller.php:143
 msgid "Sorry, you are not allowed to view the active theme."
 msgstr "Não tem permissão para ver o tema activo."
+
+#. translators: Visible only in the front end, this warning takes the place of
+#. a faulty block.
+#: wp-includes/blocks/block.php:46
+msgid "[block rendering halted]"
+msgstr "[Apresentação do bloco interrompida]"
 
 #. translators: %s is the user-provided title of the reusable block.
 #: wp-includes/blocks/block.php:32
@@ -176,6 +381,10 @@ msgstr "Guardar senha"
 #: wp-login.php:902
 msgid "Generate Password"
 msgstr "Gerar senha"
+
+#: wp-login.php:855
+msgid "Enter your new password below or generate one."
+msgstr "Insira a sua nova senha abaixo ou gere uma."
 
 #: wp-includes/block-patterns/large-header-button.php:10
 msgid "Thou hast seen<br>nothing yet"
@@ -2192,9 +2401,9 @@ msgid "Sorry, you are not allowed to delete revisions of this post."
 msgstr "Não tem permissão para eliminar revisões deste artigo."
 
 #. translators: %s: Custom field key.
-#: wp-includes/rest-api/fields/class-wp-rest-meta-fields.php:320
-#: wp-includes/rest-api/fields/class-wp-rest-meta-fields.php:334
-#: wp-includes/rest-api/fields/class-wp-rest-meta-fields.php:384
+#: wp-includes/rest-api/fields/class-wp-rest-meta-fields.php:324
+#: wp-includes/rest-api/fields/class-wp-rest-meta-fields.php:338
+#: wp-includes/rest-api/fields/class-wp-rest-meta-fields.php:388
 msgid "Could not update the meta value of %s in database."
 msgstr "Não foi possível actualizar o valor dos metadados de %s na base de dados."
 
@@ -5534,8 +5743,8 @@ msgstr "Sobre este site"
 
 #. translators: %s: Custom field key.
 #: wp-includes/rest-api/fields/class-wp-rest-meta-fields.php:227
-#: wp-includes/rest-api/fields/class-wp-rest-meta-fields.php:269
-#: wp-includes/rest-api/fields/class-wp-rest-meta-fields.php:364
+#: wp-includes/rest-api/fields/class-wp-rest-meta-fields.php:273
+#: wp-includes/rest-api/fields/class-wp-rest-meta-fields.php:368
 msgid "Sorry, you are not allowed to edit the %s custom field."
 msgstr "Não tem permissão para editar o campo personalizado %s."
 
@@ -5859,11 +6068,11 @@ msgstr "%1$s não é do tipo %2$s."
 msgid "%1$s is not one of %2$s."
 msgstr "%1$s não é um de %2$s."
 
-#: wp-includes/rest-api/fields/class-wp-rest-meta-fields.php:501
+#: wp-includes/rest-api/fields/class-wp-rest-meta-fields.php:505
 msgid "Meta fields."
 msgstr "Campos de metadados."
 
-#: wp-includes/rest-api/fields/class-wp-rest-meta-fields.php:238
+#: wp-includes/rest-api/fields/class-wp-rest-meta-fields.php:242
 msgid "Could not delete meta value from database."
 msgstr "Não foi possível eliminar o valor de metadados da base de dados."
 
@@ -10219,7 +10428,7 @@ msgstr "Reduzir indentação"
 #: wp-includes/class-wp-editor.php:1163
 #: wp-includes/js/dist/block-editor.js:6608
 msgid "Align center"
-msgstr "Centrar"
+msgstr "Alinhar ao centro"
 
 #: wp-includes/class-wp-editor.php:1155
 msgid "Clear formatting"

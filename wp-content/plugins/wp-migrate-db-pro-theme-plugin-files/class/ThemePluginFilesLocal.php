@@ -135,7 +135,8 @@ class ThemePluginFilesLocal {
 
 			// Push = get local files
 			$abs_path  = 'plugins' === $state_data['stage'] ? WP_PLUGIN_DIR : WP_CONTENT_DIR . '/themes/';
-			$file_list = $this->file_processor->get_local_files( $verified_folders, $abs_path, $excludes, $state_data['stage'] );
+
+			$file_list = $this->file_processor->get_local_files( $verified_folders, $abs_path, $state_data['stage'], $excludes );
 		}
 
 		if ( ! $file_list ) {

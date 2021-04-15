@@ -117,7 +117,7 @@ function trp_sort_dictionary_by_original( $dictionaries, $type, $group, $languag
 
 function trp_is_valid_language_code( $language_code ){
     // allowed characters A-Z a-z 0-9 - _
-    if ( preg_match('/[^A-Za-z0-9\-_]/i', $language_code ) ) {
+    if ( empty($language_code) || preg_match('/[^A-Za-z0-9\-_]/i', $language_code ) ) {
         return false;
     }else{
         return true;

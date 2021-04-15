@@ -128,17 +128,17 @@ function trp_add_affiliate_id_to_link( $link ){
     //Avangate Affiliate Network
     $avg_affiliate_id = get_option('translatepress_avg_affiliate_id');
     if  ( !empty( $avg_affiliate_id ) ) {
-        return esc_url( add_query_arg( 'avgref', $avg_affiliate_id, $link ) );
+        $link = add_query_arg( 'avgref', $avg_affiliate_id, $link );
     }
     else{
         // AffiliateWP
         $affiliate_id = get_option('translatepress_affiliate_id');
         if  ( !empty( $affiliate_id ) ) {
-            return esc_url( add_query_arg( 'ref', $affiliate_id, $link ) );
+            $link = add_query_arg( 'ref', $affiliate_id, $link );
         }
     }
 
-    return esc_url( $link );
+    return esc_url( apply_filters( 'trp_affiliate_link', $link ) );
 }
 
 /**
@@ -431,6 +431,28 @@ function trp_remove_accents( $string ){
 
     return $string;
 };
+
+/**
+ * Output an SVG depending on case.
+ *
+ * @param string $icon The icon to output. Default no icon.
+ */
+function trp_output_svg( $icon = '' ) {
+    switch ( $icon ) {
+        case 'check':
+            ?>
+            <svg class="trp-svg-icon fas-check-circle"><use xlink:href="#check-circle"></use></svg>
+            <?php
+            break;
+        case 'error':
+            ?>
+            <svg class="trp-svg-icon fas-times-circle"><use xlink:href="#times-circle"></use></svg>
+            <?php
+            break;
+        default:
+            break;
+    }
+}
 
 /**
  * Debuger function. Mainly designed for the get_url_for_language() function

@@ -166,7 +166,8 @@ class ThemePluginFilesRemote {
 		}
 
 		$abs_path = 'plugins' === $stage ? WP_PLUGIN_DIR : WP_CONTENT_DIR . DIRECTORY_SEPARATOR . 'themes' . DIRECTORY_SEPARATOR;
-		$files    = $this->file_processor->get_local_files( unserialize( $state_data['folders'] ), $this->filesystem->slash_one_direction( $abs_path ), unserialize( $state_data['excludes'] ), $stage );
+
+		$files    = $this->file_processor->get_local_files( unserialize( $state_data['folders'] ), $this->filesystem->slash_one_direction( $abs_path ), $stage, unserialize( $state_data['excludes'] ) );
 
 		if ( empty( $files ) ) {
 			return $this->http->end_ajax( __( 'No files returned from the remote server.', 'wp-migrate-db' ) . ' (#101tp)' );

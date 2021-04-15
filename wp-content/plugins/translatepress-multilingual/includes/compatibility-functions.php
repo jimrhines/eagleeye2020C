@@ -1460,3 +1460,19 @@ if( class_exists('WooCommerce_Product_Search_Service') ) {
      return $translation;
 
  }
+
+
+/**
+ * Compatibility with Google Site Kit plugin
+ *
+ * Problem was that Site Kit dashboard kept disconnecting, thinking the url must have changed.
+ *
+ * To replicate, set TP option "Add language to subdirectory" Yes and use Complianz plugin, wizard step 2,
+ * to perform re-scan of cookies. This triggered the disconnect.
+ */
+add_filter('googlesitekit_canonical_home_url', 'trp_googlesitekit_compatibility_home_url' );
+function trp_googlesitekit_compatibility_home_url( $url ) {
+    $trp = TRP_Translate_Press::get_trp_instance();
+    $url_converter = $trp->get_component('url_converter');
+    return $url_converter->get_abs_home();
+}

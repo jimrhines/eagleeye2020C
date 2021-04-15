@@ -158,6 +158,8 @@ class TRP_Editor_Api_Gettext_Strings {
 					$this->trp_query->update_gettext_strings( $update_string_array, $language, array('id','translated', 'status') );
                     $this->trp_query->remove_possible_duplicates($update_string_array, $language, 'gettext');
 				}
+
+                do_action('trp_save_editor_translations_gettext_strings', $update_strings, $this->settings);
 			}
 		}
 		echo trp_safe_json_encode( array() );

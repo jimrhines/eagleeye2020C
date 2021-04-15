@@ -333,11 +333,11 @@ msgstr "現在、選択した投稿に翻訳はありません。"
 msgid "WPML is not currently installed."
 msgstr "WPML がインストールされていません。"
 
-#: app/Entities/PluginIntegration/WPML.php:228
+#: app/Entities/PluginIntegration/WPML.php:227
 msgid "All Languages"
 msgstr "すべての言語"
 
-#: app/Entities/PluginIntegration/WPML.php:151
+#: app/Entities/PluginIntegration/WPML.php:150
 msgid "Sync WPML Menus"
 msgstr "WPML のメニューを同期"
 
@@ -815,41 +815,41 @@ msgid "+"
 msgstr "+"
 
 #: app/Views/forms/quickedit-post.php:270 app/Views/forms/quickedit-link.php:66
-#: app/Views/forms/link-form.php:99
+#: app/Views/forms/link-form.php:94
 msgid "Open link in a new window/tab"
 msgstr "リンクを新しいウィンドウまたはタブで開く"
 
-#: app/Views/forms/link-form.php:93
+#: app/Views/forms/link-form.php:88
 msgid "CSS Classes (optional)"
 msgstr "CSS クラス (オプション)"
 
 #: app/Views/forms/quickedit-post.php:252 app/Views/forms/quickedit-link.php:44
-#: app/Views/forms/link-form.php:89
+#: app/Views/forms/link-form.php:84
 msgid "Title Attribute"
 msgstr "タイトル属性"
 
 #: app/Views/forms/quickedit-post.php:248 app/Views/forms/quickedit-link.php:17
-#: app/Views/forms/link-form.php:85
+#: app/Views/forms/link-form.php:80
 msgid "Navigation Label"
 msgstr "ナビゲーションラベル"
 
-#: app/Views/forms/quickedit-link.php:22 app/Views/forms/link-form.php:81
+#: app/Views/forms/quickedit-link.php:22 app/Views/forms/link-form.php:76
 msgid "URL"
 msgstr "URL"
 
-#: app/Views/forms/link-form.php:76
+#: app/Views/forms/link-form.php:71
 msgid "Original"
 msgstr "オリジナル"
 
-#: app/Views/forms/link-form.php:71
+#: app/Views/forms/link-form.php:66
 msgid "Select an item"
 msgstr "項目を選択"
 
-#: app/Views/forms/link-form.php:35 app/Views/forms/link-form.php:57
+#: app/Views/forms/link-form.php:35 app/Views/forms/link-form.php:52
 msgid "No Results"
 msgstr "一致する結果がありません"
 
-#: app/Views/forms/link-form.php:28 app/Views/forms/link-form.php:57
+#: app/Views/forms/link-form.php:28 app/Views/forms/link-form.php:52
 msgid "Search"
 msgstr "検索"
 
@@ -870,7 +870,7 @@ msgstr "削除"
 #: app/Views/forms/quickedit-link.php:84
 #: app/Views/forms/delete-confirmation-modal.php:10
 #: app/Views/forms/new-child.php:103 app/Views/forms/empty-trash-modal.php:10
-#: app/Views/forms/link-form.php:116 app/Views/forms/clone-form.php:63
+#: app/Views/forms/link-form.php:111 app/Views/forms/clone-form.php:63
 msgid "Cancel"
 msgstr "キャンセル"
 
@@ -932,7 +932,7 @@ msgstr "親ページが有効ではありません。"
 msgid "Please provide a "
 msgstr "入力してください:"
 
-#: app/Form/Listeners/NewMenuItem.php:28 app/Form/Validation/Validation.php:150
+#: app/Form/Listeners/NewMenuItem.php:27 app/Form/Validation/Validation.php:150
 msgid "Please provide a valid URL."
 msgstr "有効な URL を入力してください。"
 
@@ -952,11 +952,11 @@ msgstr "メニューの同期が無効です。"
 msgid "Menu sync enabled."
 msgstr "メニューの同期が有効です。"
 
-#: app/Form/Listeners/Sort.php:33
+#: app/Form/Listeners/Sort.php:32
 msgid "There was an error updating the page order."
 msgstr "ページの順序を更新する際にエラーが発生しました。"
 
-#: app/Form/Listeners/Sort.php:31
+#: app/Form/Listeners/Sort.php:30
 msgid "Page order successfully updated."
 msgstr "ページの順序が正常に更新されました。"
 
@@ -964,12 +964,12 @@ msgstr "ページの順序が正常に更新されました。"
 msgid "Post successfully updated."
 msgstr "投稿が正常に更新されました。"
 
-#: app/Form/Listeners/NewMenuItem.php:47
+#: app/Form/Listeners/NewMenuItem.php:46
 #: app/Form/Listeners/QuickEditLink.php:28
 msgid "Link successfully updated."
 msgstr "リンクが正常に更新されました。"
 
-#: app/Form/Listeners/NewMenuItem.php:27
+#: app/Form/Listeners/NewMenuItem.php:26
 msgid "Custom Links must have a label."
 msgstr "カスタムリンクにはラベルが必要です。"
 
@@ -977,7 +977,7 @@ msgstr "カスタムリンクにはラベルが必要です。"
 msgid "Trash successfully emptied."
 msgstr "ゴミ箱が正常に空になりました。"
 
-#: app/Form/Listeners/ClonePost.php:36
+#: app/Form/Listeners/ClonePost.php:35
 #: app/Form/Listeners/TrashWithChildren.php:50
 #: app/Form/Listeners/WpmlTranslations.php:47
 msgid "Post Not Found"
@@ -1051,7 +1051,7 @@ msgstr "複数ページを追加"
 msgid "Add Page"
 msgstr "ページを追加"
 
-#: app/Views/forms/new-child.php:106 app/Views/forms/link-form.php:120
+#: app/Views/forms/new-child.php:106 app/Views/forms/link-form.php:115
 #: app/Activation/Dependencies.php:132
 msgid "Add"
 msgstr "追加"
@@ -1081,7 +1081,7 @@ msgstr "ページタイトル"
 msgid "Quick Edit"
 msgstr "クイック編集"
 
-#: app/Entities/Post/PostUpdateRepository.php:116
+#: app/Entities/Post/PostUpdateRepository.php:94
 #: app/Views/partials/tool-list.php:88 app/Views/forms/quickedit-post.php:40
 #: app/Views/forms/new-child.php:19 app/Views/forms/new-child.php:21
 #: app/Views/settings/settings-posttypes.php:300

@@ -23,8 +23,8 @@ $container = get_theme_mod( 'understrap_container_type' );
 	</div>
 </div>
 
-<div id="positioning-statement" class="container-fluid text-center mb-5 px-5 py-3">
-	<p class="m-0">Eagle Eye Power Solutions is driven to increase reliability, decrease costs and meet compliance for its customers. With a strong history in battery monitoring, portable testers and load banks, Eagle Eye is a single-source, global provider of critical power solutions, education and services across the utility, telecom, UPS/data center and other industries. <a href="<?php echo get_permalink(485); ?>">More about Eagle Eye Power Solutions</a></p>
+<div id="positioning-statement" class="container-fluid mb-5 px-5 py-3">
+	<p class="m-0">Eagle Eye Power Solutions is driven to increase reliability, decrease costs and meet compliance for its customers. With a strong history in battery monitoring, portable testers and load banks, Eagle Eye is a single-source, global provider of critical power solutions, education and services across the utility, telecom, UPS/data center and other industries.</p>
 </div>
 
 <div class="wrapper" id="full-width-page-wrapper">

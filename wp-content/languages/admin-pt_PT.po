@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the WordPress - 5.7.x - Development - Administration package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-03-04 09:19:09+0000\n"
+"PO-Revision-Date: 2021-04-02 12:56:07+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -27,9 +27,21 @@ msgstr "0"
 msgid "Continue"
 msgstr "Continuar"
 
+#: wp-admin/about.php:110
+msgid "<strong>Buttons block:</strong> now you can choose a vertical or a horizontal layout. And you can set the width of a button to a preset percentage."
+msgstr "<strong>Bloco de botões:</strong> Agora pode escolher um layout vertical ou horizontal. Pode ainda definir a largura de um botão com uma percentagem pré-definida."
+
+#: wp-admin/about.php:206
+msgid "Now it’s simple to let iframes lazy-load. By default, WordPress will add a <code>loading=\"lazy\"</code> attribute to iframe tags when both width and height are specified."
+msgstr "Agora é simples carregar as iframes em diferido. Por omissão, o WordPress irá adicionar um atributo <code>loading=\"lazy\"</code> aos elementos iframe sempre que a largura e a altura forem ambas especificadas."
+
 #: wp-admin/about.php:204
 msgid "In 5.7, jQuery gets more focused and less intrusive, with fewer messages in the console."
 msgstr "Na versão 5.7, o jQuery está mais focado e menos intrusivo, com menos mensagens na consola."
+
+#: wp-admin/about.php:197
+msgid "The new Robots API lets you include the filter directives in the robots meta tag, and the API includes the <code>max-image-preview: large</code> directive by default. That means search engines can show bigger image previews, which can boost your traffic (unless the site is marked <em>not-public</em>)."
+msgstr "A nova Robots API permite-lhe incluir as directivas do filtro no elemento robots dos metadados, e a API inclui agora a directiva <code>max-image-preview: large</code> por omissão. Isto significa que os motores de pesquisa podem mostrar pré-visualizações maiores de imagens, o que pode aumentar o seu tráfego (a menos que o site esteja configurado como <em>not-public</em>)."
 
 #: wp-admin/about.php:140
 msgid "Above, the Dashboard before and after the color update in 5.7."
@@ -43,6 +55,14 @@ msgstr "Painel com nova paleta de cores."
 msgid "Dashboard with old color scheme."
 msgstr "Painel com antiga paleta de cores."
 
+#: wp-admin/about.php:115
+msgid "<strong>Social Icons block:</strong> now you can change the size of the icons."
+msgstr "<strong>Bloco de ícones de redes sociais:</strong> Agora pode alterar o tamanho dos ícones."
+
+#: wp-admin/about.php:205
+msgid "Lazy-load your iframes"
+msgstr "Carregue as iframes em diferido"
+
 #: wp-admin/about.php:203
 msgid "For years jQuery helped make things move on the screen in ways the basic tools couldn’t—but that keeps changing, and so does jQuery."
 msgstr "Durante anos o jQuery ajudou a mover elementos no ecrã de tal modo que as ferramentas mais básicas não conseguiam, mas isto está em contínua mudança, e o mesmo acontece com jQuery."
@@ -55,26 +75,73 @@ msgstr "Limpeza em curso depois da actualização do jQuery 3.5.1"
 msgid "New Robots API"
 msgstr "Nova Robots API"
 
+#: wp-admin/about.php:193
+msgid "Starting now, switching a site from HTTP to HTTPS is a one-click move. WordPress will automatically update database URLs when you make the switch. No more hunting and guessing!"
+msgstr "A partir de agora, basta um clique para mudar um site de HTTP para HTTPS. O WordPress actualiza automaticamente os URL da base de dados ao efectuar a mudança. Já não precisa de procurar e corrigir à mão!"
+
 #: wp-admin/about.php:192
 msgid "From HTTP to HTTPS in a single click"
-msgstr "De HTTP para HTTPS apenas com um clique"
+msgstr "De HTTP para HTTPS com um clique"
+
+#. translators: %s: Color palette dev note link.
+#: wp-admin/about.php:171
+msgid "Find the new palette in the default WordPress Dashboard color scheme, and use it when you’re building themes, plugins, or any other components. For all the details, <a href=\"%s\">check out the Color Palette dev note</a>."
+msgstr "Conheça a nova paleta de cores do painel do WordPress, e use-a na criação dos seus temas, plugins, ou quaisquer outros componentes. Para mais detalhes <a href=\"%s\">consulte o artigo sobre o desenvolvimento da paleta de cores</a>."
+
+#: wp-admin/about.php:164
+msgid "Half the range has a 4.5 or higher contrast ratio against black, and the other half maintains the same contrast against white."
+msgstr "Metade tem um rácio de contraste de 4,5 ou superior com o preto, e a outra metade tem o mesmo rácio de contraste com o branco."
+
+#: wp-admin/about.php:157
+msgid "The colors are perceptually uniform from light to dark in each range, which means they start at white and get darker by the same amount with each step."
+msgstr "A transição entre claro e escuro em cada gama de cor é percepcionada de modo uniforme, o que significa que começam no branco e tornam-se mais escuras na mesma medida a cada passo."
+
+#. translators: %s: WCAG information link.
+#: wp-admin/about.php:150
+msgid "This new streamlined color palette collapses all the colors that used to be in the WordPress source code down to seven core colors and a range of 56 shades that meet the <a href=\"%s\">WCAG 2.0 AA recommended contrast ratio</a> against white or black."
+msgstr "Esta nova paleta de cores aperfeiçoada reduz todas as cores que existiam no código fonte do WordPress a apenas sete cores principais e um espectro de 56 tonalidades em conformidade com o <a href=\"%s\">rácio recomendado de contraste WCAG 2.0 AA</a> com branco e preto."
 
 #: wp-admin/about.php:128
 msgid "A Simpler Default Color Palette"
 msgstr "Uma paleta de cores por omissão mais simples"
 
+#: wp-admin/about.php:105
+msgid "<strong>Full-height alignment:</strong> have you ever wanted to make a block, like the Cover block, fill the whole window? Now you can."
+msgstr "<strong>Alinhamento a toda a altura:</strong> Alguma vez quis criar um bloco, como uma capa, que preenchesse todo o ecrã? Agora é possível."
+
 #: wp-admin/about.php:100
 msgid "You can do more without writing custom code"
 msgstr "Pode fazer mais sem escrever código personalizado"
+
+#: wp-admin/about.php:86
+msgid "<strong>Inserter drag-and-drop:</strong> drag blocks and block patterns from the inserter right into your post."
+msgstr "<strong>Inserir com arrastar e largar:</strong> Arraste blocos e padrões de blocos directamente do painel para o seu conteúdo."
+
+#: wp-admin/about.php:81
+msgid "<strong>Reusable blocks:</strong> several enhancements make reusable blocks more stable and easier to use. And now they save automatically with the post when you click the Update button."
+msgstr "<strong>Blocos reutilizáveis:</strong> Várias melhorias tornam os blocos reutilizáveis mais estáveis e fáceis de usar. Agora são guardados automaticamente com o conteúdo ao clicar no botão de actualizar."
+
+#: wp-admin/about.php:76
+msgid "<strong>Font-size adjustment in more places:</strong> now, font-size controls are right where you need them in the List and Code blocks. No more trekking to another screen to make that single change!"
+msgstr "<strong>Tamanho do tipo de letra mais à mão:</strong> Agora os controlos do tamanho do tipo de letra estão exactamente onde precisa nos blocos de Lista e de Código. Não precisa mais de sair para outro ecrã para esta alteração!"
 
 #: wp-admin/about.php:71
 msgid "Now the editor is easier to use"
 msgstr "O editor está agora mais fácil de usar"
 
+#: wp-admin/about.php:61
+msgid "With this new version, WordPress brings you fresh colors. The editor helps you work in a few places you couldn’t before—at least, not without getting into code or hiring a pro. The controls you use most, like changing font sizes, are in more places—right where you need them. And layout changes that should be simple, like full-height images, are even simpler to make."
+msgstr "Com esta nova versão, o WordPress inclui novas cores. O editor permite-lhe agora criar coisas que não eram possíveis anteriormente, pelo menos sem escrever código ou contratar um profissional. Os controlos que mais utiliza, tal como mudar o tamanho do tipo de letra, estão agora mais à mão. As alterações de layout, como imagens a toda a altura, são agora ainda mais simples de implementar."
+
 #. translators: %s: The current WordPress version number.
 #: wp-admin/about.php:54
 msgid "Step into WordPress %s."
-msgstr "Entre no WordPress %s."
+msgstr "Conheça o WordPress %s."
+
+#: wp-admin/credits.php:37 wp-admin/privacy.php:34 wp-admin/freedoms.php:40
+#: wp-admin/about.php:37
+msgid "Jazz up your stories in an editor that’s cleaner, crisper, and does more to get out of your way."
+msgstr "Dê vida às suas histórias com um editor mais limpo, mais rápido, e que faz tudo para sair do seu caminho."
 
 #: wp-admin/options-privacy.php:253
 msgid "Create"
@@ -84,31 +151,325 @@ msgstr "Criar"
 msgid "Create a new Privacy Policy Page"
 msgstr "Criar nova página de política de privacidade"
 
+#: wp-admin/export-personal-data.php:129
+msgid "Send personal data export confirmation email."
+msgstr "Enviar email de confirmação de exportação de dados pessoais."
+
+#: wp-admin/export-personal-data.php:105
+msgid "This tool helps site owners comply with local laws and regulations by exporting known data for a given user in a .zip file."
+msgstr "Esta ferramenta ajuda os proprietários de um site a estar em conformidade com a legislação local e a exportar dados de um determinado utilizador num ficheiro .zip."
+
+#: wp-admin/export-personal-data.php:62
+msgid "<a href=\"https://wordpress.org/support/article/tools-export-personal-data-screen/\">Documentation on Export Personal Data</a>"
+msgstr "<a href=\"https://wordpress.org/support/article/tools-export-personal-data-screen/\">Documentação sobre exportação de dados pessoais</a>"
+
+#: wp-admin/export-personal-data.php:55
+msgid "Plugin authors can <a href=\"https://developer.wordpress.org/plugins/privacy/adding-the-personal-data-exporter-to-your-plugin/\" target=\"_blank\">learn more about how to add the Personal Data Exporter to a plugin here</a>."
+msgstr "Os autores de plugins podem aqui <a href=\"https://developer.wordpress.org/plugins/privacy/adding-the-personal-data-exporter-to-your-plugin/\" target=\"_blank\">aprender mais sobre como adicionar suporte num plugin para a exportação de dados pessoais</a>."
+
+#: wp-admin/export-personal-data.php:54
+msgid "Many plugins may collect or store personal data either in the WordPress database or remotely. Any Export Personal Data request should include data from plugins as well."
+msgstr "Vários plugins podem recolher ou armazenar dados pessoais tanto na base de dados do WordPress como remotamente. Qualquer pedido de exportação de dados pessoais também deve incluir dados dos plugins."
+
+#. translators: %s: URL to Privacy Policy Guide screen.
+#: wp-admin/export-personal-data.php:45
+msgid "If you are not sure, check the plugin documentation or contact the plugin author to see if the plugin collects data and if it supports the Data Exporter tool. This information may be available in the <a href=\"%s\">Privacy Policy Guide</a>."
+msgstr "Se não tem a certeza, consulte a documentação do plugin ou contacte o autor do plugin para verificar se o plugin recolhe dados e se suporta a ferramenta de exportação de dados. Esta informação pode estar disponível no <a href=\"%s\">guia de política de privacidade</a>."
+
+#: wp-admin/export-personal-data.php:38
+msgid "<strong>Comments</strong> &mdash; For any comments made by the user, Email Address, IP Address, User Agent (Browser/OS), Date/Time, Comment Content, and Content URL."
+msgstr "<strong>Comentários</strong> &mdash; Para quaisquer comentários feitos pelo utilizador, o endereço de email, endereço de IP, agente do utilizador (Navegador/SO), data/hora, conteúdo do comentário, e URL do conteúdo."
+
+#: wp-admin/export-personal-data.php:36
+msgid "<strong>Community Events Location</strong> &mdash; The IP Address of the user used for the Upcoming Community Events shown in the dashboard widget."
+msgstr "<strong>Localização de eventos da comunidade</strong> &mdash; O endereço de IP do utilizador que foi usado para os próximos eventos da comunidade exibidos no widget do painel."
+
+#: wp-admin/export-personal-data.php:34
+msgid "Personal data that is collected by WordPress and is displayed in the export files include:"
+msgstr "Os dados pessoais recolhidos pelo WordPress e que serão mostrados nos ficheiros de exportação incluem:"
+
+#: wp-admin/export-personal-data.php:25
+msgid "<strong>Note: As this tool only gathers data from WordPress and participating plugins, you may need to do more to comply with export requests. You should also send the requestor any data collected by or stored with any 3rd party services used by your business or site.</strong>"
+msgstr "<strong>Atenção: Como esta ferramenta apenas obtém dados do WordPress e dos plugins envolvidos, podem ser necessárias mais acções para estar em conformidade com pedidos de exportação de dados. Deve também enviar ao autor do pedido quaisquer dados recolhidos ou armazenados por qualquer serviço de terceiros usados pelo seu negócio ou site.</strong>"
+
+#: wp-admin/export-personal-data.php:23
+msgid "Providing an export of all data that a business or website has collected about an individual is a requirement of many Privacy Laws around the world, and is sometimes referred to as the \"Right To Data Portability\"."
+msgstr "Fornecer uma exportação de todos os dados que um negócio ou site recolheu sobre um indivíduo é um requisito de várias leis de privacidade em todo o mundo, por vezes chamado de \"direito à portabilidade dos dados\"."
+
+#: wp-admin/export-personal-data.php:22
+msgid "This screen allows you to manage requests for an export of personal data."
+msgstr "Esta página permite-lhe gerir os pedidos para uma exportação de dados pessoais."
+
+#: wp-admin/site-health.php:71
+msgid "Site URLs could not be switched to HTTPS."
+msgstr "Não foi possível alterar os URL do site para HTTPS."
+
+#: wp-admin/site-health.php:67
+msgid "Site URLs switched to HTTPS."
+msgstr "Os URL do site foram alterados para HTTPS."
+
+#: wp-admin/site-health.php:40
+msgid "It looks like HTTPS is not supported for your website at this point."
+msgstr "De momento parece que o seu site não suporta HTTPS."
+
 #: wp-admin/site-health.php:36
 msgid "Sorry, you are not allowed to update this site to HTTPS."
 msgstr "Não tem permissão para mudar este site para HTTPS."
+
+#. translators: %s: Number of users.
+#: wp-admin/users.php:564
+msgid "Password reset links sent to %s user."
+msgid_plural "Password reset links sent to %s users."
+msgstr[0] "A ligação de reposição da senha foi enviada a %s utilizador."
+msgstr[1] "As ligações de reposição de senha foram enviadas a %s utilizadores."
+
+#: wp-admin/users.php:561
+msgid "Password reset link sent."
+msgstr "A ligação de reposição da senha foi enviada."
+
+#. translators: %s: User's display name.
+#: wp-admin/user-edit.php:688
+msgid "Send %s a link to reset their password. This will not change their password, nor will it force a change."
+msgstr "Envie a %s uma ligação para a reposição da senha. Isto não irá alterar nem forçar uma alteração da senha."
+
+#: wp-admin/user-edit.php:682
+msgid "Send Reset Link"
+msgstr "Enviar ligação de reposição"
 
 #: wp-admin/privacy-policy-guide.php:86
 msgid "Policies"
 msgstr "Políticas"
 
+#: wp-admin/privacy-policy-guide.php:61 wp-admin/options-privacy.php:163
+msgid "The Privacy Settings require JavaScript."
+msgstr "As opções de privacidade requerem JavaScript."
+
+#. translators: Tab heading for Site Health Status page.
+#: wp-admin/privacy-policy-guide.php:52 wp-admin/options-privacy.php:154
+msgctxt "Privacy Settings"
+msgid "Policy Guide"
+msgstr "Guia de política"
+
+#. translators: Tab heading for Site Health Status page.
+#: wp-admin/privacy-policy-guide.php:45 wp-admin/options-privacy.php:147
+msgctxt "Privacy Settings"
+msgid "Settings"
+msgstr "Opções"
+
+#. translators: %s: WordPress version.
+#: wp-admin/update-core.php:72
+msgid "Re-install version %s"
+msgstr "Reinstalar versão %s"
+
+#: wp-admin/update-core.php:61
+msgid "Update to latest nightly"
+msgstr "Actualizar para a nightly mais recente"
+
+#: wp-admin/erase-personal-data.php:129
+msgid "Send personal data erasure confirmation email."
+msgstr "Enviar email de confirmação de eliminação de dados pessoais."
+
 #: wp-admin/erase-personal-data.php:124 wp-admin/export-personal-data.php:124
 msgid "Confirmation email"
 msgstr "Email de confirmação"
+
+#: wp-admin/erase-personal-data.php:105
+msgid "This tool helps site owners comply with local laws and regulations by deleting or anonymizing known data for a given user."
+msgstr "Esta ferramenta ajuda os proprietários de um site a estar em conformidade com a legislação local e a apagar ou anonimizar dados de um determinado utilizador."
+
+#: wp-admin/erase-personal-data.php:62
+msgid "<a href=\"https://wordpress.org/support/article/tools-erase-personal-data-screen/\">Documentation on Erase Personal Data</a>"
+msgstr "<a href=\"https://wordpress.org/support/article/tools-erase-personal-data-screen/\">Documentação sobre eliminação de dados pessoais</a>"
+
+#: wp-admin/erase-personal-data.php:55
+msgid "Plugin authors can <a href=\"https://developer.wordpress.org/plugins/privacy/adding-the-personal-data-eraser-to-your-plugin/\" target=\"_blank\">learn more about how to add support for the Personal Data Eraser to a plugin here</a>."
+msgstr "Os autores de plugins podem aqui <a href=\"https://developer.wordpress.org/plugins/privacy/adding-the-personal-data-eraser-to-your-plugin/\" target=\"_blank\">aprender mais sobre como adicionar suporte num plugin para eliminação de dados pessoais</a>."
+
+#: wp-admin/erase-personal-data.php:54
+msgid "Many plugins may collect or store personal data either in the WordPress database or remotely. Any Erase Personal Data request should delete data from plugins as well."
+msgstr "Vários plugins podem recolher ou armazenar dados pessoais tanto na base de dados do WordPress como remotamente. Qualquer pedido de eliminação de dados pessoais também deve eliminar dados dos plugins."
+
+#: wp-admin/erase-personal-data.php:52 wp-admin/export-personal-data.php:52
+msgid "Plugin Data"
+msgstr "Dados de plugins"
+
+#. translators: %s: URL to Privacy Policy Guide screen.
+#: wp-admin/erase-personal-data.php:45
+msgid "If you are not sure, check the plugin documentation or contact the plugin author to see if the plugin collects data and if it supports the Data Eraser tool. This information may be available in the <a href=\"%s\">Privacy Policy Guide</a>."
+msgstr "Se não tem a certeza, consulte a documentação do plugin ou contacte o autor do plugin para verificar se o plugin recolhe dados e se suporta a ferramenta de eliminação. Esta informação pode estar disponível no <a href=\"%s\">guia de política de privacidade</a>."
+
+#: wp-admin/erase-personal-data.php:39 wp-admin/export-personal-data.php:39
+msgid "<strong>Media</strong> &mdash; A list of URLs for all media file uploads made by the user."
+msgstr "<strong>Multimédia</strong> &mdash; Uma lista dos URL de todos os carregamentos de ficheiros multimédia feitos pelo utilizador."
+
+#: wp-admin/erase-personal-data.php:38
+msgid "<strong>Comments</strong> &mdash; Comments are not deleted, but user data is anonymized, including Email Address, IP Address, and User Agent (Browser/OS)."
+msgstr "<strong>Comentários</strong> &mdash; Os comentários não são eliminados, mas os dados de utilizador serão anonimizados, incluindo o endereço de email, endereço de IP, e agente do utilizador (Navegador/SO)."
+
+#: wp-admin/erase-personal-data.php:37 wp-admin/export-personal-data.php:37
+msgid "<strong>Session Tokens</strong> &mdash; User login information, IP Addresses, Expiration Date, User Agent (Browser/OS), and Last Login."
+msgstr "<strong>Tokens de sessão</strong> &mdash; Informação de início de sessão do utilizador, endereços de IP, data de expiração, agente de utilizador (navegador/SO), e data do último início de sessão."
+
+#: wp-admin/erase-personal-data.php:36
+msgid "<strong>Community Events Location</strong> &mdash; The IP Address of the user which is used for the Upcoming Community Events shown in the dashboard widget."
+msgstr "<strong>Localização de eventos da comunidade</strong> &mdash; O endereço de IP do utilizador que foi usado para os próximos eventos da comunidade exibidos no widget do painel."
+
+#: wp-admin/erase-personal-data.php:35 wp-admin/export-personal-data.php:35
+msgid "<strong>Profile Information</strong> &mdash; user email address, username, display name, nickname, first name, last name, description/bio, and registration date."
+msgstr "<strong>Informação do perfil</strong> &mdash; Endereço de email do utilizador, nome de utilizador, nome a mostrar, alcunha, primeiro nome, último nome, informação biográfica, e data de registo."
+
+#: wp-admin/erase-personal-data.php:34
+msgid "Personal data that is collected by WordPress and is deleted or anonymized include:"
+msgstr "Os dados pessoais recolhidos pelo WordPress e que serão eliminados ou anonimizados incluem:"
+
+#: wp-admin/erase-personal-data.php:32 wp-admin/export-personal-data.php:32
+msgid "Default Data"
+msgstr "Dados por omissão"
+
+#: wp-admin/erase-personal-data.php:25
+msgid "<strong>Note: As this tool only gathers data from WordPress and participating plugins, you may need to do more to comply with erasure requests. You should also delete any data collected by or stored with any 3rd party services used by your business or site.</strong>"
+msgstr "<strong>Atenção: Como esta ferramenta apenas obtém dados do WordPress e dos plugins envolvidos, podem ser necessárias mais acções para estar em conformidade com pedidos de eliminação de dados. Deve também eliminar quaisquer dados recolhidos ou armazenados por qualquer serviço de terceiros usados pelo seu negócio ou site.</strong>"
+
+#: wp-admin/erase-personal-data.php:24 wp-admin/export-personal-data.php:24
+msgid "The tool associates data stored in WordPress by a supplied email address, including profile data and comments."
+msgstr "A ferramenta associa dados armazenados no WordPress por um dado endereço de email, incluindo informação do perfil e comentários."
+
+#: wp-admin/erase-personal-data.php:23
+msgid "Deleting, anonymizing, or forgetting all data that a business or website has collected about an individual is a requirement of many Privacy Laws around the world, and is sometimes referred to as the \"Right To Be Forgotten\"."
+msgstr "Eliminar, anonimizar, ou esquecer todos os dados que um negócio ou site recolheu sobre um indivíduo é um requisito de várias leis de privacidade em todo o mundo, por vezes chamado de \"direito a ser esquecido\"."
+
+#: wp-admin/erase-personal-data.php:22
+msgid "This screen allows you to manage requests to erase or delete personal data."
+msgstr "Esta página permite-lhe gerir os pedidos para eliminar dados pessoais."
 
 #: wp-admin/includes/dashboard.php:1408
 msgid "https://make.wordpress.org/community/organize-event-landing-page/"
 msgstr "https://make.wordpress.org/community/organize-event-landing-page/"
 
+#. translators: %s: Localized meetup organization documentation URL.
+#: wp-admin/includes/dashboard.php:1407
+msgid "Want more events? <a href=\"%s\">Help organize the next one</a>!"
+msgstr "Quer mais eventos? <a href=\"%s\">Ajude a organizar o próximo</a>!"
+
+#. translators: %s: User's display name.
+#: wp-admin/includes/ajax-actions.php:5433
+msgid "A password reset link was emailed to %s."
+msgstr "Uma ligação para repor a senha foi enviada para %s."
+
+#: wp-admin/includes/ajax-actions.php:5423
+msgid "Cannot send password reset, permission denied."
+msgstr "Não foi possível enviar reposição de senha, permissão negada."
+
+#. translators: 1: post_max_size, 2: upload_max_filesize
+#: wp-admin/includes/class-wp-site-health.php:2186
+msgid "The setting for %1$s is currently configured as 0, this could cause some problems when trying to upload files through plugin or theme features that rely on various upload methods. It is recommended to configure this setting to a fixed value, ideally matching the value of %2$s, as some upload methods read the value 0 as either unlimited, or disabled."
+msgstr "A opção %1$s está de momento configurada como 0, isto pode criar problemas aco tentar carregar ficheiros através de plugins ou temas que dependam de vários métodos de carregamento. É recomendado configurar esta opção com um valor concreto, idealmente deve corresponder ao valor de %2$s, uma vez que alguns métodos de carregamento interpretam o valor 0 como ilimitado ou desactivado."
+
+#: wp-admin/includes/class-wp-site-health.php:1661
+msgid "Talk to your web host about resolving this HTTPS issue for your website."
+msgstr "Consulte o seu serviço de alojamento sobre como resolver o problema de HTTPS do seu site."
+
+#. translators: %s: URL to Settings > General > WordPress Address.
+#: wp-admin/includes/class-wp-site-health.php:1654
+msgid "Your <a href=\"%s\">WordPress Address</a> is set up to use HTTPS, but your website appears to be unavailable when using an HTTPS connection."
+msgstr "O <a href=\"%s\">endereço do WordPress</a> está configurado para usar HTTPS, mas o seu site parece estar indisponível ao usar uma ligação HTTPS."
+
+#. translators: %s: URL to Settings > General > WordPress Address.
+#: wp-admin/includes/class-wp-site-health.php:1645
+msgid "Your <a href=\"%s\">WordPress Address</a> is set up to use HTTPS, but the SSL certificate appears to be invalid."
+msgstr "O <a href=\"%s\">endereço do WordPress</a> está configurado para usar HTTPS, mas o certificado SSL parece estar inválido."
+
+#: wp-admin/includes/class-wp-site-health.php:1637
+msgid "There are problems with the HTTPS connection of your website"
+msgstr "Existem problemas com a ligação HTTPS do seu site"
+
+#: wp-admin/includes/class-wp-site-health.php:1622
+#: wp-admin/includes/class-wp-site-health.php:1629
+msgid "Talk to your web host about supporting HTTPS for your website."
+msgstr "Consulte o seu serviço de alojamento sobre o suporte de HTTPS do seu site."
+
+#: wp-admin/includes/class-wp-site-health.php:1603
+#: wp-admin/includes/class-wp-site-health.php:1611
+msgid "Update your site to use HTTPS"
+msgstr "Actualize o seu site para usar HTTPS"
+
+#. translators: 1: wp-config.php, 2: WP_HOME, 3: WP_SITEURL
+#: wp-admin/includes/class-wp-site-health.php:1589
+msgid "However, your WordPress Address is currently controlled by a PHP constant and therefore cannot be updated. You need to edit your %1$s and remove or update the definitions of %2$s and %3$s."
+msgstr "No entanto, o endereço do WordPress está definido por uma constante de PHP, e não é possível actualizar. Tem de editar o seu %1$s e remover ou actualizar as definições de %2$s e %3$s."
+
+#: wp-admin/includes/class-wp-site-health.php:1581
+msgid "HTTPS is already supported for your website."
+msgstr "O seu site já suporta HTTPS."
+
+#. translators: 1: URL to Settings > General > WordPress Address, 2: URL to
+#. Settings > General > Site Address.
+#: wp-admin/includes/class-wp-site-health.php:1570
+msgid "Your <a href=\"%1$s\">WordPress Address</a> and <a href=\"%2$s\">Site Address</a> are not set up to use HTTPS."
+msgstr "O <a href=\"%1$s\">endereço do WordPress</a> e o <a href=\"%2$s\">endereço do site</a> não estão configurados para usar HTTPS."
+
+#. translators: 1: URL to Settings > General > WordPress Address, 2: URL to
+#. Settings > General > Site Address.
+#: wp-admin/includes/class-wp-site-health.php:1560
+msgid "You are accessing this website using HTTPS, but your <a href=\"%1$s\">WordPress Address</a> and <a href=\"%2$s\">Site Address</a> are not set up to use HTTPS by default."
+msgstr "Tem acesso a este site com HTTPS, mas o <a href=\"%1$s\">endereço do WordPress</a> e o <a href=\"%2$s\">endereço do site</a> não estão configurados para usar HTTPS por omissão."
+
+#. translators: %s: URL to Settings > General > Site Address.
+#: wp-admin/includes/class-wp-site-health.php:1549
+msgid "Your <a href=\"%s\">Site Address</a> is not set up to use HTTPS."
+msgstr "O <a href=\"%s\">endereço do site</a> não está configurado para usar HTTPS."
+
+#: wp-admin/includes/class-wp-site-health.php:1441
+msgid "Learn more about debugging in WordPress."
+msgstr "Saiba mais sobre a depuração no WordPress."
+
 #: wp-admin/includes/revision.php:90
 msgid "Added"
 msgstr "Adicionado"
+
+#: wp-admin/includes/class-wp-users-list-table.php:279
+#: wp-admin/includes/class-wp-users-list-table.php:480
+msgid "Send password reset"
+msgstr "Enviar reposição de senha"
+
+#. translators: Default privacy policy heading.
+#: wp-admin/includes/class-wp-privacy-policy-content.php:604
+msgid "Contact information"
+msgstr "Informação de contacto"
+
+#: wp-admin/includes/class-wp-privacy-policy-content.php:423
+msgid "Copy suggested policy text to clipboard"
+msgstr "Copiar texto da política sugerida para a área de transferência"
+
+#: wp-admin/includes/update-core.php:1375 wp-admin/includes/file.php:1780
+msgid "Directory listing failed."
+msgstr "Falhou ao listar o directório."
 
 #: wp-admin/includes/class-wp-plugin-install-list-table.php:102
 #: wp-admin/includes/class-wp-theme-install-list-table.php:61
 #: wp-admin/includes/file.php:32 wp-admin/js/updates.js:2544
 msgid "Search Results"
 msgstr "Resultados da pesquisa"
+
+#: wp-admin/includes/privacy-tools.php:924
+msgid "Invalid request ID when processing personal data to erase."
+msgstr "ID de pedido inválido ao processar dados pessoais a eliminar."
+
+#: wp-admin/includes/privacy-tools.php:773
+msgid "Invalid request ID when merging personal data to export."
+msgstr "ID de pedido inválido ao juntar dados pessoais a exportar."
+
+#: wp-admin/includes/privacy-tools.php:523
+msgid "Unable to archive the personal data export file (HTML format)."
+msgstr "Não é possível arquivar o ficheiro de exportação de dados pessoais (formato HTML)"
+
+#: wp-admin/includes/privacy-tools.php:519
+msgid "Unable to archive the personal data export file (JSON format)."
+msgstr "Não é possível arquivar o ficheiro de exportação de dados pessoais (formato JSON)"
+
+#: wp-admin/includes/privacy-tools.php:425
+msgid "Unable to open personal data export (HTML report) for writing."
+msgstr "Não é possível abrir a exportação de dados pessoais (relatório HTML) para escrita."
 
 #: wp-admin/includes/privacy-tools.php:333
 msgid "Unable to create personal data export folder."
@@ -122,6 +483,10 @@ msgstr "Pedido adicionado com sucesso."
 #: wp-admin/includes/privacy-tools.php:124
 msgid "Invalid personal data action."
 msgstr "A acção de dados pessoais é inválida."
+
+#: wp-admin/includes/privacy-tools.php:31
+msgid "Unable to initiate confirmation for personal data request."
+msgstr "Não é possível iniciar confirmação para pedido de dados pessoais."
 
 #: wp-admin/options-writing.php:210 wp-admin/options-writing.php:224
 msgid "https://wordpress.org/support/article/update-services/"

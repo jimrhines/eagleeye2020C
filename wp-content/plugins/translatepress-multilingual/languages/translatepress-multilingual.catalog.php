@@ -69,6 +69,8 @@
 <?php __("Recheck supported languages", "translatepress-multilingual"); ?>
 <?php __("(last checked on %s)", "translatepress-multilingual"); ?>
 <?php __("The selected automatic translation engine does not provide support for these languages.<br>You can still manually translate pages in these languages using the Translation Editor.", "translatepress-multilingual"); ?>
+<?php __("Please enter your Google Translate key.", "translatepress-multilingual"); ?>
+<?php __("Please enter your DeepL API key.", "translatepress-multilingual"); ?>
 <?php __("You are not using a permalink structure! Please <a href=\"%s\">enable</a> one or install our <a href=\"%s\">\"Language by GET parameter\"</a> addon, so that TranslatePress can function properly.", "translatepress-multilingual"); ?>
 <?php __("Your <strong>TranslatePress</strong> license will expire on %1$s. Please %2$sRenew Your Licence%3$s to continue receiving access to product downloads, automatic updates and support.", "translatepress-multilingual"); ?>
 <?php __("Something went wrong, please try again.", "translatepress-multilingual"); ?>
@@ -77,6 +79,12 @@
 <?php __("NEW: Display different images based on language. Find out <a href=\"https://translatepress.com/docs/image-translation/\" >how to translate images, sliders and more</a> from the TranslatePress editor.", "translatepress-multilingual"); ?>
 <?php __("The daily quota for machine translation characters exceeded. Please check the <strong>TranslatePress -> <a href=\"%s\">Automatic Translation</a></strong> page for more information.", "translatepress-multilingual"); ?>
 <?php __("One or more languages are unsupported by the automatic translation provider. Please check the <strong>TranslatePress -> <a href=\"%s\">Automatic Translation</a></strong> page for more information.", "translatepress-multilingual"); ?>
+<?php __("Hello! Seems like you've been using <strong>TranslatePress</strong> for a while now to translate your website. That's awesome! ", "translatepress-multilingual"); ?>
+<?php __("If you can spare a few moments to rate it on WordPress.org it would help us a lot (and boost my motivation).", "translatepress-multilingual"); ?>
+<?php __("~ Razvan, developer of TranslatePress", "translatepress-multilingual"); ?>
+<?php __("Rate TranslatePress on WordPress.org plugin page", "translatepress-multilingual"); ?>
+<?php __("Ok, I will gladly help!", "translatepress-multilingual"); ?>
+<?php __("No, thanks.", "translatepress-multilingual"); ?>
 <?php __("Full Language Names", "translatepress-multilingual"); ?>
 <?php __("Short Language Names", "translatepress-multilingual"); ?>
 <?php __("Flags with Full Language Names", "translatepress-multilingual"); ?>
@@ -372,6 +380,8 @@
 <?php __("Google Translate API Key", "translatepress-multilingual"); ?>
 <?php __("Visit <a href=\"https://cloud.google.com/docs/authentication/api-keys\" target=\"_blank\">this link</a> to see how you can set up an API key, <strong>control API costs</strong> and set HTTP referrer restrictions.", "translatepress-multilingual"); ?>
 <?php __("Your HTTP referrer is: %s", "translatepress-multilingual"); ?>
+<?php __("There was an error on the server processing your Google Translate key.", "translatepress-multilingual"); ?>
+<?php __("There was an error with your Google Translate key.", "translatepress-multilingual"); ?>
 <?php __("Human reviewed", "translatepress-multilingual"); ?>
 <?php __("Automatically translated", "translatepress-multilingual"); ?>
 <?php __("Not translated", "translatepress-multilingual"); ?>

@@ -189,7 +189,7 @@ msgstr ""
 msgid "Automatic translation has been disabled."
 msgstr ""
 
-#: includes/class-error-manager.php:129, includes/class-plugin-notices.php:340, includes/class-plugin-notices.php:391, includes/class-plugin-notices.php:372, includes/class-plugin-notices.php:405, includes/class-plugin-notices.php:430, includes/class-plugin-notices.php:454
+#: includes/class-error-manager.php:129, includes/class-plugin-notices.php:341, includes/class-plugin-notices.php:392, includes/class-plugin-notices.php:373, includes/class-plugin-notices.php:406, includes/class-plugin-notices.php:431, includes/class-plugin-notices.php:455, includes/class-reviews.php:119, includes/class-reviews.php:122
 msgid "Dismiss this notice."
 msgstr ""
 
@@ -293,36 +293,68 @@ msgstr ""
 msgid "The selected automatic translation engine does not provide support for these languages.<br>You can still manually translate pages in these languages using the Translation Editor."
 msgstr ""
 
-#: includes/class-plugin-notices.php:338
+#: includes/class-machine-translator.php:129
+msgid "Please enter your Google Translate key."
+msgstr ""
+
+#: includes/class-machine-translator.php:144
+msgid "Please enter your DeepL API key."
+msgstr ""
+
+#: includes/class-plugin-notices.php:339
 msgid "You are not using a permalink structure! Please <a href=\"%s\">enable</a> one or install our <a href=\"%s\">\"Language by GET parameter\"</a> addon, so that TranslatePress can function properly."
 msgstr ""
 
-#: includes/class-plugin-notices.php:387
+#: includes/class-plugin-notices.php:388
 msgid "Your <strong>TranslatePress</strong> license will expire on %1$s. Please %2$sRenew Your Licence%3$s to continue receiving access to product downloads, automatic updates and support."
 msgstr ""
 
-#: includes/class-plugin-notices.php:366
+#: includes/class-plugin-notices.php:367
 msgid "Something went wrong, please try again."
 msgstr ""
 
-#: includes/class-plugin-notices.php:364
+#: includes/class-plugin-notices.php:365
 msgid "Your <strong>TranslatePress</strong> license has expired. <br/>Please %1$sRenew Your Licence%2$s to continue receiving access to product downloads, automatic updates and support. %3$sRenew now %4$s"
 msgstr ""
 
-#: includes/class-plugin-notices.php:362
+#: includes/class-plugin-notices.php:363
 msgid "Your <strong>TranslatePress</strong> serial number is invalid or missing. <br/>Please %1$sregister your copy%2$s to receive access to automatic updates and support. Need a license key? %3$sPurchase one now%4$s"
 msgstr ""
 
-#: includes/class-plugin-notices.php:403
+#: includes/class-plugin-notices.php:404
 msgid "NEW: Display different images based on language. Find out <a href=\"https://translatepress.com/docs/image-translation/\" >how to translate images, sliders and more</a> from the TranslatePress editor."
 msgstr ""
 
-#: includes/class-plugin-notices.php:427
+#: includes/class-plugin-notices.php:428
 msgid "The daily quota for machine translation characters exceeded. Please check the <strong>TranslatePress -> <a href=\"%s\">Automatic Translation</a></strong> page for more information."
 msgstr ""
 
-#: includes/class-plugin-notices.php:451
+#: includes/class-plugin-notices.php:452
 msgid "One or more languages are unsupported by the automatic translation provider. Please check the <strong>TranslatePress -> <a href=\"%s\">Automatic Translation</a></strong> page for more information."
+msgstr ""
+
+#: includes/class-reviews.php:105
+msgid "Hello! Seems like you've been using <strong>TranslatePress</strong> for a while now to translate your website. That's awesome! "
+msgstr ""
+
+#: includes/class-reviews.php:109
+msgid "If you can spare a few moments to rate it on WordPress.org it would help us a lot (and boost my motivation)."
+msgstr ""
+
+#: includes/class-reviews.php:113
+msgid "~ Razvan, developer of TranslatePress"
+msgstr ""
+
+#: includes/class-reviews.php:118
+msgid "Rate TranslatePress on WordPress.org plugin page"
+msgstr ""
+
+#: includes/class-reviews.php:118
+msgid "Ok, I will gladly help!"
+msgstr ""
+
+#: includes/class-reviews.php:119
+msgid "No, thanks."
 msgstr ""
 
 #: includes/class-settings.php:26
@@ -397,11 +429,11 @@ msgstr ""
 msgid "License"
 msgstr ""
 
-#: includes/class-settings.php:563, includes/class-translation-manager.php:470
+#: includes/class-settings.php:579, includes/class-translation-manager.php:470
 msgid "Settings"
 msgstr ""
 
-#: includes/class-settings.php:567
+#: includes/class-settings.php:583
 msgid "Pro Features"
 msgstr ""
 
@@ -1498,16 +1530,24 @@ msgstr ""
 msgid "Google Translate v2"
 msgstr ""
 
-#: includes/google-translate/functions.php:17
+#: includes/google-translate/functions.php:38
 msgid "Google Translate API Key"
 msgstr ""
 
-#: includes/google-translate/functions.php:21
+#: includes/google-translate/functions.php:58
 msgid "Visit <a href=\"https://cloud.google.com/docs/authentication/api-keys\" target=\"_blank\">this link</a> to see how you can set up an API key, <strong>control API costs</strong> and set HTTP referrer restrictions."
 msgstr ""
 
-#: includes/google-translate/functions.php:22
+#: includes/google-translate/functions.php:59
 msgid "Your HTTP referrer is: %s"
+msgstr ""
+
+#: includes/google-translate/functions.php:98
+msgid "There was an error on the server processing your Google Translate key."
+msgstr ""
+
+#: includes/google-translate/functions.php:95
+msgid "There was an error with your Google Translate key."
 msgstr ""
 
 #: includes/string-translation/class-string-translation.php:155

@@ -383,17 +383,17 @@ msgid "Something has gone wrong and we couldn't complete the optimization of you
 msgstr "Etwas ist schiefgelaufen und wir konnten die Optimierung deiner SEO-Daten nicht abschließen. Bitte %1$sstarte den Prozess neu%2$s"
 
 #. translators: %s expands to a mailto support link.
-#: inc/class-addon-manager.php:671
+#: inc/class-addon-manager.php:676
 msgid "If you still need support and have an active subscription for this product, please email %s."
 msgstr "Wenn du immer noch Unterstützung benötigst und ein aktives Abonnement für dieses Produkt hast, schreib bitte %s eine E-Mail."
 
 #. translators: 1: expands to <a> that refers to the help page, 2: </a> closing
 #. tag.
-#: inc/class-addon-manager.php:668
+#: inc/class-addon-manager.php:673
 msgid "You can probably find an answer to your question in our %1$shelp center%2$s."
 msgstr "Du findest wahrscheinlich in unserem %1$sHilfe-Center%2$s eine Lösung."
 
-#: inc/class-addon-manager.php:665
+#: inc/class-addon-manager.php:670
 msgid "Need support?"
 msgstr "Du brauchst Hilfe?"
 
@@ -2381,12 +2381,12 @@ msgid "days"
 msgstr "Tage"
 
 #: languages/wordpress-seojs.php:659 languages/yoast-components.php:87
-#: js/dist/yoast/schema-blocks-1590.js:273
+#: js/dist/yoast/schema-blocks-1592.js:273
 msgid "hours"
 msgstr "Stunden"
 
 #: languages/wordpress-seojs.php:662 languages/yoast-components.php:90
-#: js/dist/yoast/schema-blocks-1590.js:273
+#: js/dist/yoast/schema-blocks-1592.js:273
 msgid "minutes"
 msgstr "Minuten"
 
@@ -3721,7 +3721,7 @@ msgstr "Aktiviert"
 
 #. translators: %1$s expands to the product name. %2$s expands to a link to My
 #. Yoast
-#: inc/class-addon-manager.php:313
+#: inc/class-addon-manager.php:317
 msgid "You are not receiving updates or support! Fix this problem by adding this site and enabling %1$s for it in %2$s."
 msgstr "Du erhältst weder Updates noch Support! Behebe dieses Problem, indem du diese Website hinzufügst und %1$s dafür in %2$s aktivierst."
 
@@ -4179,7 +4179,7 @@ msgstr "Nein"
 #: admin/config-ui/fields/class-field-multiple-authors.php:23
 #: admin/views/tabs/metas/paper-content/media-content.php:19
 #: admin/class-yoast-form.php:790 admin/metabox/class-metabox.php:182
-#: admin/metabox/class-metabox.php:187 js/dist/yoast/schema-blocks-1590.js:273
+#: admin/metabox/class-metabox.php:187 js/dist/yoast/schema-blocks-1592.js:273
 msgid "Yes"
 msgstr "Ja"
 
@@ -4509,7 +4509,7 @@ msgid "Meta description not set."
 msgstr "Meta Description nicht gesetzt."
 
 #: admin/formatter/class-metabox-formatter.php:166
-#: js/dist/yoast/schema-blocks-1590.js:3
+#: js/dist/yoast/schema-blocks-1592.js:3
 msgid "Analysis"
 msgstr "Analyse"
 

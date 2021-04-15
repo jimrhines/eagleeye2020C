@@ -93,6 +93,75 @@ class TRP_Machine_Translator {
         return $data['trp_mt_supported_languages'][$this->settings['trp_machine_translation_settings']['translation-engine']]['last-checked'];
     }
 
+    /**
+     * Output an SVG based on translation engine and error flag.
+     *
+     * @param bool $show_errors true to show an error SVG, false if not.
+     */
+    public function automatic_translation_svg_output( $show_errors ) {
+        if ( method_exists( $this, 'automatic_translate_error_check' ) ) {
+            if ( $show_errors ) {
+                trp_output_svg( 'error' );
+            } else {
+                trp_output_svg( 'check' );
+            }
+        }
+        
+    }
+
+    /**
+     * Check the automatic translation API keys for Google Translate and DeepL.
+     *
+     * @param TRP_Translate_Press $machine_translator Machine translator instance.
+     * @param string $translation_engine              The translation engine (can be google_translate_v2 and deepl).
+     * @param string $api_key                         The API key to check.
+     *
+     * @return array [ (string) $message, (bool) $error ].
+     */
+    public function automatic_translate_error_check( $machine_translator, $translation_engine, $api_key ) {
+        $is_error       = false;
+        $return_message = '';
+
+        switch ( $translation_engine ) {
+            case 'google_translate_v2':
+                if ( empty( $api_key ) ) {
+                    $is_error = true;
+                    $return_message = __( 'Please enter your Google Translate key.', 'translatepress-multilingual' );
+                } else {
+                    // Perform test.
+                    $response = $machine_translator->test_request();
+                    $code     = wp_remote_retrieve_response_code( $response );
+                    if ( 200 !== $code ) {
+                        $is_error        = true;
+                        $translate_response = trp_gt_response_codes( $code );
+                        $return_message     = $translate_response['message'];
+                    }
+                }
+                break;
+            case 'deepl':
+                if ( empty( $api_key ) ) {
+                    $is_error = true;
+                    $return_message = __( 'Please enter your DeepL API key.', 'translatepress-multilingual' );
+                } else {
+                    // Perform test.
+                    $response = $machine_translator->test_request();
+                    $code     = wp_remote_retrieve_response_code( $response );
+                    if ( 200 !== $code && method_exists( 'TRP_DeepL', 'deepl_response_codes' ) ) {
+                        $is_error        = true;
+                        $translate_response = TRP_DeepL::deepl_response_codes( $code );
+                        $return_message     = $translate_response['message'];
+                    }
+                }
+                break;
+            default:
+                break;
+        }
+        return array(
+            'message' => $return_message,
+            'error'   => $is_error,
+        );
+    }
+
 	/**
 	 * Return site referer
 	 *

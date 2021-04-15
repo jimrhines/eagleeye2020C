@@ -55,6 +55,7 @@ class acf_field_radio extends acf_field {
 	function render_field( $field ) {
 
 		// vars
+		$i = 0;
 		$e = '';
 		$ul = array( 
 			'class'				=> 'acf-radio-list',
@@ -156,10 +157,14 @@ class acf_field_radio extends acf_field {
 			$class = '';
 			
 			
+			// increase counter
+			$i++;
+			
+			
 			// vars
 			$atts = array(
 				'type'	=> 'radio',
-				'id'	=> sanitize_title( $field['id'] . '-' . $value ), 
+				'id'	=> $field['id'], 
 				'name'	=> $field['name'],
 				'value'	=> $value
 			);
@@ -178,6 +183,14 @@ class acf_field_radio extends acf_field {
 			if( isset($field['disabled']) && acf_in_array($value, $field['disabled']) ) {
 			
 				$atts['disabled'] = 'disabled';
+				
+			}
+			
+			
+			// id (use crounter for each input)
+			if( $i > 1 ) {
+			
+				$atts['id'] .= '-' . $value;
 				
 			}
 			

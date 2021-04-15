@@ -16,22 +16,25 @@ $container = get_theme_mod( 'understrap_container_type' );
 
 <?php get_template_part( 'sidebar-templates/sidebar', 'footerfull' ); ?>
 
-<?php if(!is_page(array( 13, 1790 ))) :?>
-	<div id="newsletter-signup" class="d-print-none">
-		<?php if ( shortcode_exists( 'contact-form-7' ) ) { 
-			echo do_shortcode('[contact-form-7 id="2195" title="Newsletter Signup"]'); 
-		} ?>
-		<p><small><?php bloginfo( 'name' ); ?> respects your privacy. We don&#39;t rent or sell your personal information to anyone. Ever. <a href="<?php echo get_permalink(3); ?>">Read our <?php echo get_the_title(3); ?></a>.</small></p>
-	</div>
-	<!-- Start SharpSpring Signup Form -->
-	<script>
-	    var __ss_noform = __ss_noform || [];
-	    __ss_noform.push(['baseURI', 'https://app-3QNMNV32OO.marketingautomation.services/webforms/receivePostback/MzawMLEwMjK0AAA/']);
-	    __ss_noform.push(['endpoint', 'ebb85961-277d-491d-a0cb-c9caf3c667b3']);
-	</script>
-	<script src="https://koi-3QNMNV32OO.marketingautomation.services/client/noform.js?ver=1.24"></script>
-	<!-- End SharpSpring Signup Form -->
-<?php endif;?>
+<?php 
+if (!is_product() ) {
+	if(!is_page(array( 13, 1790 ))) : //13=Request a Quote, 1790=Contact Us, is_product=WooCommerce Single Product Page ?>
+		<div id="newsletter-signup" class="d-print-none">
+			<?php if ( shortcode_exists( 'contact-form-7' ) ) { 
+				echo do_shortcode('[contact-form-7 id="2195" title="Newsletter Signup"]'); 
+			} ?>
+			<p><small><?php bloginfo( 'name' ); ?> respects your privacy. We don&#39;t rent or sell your personal information to anyone. Ever. <a href="<?php echo get_permalink(3); ?>">Read our <?php echo get_the_title(3); ?></a>.</small></p>
+		</div>
+		<!-- Start SharpSpring Signup Form -->
+		<script>
+		    var __ss_noform = __ss_noform || [];
+		    __ss_noform.push(['baseURI', 'https://app-3QNMNV32OO.marketingautomation.services/webforms/receivePostback/MzawMLEwMjK0AAA/']);
+		    __ss_noform.push(['endpoint', 'ebb85961-277d-491d-a0cb-c9caf3c667b3']);
+		</script>
+		<script src="https://koi-3QNMNV32OO.marketingautomation.services/client/noform.js?ver=1.24"></script>
+		<!-- End SharpSpring Signup Form -->
+	<?php endif;
+} ?>
 
 <div class="wrapper" id="wrapper-footer">
 	<footer class="site-footer" id="colophon">
@@ -75,7 +78,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 							</ul>
 						</div>
 						<div id="eeps-iso" class="col-6 col-lg-12">
-							<img src="/wp-content/uploads/2020/06/eagle-eye-power-solutions-iso-logo.png" alt="ISO 9001: 2008 Certified - Eagle Eye Power Solutions" />
+							<img src="<?php echo esc_url( home_url( '/' ) ); ?>wp-content/uploads/2020/06/eagle-eye-power-solutions-iso-logo.png" alt="ISO 9001: 2008 Certified - Eagle Eye Power Solutions" />
 						</div>
 					</div>
 				</div>

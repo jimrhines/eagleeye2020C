@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Plugins - Contact Form 7 - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-12-07 20:48:43+0000\n"
+"PO-Revision-Date: 2021-04-07 15:18:36+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -624,7 +624,7 @@ msgstr "https://contactform7.com/recaptcha/"
 
 #: modules/recaptcha/recaptcha.php:482
 msgid "Secret Key"
-msgstr "Secret Key"
+msgstr "Geheimer Schlüssel"
 
 #: modules/recaptcha/recaptcha.php:465
 msgid "Site Key"
