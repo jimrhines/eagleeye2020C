@@ -109,9 +109,9 @@ $container = get_theme_mod( 'understrap_container_type' );
 						<li class="nav-item">
 							<a class="nav-link" href="<?php echo get_permalink(1474); ?>">Industries</a>
 						</li>
-						<li class="nav-item">
+						<!--li class="nav-item">
 							<a class="nav-link" href="<?php echo get_permalink(297); ?>">Training</a>
-						</li>
+						</li-->
 						<li class="nav-item">
 							<a class="nav-link" href="<?php echo get_permalink(2257); ?>">News &amp; Resources</a>
 						</li>
@@ -120,6 +120,9 @@ $container = get_theme_mod( 'understrap_container_type' );
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="<?php echo get_permalink(485); ?>">About Us</a>
+						</li>
+						<li id="eeu" class="nav-item">
+							<a class="nav-link" href="https://eagleeyeuniversity.com/" target="_blank">Eagle Eye University</a>
 						</li>
 					</ul>
 					<?php wp_nav_menu(

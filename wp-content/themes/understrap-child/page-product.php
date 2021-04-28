@@ -25,22 +25,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 					<?php while ( have_posts() ) : the_post(); ?>
 						<div class="row">
 							<div class="col text-right mt-4 pr-4">
-								<a href="<?php echo esc_url( home_url( '/' ) ); ?>request-a-quote/?product-name=<?php the_field('product_model_number'); ?>" class="btn btn-primary d-print-none" role="button">Get a Quote &#62;</a>	
-								<?php							
-									$product_page_url = esc_url( home_url( '/' ) )."product/".basename(get_permalink());
-									$product_page_slug = basename(get_permalink());									
-									//echo $product_page_slug;
-
-									$page = get_page_by_path($product_page_slug, OBJECT, 'product');
-
-									//if(!$page){
-								        //echo "Does not exist.";
-								   // } else {
-								        //echo "Exists";
-								        echo "<a href=".$product_page_url." class='btn btn-secondary ml-3 d-print-none' role='button'>Buy Now &#62;</a>";
-								   // } 
-
-								?>
+								<a href="<?php echo esc_url( home_url( '/' ) ); ?>request-a-quote/?product-name=<?php the_field('product_model_number'); ?>" class="btn btn-primary d-print-none" role="button">Get a Quote &#62;</a>
 							</div>
 						</div>
 						<div class="row">

@@ -11834,7 +11834,8 @@ img[src$=".svg"] {
 /*Header*/
 .navbar {
   font-family: "Montserrat", sans-serif;
-  padding: 1rem 0 1.5rem 0; }
+  padding: 1rem 0 1.5rem 0;
+  /* EEU external link */ }
   @media (max-width: 575.98px) {
     .navbar .navbar-brand {
       width: 70%; } }
@@ -11848,6 +11849,30 @@ img[src$=".svg"] {
   .navbar .nav-link {
     color: #413f42 !important;
     font-weight: 600; }
+  .navbar #eeu {
+    margin: 0.5em 0; }
+    @media (min-width: 992px) {
+      .navbar #eeu {
+        margin: 0 0 0 0.5em; } }
+  .navbar #eeu a {
+    padding: 0.5em 0.5em 0.25em 2.5em;
+    margin: 0;
+    width: 225px;
+    background-image: url("https://eepowersolutions.com/wp-content/uploads/2021/04/eeu-logo.png");
+    background-repeat: no-repeat;
+    background-size: 12%;
+    background-color: #413F42;
+    background-position: 5% 50%;
+    border-radius: 0.5em;
+    color: #FEE300 !important;
+    font-weight: 700;
+    text-align: center; }
+  .navbar #eeu a:hover {
+    background-color: #616161; }
+  @media screen and (-webkit-min-device-pixel-ratio: 0) {
+    .navbar #eeu a {
+      padding: 0.5em 0.5em 0.5em 2.5em;
+      width: 225px; } }
   .navbar .trp-language-switcher-container {
     background-color: #FFF;
     border-color: #FFF; }
