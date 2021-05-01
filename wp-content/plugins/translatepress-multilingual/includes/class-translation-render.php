@@ -667,6 +667,9 @@ class TRP_Translation_Render{
                 //add data-trp-post-id attribute if needed
                 $nodes = $this->maybe_add_post_id_in_node( $nodes, $row, $string_count );
             }
+
+            $row = apply_filters( 'trp_process_other_text_nodes', $row );
+
         }
 	    //set up general links variables
 	    $home_url = home_url();
@@ -853,6 +856,7 @@ class TRP_Translation_Render{
             	( $TRP_LANGUAGE != $this->settings['default-language'] || $this->settings['add-subdirectory-to-default-language'] == 'yes' ) &&
                 $this->settings['force-language-to-custom-links'] == 'yes' &&
 	            !$is_external_link &&
+                !$this->url_converter->url_is_file( $url ) &&
                 ( $this->url_converter->get_lang_from_url_string( $url ) == null || ( isset ($this->settings['add-subdirectory-to-default-language']) && $this->settings['add-subdirectory-to-default-language'] === 'yes' && $this->url_converter->get_lang_from_url_string( $url ) === $this->settings['default-language'] ) ) &&
 	            !$is_admin_link &&
                 strpos($url, '#TRPLINKPROCESSED') === false &&

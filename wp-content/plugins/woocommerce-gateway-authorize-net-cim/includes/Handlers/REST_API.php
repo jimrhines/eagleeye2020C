@@ -17,7 +17,7 @@
  * needs please refer to http://docs.woocommerce.com/document/authorize-net-cim/
  *
  * @author    SkyVerge
- * @copyright Copyright (c) 2013-2021, SkyVerge, Inc.
+ * @copyright Copyright (c) 2013-2020, SkyVerge, Inc.
  * @license   http://www.gnu.org/licenses/gpl-3.0.html GNU General Public License v3.0
  */
 
@@ -25,7 +25,7 @@ namespace SkyVerge\WooCommerce\Authorize_Net\Handlers;
 
 defined( 'ABSPATH' ) or exit;
 
-use SkyVerge\WooCommerce\PluginFramework\v5_10_4 as Framework;
+use SkyVerge\WooCommerce\PluginFramework\v5_10_3 as Framework;
 
 /**
  * REST API handler class.
@@ -52,7 +52,7 @@ class REST_API extends Framework\Payment_Gateway\REST_API {
 
 		foreach ( $this->get_plugin()->get_gateways() as $gateway ) {
 
-			if ( ! empty( $data['gateways'][ $gateway->get_id() ] ) ) {
+			if ( \WC_Authorize_Net_CIM::EMULATION_GATEWAY_ID !== $gateway->get_id() && ! empty( $data['gateways'][ $gateway->get_id() ] ) ) {
 				$data['gateways'][ $gateway->get_id() ]['form_type']      = $gateway->get_form_type();
 				$data['gateways'][ $gateway->get_id() ]['has_client_key'] = (bool) $gateway->get_client_key();
 			}

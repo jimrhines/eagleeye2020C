@@ -69,7 +69,7 @@ function trp_x( $text, $context, $domain, $language ){
 
     if( !empty( $path ) ) {
 
-        $mo_file = wp_cache_get( 'trp_x_' . $domain .'_'. $language );
+        $mo_file = trp_cache_get( 'trp_x_' . $domain .'_'. $language );
 
         if( false === $mo_file ){
             $mo_file = new MO();
@@ -562,4 +562,35 @@ function trp_get_languages($nodefault=null)
         unset ($published_lang_labels[$default_lang_labels]);
     }
     return ($published_lang_labels);
+}
+
+/**
+ * Wrapper function for wp_cahce_get() that bypases cache if WP_DEBUG is on
+ * @param int|string $key   The key under which the cache contents are stored.
+ * @param string     $group Optional. Where the cache contents are grouped. Default empty.
+ * @param bool       $force Optional. Whether to force an update of the local cache
+ *                          from the persistent cache. Default false.
+ * @param bool       $found Optional. Whether the key was found in the cache (passed by reference).
+ *                          Disambiguates a return of false, a storable value. Default null.
+ * @return mixed|false The cache contents on success, false on failure to retrieve contents or false when WP_DEBUG is on
+ *
+ */
+function trp_cache_get( $key, $group = '', $force = false, &$found = null ){
+    if( defined( 'WP_DEBUG' ) && WP_DEBUG == true )
+        return false;
+
+    $cache = wp_cache_get( $key, $group, $force, $found );
+    return $cache;
+}
+
+/**
+ * Determine if the setting in Advanced Options should make us add a slash at end of string
+ * @param $settings the TranslatePress settings object
+ * @return bool
+ */
+function trp_force_slash_at_end_of_link( $settings ){
+    if ( !empty( $settings['trp_advanced_settings'] ) && isset( $settings['trp_advanced_settings']['force_slash_at_end_of_links'] ) && $settings['trp_advanced_settings']['force_slash_at_end_of_links'] === 'yes' )
+        return true;
+    else
+        return false;
 }

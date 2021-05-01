@@ -1476,3 +1476,23 @@ function trp_googlesitekit_compatibility_home_url( $url ) {
     $url_converter = $trp->get_component('url_converter');
     return $url_converter->get_abs_home();
 }
+
+
+/**
+ * Compatibility with WPEngine hosting
+ *
+ * Detect and handle query length limiting feature of WPEngine. Without this check, the query returns no results as if
+ * there were no translations found. This results in duplicate row inserting and unnecessary automatic translation
+ * usage.
+ */
+add_filter('trp_get_existing_translations', 'trp_wpengine_query_limit_check', 10, 3 );
+function trp_wpengine_query_limit_check($dictionary, $prepared_query, $strings_array){
+    if ( function_exists('is_wpe') && ( !defined ('WPE_GOVERNOR') || ( defined ('WPE_GOVERNOR') && WPE_GOVERNOR != false ) ) && strlen($prepared_query) >= 16000 ){
+        $trp = TRP_Translate_Press::get_trp_instance();
+        $trp_query = $trp->get_component( 'query' );
+        $trp_query->maybe_record_automatic_translation_error(array( 'details' => esc_html__("Detected long query limitation on WPEngine hosting. Some large pages may appear untranslated. You can remove limitation by adding the following to your site’s wp-config.php: define( 'WPE_GOVERNOR', false ); ", 'translatepress-multilingual')), true );
+        return false;
+    }else{
+        return $dictionary;
+    }
+}

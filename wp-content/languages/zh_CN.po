@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the WordPress - 5.7.x - Development package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-04-13 22:29:29+0000\n"
+"PO-Revision-Date: 2021-04-15 01:05:53+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -97,6 +97,11 @@ msgstr "."
 #: wp-includes/js/dist/edit-post.js:4103 wp-admin/includes/upgrade.php:158
 msgid "Uncategorized"
 msgstr "未分类"
+
+#: wp-includes/blocks/latest-posts.php:138
+#: wp-includes/blocks/latest-posts.php:153
+msgid "This content is password protected."
+msgstr "此内容受密码保护。"
 
 #: wp-includes/https-detection.php:139
 msgid "SSL verification failed."
@@ -315,39 +320,39 @@ msgid "Sorry, you are not allowed to list application passwords for this user."
 msgstr "抱歉，您不能查看该用户的所有应用程序密码。"
 
 #. translators: %s: Taxonomy name.
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2976
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:3023
 msgid "Limit result set to items with specific terms assigned in the %s taxonomy."
 msgstr "将结果集限制为在%s分类法中指定了特定项目的项目。"
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2963
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:3010
 msgid "Whether to include child terms in the terms limiting the result set."
 msgstr "是否在限制结果集的项目中包含子项目。"
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2955
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:3002
 msgid "Term IDs."
 msgstr "项目ID。"
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2951
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2998
 msgid "Perform an advanced term query."
 msgstr "进行一项高级项目查询。"
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2950
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2997
 msgid "Term ID Taxonomy Query"
 msgstr "项目ID分类法查询。"
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2943
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2990
 msgid "Match terms with the listed IDs."
 msgstr "将项目与列出的ID相匹配。"
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2942
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2989
 msgid "Term ID List"
 msgstr "项目ID列表"
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2669
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2716
 msgid "Limit response to posts modified before a given ISO8601 compliant date."
 msgstr "将回应限制为一个给定的日期（ISO 8601兼容格式）之前修改过的文章。"
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2638
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2685
 msgid "Limit response to posts modified after a given ISO8601 compliant date."
 msgstr "将回应限制为一个给定的日期（ISO 8601兼容格式）之后修改过的文章。"
 
@@ -969,7 +974,7 @@ msgid "This theme doesn&#8217;t work with your versions of WordPress and PHP."
 msgstr "此主题不能与您的WordPress和PHP版本一同工作。"
 
 #. translators: %s: register_rest_field
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2479
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2526
 msgid "Please use %s to add new schema properties."
 msgstr "请使用%s添加新模式属性。"
 
@@ -2038,13 +2043,13 @@ msgstr "回复给：%s"
 msgid "HTTP redirect status code must be a redirection code, 3xx."
 msgstr "HTTP重定向状态码必须为3xx重定向状态码。"
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2933
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2980
 msgid "Limit result set based on relationship between multiple taxonomies."
 msgstr "基于多个分类法间的关系限制结果集。"
 
 #. translators: 1: The taxonomy name, 2: The property name, either 'rest_base'
 #. or 'name', 3: The conflicting value.
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2431
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2478
 msgid "The \"%1$s\" taxonomy \"%2$s\" property (%3$s) conflicts with an existing property on the REST API Posts Controller. Specify a custom \"rest_base\" when registering the taxonomy to avoid this error."
 msgstr "分类法“%1$s”的“%2$s”属性（%3$s）与REST API文章控制器的现有属性冲突。请在注册分类法时指定自定的“rest_base”来避免此错误。"
 
@@ -3275,19 +3280,19 @@ msgstr "内部搜索处理器错误。"
 msgid "REST search handlers must extend the %s class."
 msgstr "REST搜索处理器必须继承%s类。"
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2523
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2570
 msgid "The current user can post unfiltered HTML markup and JavaScript."
 msgstr "当前用户可以发布未经过滤的HTML标签和JavaScript。"
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2299
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2346
 msgid "Version of the content block format used by the object."
 msgstr "对象使用的内容区块格式的版本。"
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2184
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2231
 msgid "Slug automatically generated from the object title."
 msgstr "从对象标题自动生成的别名。"
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2177
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2224
 msgid "Permalink template for the object."
 msgstr "此对象的固定链接模板。"
 
@@ -3400,24 +3405,24 @@ msgid "[%1$s] Action Confirmed: %2$s"
 msgstr "[%1$s] 操作已确认：%2$s"
 
 #. translators: %s: Taxonomy name.
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2577
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2624
 msgid "The current user can create terms in the %s taxonomy."
 msgstr "当前用户可以创建%s分类法内的项目。"
 
 #. translators: %s: Taxonomy name.
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2575
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2622
 msgid "The current user can assign terms in the %s taxonomy."
 msgstr "当前用户可以指定%s分类法内的项目。"
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2556
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2603
 msgid "The current user can change the author on this post."
 msgstr "当前用户可以更改此文章的作者。"
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2540
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2587
 msgid "The current user can sticky this post."
 msgstr "当前用户可以置顶此文章。"
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2507
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2554
 msgid "The current user can publish this post."
 msgstr "当前用户可以发布此文章。"
 
@@ -5127,13 +5132,13 @@ msgid "Limit result set to terms with one or more specific slugs."
 msgstr "将结果集限制为具有一个或多个别名的分类法项目。"
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-revisions-controller.php:312
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:353
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:393
 #: wp-includes/rest-api/endpoints/class-wp-rest-search-controller.php:160
 msgid "The page number requested is larger than the number of pages available."
 msgstr "请求的页码大于总页数。"
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-revisions-controller.php:237
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:174
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:214
 msgid "You need to define an include parameter to order by include."
 msgstr "您需要定义“include”参数来按包含顺序排序。"
 
@@ -5732,14 +5737,14 @@ msgstr "关于本站"
 msgid "Sorry, you are not allowed to edit the %s custom field."
 msgstr "抱歉，您不能编辑自定义字段%s。"
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:560
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:733
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:606
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:779
 msgid "Sorry, you are not allowed to assign the provided terms."
 msgstr "抱歉，您不能指定提供的项目。"
 
 #: wp-includes/class-wp-xmlrpc-server.php:1344
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:544
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:725
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:590
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:771
 msgid "Sorry, you are not allowed to make posts sticky."
 msgstr "抱歉，您不能将文章置顶。"
 
@@ -5949,7 +5954,7 @@ msgid "Revisions do not support trashing. Set '%s' to delete."
 msgstr "修订版本不能被移动到回收站，设置“%s”来删除。"
 
 #. translators: %s: force=true
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:929
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:975
 msgid "The post does not support trashing. Set '%s' to delete."
 msgstr "此文章不能被移动到回收站，设置“%s”来删除。"
 
@@ -5966,7 +5971,7 @@ msgstr "或输入YouTube URL："
 msgid "Invalid JSON body passed."
 msgstr "传入的JSON体无效。"
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2765
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2812
 msgid "Limit result set to posts assigned one or more statuses."
 msgstr "将结果集限制为有一个或多个状态的文章。"
 
@@ -5979,7 +5984,7 @@ msgstr "评论字段超过了允许的最大尺寸。"
 msgid "Taxonomies associated with post type."
 msgstr "与文章类别关联的分类法。"
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2755
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2802
 msgid "Limit result set to posts with one or more specific slugs."
 msgstr "将结果集限制为有一个或多个特定别名的文章。"
 
@@ -6052,7 +6057,7 @@ msgid "%1$s is not of type %2$s."
 msgstr "%1$s的类型不是%2$s。"
 
 #. translators: 1: Parameter, 2: List of valid values.
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:1401
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:1447
 msgid "%1$s is not one of %2$s."
 msgstr "%1$s不是%2$s之一。"
 
@@ -6184,194 +6189,194 @@ msgstr "%s属性存储了无效的值，且不能被更新为null。"
 msgid "Invalid revision ID."
 msgstr "无效的修订版本ID。"
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2834
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2881
 #: wp-includes/class-wp-customize-nav-menus.php:952
 msgid "Status is forbidden."
 msgstr "状态被禁止。"
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2778
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2825
 msgid "Limit result set to items that are sticky."
 msgstr "将结果集限制为置顶项目。"
 
 #. translators: %s: Taxonomy name.
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2983
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:3030
 msgid "Limit result set to items except those with specific terms assigned in the %s taxonomy."
 msgstr "将结果集限制为在%s分类法中未指定特定项目的项目。"
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2745
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2792
 msgid "Limit result set to all items except those of a particular parent ID."
 msgstr "将结果集限制为没有特定父ID的文章。"
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2737
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2784
 msgid "Limit result set to items with particular parent IDs."
 msgstr "将结果集限制为一些特定父ID的项目。"
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:1599
 #: wp-includes/rest-api/endpoints/class-wp-rest-revisions-controller.php:785
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2700
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2747
 #: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1510
 #: wp-includes/rest-api/endpoints/class-wp-rest-terms-controller.php:1030
 msgid "Offset the result set by a specific number of items."
 msgstr "将结果集移位特定数量。"
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2694
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2741
 msgid "Limit result set to posts with a specific menu_order value."
 msgstr "将结果集限制为有特定menu_order的文章。"
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2653
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2700
 msgid "Ensure result set excludes posts assigned to specific authors."
 msgstr "确保结果集排除指定给特定作者的文章。"
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2645
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2692
 msgid "Limit result set to posts assigned to specific authors."
 msgstr "将结果集限制为指定给特定作者的文章。"
 
 #. translators: %s: Taxonomy name.
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2442
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2489
 msgid "The terms assigned to the object in the %s taxonomy."
 msgstr "此对象在%s分类法中指定的项目。"
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2412
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2459
 msgid "The theme file to use to display the object."
 msgstr "用来显示此对象的主题文件。"
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2167
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2214
 msgid "A password to protect access to the content and excerpt."
 msgstr "用来保护内容和摘要的密码。"
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2405
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2452
 msgid "Whether or not the object should be treated as sticky."
 msgstr "对象是否是置顶的。"
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2389
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2436
 msgid "The format for the object."
 msgstr "对象的格式。"
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2378
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2425
 msgid "The order of the object in relation to other object of its type."
 msgstr "对象相对于同类型其他对象的排序。"
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2369
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2416
 msgid "Whether or not the object can be pinged."
 msgstr "对象是否接受ping。"
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2363
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2410
 msgid "Whether or not comments are open on the object."
 msgstr "对象是否开放评论。"
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2355
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2402
 msgid "The ID of the featured media for the object."
 msgstr "对象的特色媒体ID。"
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2344
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2391
 msgid "Whether the excerpt is protected with a password."
 msgstr "摘要是否受到密码保护。"
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2338
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2385
 msgid "HTML excerpt for the object, transformed for display."
 msgstr "对象的HTML摘要，为了显示作转换。"
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2333
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2380
 msgid "Excerpt for the object, as it exists in the database."
 msgstr "对象的摘要，存放于数据库。"
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2324
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2371
 msgid "The excerpt for the object."
 msgstr "对象的摘要。"
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-revisions-controller.php:678
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2316
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2363
 msgid "The ID for the author of the object."
 msgstr "对象作者的ID。"
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2305
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2352
 msgid "Whether the content is protected with a password."
 msgstr "内容是否受到密码保护。"
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2268
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2315
 msgid "HTML title for the object, transformed for display."
 msgstr "对象的HTML标题，为了显示作转换。"
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2263
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2310
 msgid "Title for the object, as it exists in the database."
 msgstr "对象的标题，存放于数据库。"
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2254
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2301
 #: wp-includes/rest-api/endpoints/class-wp-rest-search-controller.php:254
 msgid "The title for the object."
 msgstr "对象的标题。"
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2161
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2208
 msgid "Type of Post for the object."
 msgstr "对象的文章类别。"
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2152
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2199
 msgid "A named status for the object."
 msgstr "对象的命名状态。"
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-revisions-controller.php:722
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2144
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2191
 msgid "An alphanumeric identifier for the object unique to its type."
 msgstr "对象类别而言的英数字标识符。"
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-revisions-controller.php:711
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2137
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2184
 msgid "The date the object was last modified, as GMT."
 msgstr "对象的上次修改日期，GMT。"
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-revisions-controller.php:705
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2130
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2177
 msgid "The date the object was last modified, in the site's timezone."
 msgstr "对象的上次修改日期，站点时区。"
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2109
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2156
 msgid "GUID for the object, transformed for display."
 msgstr "对象的GUID，为了显示作转换。"
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-revisions-controller.php:695
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2103
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2150
 msgid "GUID for the object, as it exists in the database."
 msgstr "对象的GUID，存放于数据库。"
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2097
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2144
 msgid "The globally unique identifier for the object."
 msgstr "对象的唯一标识符。"
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:1461
 #: wp-includes/rest-api/endpoints/class-wp-rest-revisions-controller.php:689
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2091
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2138
 msgid "The date the object was published, as GMT."
 msgstr "对象的发布时间，GMT。"
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:1455
 #: wp-includes/rest-api/endpoints/class-wp-rest-revisions-controller.php:683
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2085
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2132
 msgid "The date the object was published, in the site's timezone."
 msgstr "对象的发布时间，站点时区。"
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:1353
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:1399
 msgid "Invalid featured media ID."
 msgstr "无效的特色媒体ID。"
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-revisions-controller.php:143
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:1220
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:1266
 #: wp-includes/rest-api/endpoints/class-wp-rest-autosaves-controller.php:259
 msgid "Invalid post parent ID."
 msgstr "无效的文章父ID。"
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:1204
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:1250
 msgid "A password protected post can not be set to sticky."
 msgstr "受密码保护的文章不能被设为置顶。"
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:1193
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:1239
 msgid "A sticky post can not be password protected."
 msgstr "置顶文章不能被密码保护。"
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:1185
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:1231
 msgid "A post can not be sticky and have a password."
 msgstr "文章不能既被置顶又受密码保护。"
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:938
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:984
 msgid "The post has already been deleted."
 msgstr "文章已经被删除。"
 
@@ -6385,8 +6390,8 @@ msgstr "抱歉，您不能编辑评论。"
 msgid "Sorry, you are not allowed to manage this plugin."
 msgstr "抱歉，您不能管理此插件。"
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:526
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:580
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:572
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:626
 msgid "Cannot create existing post."
 msgstr "无法创建已存在的文章。"
 
@@ -6394,17 +6399,17 @@ msgstr "无法创建已存在的文章。"
 msgid "Sorry, you are not allowed to create new users."
 msgstr "抱歉，您不能创建新用户。"
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:440
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:480
 msgid "Incorrect post password."
 msgstr "错误的文章密码。"
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-revisions-controller.php:228
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:165
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:205
 msgid "You need to define a search term to order by relevance."
 msgstr "您需要定义搜索条件来按相关性排序。"
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:1672
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:85
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:93
 msgid "The password for the post if it is password protected."
 msgstr "该文章的密码，如文章受密码保护。"
 
@@ -6506,14 +6511,14 @@ msgstr "将结果集限制为指定父ID的评论。"
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:1614
 #: wp-includes/rest-api/endpoints/class-wp-rest-revisions-controller.php:797
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2712
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2759
 #: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1523
 msgid "Sort collection by object attribute."
 msgstr "按对象属性排序集合。"
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:1604
 #: wp-includes/rest-api/endpoints/class-wp-rest-revisions-controller.php:790
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2705
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2752
 #: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1516
 #: wp-includes/rest-api/endpoints/class-wp-rest-terms-controller.php:1036
 msgid "Order sort attribute ascending or descending."
@@ -6521,7 +6526,7 @@ msgstr "设置排序字段升序或降序。"
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:1590
 #: wp-includes/rest-api/endpoints/class-wp-rest-revisions-controller.php:776
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2684
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2731
 #: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1501
 #: wp-includes/rest-api/endpoints/class-wp-rest-terms-controller.php:1020
 msgid "Limit result set to specific IDs."
@@ -6529,13 +6534,13 @@ msgstr "将结果集限制为指定ID。"
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:1581
 #: wp-includes/rest-api/endpoints/class-wp-rest-revisions-controller.php:767
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2675
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2722
 #: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1492
 #: wp-includes/rest-api/endpoints/class-wp-rest-terms-controller.php:1011
 msgid "Ensure result set excludes specific IDs."
 msgstr "确保结果集排除指定ID。"
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2663
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2710
 msgid "Limit response to posts published before a given ISO8601 compliant date."
 msgstr "将回应限制在一个给定的ISO8601兼容日期之前发布的文章。"
 
@@ -6551,7 +6556,7 @@ msgstr "确保结果集排除指定给特定用户ID的评论，需要授权。"
 msgid "Limit result set to comments assigned to specific user IDs. Requires authorization."
 msgstr "将结果集限制为指定给特定用户ID的评论，需要授权。"
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2632
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2679
 msgid "Limit response to posts published after a given ISO8601 compliant date."
 msgstr "将回应限制在一个给定的ISO8601兼容日期之后发布的文章。"
 
@@ -6581,30 +6586,30 @@ msgstr "关联文章对象的ID。"
 #: wp-includes/rest-api/endpoints/class-wp-rest-revisions-controller.php:78
 #: wp-includes/rest-api/endpoints/class-wp-rest-revisions-controller.php:98
 #: wp-includes/rest-api/endpoints/class-wp-rest-revisions-controller.php:717
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2193
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2240
 #: wp-includes/rest-api/endpoints/class-wp-rest-autosaves-controller.php:89
 #: wp-includes/rest-api/endpoints/class-wp-rest-autosaves-controller.php:115
 msgid "The ID for the parent of the object."
 msgstr "对象的父对象ID。"
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:1467
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2123
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2170
 #: wp-includes/rest-api/endpoints/class-wp-rest-search-controller.php:260
 msgid "URL to the object."
 msgstr "对象的URL。"
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:1447
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2293
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2340
 msgid "HTML content for the object, transformed for display."
 msgstr "对象的HTML内容，为了显示作转换。"
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:1442
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2288
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2335
 msgid "Content for the object, as it exists in the database."
 msgstr "对象的内容，存在于数据库。"
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:1433
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2279
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2326
 msgid "The content for the object."
 msgstr "对象的内容。"
 
@@ -6636,8 +6641,8 @@ msgstr "用户对象的ID，如果作者是用户。"
 #: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:1384
 #: wp-includes/rest-api/endpoints/class-wp-rest-revisions-controller.php:102
 #: wp-includes/rest-api/endpoints/class-wp-rest-revisions-controller.php:700
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:95
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2117
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:103
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2164
 #: wp-includes/rest-api/endpoints/class-wp-rest-search-controller.php:248
 #: wp-includes/rest-api/endpoints/class-wp-rest-attachments-controller.php:37
 msgid "Unique identifier for the object."
@@ -6688,7 +6693,7 @@ msgid "Query parameter not permitted: %s"
 msgstr "不允许的查询参数：%s"
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:104
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:119
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:127
 msgid "Whether to bypass Trash and force deletion."
 msgstr "是否绕过回收站并强行删除。"
 
@@ -7326,8 +7331,8 @@ msgstr "抱歉，您不能删除此页面。"
 
 #: wp-includes/class-wp-xmlrpc-server.php:1784
 #: wp-includes/class-wp-xmlrpc-server.php:5218
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:857
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:905
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:903
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:951
 msgid "Sorry, you are not allowed to delete this post."
 msgstr "抱歉，您不能删除此文章。"
 
@@ -11647,8 +11652,8 @@ msgstr "图像默认链接类型"
 #: wp-includes/class-wp-xmlrpc-server.php:6383
 #: wp-includes/class-wp-xmlrpc-server.php:6572
 #: wp-includes/class-wp-xmlrpc-server.php:6630
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:430
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:709
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:470
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:755
 #: wp-admin/includes/post.php:267 wp-admin/includes/post.php:1891
 #: wp-admin/includes/post.php:1895 wp-admin/includes/media.php:3768
 #: wp-admin/includes/ajax-actions.php:1997
@@ -11669,7 +11674,7 @@ msgstr "、"
 
 #: wp-includes/class-wp-xmlrpc-server.php:1951
 #: wp-includes/class-wp-xmlrpc-server.php:4512
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:143
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:151
 #: wp-includes/rest-api/endpoints/class-wp-rest-post-types-controller.php:95
 #: wp-includes/rest-api/endpoints/class-wp-rest-post-types-controller.php:157
 #: wp-admin/post.php:135 wp-admin/edit.php:17 wp-admin/edit.php:42
@@ -11677,7 +11682,7 @@ msgid "Sorry, you are not allowed to edit posts in this post type."
 msgstr "抱歉，您不能在此文章类型中编辑文章。"
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-revisions-controller.php:484
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:953
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:999
 msgid "The post cannot be deleted."
 msgstr "不能删除这篇文章。"
 
@@ -11710,14 +11715,14 @@ msgstr "抱歉，您不能查看此项目。"
 
 #: wp-includes/class-wp-xmlrpc-server.php:1452
 #: wp-includes/class-wp-xmlrpc-server.php:5403
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:1168
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:1214
 msgid "Invalid author ID."
 msgstr "作者ID无效。"
 
 #: wp-includes/class-wp-xmlrpc-server.php:1446
 #: wp-includes/class-wp-xmlrpc-server.php:5390
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:536
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:552
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:582
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:598
 #: wp-admin/includes/post.php:42 wp-admin/includes/post.php:87
 #: wp-admin/press-this.php:20 wp-admin/post-new.php:61
 msgid "Sorry, you are not allowed to create posts as this user."
@@ -11728,7 +11733,7 @@ msgid "Sorry, you are not allowed to create password protected posts in this pos
 msgstr "抱歉，您不能在此文章类型中创建密码保护的文章。"
 
 #: wp-includes/class-wp-xmlrpc-server.php:1423
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:1309
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:1355
 msgid "Sorry, you are not allowed to create private posts in this post type."
 msgstr "抱歉，您不能在此文章类型中创建私人文章。"
 
@@ -12921,7 +12926,7 @@ msgstr "抱歉，您不能作为此用户修改页面作者。"
 msgid "Sorry, you are not allowed to change the post author as this user."
 msgstr "抱歉，您不能作为此用户修改文章作者。"
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:717
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:763
 msgid "Sorry, you are not allowed to update posts as this user."
 msgstr "抱歉，您不能作为此用户更新文章。"
 
@@ -12942,7 +12947,7 @@ msgid "Invalid post type."
 msgstr "无效的文章类型。"
 
 #: wp-includes/class-wp-xmlrpc-server.php:1429
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:1319
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:1365
 msgid "Sorry, you are not allowed to publish posts in this post type."
 msgstr "抱歉，您不能在此文章类型中发布文章。"
 
@@ -13000,7 +13005,7 @@ msgstr "评论者名字和电邮是必填的。"
 #: wp-includes/class-wp-xmlrpc-server.php:6751
 #: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:361
 #: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:828
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:397
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:437
 #: wp-includes/comment.php:2458 wp-includes/post.php:3800
 #: wp-includes/post.php:4433 wp-includes/revision.php:324
 msgid "Invalid post ID."

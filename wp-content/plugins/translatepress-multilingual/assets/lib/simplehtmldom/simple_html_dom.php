@@ -60,7 +60,7 @@ defined('TRP_DEFAULT_TARGET_CHARSET') || define('TRP_DEFAULT_TARGET_CHARSET', 'U
 defined('TRP_DEFAULT_BR_TEXT') || define('TRP_DEFAULT_BR_TEXT', "\r\n");
 defined('TRP_DEFAULT_SPAN_TEXT') || define('TRP_DEFAULT_SPAN_TEXT', ' ');
 defined('TRP_MAX_FILE_SIZE') || define('TRP_MAX_FILE_SIZE', 100000000);
-define('HDOM_SMARTY_AS_TEXT', 1);
+define('TRP_HDOM_SMARTY_AS_TEXT', 1);
 
 function file_get_html(
 	$url,
@@ -1552,7 +1552,7 @@ class simple_html_dom
 		// strip out server side scripts
 		$this->remove_noise("'(<\?)(.*?)(\?>)'s", true);
 
-		if($options & HDOM_SMARTY_AS_TEXT) { // Strip Smarty scripts
+		if($options & TRP_HDOM_SMARTY_AS_TEXT) { // Strip Smarty scripts
 			$this->remove_noise("'(\{\w)(.*?)(\})'s", true);
 		}
 

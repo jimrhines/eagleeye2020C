@@ -97,7 +97,7 @@ msgstr ""
 msgid "Are you sure you want to remove this language?"
 msgstr ""
 
-#: ../tp-add-on-extra-languages/partials/language-selector-pro.php:43, includes/class-advanced-tab.php:502, includes/class-advanced-tab.php:513, includes/class-advanced-tab.php:601, includes/class-advanced-tab.php:632, partials/main-settings-language-selector.php:40
+#: ../tp-add-on-extra-languages/partials/language-selector-pro.php:43, includes/class-advanced-tab.php:503, includes/class-advanced-tab.php:514, includes/class-advanced-tab.php:602, includes/class-advanced-tab.php:633, partials/main-settings-language-selector.php:40
 msgid "Remove"
 msgstr ""
 
@@ -105,7 +105,7 @@ msgstr ""
 msgid "Choose..."
 msgstr ""
 
-#: ../tp-add-on-extra-languages/partials/language-selector-pro.php:58, includes/class-advanced-tab.php:513, includes/class-advanced-tab.php:632, partials/main-settings-language-selector.php:55
+#: ../tp-add-on-extra-languages/partials/language-selector-pro.php:58, includes/class-advanced-tab.php:514, includes/class-advanced-tab.php:633, partials/main-settings-language-selector.php:55
 msgid "Add"
 msgstr ""
 
@@ -133,15 +133,15 @@ msgstr ""
 msgid "Advanced"
 msgstr ""
 
-#: includes/class-advanced-tab.php:305, includes/class-error-manager.php:155, partials/machine-translation-settings-page.php:13, partials/machine-translation-settings-page.php:88, partials/machine-translation-settings-page.php:121, partials/main-settings-page.php:41, partials/main-settings-page.php:54, partials/main-settings-page.php:67
+#: includes/class-advanced-tab.php:306, includes/class-error-manager.php:155, partials/machine-translation-settings-page.php:13, partials/machine-translation-settings-page.php:88, partials/machine-translation-settings-page.php:121, partials/main-settings-page.php:41, partials/main-settings-page.php:54, partials/main-settings-page.php:67
 msgid "Yes"
 msgstr ""
 
-#: includes/class-advanced-tab.php:502, includes/class-advanced-tab.php:513, includes/class-advanced-tab.php:601, includes/class-advanced-tab.php:632
+#: includes/class-advanced-tab.php:503, includes/class-advanced-tab.php:514, includes/class-advanced-tab.php:602, includes/class-advanced-tab.php:633
 msgid "Are you sure you want to remove this item?"
 msgstr ""
 
-#: includes/class-advanced-tab.php:585, includes/class-advanced-tab.php:619
+#: includes/class-advanced-tab.php:586, includes/class-advanced-tab.php:620
 msgid "Select..."
 msgstr ""
 
@@ -757,108 +757,112 @@ msgstr ""
 msgid "Dublin Core Description"
 msgstr ""
 
-#: includes/class-upgrade.php:115
+#: includes/class-upgrade.php:118
 msgid "Inserting original strings for language %s..."
 msgstr ""
 
-#: includes/class-upgrade.php:124
+#: includes/class-upgrade.php:127
 msgid "Cleaning original strings table for language %s..."
 msgstr ""
 
-#: includes/class-upgrade.php:132
+#: includes/class-upgrade.php:135
 msgid "Updating original string ids for language %s..."
 msgstr ""
 
-#: includes/class-upgrade.php:140
+#: includes/class-upgrade.php:143
 msgid "Regenerating original meta table for language %s..."
 msgstr ""
 
-#: includes/class-upgrade.php:148
+#: includes/class-upgrade.php:151
 msgid "Cleaning original meta table for language %s..."
 msgstr ""
 
-#: includes/class-upgrade.php:182
+#: includes/class-upgrade.php:185
 msgid "TranslatePress data update"
 msgstr ""
 
-#: includes/class-upgrade.php:182
+#: includes/class-upgrade.php:185
 msgid "We need to update your translations database to the latest version."
 msgstr ""
 
-#: includes/class-upgrade.php:183
+#: includes/class-upgrade.php:186
 msgid "IMPORTANT: It is strongly recommended to first backup the database!\nAre you sure you want to continue?"
 msgstr ""
 
-#: includes/class-upgrade.php:183
+#: includes/class-upgrade.php:186
 msgid "Run the updater"
 msgstr ""
 
-#: includes/class-upgrade.php:199
+#: includes/class-upgrade.php:202
 msgid "Update aborted! Your user account doesn't have the capability to perform database updates."
 msgstr ""
 
-#: includes/class-upgrade.php:204
+#: includes/class-upgrade.php:207
 msgid "Update aborted! Invalid nonce."
 msgstr ""
 
-#: includes/class-upgrade.php:243
+#: includes/class-upgrade.php:246
 msgid "Update aborted! Incorrect action."
 msgstr ""
 
-#: includes/class-upgrade.php:246
+#: includes/class-upgrade.php:249
 msgid "Update aborted! Incorrect language code."
 msgstr ""
 
-#: includes/class-upgrade.php:232
+#: includes/class-upgrade.php:235
 msgid "Updating database to version %s+"
 msgstr ""
 
-#: includes/class-upgrade.php:236, includes/class-upgrade.php:296
+#: includes/class-upgrade.php:239, includes/class-upgrade.php:299
 msgid "Processing table for language %s..."
 msgstr ""
 
-#: includes/class-upgrade.php:219, includes/class-upgrade.php:325, includes/class-upgrade.php:478, includes/class-upgrade.php:483
+#: includes/class-upgrade.php:222, includes/class-upgrade.php:328, includes/class-upgrade.php:481, includes/class-upgrade.php:486
 msgid "Back to TranslatePress Settings"
 msgstr ""
 
-#: includes/class-upgrade.php:223
+#: includes/class-upgrade.php:226
 msgid "Successfully updated database!"
 msgstr ""
 
-#: includes/class-upgrade.php:300, includes/class-upgrade.php:293
+#: includes/class-upgrade.php:303, includes/class-upgrade.php:296
 msgid " done."
 msgstr ""
 
-#: includes/class-upgrade.php:478
+#: includes/class-upgrade.php:481
 msgid "Done."
 msgstr ""
 
-#: includes/class-upgrade.php:483
+#: includes/class-upgrade.php:486
 msgid "Invalid nonce."
 msgstr ""
 
-#: includes/class-upgrade.php:507
+#: includes/class-upgrade.php:510
 msgid "Querying table <strong>%s</strong>"
 msgstr ""
 
-#: includes/class-upgrade.php:549
+#: includes/class-upgrade.php:552
 msgid "%s duplicates removed"
 msgstr ""
 
-#: includes/class-upgrade.php:587, includes/class-upgrade.php:676
+#: includes/class-upgrade.php:590, includes/class-upgrade.php:695
 msgid "If the page does not redirect automatically"
 msgstr ""
 
-#: includes/class-upgrade.php:587, includes/class-upgrade.php:676
+#: includes/class-upgrade.php:590, includes/class-upgrade.php:695
 msgid "click here"
 msgstr ""
 
-#: includes/class-upgrade.php:665
+#: includes/class-upgrade.php:684
 msgid "Recreated original strings table."
 msgstr ""
 
 #: includes/compatibility-functions.php:28
 msgid "<strong>TranslatePress</strong> requires <strong><a href=\"http://php.net/manual/en/book.mbstring.php\">Multibyte String PHP library</a></strong>. Please contact your server administrator to install it on your server."
+msgstr ""
+
+#: includes/compatibility-functions.php:1493
+msgid "Detected long query limitation on WPEngine hosting. Some large pages may appear untranslated. You can remove limitation by adding the following to your site’s wp-config.php: define( 'WPE_GOVERNOR', false ); "
 msgstr ""
 
 #: partials/addons-settings-page.php:12
@@ -1476,6 +1480,14 @@ msgstr ""
 
 #: includes/advanced-settings/fix-invalid-space-between-html-attr.php:9
 msgid "Fixes attributes without spaces between them because they are not valid HTML.<br> May help fix missing or broken content from the HTML on translated pages."
+msgstr ""
+
+#: includes/advanced-settings/force-slash-at-end-of-links.php:9
+msgid "Force slash at end of home url:"
+msgstr ""
+
+#: includes/advanced-settings/force-slash-at-end-of-links.php:10
+msgid "Ads a slash at the end of the home_url() function"
 msgstr ""
 
 #: includes/advanced-settings/remove-duplicates-from-db.php:7

@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-04-13 10:08:21+0000\n"
+"PO-Revision-Date: 2020-11-26 12:54:08+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -9,31 +9,31 @@ msgstr ""
 "Language: ru\n"
 "Project-Id-Version: WooCommerce - WooCommerce Product Add-ons\n"
 
-#: includes/admin/views/html-addon.php:230
-msgid "unlimited"
-msgstr "Без лимита"
-
-#: includes/class-wc-product-addons-display.php:88
+#: includes/class-wc-product-addons-display.php:87
 msgid "%s characters remaining"
 msgstr ""
 
-#: woocommerce-product-addons.php:178
+#: woocommerce-product-addons.php:223
+msgid "New features of the Product Add-ons 3.0 versions are not available for WooCommerce less than 3.0. To use this new features, please update your WooCommerce version to the latest version."
+msgstr "Новые возможности Product Add-ons 3.0 не доступны в более ранних версиях расширения. Чтобы их использовать, обновите WooCommerce до последней версии."
+
+#: woocommerce-product-addons.php:215
 msgid "Find products"
 msgstr "Найти товары"
 
-#: woocommerce-product-addons.php:178
+#: woocommerce-product-addons.php:215
 msgid "Create an add-on that applies to every product, or apply it to specific categories. Create an add-on for an individual product by editing the product."
 msgstr "Создайте дополнение для всех товаров или отдельных категорий. Создать дополнения для конкретного товара можно в режиме редактирования."
 
-#: woocommerce-product-addons.php:178
+#: woocommerce-product-addons.php:215
 msgid "WooCommerce Product Add-ons is ready to go!"
 msgstr "WooCommerce Product Add-ons готово к работе!"
 
-#: woocommerce-product-addons.php:165
+#: woocommerce-product-addons.php:202
 msgid "Documentation"
 msgstr "Документация"
 
-#: woocommerce-product-addons.php:164
+#: woocommerce-product-addons.php:201
 msgid "Support"
 msgstr "Поддержка"
 
@@ -42,11 +42,59 @@ msgstr "Поддержка"
 msgid "Product Add-ons requires WooCommerce to be installed and active. You can download %s here."
 msgstr "Чтобы использовать WooCommerce Product Add-ons, необходимо установить и активировать WooCommerce. Загрузить его можно %s здесь."
 
+#: legacy/includes/class-product-addon-display.php:70
+msgid "Sub total:"
+msgstr "Промежуточный итог:"
+
+#: legacy/admin/views/html-addon.php:65
+msgid "Min / Max"
+msgstr "Мин/макс."
+
+#: legacy/admin/views/html-addon.php:51
+msgid "Description"
+msgstr "Описание"
+
+#: legacy/admin/views/html-addon.php:15
+msgid "Additional price multiplier"
+msgstr "Коэффициент дополнительной цены"
+
+#: legacy/admin/views/html-addon.php:14
+msgid "Additional custom price input"
+msgstr "Поле ввода дополнительной настраиваемой цены"
+
+#: legacy/admin/views/html-addon-panel.php:110
+msgid "Min / max"
+msgstr "Мин/макс."
+
+#: legacy/admin/views/html-addon-panel.php:106
+msgid "Min / max characters"
+msgstr "Мин/макс. число символов"
+
+#: legacy/admin/views/html-addon-panel.php:97
+msgid "Min / max multiplier"
+msgstr "Мин/макс. коэффициент"
+
+#: legacy/admin/views/html-addon-panel.php:93
+msgid "Min / max price"
+msgstr "Мин/макс. цена"
+
+#: legacy/admin/views/html-addon-panel.php:50
+msgid "All addon fields require a name."
+msgstr "Каждому полю дополнения нужно присвоить имя."
+
+#: legacy/admin/views/html-addon-panel.php:28
+msgid "New add-on"
+msgstr "Новое дополнение"
+
 #: includes/groups/class-wc-product-addons-groups.php:83
+#: legacy/groups/class-product-addon-groups.php:83
+#: legacy/includes/groups/class-product-addon-groups.php:83
 msgid "Unable to delete group. Invalid global add ons group ID."
 msgstr "Не удаётся удалить группу. Недопустимый общий ИД группы дополнений"
 
 #: includes/groups/class-wc-product-addons-groups.php:51
+#: legacy/groups/class-product-addon-groups.php:51
+#: legacy/includes/groups/class-product-addon-groups.php:51
 msgid "Unable to retrieve data. Invalid global add ons group or product ID."
 msgstr "Не удалось загрузить данные. Недопустимый общий ИД группы дополнений или товара"
 
@@ -79,23 +127,23 @@ msgstr "Максимальное количество символов для \"
 msgid "The minimum characters required for \"%1$s\" is %2$s."
 msgstr "Минимальное количество символов для \"%1$s\" — %2$s."
 
-#: includes/class-wc-product-addons-display.php:87
+#: includes/class-wc-product-addons-display.php:86
 msgid "Subtotal"
 msgstr "Подытог"
 
-#: includes/admin/views/html-global-admin.php:67
+#: includes/admin/views/html-global-admin.php:63
 msgid "Need help with add-ons? Visit the <a href=\"https://docs.woocommerce.com/document/product-add-ons\" target=\"_blank\">Documentation</a>."
 msgstr "Нужна помощь с дополнениями? Перейдите в раздел <a href=\"https://docs.woocommerce.com/document/product-add-ons\" target=\"_blank\">Документация</a>."
 
-#: includes/admin/views/html-global-admin.php:60
+#: includes/admin/views/html-global-admin.php:56
 msgid "Create add-ons."
 msgstr "Создать дополнение."
 
-#: includes/admin/views/html-global-admin.php:60
+#: includes/admin/views/html-global-admin.php:56
 msgid "No add-ons found."
 msgstr "Дополнения не найдены."
 
-#: includes/admin/views/html-global-admin.php:44
+#: includes/admin/views/html-global-admin.php:40
 msgid "No Products Assigned"
 msgstr "Нет назначенных товаров"
 
@@ -134,6 +182,7 @@ msgstr "Это имя указывается для вашего удобств�
 
 #: includes/admin/views/html-global-admin-add.php:25
 #: includes/admin/views/html-global-admin.php:14
+#: legacy/admin/views/html-addon.php:37
 msgid "Name"
 msgstr "Имя"
 
@@ -154,7 +203,7 @@ msgid "Publish"
 msgstr "Опубликовать"
 
 #: includes/admin/views/html-global-admin-add.php:6
-#: woocommerce-product-addons.php:178
+#: woocommerce-product-addons.php:215
 msgid "Create add-ons"
 msgstr "Создать дополнения"
 
@@ -187,7 +236,7 @@ msgstr "Добавить описание"
 msgid "Hide"
 msgstr "Скрыть"
 
-#: includes/admin/views/html-addon.php:127
+#: includes/admin/views/html-addon.php:127 legacy/admin/views/html-addon.php:63
 msgid "Label"
 msgstr "Текст подписи"
 
@@ -308,125 +357,179 @@ msgstr "Укажите вариант"
 msgid "By using this extension, you may be storing personal data or sharing data with an external service. <a href=\"%s\" target=\"_blank\">Learn more about how this works, including what you may want to include in your privacy policy.</a>"
 msgstr "Используя это расширение, вы можете сохранять и передавать личные данные во внешние службы. <a href=\"%s\" target=\"_blank\">Узнайте о том, как это происходит, в том числе о том, что нужно включить в политику конфиденциальности.</a>"
 
-#: includes/admin/class-wc-product-addons-admin.php:60
+#: includes/admin/class-wc-product-addons-admin.php:52
 #: includes/admin/class-wc-product-addons-privacy.php:12
 msgid "Product Add-ons"
 msgstr "Дополнения к товару"
 
-#: includes/admin/class-wc-product-addons-admin.php:648
+#: includes/admin/class-wc-product-addons-admin.php:640
 msgid "Variation ID:"
 msgstr "ID вариации:"
 
 #. translators: %s ID of variation
-#: includes/admin/class-wc-product-addons-admin.php:645
+#: includes/admin/class-wc-product-addons-admin.php:637
 msgid "%s (No longer exists)"
 msgstr "%s (больше не существует)"
 
-#: includes/admin/class-wc-product-addons-admin.php:636
+#: includes/admin/class-wc-product-addons-admin.php:628
 msgid "SKU:"
 msgstr "Артикул:"
 
-#: includes/admin/class-wc-product-addons-admin.php:291
+#: includes/admin/class-wc-product-addons-admin.php:283
 #: includes/admin/views/html-addon.php:70
 msgid "Multiple Choice"
 msgstr "Множественный выбор"
 
-#: includes/admin/class-wc-product-addons-admin.php:287
+#: includes/admin/class-wc-product-addons-admin.php:279
 msgid "Dropdown"
 msgstr "Выпадающее меню"
 
-#: includes/admin/class-wc-product-addons-admin.php:284
+#: includes/admin/class-wc-product-addons-admin.php:276
 #: includes/admin/views/html-addon.php:74
 msgid "File Upload"
 msgstr "Загрузка файла"
 
-#: includes/admin/class-wc-product-addons-admin.php:281
+#: includes/admin/class-wc-product-addons-admin.php:273
 #: includes/admin/views/html-addon.php:73
 msgid "Long Text"
 msgstr "Длинный текст"
 
-#: includes/admin/class-wc-product-addons-admin.php:278
+#: includes/admin/class-wc-product-addons-admin.php:270
 #: includes/admin/views/html-addon.php:72
 msgid "Short Text"
 msgstr "Короткий текст"
 
-#: includes/admin/class-wc-product-addons-admin.php:275
+#: includes/admin/class-wc-product-addons-admin.php:267
 #: includes/admin/views/html-addon.php:76
 msgid "Quantity"
 msgstr "Количество"
 
-#: includes/admin/class-wc-product-addons-admin.php:272
-#: includes/admin/views/html-addon.php:165
+#: includes/admin/class-wc-product-addons-admin.php:264
+#: includes/admin/views/html-addon.php:165 legacy/admin/views/html-addon.php:64
 msgid "Price"
 msgstr "Цена"
 
-#: includes/admin/class-wc-product-addons-admin.php:269
+#: includes/admin/class-wc-product-addons-admin.php:261
 msgid "Checkbox"
 msgstr "Флажок"
 
-#: includes/admin/class-wc-product-addons-admin.php:240
-#: includes/admin/class-wc-product-addons-admin.php:312
+#: includes/admin/class-wc-product-addons-admin.php:232
+#: includes/admin/class-wc-product-addons-admin.php:304
 msgid "Add-ons Group"
 msgstr "Группа дополнений"
 
-#: includes/admin/class-wc-product-addons-admin.php:214
+#: includes/admin/class-wc-product-addons-admin.php:206
 msgid "Error: Add-on not found"
 msgstr "Ошибка: дополнение не найдено"
 
-#: includes/admin/class-wc-product-addons-admin.php:168
+#: includes/admin/class-wc-product-addons-admin.php:160
 msgid "Add Image"
 msgstr "Добавить изображение"
 
-#: includes/admin/class-wc-product-addons-admin.php:167
+#: includes/admin/class-wc-product-addons-admin.php:159
 msgid "Add Image Swatch"
 msgstr "Добавить образец изображения"
 
-#: includes/admin/class-wc-product-addons-admin.php:165
+#: includes/admin/class-wc-product-addons-admin.php:157
 msgid "Are you sure you want remove this add-on field?"
 msgstr "Удалить это поле дополнения?"
 
-#: includes/admin/class-wc-product-addons-admin.php:164
+#: includes/admin/class-wc-product-addons-admin.php:156
 #: includes/admin/views/html-addon.php:193
 msgid "Restrictions"
 msgstr "Ограничения"
 
-#: includes/admin/class-wc-product-addons-admin.php:163
+#: includes/admin/class-wc-product-addons-admin.php:155
 #: includes/admin/views/html-addon.php:206
 #: includes/admin/views/html-addon.php:209
 msgid "Limit character length"
 msgstr "Ограничить количество символов"
 
-#: includes/admin/class-wc-product-addons-admin.php:162
+#: includes/admin/class-wc-product-addons-admin.php:154
 #: includes/admin/views/html-addon.php:203
 msgid "Limit quantity range"
 msgstr "Ограничить количество"
 
-#: includes/admin/class-wc-product-addons-admin.php:161
+#: includes/admin/class-wc-product-addons-admin.php:153
 #: includes/admin/views/html-addon.php:199
 msgid "Limit price range"
 msgstr "Задать диапазон цен"
 
-#: includes/admin/class-wc-product-addons-admin.php:160
+#: includes/admin/class-wc-product-addons-admin.php:152
 msgid "All fields must have a title and/or option name. Please review the settings highlighted in red border."
 msgstr "У каждого поля должен быть заголовок и (или) название опции. Просмотрите параметры, заключенные в красную рамку."
 
-#: templates/addons/image.php:56 templates/addons/select.php:19
+#: legacy/templates/addons/select.php:12 templates/addons/image.php:56
+#: templates/addons/select.php:19
 msgid "Select an option..."
 msgstr "Выберите опцию..."
 
-#: templates/addons/image.php:16 templates/addons/image.php:54
-#: templates/addons/radiobutton.php:18 templates/addons/select.php:17
+#: legacy/templates/addons/select.php:10 templates/addons/image.php:16
+#: templates/addons/image.php:54 templates/addons/radiobutton.php:18
+#: templates/addons/select.php:17
 msgid "None"
 msgstr "Пусто"
 
+#: legacy/templates/addons/input_multiplier.php:18
+msgid "This must be a number!"
+msgstr "Нужно ввести число!"
+
+#: legacy/templates/addons/file_upload.php:13
+#: legacy/templates/addons/file_upload.php:19
 #: templates/addons/file-upload.php:30
 msgid "(max file size %s)"
 msgstr "(максимальный размер файла %s)"
 
-#: includes/admin/views/html-addon.php:149 templates/addons/addon-start.php:59
-#: templates/addons/addon-start.php:70
+#: includes/admin/views/html-addon.php:149
+#: legacy/templates/addons/addon-start.php:6
+#: templates/addons/addon-start.php:59 templates/addons/addon-start.php:70
 msgid "Required field"
 msgstr "Обязательное поле"
+
+#: legacy/fields/class-product-addon-field-custom.php:80
+#: legacy/includes/fields/class-product-addon-field-custom.php:80
+msgid "A valid email address is required for \"%s - %s\"."
+msgstr "Требуется корректный адрес эл. почты для \"%s−%s\"."
+
+#: legacy/fields/class-product-addon-field-custom.php:75
+#: legacy/includes/fields/class-product-addon-field-custom.php:75
+msgid "Only letters and digits are allowed for \"%s - %s\"."
+msgstr "Для \"%s−%s\" можно использовать только буквы и цифры."
+
+#: legacy/fields/class-product-addon-field-custom.php:70
+#: legacy/includes/fields/class-product-addon-field-custom.php:70
+msgid "Only digits are allowed for \"%s - %s\"."
+msgstr "Для \"%s−%s\" можно использовать только цифры."
+
+#: legacy/fields/class-product-addon-field-custom.php:65
+#: legacy/includes/fields/class-product-addon-field-custom.php:65
+msgid "Only letters are allowed for \"%s - %s\"."
+msgstr "Для \"%s−%s\" можно использовать только буквы."
+
+#: legacy/fields/class-product-addon-field-custom.php:60
+#: legacy/includes/fields/class-product-addon-field-custom.php:60
+msgid "Please enter a value greater than 0 for \"%s - %s\"."
+msgstr "Введите значение больше 0 для \"%s−%s\"."
+
+#: legacy/fields/class-product-addon-field-custom.php:48
+#: legacy/includes/fields/class-product-addon-field-custom.php:48
+msgid "The maximum allowed amount for \"%s - %s\" is %s."
+msgstr "Максимальное допустимое значение для \"%s−%s\" — %s."
+
+#: legacy/fields/class-product-addon-field-custom.php:42
+#: legacy/includes/fields/class-product-addon-field-custom.php:42
+msgid "The minimum allowed amount for \"%s - %s\" is %s."
+msgstr "Минимальное допустимое значение для \"%s−%s\" — %s."
+
+#: legacy/fields/class-product-addon-field-custom.php:35
+#: legacy/includes/fields/class-product-addon-field-custom.php:35
+msgid "The maximum allowed length for \"%s - %s\" is %s."
+msgstr "Максимальная допустимая длина для \"%s−%s\" — %s."
+
+#: legacy/fields/class-product-addon-field-custom.php:31
+#: legacy/includes/fields/class-product-addon-field-custom.php:31
+msgid "The minimum allowed length for \"%s - %s\" is %s."
+msgstr "Минимальная допустимая длина для \"%s−%s\" — %s."
 
 #. translators: %s Name of the addon
 #. translators: %s Addon name
@@ -434,92 +537,278 @@ msgstr "Обязательное поле"
 #: includes/fields/class-wc-product-addons-field-file-upload.php:29
 #: includes/fields/class-wc-product-addons-field-list.php:15
 #: includes/fields/class-wc-product-addons-field-select.php:14
+#: legacy/fields/class-product-addon-field-custom.php:19
+#: legacy/fields/class-product-addon-field-file-upload.php:29
+#: legacy/fields/class-product-addon-field-list.php:15
+#: legacy/fields/class-product-addon-field-select.php:14
+#: legacy/includes/fields/class-product-addon-field-custom.php:19
+#: legacy/includes/fields/class-product-addon-field-file-upload.php:29
+#: legacy/includes/fields/class-product-addon-field-list.php:15
+#: legacy/includes/fields/class-product-addon-field-select.php:14
 msgid "\"%s\" is a required field."
 msgstr "\"%s\" — обязательное поле."
 
-#: includes/class-wc-product-addons-display.php:472
+#: includes/class-wc-product-addons-display.php:417
+#: legacy/includes/class-product-addon-display-legacy.php:68
+#: legacy/includes/class-product-addon-display.php:407
 msgid "Select options"
 msgstr "Выбрать ..."
 
-#: includes/admin/views/html-global-admin.php:33
+#: legacy/includes/class-product-addon-display.php:351
+msgid "Please enter an email address"
+msgstr "Введите адрес эл. почты"
+
+#: legacy/includes/class-product-addon-display.php:339
+msgid "Please enter letters or digits only"
+msgstr "Используйте только буквы и цифры"
+
+#: legacy/includes/class-product-addon-display.php:326
+msgid "Please enter digits only"
+msgstr "Используйте только цифры"
+
+#: legacy/includes/class-product-addon-display.php:313
+msgid "Please enter letters only"
+msgstr "Используйте только буквы"
+
+#: legacy/includes/class-product-addon-display.php:71
+msgid "characters remaining"
+msgstr "символов осталось"
+
+#: legacy/includes/class-product-addon-display.php:69
+msgid "Options total:"
+msgstr "Общее количество вариантов:"
+
+#: legacy/admin/views/html-global-admin.php:54
+msgid "Add one?"
+msgstr "Добавить?"
+
+#: legacy/admin/views/html-global-admin.php:54
+msgid "No global add-ons exists yet."
+msgstr "Нет общих дополнений."
+
+#: includes/admin/views/html-global-admin.php:29
+#: legacy/admin/views/html-global-admin.php:46
 msgid "Delete"
 msgstr "Удалить"
 
-#: includes/admin/views/html-global-admin.php:33
+#: includes/admin/views/html-global-admin.php:29
+#: legacy/admin/views/html-global-admin.php:46
 msgid "Edit"
 msgstr "Изменить"
 
+#: legacy/admin/views/html-global-admin.php:18
+msgid "Actions"
+msgstr "Действия"
+
+#: legacy/admin/views/html-global-admin.php:17
+msgid "Applies to..."
+msgstr "Применяется к..."
+
 #: includes/admin/views/html-global-admin.php:17
+#: legacy/admin/views/html-global-admin.php:15
 msgid "Number of Fields"
 msgstr "Количество полей"
 
+#: legacy/admin/views/html-global-admin.php:14
+msgid "Reference"
+msgstr "Указатель"
+
+#: legacy/admin/views/html-global-admin.php:9
+msgid "Add Global Add-on"
+msgstr "Добавить общее дополнение"
+
+#: legacy/admin/views/html-global-admin-add.php:66
+msgid "Save Global Add-on"
+msgstr "Сохранить общее дополнение"
+
+#: legacy/admin/views/html-global-admin-add.php:49
+msgid "Choose categories which should show these addons (or apply to all products)."
+msgstr "Выберите категории, в которых будут отображаться эти добавления (или примените ко всем товарам)."
+
+#: legacy/admin/views/html-global-admin-add.php:43
+msgid "Category:"
+msgstr "Рубрика:"
+
+#: legacy/admin/views/html-global-admin-add.php:38
+msgid "Product category notifications"
+msgstr "Уведомления категории товаров"
+
 #: includes/admin/views/html-global-admin-add.php:47
-#: includes/admin/views/html-global-admin.php:42
+#: includes/admin/views/html-global-admin.php:38
+#: legacy/admin/views/html-global-admin-add.php:37
+#: legacy/admin/views/html-global-admin.php:36
 msgid "All Products"
 msgstr "Все товары"
 
+#: legacy/admin/views/html-global-admin-add.php:36
+msgid "Choose some options&hellip;"
+msgstr "Выберите один или несколько вариантов…"
+
+#: legacy/admin/views/html-global-admin-add.php:33
+msgid "Applied to..."
+msgstr "Применено к..."
+
+#: legacy/admin/views/html-global-admin-add.php:28
+msgid "Give this global addon a priority - this will determine the order in which multiple groups of addons get displayed on the frontend. Per-product add-ons will always have priority 10."
+msgstr "Присвойте этому общему дополнению приоритет. Он будет определять порядок, в котором несколько групп дополнений будут отображаться в интерфейсе. Дополнения отдельных товаров будут иметь приоритет \"10\"."
+
 #: includes/admin/views/html-global-admin-add.php:34
 #: includes/admin/views/html-global-admin.php:15
+#: legacy/admin/views/html-global-admin-add.php:24
+#: legacy/admin/views/html-global-admin.php:16
 msgid "Priority"
 msgstr "Приоритет"
 
-#: templates/addons/custom-text.php:36
+#: legacy/admin/views/html-global-admin-add.php:19
+msgid "Give this global add-on a reference/name to make it recognisable."
+msgstr "Присвойте этому общему дополнению название/указатель, чтобы отличать его от других."
+
+#: legacy/admin/views/html-global-admin-add.php:15
+msgid "Global Add-on Reference"
+msgstr "Указатель общего дополнения"
+
+#: legacy/admin/views/html-global-admin-add.php:9
+msgid "Add/Edit Global Add-on"
+msgstr "Добавить/изменить общее дополнение"
+
+#: legacy/admin/views/html-addon.php:72
+msgid "New&nbsp;Option"
+msgstr "Новый вариант"
+
+#: legacy/admin/views/html-addon.php:43
+msgid "Required fields?"
+msgstr "Обязательные поля?"
+
+#: legacy/admin/views/html-addon.php:20
+msgid "Email address"
+msgstr "Адрес электронной почты"
+
+#: legacy/admin/views/html-addon.php:22 templates/addons/custom-text.php:36
 msgid "Only letters and numbers"
 msgstr "Только буквы и цифры"
 
-#: templates/addons/custom-text.php:32
+#: legacy/admin/views/html-addon.php:23 templates/addons/custom-text.php:32
 msgid "Only numbers"
 msgstr "Только цифры"
 
-#: templates/addons/custom-text.php:28
+#: legacy/admin/views/html-addon.php:21 templates/addons/custom-text.php:28
 msgid "Only letters"
 msgstr "Только буквы"
 
-#: includes/admin/views/html-addon.php:71
+#: legacy/admin/views/html-addon.php:19
+msgid "Any text"
+msgstr "Только текст"
+
+#: legacy/admin/views/html-addon.php:18
+msgid "Custom input (text)"
+msgstr "Настраиваемое значение (текст)"
+
+#: legacy/admin/views/html-addon.php:25
+msgid "File upload"
+msgstr "Загрузка файла"
+
+#: legacy/admin/views/html-addon.php:17
+msgid "Custom input (textarea)"
+msgstr "Настраиваемое значение (текстовое поле)"
+
+#: legacy/admin/views/html-addon.php:27
+msgid "Select box"
+msgstr "Поле выбора"
+
+#: legacy/admin/views/html-addon.php:26
+msgid "Radio buttons"
+msgstr "Переключатель"
+
+#: includes/admin/views/html-addon.php:71 legacy/admin/views/html-addon.php:16
 msgid "Checkboxes"
 msgstr "Флажки"
 
-#: includes/admin/views/html-addon.php:56
+#: legacy/admin/views/html-addon.php:12
+msgid "Group"
+msgstr "Группа"
+
+#: includes/admin/views/html-addon.php:56 legacy/admin/views/html-addon.php:11
 msgid "Click to toggle"
 msgstr "Нажмите для переключения"
 
-#: includes/admin/views/html-addon.php:55
+#: includes/admin/views/html-addon.php:55 legacy/admin/views/html-addon.php:10
 msgid "Remove"
 msgstr "Удалить"
 
-#: includes/admin/class-wc-product-addons-admin.php:166
+#: includes/admin/class-wc-product-addons-admin.php:158
+#: legacy/admin/views/html-addon-panel.php:208
+#: legacy/admin/views/html-addon-panel.php:288
 msgid "Are you sure you want delete this option?"
 msgstr "Удалить этот вариант?"
 
+#: legacy/admin/views/html-addon-panel.php:185
+msgid "Are you sure you want remove this add-on?"
+msgstr "Удалить это дополнение?"
+
+#: legacy/admin/views/html-addon-panel.php:44
+msgid "Check this to exclude this product from all Global Addons"
+msgstr "Поставьте флажок, чтобы исключить этот товар из всех общих дополнений"
+
+#: legacy/admin/views/html-addon-panel.php:43
+msgid "Global Addon Exclusion"
+msgstr "Исключение общего дополнения"
+
 #: includes/admin/views/html-addon-panel.php:42
+#: legacy/admin/views/html-addon-panel.php:37
 msgid "Paste exported form data here and then save to import fields. The imported fields will be appended."
 msgstr "Вставьте данные из экспортированной формы и сохраните, чтобы импортировать поля. Импортированные поля будут добавлены в конец."
 
 #: includes/admin/views/html-addon-panel.php:36
+#: legacy/admin/views/html-addon-panel.php:32
 msgid "Export"
 msgstr "Экспорт"
 
 #: includes/admin/views/html-addon-panel.php:35
+#: legacy/admin/views/html-addon-panel.php:31
 msgid "Import"
 msgstr "Импорт"
 
 #: includes/admin/views/html-addon-panel.php:13
+#: legacy/admin/views/html-addon-panel.php:10
 msgid "Expand all"
 msgstr "Развернуть все"
 
 #: includes/admin/views/html-addon-panel.php:13
+#: legacy/admin/views/html-addon-panel.php:10
 msgid "Close all"
 msgstr "Закрыть все"
 
-#: includes/admin/class-wc-product-addons-admin.php:45
-#: includes/admin/class-wc-product-addons-admin.php:358
+#: legacy/admin/views/html-addon-option.php:7
+msgid "Default Label"
+msgstr "Ярлык по умолчанию"
+
+#: includes/admin/class-wc-product-addons-admin.php:43
+#: includes/admin/class-wc-product-addons-admin.php:350
+#: legacy/admin/class-product-addon-admin.php:186
+#: legacy/admin/views/html-global-admin-add.php:54
 msgid "Add-ons"
 msgstr "Дополнения"
 
-#: includes/admin/class-wc-product-addons-admin.php:252
+#: includes/admin/class-wc-product-addons-admin.php:244
+#: legacy/admin/class-product-addon-admin.php:119
 msgid "Add-on deleted successfully"
 msgstr "Дополнение удалено."
 
-#: includes/admin/class-wc-product-addons-admin.php:199
+#: legacy/admin/class-product-addon-admin.php:107
+#: legacy/admin/class-product-addon-admin.php:140
+msgid "Global Add-on Group"
+msgstr "Группа общих дополнений"
+
+#: legacy/admin/class-product-addon-admin.php:79
+msgid "Error: Global Add-on not found"
+msgstr "Ошибка: общее дополнение не найдено"
+
+#: includes/admin/class-wc-product-addons-admin.php:191
+#: legacy/admin/class-product-addon-admin.php:64
 msgid "Add-on saved successfully"
 msgstr "Дополнение сохранено"
+
+#: legacy/admin/class-product-addon-admin.php:33
+#: legacy/admin/views/html-global-admin.php:9
+msgid "Global Add-ons"
+msgstr "Общие дополнения"

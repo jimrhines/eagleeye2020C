@@ -36,7 +36,7 @@ function trp_output_do_not_translate_certain_paths( $setting ){
                 </label>
             </div>
 
-            <textarea class="trp-adv-big-textarea" name="trp_advanced_settings[<?php echo $setting['name']; ?>][paths]"><?php echo $trp_settings['trp_advanced_settings'][$setting['name']]['paths']; ?></textarea>
+            <textarea class="trp-adv-big-textarea" name="trp_advanced_settings[<?php echo $setting['name']; ?>][paths]"><?php echo isset( $trp_settings['trp_advanced_settings'][$setting['name']]['paths'] ) ? $trp_settings['trp_advanced_settings'][$setting['name']]['paths'] : ''; ?></textarea>
 
             <p class="description"><?php echo $setting['description']; ?></p>
         </td>

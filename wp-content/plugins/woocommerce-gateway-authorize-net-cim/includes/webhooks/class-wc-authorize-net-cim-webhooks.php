@@ -17,13 +17,13 @@
  * needs please refer to http://docs.woocommerce.com/document/authorize-net-cim/
  *
  * @author    SkyVerge
- * @copyright Copyright (c) 2013-2021, SkyVerge, Inc.
+ * @copyright Copyright (c) 2013-2020, SkyVerge, Inc.
  * @license   http://www.gnu.org/licenses/gpl-3.0.html GNU General Public License v3.0
  */
 
 defined( 'ABSPATH' ) or exit;
 
-use SkyVerge\WooCommerce\PluginFramework\v5_10_4 as Framework;
+use SkyVerge\WooCommerce\PluginFramework\v5_10_3 as Framework;
 
 /**
  * The Authorize.Net webhooks handler.
@@ -639,7 +639,15 @@ class WC_Authorize_Net_CIM_Webhooks {
 	protected function get_gateways() {
 
 		if ( empty( $this->gateways ) ) {
+
 			$this->gateways = $this->get_plugin()->get_gateways();
+
+			foreach ( $this->gateways as $key => $gateway ) {
+
+				if ( \WC_Authorize_Net_CIM::EMULATION_GATEWAY_ID === $gateway->get_id() ) {
+					unset( $this->gateways[ $key ] );
+				}
+			}
 		}
 
 		return $this->gateways;

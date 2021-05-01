@@ -17,13 +17,13 @@
  * needs please refer to http://docs.woocommerce.com/document/authorize-net-cim/
  *
  * @author    SkyVerge
- * @copyright Copyright (c) 2013-2021, SkyVerge, Inc.
+ * @copyright Copyright (c) 2013-2020, SkyVerge, Inc.
  * @license   http://www.gnu.org/licenses/gpl-3.0.html GNU General Public License v3.0
  */
 
 defined( 'ABSPATH' ) or exit;
 
-use SkyVerge\WooCommerce\PluginFramework\v5_10_4 as Framework;
+use SkyVerge\WooCommerce\PluginFramework\v5_10_3 as Framework;
 
 
 /**
@@ -37,7 +37,7 @@ class WC_Authorize_Net_CIM extends Framework\SV_WC_Payment_Gateway_Plugin {
 
 
 	/** string version number */
-	const VERSION = '3.6.0';
+	const VERSION = '3.4.0';
 
 
 	/** @var \WC_Authorize_Net_CIM_Webhooks the webhooks handler */
@@ -60,6 +60,12 @@ class WC_Authorize_Net_CIM extends Framework\SV_WC_Payment_Gateway_Plugin {
 
 	/** string the gateway ID */
 	const ECHECK_GATEWAY_ID = 'authorize_net_cim_echeck';
+
+	/** string the emulation gateway ID */
+	const EMULATION_GATEWAY_ID = 'authorize_net_aim_emulation';
+
+	/** string the emulation gateway class name */
+	const EMULATION_GATEWAY_CLASS_NAME = SkyVerge\WooCommerce\Authorize_Net\Emulation\Credit_Card::class;
 
 
 	/**
@@ -95,6 +101,9 @@ class WC_Authorize_Net_CIM extends Framework\SV_WC_Payment_Gateway_Plugin {
 
 		if ( is_admin() && ! is_ajax() ) {
 
+			// handle activating/deactivating emulation gateway
+			add_action( 'admin_action_wc_authorize_net_toggle_emulation', array( $this, 'toggle_emulation' ) );
+
 			// save the admin Shipping Address ID user field
 			add_action( 'personal_options_update',  array( $this, 'save_shipping_address_id_field' ) );
 			add_action( 'edit_user_profile_update', array( $this, 'save_shipping_address_id_field' ) );
@@ -103,23 +112,9 @@ class WC_Authorize_Net_CIM extends Framework\SV_WC_Payment_Gateway_Plugin {
 
 
 	/**
-	 * Installs the Authorize.Net Emulation for WooCommerce gateway plugin.
-	 *
-	 * @TODO remove this deprecated method by version 4.0.0 or March 2022 {FN 2021-03-24}
-	 *
-	 * @internal
-	 *
-	 * @since 3.5.0
-	 * @deprecated 3.6.0
-	 */
-	public function install_emulation_gateway_plugin() {
-
-		wc_deprecated_function( __METHOD__, '3.6.0' );
-	}
-
-
-	/**
 	 * Gets the enabled gateway IDs and class names.
+	 *
+	 * The core Credit Card and eCheck gateways are always enabled, with the emulation gateway being optional.
 	 *
 	 * @since 3.0.0
 	 *
@@ -127,28 +122,29 @@ class WC_Authorize_Net_CIM extends Framework\SV_WC_Payment_Gateway_Plugin {
 	 */
 	protected function get_enabled_gateways() {
 
-		return [
+		$gateways = [
 			self::CREDIT_CARD_GATEWAY_ID => self::CREDIT_CARD_GATEWAY_CLASS_NAME,
 			self::ECHECK_GATEWAY_ID      => self::ECHECK_GATEWAY_CLASS_NAME,
 		];
+
+		if ( $this->is_emulation_enabled() ) {
+			$gateways[ self::EMULATION_GATEWAY_ID ] = self::EMULATION_GATEWAY_CLASS_NAME;
+		}
+
+		return $gateways;
 	}
 
 
 	/**
 	 * Determines if the emulation gateway is enabled.
 	 *
-	 * @TODO remove this method by version 4.0.0 or March 2022 {FN 2021-03-24}
-	 *
 	 * @since 3.0.0
-	 * @deprecated 3.6.0
 	 *
-	 * @return false
+	 * @return bool
 	 */
-	public function is_emulation_enabled() {
+	protected function is_emulation_enabled() {
 
-		wc_deprecated_function( __METHOD__, '3.6.0' );
-
-		return false;
+		return 'yes' === get_option( 'wc_authorize_net_emulation_enabled' );
 	}
 
 
@@ -198,6 +194,10 @@ class WC_Authorize_Net_CIM extends Framework\SV_WC_Payment_Gateway_Plugin {
 
 			//  require the billing fields
 			add_filter( 'woocommerce_get_country_locale', array( $this, 'require_billing_fields' ), 100 );
+		}
+
+		if ( $this->is_emulation_enabled() ) {
+			require_once( $this->get_plugin_path() . '/includes/Emulation/Credit_Card.php' );
 		}
 	}
 
@@ -339,6 +339,36 @@ class WC_Authorize_Net_CIM extends Framework\SV_WC_Payment_Gateway_Plugin {
 	}
 
 
+	/** Admin methods ******************************************************/
+
+
+	/**
+	 * Tweaks the plugin action links.
+	 *
+	 * @internal
+	 *
+	 * @since 3.0.0
+	 *
+	 * @param string[] $actions
+	 * @return string[]
+	 */
+	public function plugin_action_links( $actions ) {
+
+		// get the standard action links
+		$actions = parent::plugin_action_links( $actions );
+
+		$url = wp_nonce_url( add_query_arg( 'action', 'wc_authorize_net_toggle_emulation', 'admin.php' ), $this->get_file() );
+
+		$title  = $this->is_emulation_enabled()
+			? esc_html__( 'Disable Emulation Gateway', 'woocommerce-gateway-authorize-net-cim' )
+			: esc_html__( 'Enable Emulation Gateway', 'woocommerce-gateway-authorize-net-cim' );
+
+		$actions['toggle_emulation'] = sprintf( '<a href="%1$s" title="%2$s">%2$s</a>', esc_url( $url ), $title );
+
+		return $actions;
+	}
+
+
 	/**
 	 * Gets the "Configure Credit Cards" or "Configure eCheck" plugin action links that go
 	 * directly to the gateway settings page.
@@ -352,10 +382,18 @@ class WC_Authorize_Net_CIM extends Framework\SV_WC_Payment_Gateway_Plugin {
 	 */
 	public function get_settings_link( $gateway_id = null ) {
 
-		if ( self::ECHECK_GATEWAY_ID === $gateway_id ) {
-			$label = __( 'Configure eChecks', 'woocommerce-gateway-authorize-net-cim' );
-		} else {
-			$label = __( 'Configure Credit Cards', 'woocommerce-gateway-authorize-net-cim' );
+		switch ( $gateway_id ) {
+
+			case self::EMULATION_GATEWAY_ID:
+				$label = __( 'Configure Emulator', 'woocommerce-gateway-authorize-net-cim' );
+			break;
+
+			case self::ECHECK_GATEWAY_ID:
+				$label = __( 'Configure eChecks', 'woocommerce-gateway-authorize-net-cim' );
+			break;
+
+			default:
+				$label = __( 'Configure Credit Cards', 'woocommerce-gateway-authorize-net-cim' );
 		}
 
 		return sprintf( '<a href="%s">%s</a>',
@@ -368,14 +406,42 @@ class WC_Authorize_Net_CIM extends Framework\SV_WC_Payment_Gateway_Plugin {
 	/**
 	 * Toggles the emulation gateway.
 	 *
-	 * @TODO remove this deprecated method by version 4.0.0 or by March 2022 {FN 2021-03-24}
-	 *
 	 * @since 3.0.0
-	 * @deprecated 3.6.0
 	 */
 	public function toggle_emulation() {
 
-		wc_deprecated_function( __METHOD__, '3.6.0' );
+		try {
+
+			// security check
+			if ( ! current_user_can( 'manage_woocommerce' ) || ! wp_verify_nonce( $_GET['_wpnonce'], $this->get_file() ) ) {
+				throw new Framework\SV_WC_Plugin_Exception( __( 'You do not have sufficient permissions', 'woocommerce-gateway-authorize-net-cim' ) );
+			}
+
+			if ( $this->is_emulation_enabled() ) {
+				$message = esc_html__( 'Authorize.Net Emulation is now disabled', 'woocommerce-gateway-authorize-net-cim' );
+			} else {
+				$message = esc_html__( 'Authorize.Net Emulation is now enabled', 'woocommerce-gateway-authorize-net-cim' );
+			}
+
+			update_option( 'wc_authorize_net_emulation_enabled', $this->is_emulation_enabled() ? 'no' : 'yes' );
+
+			$this->get_message_handler()->add_message( $message );
+
+		} catch ( Framework\SV_WC_Plugin_Exception $exception ) {
+
+			$action = $this->is_emulation_enabled() ? _x( 'disable', 'an action for a plugin feature', 'woocommerce-gateway-authorize-net-cim' ) : _x( 'enable', 'an action for a plugin feature', 'woocommerce-gateway-authorize-net-cim' );
+
+			$this->get_message_handler()->add_error(
+				sprintf(
+					esc_html__( 'Could not %1$s Authorize.Net Emulation. %1$s', 'woocommerce-gateway-authorize-net-cim' ),
+					$action,
+					$exception->getMessage()
+				)
+			);
+		}
+
+		wp_safe_redirect( wp_get_referer() );
+		exit;
 	}
 
 
@@ -415,6 +481,11 @@ class WC_Authorize_Net_CIM extends Framework\SV_WC_Payment_Gateway_Plugin {
 			// try and enable webhooks if a gateway was migrated with a signature key
 			foreach ( $this->get_gateways() as $gateway ) {
 
+				// skip the emulation gateway
+				if ( self::EMULATION_GATEWAY_ID === $gateway->get_id() ) {
+					continue;
+				}
+
 				$gateway->init_settings();
 				$gateway->load_settings();
 
@@ -438,8 +509,6 @@ class WC_Authorize_Net_CIM extends Framework\SV_WC_Payment_Gateway_Plugin {
 				), 'install-notice', array( 'notice_class' => 'updated' )
 			);
 		}
-
-		$this->maybe_add_emulation_gateway_removed_admin_notice();
 	}
 
 
@@ -465,6 +534,11 @@ class WC_Authorize_Net_CIM extends Framework\SV_WC_Payment_Gateway_Plugin {
 
 		// loop through each gateway and look for one that's connected & available
 		foreach ( $this->get_gateways() as $gateway ) {
+
+			// skip the emulation gateway
+			if ( self::EMULATION_GATEWAY_ID === $gateway->get_id() ) {
+				continue;
+			}
 
 			// if not available (enabled & configured), skip it
 			if ( ! $gateway->is_available() ) {
@@ -531,46 +605,6 @@ class WC_Authorize_Net_CIM extends Framework\SV_WC_Payment_Gateway_Plugin {
 
 
 	/**
-	 * Maybe triggers a notice if the merchant is still using the old emulation gateway.
-	 *
-	 * @TODO remove this private method by version 4.0.0 or by March 2022 {FN 2021-03-24}
-	 *
-	 * @since 3.6.0
-	 */
-	private function maybe_add_emulation_gateway_removed_admin_notice() {
-
-		if ( 'yes' === get_option( 'wc_authorize_net_emulation_enabled' ) ) {
-
-			$this->add_emulation_gateway_removed_admin_notice();
-		}
-	}
-
-
-	/**
-	 * Display a notice to alert merchants that the emulation gateway is no longer available in the plugin.
-	 *
-	 * @TODO remove this private method by version 4.0.0 or by March 2022 {FN 2021-03-24}
-	 *
-	 * @since 3.6.0
-	 */
-	private function add_emulation_gateway_removed_admin_notice() {
-
-		$this->get_admin_notice_handler()->add_admin_notice(
-				/** translators: Placeholders: %1$s - <strong> HTML tag, %2$s - </strong> HTML tag, %3$s - <a> HTML tag, %4$s - </a> HTML tag */
-				sprintf( __( '%1$sHeads up!%2$s The emulation gateway has been retired from WooCommerce Authorize.Net. If you would like to use our standalone Authorize.Net Emulation Gateway plugin, please %3$scontact support%4$s.', 'woocommerce-gateway-authorize-net-cim' ),
-					'<strong>', '</strong>',
-					'<a target="_blank" href="https://woocommerce.com/my-account/create-a-ticket/">', '</a>'
-				),
-				'emulation-gateway-plugin-removed',
-				[
-					'dismissible'  => true,
-					'notice_class' => 'updated'
-				]
-		);
-	}
-
-
-	/**
 	 * Displays the admin Shipping Address ID user field.
 	 *
 	 * @since 2.6.3
@@ -593,6 +627,11 @@ class WC_Authorize_Net_CIM extends Framework\SV_WC_Payment_Gateway_Plugin {
 		$environments = array_unique( $environments );
 
 		foreach ( $this->get_gateways() as $gateway ) {
+
+			// skip the emulation gateway
+			if ( self::EMULATION_GATEWAY_ID === $gateway->get_id() ) {
+				continue;
+			}
 
 			$meta_key = sprintf( 'wc_%s_shipping_address_id', $this->get_id() );
 
@@ -644,6 +683,11 @@ class WC_Authorize_Net_CIM extends Framework\SV_WC_Payment_Gateway_Plugin {
 		}
 
 		foreach ( $this->get_gateways() as $gateway ) {
+
+			// skip the emulation gateway
+			if ( self::EMULATION_GATEWAY_ID === $gateway->get_id() ) {
+				continue;
+			}
 
 			$field_name = sprintf( 'wc_%s_shipping_address_id', $this->get_id() );
 

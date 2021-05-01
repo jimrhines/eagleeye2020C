@@ -32,18 +32,35 @@ class TRP_Url_Converter {
      */
     public function add_language_to_home_url( $url, $path, $orig_scheme, $blog_id ){
         global $TRP_LANGUAGE;
+
+        //if this is not set then don't do anything as this is an exception/error and $TRP_LANGUAGE should always be set
+        if( empty( $TRP_LANGUAGE ) )
+            return $url;
+
         if ( isset( $this->settings['add-subdirectory-to-default-language'] ) && $this->settings['add-subdirectory-to-default-language'] == 'no' && $TRP_LANGUAGE == $this->settings['default-language'] ) {
             return $url;
         }
 
-        if( is_customize_preview() || $this->is_admin_request()  || $this->is_sitemap_path( $path ) )
+        if( is_customize_preview() || $this->is_admin_request()  || $this->is_sitemap_path( $path ) || $this->url_is_file( $path ) )
             return $url;
 
         $url_slug = $this->get_url_slug( $TRP_LANGUAGE );
+
+        //if this is not set then don't do anything as this is an exception/error if we don't have an $url_slug we don't need to do anything
+        if( empty( $url_slug ) )
+            return $url;
+
         $abs_home = $this->get_abs_home();
-        $new_url = trailingslashit( trailingslashit( $abs_home ) . $url_slug );
+
+        if ( trp_force_slash_at_end_of_link( $this->settings ) ) {
+            $new_url = trailingslashit( trailingslashit($abs_home) . $url_slug );
+        }
+        else {
+            $new_url = trailingslashit($abs_home) . $url_slug;
+        }
+
         if ( ! empty( $path ) ){
-            $new_url .= ltrim( $path, '/' );
+            $new_url = trailingslashit($new_url) . ltrim( $path, '/' );
         }
 
         return apply_filters( 'trp_home_url', $new_url, $abs_home, $TRP_LANGUAGE, $path, $url );
@@ -209,7 +226,7 @@ class TRP_Url_Converter {
 
         $hash = hash( 'md4', (string)$language . (string)$url . (string)$trp_link_is_processed . (string)$TRP_LANGUAGE );
         // set $new_url to false when debugging and developing new features
-        $new_url = wp_cache_get('get_url_for_language_' . $hash, 'trp');
+        $new_url = trp_cache_get('get_url_for_language_' . $hash, 'trp');
         if ( $new_url !== false ){
             return $new_url;
         }
@@ -219,13 +236,13 @@ class TRP_Url_Converter {
             $language = $TRP_LANGUAGE;
         }
 
-        $url_obj = wp_cache_get('url_obj_' . hash('md4', $url), 'trp');
+        $url_obj = trp_cache_get('url_obj_' . hash('md4', $url), 'trp');
         if( $url_obj === false ){
             $url_obj = new \TranslatePress\Uri($url);
             wp_cache_set('url_obj_' . hash('md4', $url), $url_obj, 'trp' );
         }
 
-        $abs_home_url_obj = wp_cache_get('url_obj_' . hash('md4',  $this->get_abs_home() ), 'trp');
+        $abs_home_url_obj = trp_cache_get('url_obj_' . hash('md4',  $this->get_abs_home() ), 'trp');
         if( $abs_home_url_obj === false ){
             $abs_home_url_obj = new \TranslatePress\Uri( $this->get_abs_home() );
             wp_cache_set('url_obj_' . hash('md4', $this->get_abs_home()), $abs_home_url_obj, 'trp' );
@@ -280,7 +297,7 @@ class TRP_Url_Converter {
         }
 
         // maybe find the post_id for the current URL
-        $possible_post_id = wp_cache_get( 'possible_post_id_'. hash('md4', $url ), 'trp' );
+        $possible_post_id = trp_cache_get( 'possible_post_id_'. hash('md4', $url ), 'trp' );
         if ( $possible_post_id ){
             $post_id = $possible_post_id;
             trp_bulk_debug($debug, array('url' => $url, 'found post id' => $post_id, 'for language' => $TRP_LANGUAGE));
@@ -456,12 +473,18 @@ class TRP_Url_Converter {
         $translation_render = $trp->get_component("translation_render");
 
         if ( empty( $url ) || $translation_render->is_external_link($url) ){
-            return false;
+            $return = false;
+        }else {
+            if ( strpos( $url, 'wp-content/uploads' ) !== false ) {
+                $return = true;
+            }else {
+                $path = trailingslashit( ABSPATH ) . str_replace( untrailingslashit( $this->get_abs_home() ), '', $url );
+
+                $return = is_file( $path );
+            }
         }
 
-        $path = trailingslashit(ABSPATH) . str_replace(untrailingslashit($this->get_abs_home()), '', $url);
-
-        return is_file($path);
+        return apply_filters( 'trp_url_is_file', $return, $url, $this->get_abs_home() );
     }
 
 
@@ -508,7 +531,7 @@ class TRP_Url_Converter {
      * @return string
      */
     public function get_abs_home() {
-	    $this->absolute_home = wp_cache_get('get_abs_home', 'trp');
+	    $this->absolute_home = trp_cache_get('get_abs_home', 'trp');
 	    if ( $this->absolute_home !== false ){
 		    return $this->absolute_home;
 	    }
@@ -563,18 +586,18 @@ class TRP_Url_Converter {
             $url = $this->cur_page_url();
         }
 
-        $language = wp_cache_get('url_language_' . hash('md4', $url) , 'trp' );
+        $language = trp_cache_get('url_language_' . hash('md4', $url) , 'trp' );
         if ( $language !== false ){
             return $language;
         }
 
-        $url_obj = wp_cache_get('url_obj_' . hash('md4', $url), 'trp');
+        $url_obj = trp_cache_get('url_obj_' . hash('md4', $url), 'trp');
         if( $url_obj === false ){
             $url_obj = new \TranslatePress\Uri($url);
             wp_cache_set('url_obj_' . hash('md4', $url), $url_obj, 'trp' );
         }
 
-        $abs_home_url_obj = wp_cache_get('url_obj_' . hash('md4',  $this->get_abs_home() ), 'trp');
+        $abs_home_url_obj = trp_cache_get('url_obj_' . hash('md4',  $this->get_abs_home() ), 'trp');
         if( $abs_home_url_obj === false ){
             $abs_home_url_obj = new \TranslatePress\Uri( $this->get_abs_home() );
             wp_cache_set('url_obj_' . hash('md4', $this->get_abs_home()), $abs_home_url_obj, 'trp' );
@@ -617,7 +640,7 @@ class TRP_Url_Converter {
      */
     public function cur_page_url() {
 
-        $req_uri = wp_cache_get('cur_page_url', 'trp');
+        $req_uri = trp_cache_get('cur_page_url', 'trp');
         if ( $req_uri ){
             return $req_uri;
         }

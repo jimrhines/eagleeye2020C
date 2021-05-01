@@ -3,9 +3,9 @@ Contributors: cozmoslabs, razvan.mo, madalin.ungureanu, sareiodata, cristophor
 Donate link: https://www.translatepress.com/
 Tags: translate, translation, multilingual, automatic translation, bilingual, front-end translation, google translate, language
 Requires at least: 3.1.0
-Tested up to: 5.7
+Tested up to: 5.7.1
 Requires PHP: 5.6.20
-Stable tag: 1.9.8
+Stable tag: 1.9.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -138,6 +138,13 @@ For more information please check out our [documentation](https://translatepress
 
 
 == Changelog ==
+= 1.9.9 =
+* Forcing a slash at the end of home url is now an optional Advanced setting
+* Better handling of WPEngine long query limiting
+* Fixed some cases of adding language slugs to file paths
+* Fixed unprefixed DOM library constant
+* Fixed a notice coming from the Do not translate paths option
+
 = 1.9.8 =
 * Added compatibility with Google Site Kit plugin
 * Added compatibility with Ivory Search plugin and possibly others

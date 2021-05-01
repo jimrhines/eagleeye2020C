@@ -17,7 +17,7 @@
  * needs please refer to http://docs.woocommerce.com/document/authorize-net-cim/
  *
  * @author    SkyVerge
- * @copyright Copyright (c) 2013-2021, SkyVerge, Inc.
+ * @copyright Copyright (c) 2013-2020, SkyVerge, Inc.
  * @license   http://www.gnu.org/licenses/gpl-3.0.html GNU General Public License v3.0
  */
 
@@ -25,7 +25,7 @@ namespace SkyVerge\WooCommerce\Authorize_Net\CIM;
 
 defined( 'ABSPATH' ) or exit;
 
-use SkyVerge\WooCommerce\PluginFramework\v5_10_4 as Framework;
+use SkyVerge\WooCommerce\PluginFramework\v5_10_3 as Framework;
 
 /**
  * The plugin lifecycle handler.
@@ -353,7 +353,8 @@ class Lifecycle extends Framework\Plugin\Lifecycle {
 
 		$emulation_enabled = get_option( 'wc_authorize_net_aim_emulation_enabled', false );
 
-		// TODO remove this by March 2022 or by version 4.0.0 {FN 2021-03-24}
+		// set the emulation toggle
+		// other data, such as order meta, stay the same
 		update_option( 'wc_authorize_net_emulation_enabled', $emulation_enabled ? 'yes' : 'no' );
 
 		// flag a successful migration so we can display a notice

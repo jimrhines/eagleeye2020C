@@ -69,6 +69,9 @@ class TRP_Upgrade {
                 $this->trp_query->check_original_table();
                 $this->trp_query->check_original_meta_table();
             }
+            if ( version_compare($stored_database_version, '1.9.8', '<=')) {
+                $this->set_force_slash_at_end_of_links();
+            }
         }
 
         // don't update the db version unless they are different. Otherwise the query is run on every page load.
@@ -650,6 +653,22 @@ class TRP_Upgrade {
             $machine_translation_settings = array_merge( $default_machine_translation_settings, $machine_translation_settings );
             update_option('trp_machine_translation_settings', $machine_translation_settings);
         }
+    }
+
+    /**
+     *
+     */
+    private function set_force_slash_at_end_of_links(){
+        $trp = TRP_Translate_Press::get_trp_instance();
+        $trp_settings = $trp->get_component('settings' );
+        $settings = $trp_settings->get_settings();
+
+        if( !empty( $settings['trp_advanced_settings'] ) && !isset( $settings['trp_advanced_settings']['force_slash_at_end_of_links'] ) ){
+            $advanced_settings = $settings['trp_advanced_settings'];
+            $advanced_settings['force_slash_at_end_of_links'] = 'yes';
+            update_option('trp_advanced_settings', $advanced_settings );
+        }
+
     }
 
 
