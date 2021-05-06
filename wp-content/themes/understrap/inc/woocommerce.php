@@ -22,9 +22,7 @@ if ( ! function_exists( 'understrap_woocommerce_support' ) ) {
 		add_theme_support( 'wc-product-gallery-slider' );
 
 		// hook in and customizer form fields.
-		//add_filter( 'woocommerce_form_field_args', 'understrap_wc_form_field_args', 10, 3 );
-		//https://wordpress.org/support/topic/accept-js-error-payment-nonce-is-missing/
-		$args['input_class'] = array_merge( $args['input_class'], array('form-control', 'input-lg') );
+		add_filter( 'woocommerce_form_field_args', 'understrap_wc_form_field_args', 10, 3 );
 	}
 }
 
@@ -80,7 +78,9 @@ if ( ! function_exists( 'understrap_wc_form_field_args' ) ) {
 				// input types (fields) are often wrapped within a <p></p> tag.
 				$args['class'][] = 'form-group';
 				// Add a class to the form input itself.
-				$args['input_class']       = array( 'form-control', 'input-lg' );
+				//$args['input_class']       = array( 'form-control', 'input-lg' );
+				//https://wordpress.org/support/topic/accept-js-error-payment-nonce-is-missing/
+				$args['input_class'] = array_merge( $args['input_class'], array('form-control', 'input-lg') );
 				$args['label_class']       = array( 'control-label' );
 				$args['custom_attributes'] = array(
 					'data-plugin'      => 'select2',
@@ -115,11 +115,15 @@ if ( ! function_exists( 'understrap_wc_form_field_args' ) ) {
 			case 'tel':
 			case 'number':
 				$args['class'][]     = 'form-group';
-				$args['input_class'] = array( 'form-control', 'input-lg' );
+				//$args['input_class'] = array( 'form-control', 'input-lg' );
+				//https://wordpress.org/support/topic/accept-js-error-payment-nonce-is-missing/
+				$args['input_class'] = array_merge( $args['input_class'], array('form-control', 'input-lg') );
 				$args['label_class'] = array( 'control-label' );
 				break;
 			case 'textarea':
-				$args['input_class'] = array( 'form-control', 'input-lg' );
+				//$args['input_class'] = array( 'form-control', 'input-lg' );
+				//https://wordpress.org/support/topic/accept-js-error-payment-nonce-is-missing/
+				$args['input_class'] = array_merge( $args['input_class'], array('form-control', 'input-lg') );
 				$args['label_class'] = array( 'control-label' );
 				break;
 			case 'checkbox':
@@ -132,7 +136,9 @@ if ( ! function_exists( 'understrap_wc_form_field_args' ) ) {
 				break;
 			default:
 				$args['class'][]     = 'form-group';
-				$args['input_class'] = array( 'form-control', 'input-lg' );
+				//$args['input_class'] = array( 'form-control', 'input-lg' );
+				//https://wordpress.org/support/topic/accept-js-error-payment-nonce-is-missing/
+				$args['input_class'] = array_merge( $args['input_class'], array('form-control', 'input-lg') );
 				$args['label_class'] = array( 'control-label' );
 				break;
 		} // end switch ($args).

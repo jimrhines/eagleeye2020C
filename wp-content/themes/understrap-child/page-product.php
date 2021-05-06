@@ -31,15 +31,14 @@ $container = get_theme_mod( 'understrap_container_type' );
 									$product_page_slug = basename(get_permalink());									
 									//echo $product_page_slug;
 
-									$page = get_page_by_path($product_page_slug, OBJECT, 'product');
+									$woocommerce_product_page_url = get_page_by_path($product_page_slug, OBJECT, 'product');
 
-									if(!$page){
+									if(!$woocommerce_product_page_url){
 								        //echo "Does not exist.";
 								    } else {
 								        //echo "Exists";
 								        echo "<a href=".$product_page_url." class='btn btn-secondary ml-3 d-print-none' role='button'>Buy Now &#62;</a>";
-								    } 
-
+								    }
 								?>
 							</div>
 						</div>
