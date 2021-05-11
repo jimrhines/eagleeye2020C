@@ -11814,6 +11814,9 @@ img[src$=".svg"] {
 .woocommerce form .form-row input.wc-pao-addon-field {
   width: 10%; }
 
+.woocommerce div.product div.images .woocommerce-product-gallery__trigger {
+  z-index: 1; }
+
 /*Responsive Videos*/
 .embed-container {
   position: relative;
