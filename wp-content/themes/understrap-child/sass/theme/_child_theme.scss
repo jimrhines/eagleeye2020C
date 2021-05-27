@@ -578,6 +578,14 @@ img[src$=".svg"] {
 		@include media-breakpoint-up(sm) {
 			height: 6rem;	
 		}
+
+		a {
+			color: $brand-black;
+		}
+
+		a {
+			color: $brand-black-hover;
+		}
 	}
 }
 

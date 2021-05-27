@@ -11682,9 +11682,9 @@ h1 {
   margin-bottom: 3rem; }
 
 a {
-  color: #336; }
+  color: #0000FF; }
   a:visited {
-    color: #413f42; }
+    color: #800080; }
   a:hover {
     color: #6699CC; }
 
@@ -12057,6 +12057,10 @@ img[src$=".svg"] {
     @media (min-width: 576px) {
       #top-solutions h4 {
         height: 6rem; } }
+    #top-solutions h4 a {
+      color: #413f42; }
+    #top-solutions h4 a {
+      color: #616161; }
 
 #eagle-eye-university {
   background-color: #FEE300; }
@@ -12340,7 +12344,7 @@ img[src$=".svg"] {
     margin: 0 0 1rem 0;
     padding: 0; }
     .tab-content .product-downloads ul border a {
-      color: #336; }
+      color: #0000FF; }
 
 #product-videos,
 #related-products {
@@ -12453,7 +12457,7 @@ img[src$=".svg"] {
     #wrapper-footer #eeps-channels a:hover {
       color: #FFCC00; }
     #wrapper-footer #eeps-channels a:visited {
-      color: #413f42; }
+      color: #800080; }
   #wrapper-footer #eeps-channels #eeps-social {
     margin: 0.5rem 0 0 0; }
     @media (min-width: 992px) {
