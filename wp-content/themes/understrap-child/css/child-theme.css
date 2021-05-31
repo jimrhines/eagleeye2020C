@@ -11684,7 +11684,7 @@ h1 {
 a {
   color: #0000FF; }
   a:visited {
-    color: #800080; }
+    color: #0000FF; }
   a:hover {
     color: #6699CC; }
 
@@ -12243,9 +12243,6 @@ img[src$=".svg"] {
     #category-products div a:hover,
     #category-general div a:hover {
       color: #999; }
-    #category-products div a:visited,
-    #category-general div a:visited {
-      color: #413f42; }
     @media (min-width: 992px) {
       #category-products div a h2,
       #category-general div a h2 {
@@ -12457,7 +12454,7 @@ img[src$=".svg"] {
     #wrapper-footer #eeps-channels a:hover {
       color: #FFCC00; }
     #wrapper-footer #eeps-channels a:visited {
-      color: #800080; }
+      color: #0000FF; }
   #wrapper-footer #eeps-channels #eeps-social {
     margin: 0.5rem 0 0 0; }
     @media (min-width: 992px) {

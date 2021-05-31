@@ -44,7 +44,16 @@ $container = get_theme_mod( 'understrap_container_type' );
 	<?php $division_products = get_field('division_products');
 	if( $division_products ): ?>
 		<div id="division-products" class="container-fluid">
-			<h2>Products</h2>
+			<h2>
+				<?php
+				if ( is_page( 753 ) ) {
+			        // 753="/products/services"
+			        echo "Services";
+			    } else {
+			        echo "Products";
+			    }
+				?>
+			</h2>
 			<div class="row">
 				<div class="container">
 					<div class="row">

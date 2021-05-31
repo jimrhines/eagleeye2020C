@@ -854,10 +854,6 @@ img[src$=".svg"] {
 		    	color: $brand-gray;
 		    }
 
-		    &:visited {
-		    	color: $brand-black;
-		    }
-
 			@include media-breakpoint-up(lg) {
 				h2 {
 					margin: 0 0 1rem 0;
