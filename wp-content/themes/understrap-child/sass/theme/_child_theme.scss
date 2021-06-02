@@ -146,6 +146,10 @@ img[src$=".svg"] {
 	background-color: $brand-yellow;
 	border-color: $brand-yellow;
 	
+	&:visited {
+		color: $brand-black;
+	}
+
 	&:active,
 	&:focus,
 	&:hover {

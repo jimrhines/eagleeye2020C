@@ -11740,6 +11740,15 @@ img[src$=".svg"] {
   color: #413f42;
   background-color: #FEE300;
   border-color: #FEE300; }
+  .btn-primary:visited,
+  .btn-secondary:visited,
+  .wpcf7 input[type="submit"]:visited,
+  .entry-content input[type=submit]:visited,
+  .woocommerce .btn-outline-primary:visited,
+  .woocommerce .wpcf7 input:visited[type=submit],
+  .wpcf7 .woocommerce input:visited[type=submit],
+  .woocommerce button.button.alt:visited {
+    color: #413f42; }
   .btn-primary:active, .btn-primary:focus, .btn-primary:hover,
   .btn-secondary:active,
   .btn-secondary:focus,
