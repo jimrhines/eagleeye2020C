@@ -110,20 +110,39 @@ $container = get_theme_mod( 'understrap_container_type' );
 						<li class="nav-item">
 							<a class="nav-link" href="<?php echo get_permalink(1474); ?>">Industries</a>
 						</li>
-						<!--li class="nav-item">
-							<a class="nav-link" href="<?php echo get_permalink(297); ?>">Training</a>
-						</li-->
 						<li class="nav-item">
 							<a class="nav-link" href="<?php echo get_permalink(2257); ?>">News &amp; Resources</a>
 						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="<?php echo get_permalink(295); ?>">Support</a>
+						<li class="nav-item megamenu">
+							<a class="nav-link" href="<?php echo get_permalink(753); ?>">Services</a>
+							<div class="megamenu-content">
+						    	<div class="row">
+						    		<div class="col-md-2 mb-3">
+					    				<?php wp_nav_menu( array( 'theme_location' => 'services-col-one', 'container_class' => 'services-col-one' ) ); ?>
+									</div>
+						    		<div class="col-md-2 mb-3">
+						    			<?php wp_nav_menu( array( 'theme_location' => 'services-col-two', 'container_class' => 'services-col-two' ) ); ?>
+									</div>
+									<div class="col-md-2 mb-3">
+										<?php wp_nav_menu( array( 'theme_location' => 'services-col-three', 'container_class' => 'services-col-three' ) ); ?>
+									</div>
+									<div class="col-md-2 mb-3">
+										<?php wp_nav_menu( array( 'theme_location' => 'services-col-four', 'container_class' => 'services-col-four' ) ); ?>
+									</div>
+									<div class="col-md-2 mb-3">
+										<?php wp_nav_menu( array( 'theme_location' => 'services-col-five', 'container_class' => 'services-col-five' ) ); ?>
+									</div>
+									<div class="col-md-2 mb-3">
+										<?php wp_nav_menu( array( 'theme_location' => 'services-col-six', 'container_class' => 'services-col-six' ) ); ?>
+									</div>
+								</div>
+							</div>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="<?php echo get_permalink(485); ?>">About Us</a>
 						</li>
 						<li id="eeu" class="nav-item">
-							<a class="nav-link" href="https://eagleeyeuniversity.com/" target="_blank">Eagle Eye University</a>
+							<a class="nav-link" href="https://eagleeyeuniversity.com/" target="_blank" rel="noopener">Eagle Eye University</a>
 						</li>
 					</ul>
 					<?php wp_nav_menu(

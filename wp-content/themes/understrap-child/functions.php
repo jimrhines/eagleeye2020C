@@ -51,12 +51,12 @@ function register_my_menus() {
             'industries-col-four' => __( 'Industries Column Four' ),
             'industries-col-five' => __( 'Industries Column Five' ),
             'industries-col-six' => __( 'Industries Column Six' ),
-            'support-col-one' => __( 'Support Column One' ),
-            'support-col-two' => __( 'Support Column Two' ),
-            'support-col-three' => __( 'Support Column Three' ),
-            'support-col-four' => __( 'Support Column Four' ),
-            'support-col-five' => __( 'Support Column Five' ),
-            'support-col-six' => __( 'Support Column Six' )
+            'services-col-one' => __( 'Services Column One' ),
+            'services-col-two' => __( 'Services Column Two' ),
+            'services-col-three' => __( 'Services Column Three' ),
+            'services-col-four' => __( 'Services Column Four' ),
+            'services-col-five' => __( 'Services Column Five' ),
+            'services-col-six' => __( 'Services Column Six' )
         )
     );
 }

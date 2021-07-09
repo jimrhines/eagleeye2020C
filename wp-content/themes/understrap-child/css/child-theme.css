@@ -11908,6 +11908,7 @@ img[src$=".svg"] {
       @media (min-width: 768px) {
         .navbar .megamenu .megamenu-content {
           left: 0; } }
+      .navbar .megamenu .megamenu-content .menu-item a,
       .navbar .megamenu .megamenu-content .menu-item-has-children a {
         display: block;
         margin: 0 0 1rem 0;
@@ -11915,11 +11916,17 @@ img[src$=".svg"] {
         font-weight: 700;
         line-height: 100%;
         color: #FEE300; }
-        .navbar .megamenu .megamenu-content .menu-item-has-children a:active, .navbar .megamenu .megamenu-content .menu-item-has-children a:focus, .navbar .megamenu .megamenu-content .menu-item-has-children a:hover, .navbar .megamenu .megamenu-content .menu-item-has-children a:visited {
+        .navbar .megamenu .megamenu-content .menu-item a:active, .navbar .megamenu .megamenu-content .menu-item a:focus, .navbar .megamenu .megamenu-content .menu-item a:hover, .navbar .megamenu .megamenu-content .menu-item a:visited,
+        .navbar .megamenu .megamenu-content .menu-item-has-children a:active,
+        .navbar .megamenu .megamenu-content .menu-item-has-children a:focus,
+        .navbar .megamenu .megamenu-content .menu-item-has-children a:hover,
+        .navbar .megamenu .megamenu-content .menu-item-has-children a:visited {
           text-decoration: underline;
           color: #FEE300; }
+        .navbar .megamenu .megamenu-content .menu-item a:hover,
         .navbar .megamenu .megamenu-content .menu-item-has-children a:hover {
           color: #999; }
+      .navbar .megamenu .megamenu-content .menu-item .sub-menu a,
       .navbar .megamenu .megamenu-content .menu-item-has-children .sub-menu a {
         display: block;
         margin: 0 0 1rem 0;
@@ -11927,8 +11934,13 @@ img[src$=".svg"] {
         font-weight: normal;
         line-height: 100%;
         color: #FFF; }
-        .navbar .megamenu .megamenu-content .menu-item-has-children .sub-menu a:active, .navbar .megamenu .megamenu-content .menu-item-has-children .sub-menu a:focus, .navbar .megamenu .megamenu-content .menu-item-has-children .sub-menu a:hover, .navbar .megamenu .megamenu-content .menu-item-has-children .sub-menu a:visited {
+        .navbar .megamenu .megamenu-content .menu-item .sub-menu a:active, .navbar .megamenu .megamenu-content .menu-item .sub-menu a:focus, .navbar .megamenu .megamenu-content .menu-item .sub-menu a:hover, .navbar .megamenu .megamenu-content .menu-item .sub-menu a:visited,
+        .navbar .megamenu .megamenu-content .menu-item-has-children .sub-menu a:active,
+        .navbar .megamenu .megamenu-content .menu-item-has-children .sub-menu a:focus,
+        .navbar .megamenu .megamenu-content .menu-item-has-children .sub-menu a:hover,
+        .navbar .megamenu .megamenu-content .menu-item-has-children .sub-menu a:visited {
           text-decoration: underline; }
+        .navbar .megamenu .megamenu-content .menu-item .sub-menu a:hover,
         .navbar .megamenu .megamenu-content .menu-item-has-children .sub-menu a:hover {
           color: #999; }
     .navbar .megamenu:hover .megamenu-content {
